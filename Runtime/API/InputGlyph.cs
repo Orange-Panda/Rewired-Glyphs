@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Rewired;
 using System;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Data about a particular input including <see cref="Sprite"/> and <see cref="string"/>. 
 /// </summary>
-[Serializable]
+[Serializable, PublicAPI]
 public class InputGlyph
 {
 	[SerializeField]
@@ -30,7 +31,21 @@ public class InputGlyph
 	/// <summary>
 	/// Get the sprite for the <see cref="AxisRange.Full"/>
 	/// </summary>
-	public Sprite Sprite => sprite;
+	public Sprite FullSprite => sprite;
+	/// <summary>
+	/// Explicitly get the sprite for the <see cref="AxisRange.Positive"/>.
+	/// </summary>
+	/// <remarks>
+	/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>. Will be null if <see cref="positiveSprite"/> is undefined.
+	/// </remarks>
+	public Sprite PositiveSprite => positiveSprite;
+	/// <summary>
+	/// Explicitly get the sprite for the <see cref="AxisRange.Negative"/>.
+	/// </summary>
+	/// <remarks>
+	/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>. Will be null if <see cref="negativeSprite"/> is undefined.
+	/// </remarks>
+	public Sprite NegativeSprite => negativeSprite;
 
 	/// <summary>
 	/// Get the sprite for a particular input direction.
@@ -50,6 +65,15 @@ public class InputGlyph
 			default:
 				return sprite;
 		}
+	}
+
+	public InputGlyph(int inputID, string description, Sprite sprite, Sprite positiveSprite, Sprite negativeSprite)
+	{
+		this.inputID = inputID;
+		this.description = description;
+		this.sprite = sprite;
+		this.positiveSprite = positiveSprite;
+		this.negativeSprite = negativeSprite;
 	}
 
 	public InputGlyph(int inputID, string description, Sprite sprite = null)

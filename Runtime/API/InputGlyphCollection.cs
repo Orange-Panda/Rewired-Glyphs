@@ -1,17 +1,19 @@
+using JetBrains.Annotations;
 using System;
 using UnityEngine;
 
 /// <summary>
-/// A <see cref="ScriptableObject"/> asset that references each <see cref="InputGlyphMap"/> that should be utilized at runtime.
+/// A <see cref="ScriptableObject"/> asset that references <see cref="InputGlyphMap"/> assets that should be utilized at runtime.
 /// </summary>
+[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Collection"), PublicAPI]
 public class InputGlyphCollection : ScriptableObject
 {
 	[Tooltip("Maps to be used on specific user hardware.")]
 	[SerializeField]
-	private Entry[] maps = new Entry[0];
+	private Entry[] maps = Array.Empty<Entry>();
 	[Space, Tooltip("Generic maps to be used when unable to find hardware specific glyphs.")]
 	[SerializeField]
-	private GenericEntry[] genericMaps = new GenericEntry[0];
+	private GenericEntry[] genericMaps = Array.Empty<GenericEntry>();
 	[Space, Tooltip("The glyph to be shown if the action exists but there is not input mapping to it.")] // TODO: DisableDropdown
 	[SerializeField]
 	private InputGlyph unboundGlyph;
