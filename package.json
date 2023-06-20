@@ -1,0 +1,21 @@
+{
+  "name": "com.lmirman.rewiredglyphs",
+  "version": "1.0.0",
+  "displayName": "Rewired Input Glyphs",
+  "description": "An expansion for Guavaman's Rewired Unity Asset that provides a simple to use API for showing input icons to the player at runtime based on their input method and bindings.",
+  "hideInEditor": true,
+  "keywords": [
+    "input",
+	"TextMeshPro",
+	"ugui",
+	"ui",
+	"Unity UI"
+  ],
+  "author": {
+    "name": "Luke Mirman",
+    "url": "http://lukemirman.com/"
+  },
+  "dependencies": {
+
+  }
+}
