@@ -1,7 +1,9 @@
 {
     "name": "LMirman.RewiredGlyphs.Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:168200abfb6c2d04498eecd2f4d1e9c4"
+    ],
     "includePlatforms": [
         "Editor"
     ],
