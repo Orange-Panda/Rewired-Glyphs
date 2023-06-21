@@ -66,6 +66,7 @@ public static class InputGlyphs
 			throw new NullReferenceException($"There was no {nameof(InputGlyphCollection)} found at \"{ResourcePath}\". Please create one.");
 		}
 
+		LoadGlyphCollection(collection);
 		SetGlyphPreferences(DisplayMode.Auto, SymbolPreference.Auto);
 	}
 
@@ -75,14 +76,14 @@ public static class InputGlyphs
 		HardwareGlyphMaps.Clear();
 		foreach (InputGlyphCollection.Entry entry in collection.Maps)
 		{
-			HardwareGlyphMaps.TryAdd(entry.controllerType, entry.glyphMap.CreateDictionary());
+			HardwareGlyphMaps[entry.controllerType] = entry.glyphMap.CreateDictionary();
 		}
 
 		// Create template glyph lookup
 		GenericGlyphMaps.Clear();
 		foreach (InputGlyphCollection.GenericEntry entry in collection.GenericMaps)
 		{
-			GenericGlyphMaps.TryAdd(entry.controllerType, entry.glyphMap.CreateDictionary());
+			GenericGlyphMaps[entry.controllerType] = entry.glyphMap.CreateDictionary();
 		}
 
 		UnboundGlyph = collection.UnboundGlyph;
