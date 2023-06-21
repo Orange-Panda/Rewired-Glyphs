@@ -67,18 +67,6 @@ namespace LMirman.RewiredGlyphs
 		/// </remarks>
 		public static event Action RebuildGlyphs = delegate { };
 
-		static InputGlyphs()
-		{
-			const string ResourcePath = "Rewired Glyphs/Default Glyphs";
-			GlyphCollection collection = Resources.Load<GlyphCollection>(ResourcePath);
-			if (collection == null)
-			{
-				throw new NullReferenceException($"There was no {nameof(GlyphCollection)} found at \"{ResourcePath}\". Please create one.");
-			}
-
-			LoadGlyphCollection(collection);
-		}
-
 		public static void LoadGlyphCollection(GlyphCollection collection)
 		{
 			// Create hardware glyph lookup
