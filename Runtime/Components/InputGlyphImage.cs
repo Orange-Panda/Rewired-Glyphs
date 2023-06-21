@@ -2,23 +2,26 @@ using Rewired;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// A <see cref="InputGlyphDisplay"/> element that will set it's <see cref="image"/> component to the <see cref="InputGlyphDisplay.actionName"/>'s <see cref="InputGlyph.GetSprite(AxisRange)"/> value.
-/// </summary>
-[RequireComponent(typeof(Image))]
-public class InputGlyphImage : InputGlyphDisplay
+namespace LMirman.RewiredGlyphs
 {
-	private Image image;
-
-	private void Awake()
+	/// <summary>
+	/// A <see cref="InputGlyphDisplay"/> element that will set it's <see cref="image"/> component to the <see cref="InputGlyphDisplay.actionName"/>'s <see cref="InputGlyph.GetSprite(AxisRange)"/> value.
+	/// </summary>
+	[RequireComponent(typeof(Image))]
+	public class InputGlyphImage : InputGlyphDisplay
 	{
-		image = GetComponent<Image>();
-	}
+		private Image image;
 
-	public override void SetGlyph(InputGlyph glyph, AxisRange axisRange)
-	{
-		Sprite sprite = glyph.GetSprite(axisRange);
-		image.sprite = sprite;
-		image.enabled = sprite != null;
+		private void Awake()
+		{
+			image = GetComponent<Image>();
+		}
+
+		public override void SetGlyph(InputGlyph glyph, AxisRange axisRange)
+		{
+			Sprite sprite = glyph.GetSprite(axisRange);
+			image.sprite = sprite;
+			image.enabled = sprite != null;
+		}
 	}
 }
