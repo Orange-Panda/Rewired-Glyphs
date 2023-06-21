@@ -30,7 +30,7 @@ namespace LMirman.RewiredGlyphs.Components
 		public int ActionID { get; protected set; }
 		public Pole PoleValue { get; protected set; }
 
-		private void Awake()
+		protected virtual void Awake()
 		{
 			ActionID = useActionID ? actionID : ReInput.mapping.GetActionId(actionName);
 			PoleValue = pole;

@@ -13,8 +13,9 @@ namespace LMirman.RewiredGlyphs.Components
 	{
 		private TMP_Text textMesh;
 
-		private void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
 			textMesh = GetComponent<TMP_Text>();
 		}
 

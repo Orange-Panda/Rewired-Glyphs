@@ -13,8 +13,9 @@ namespace LMirman.RewiredGlyphs.Components
 	{
 		private Image image;
 
-		private void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
 			image = GetComponent<Image>();
 		}
 
