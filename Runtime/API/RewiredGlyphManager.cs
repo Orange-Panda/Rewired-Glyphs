@@ -36,7 +36,7 @@ namespace LMirman.RewiredGlyphs
 
 		private void Start()
 		{
-			HashSet<int> playersAdded = new HashSet<int>(playerIds.Length);
+			HashSet<int> playersAdded = new HashSet<int>();
 			foreach (int playerId in playerIds)
 			{
 				if (playersAdded.Contains(playerId))
