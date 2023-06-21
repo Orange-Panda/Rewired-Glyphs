@@ -39,15 +39,15 @@ namespace LMirman.RewiredGlyphs.Components
 		protected virtual void OnEnable()
 		{
 			UpdateGlyph();
-			InputGlyphObserver.OnGlyphsDirty += InputGlyphObserver_OnGlyphsDirty;
+			InputGlyphs.RebuildGlyphs += InputGlyphsOnRebuildGlyphs;
 		}
 
 		protected virtual void OnDisable()
 		{
-			InputGlyphObserver.OnGlyphsDirty -= InputGlyphObserver_OnGlyphsDirty;
+			InputGlyphs.RebuildGlyphs -= InputGlyphsOnRebuildGlyphs;
 		}
 
-		private void InputGlyphObserver_OnGlyphsDirty()
+		private void InputGlyphsOnRebuildGlyphs()
 		{
 			UpdateGlyph();
 		}
@@ -55,7 +55,7 @@ namespace LMirman.RewiredGlyphs.Components
 		[ContextMenu("Update Glyph")]
 		public void UpdateGlyph()
 		{
-			Glyph glyph = InputGlyphs.GetCurrentGlyph(ReInput.mapping.GetActionId(actionName), pole, out AxisRange axisRange, playerIndex);
+			Glyph glyph = InputGlyphs.GetCurrentGlyph(ActionID, PoleValue, out AxisRange axisRange, playerIndex);
 			SetGlyph(glyph, axisRange);
 		}
 

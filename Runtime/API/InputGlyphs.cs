@@ -13,6 +13,8 @@ namespace LMirman.RewiredGlyphs
 	[PublicAPI]
 	public static class InputGlyphs
 	{
+		internal static bool glyphsDirty;
+		
 		/// <summary>
 		/// The type Guid of the Controller Template.
 		/// </summary>
@@ -56,13 +58,14 @@ namespace LMirman.RewiredGlyphs
 		public static SymbolPreference PreferredSymbols { get; private set; } = SymbolPreference.Auto;
 
 		/// <summary>
-		/// An event that is invoked when preferences relating to the input glyph system such as <see cref="PreferredHardware"/> or <see cref="PreferredSymbols"/> have changed.
+		/// An event that is invoked when the output of the input glyph may have changed.
+		/// This occurs usually when preferences are changed or the most recently used device by a player has changed.
 		/// </summary>
 		/// <remarks>
 		/// The aforementioned preferences can mutate the output of glyph symbol queries.
 		/// As such this event gives the opportunity for others to update the glyph output without having to query the InputGlyphs system every frame. 
 		/// </remarks>
-		public static event Action GlyphPreferencesChanged = delegate { };
+		public static event Action RebuildGlyphs = delegate { };
 
 		static InputGlyphs()
 		{
@@ -94,7 +97,7 @@ namespace LMirman.RewiredGlyphs
 
 			UnboundGlyph = collection.UnboundGlyph;
 			NullGlyph = collection.NullGlyph;
-			GlyphPreferencesChanged.Invoke();
+			MarkGlyphsDirty();
 		}
 
 		/// <summary>
@@ -106,7 +109,7 @@ namespace LMirman.RewiredGlyphs
 		{
 			PreferredHardware = hardwarePreference;
 			PreferredSymbols = symbolPreference;
-			GlyphPreferencesChanged.Invoke();
+			MarkGlyphsDirty();
 		}
 
 		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
@@ -300,6 +303,24 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			return player;
+		}
+
+		public static void MarkGlyphsDirty()
+		{
+			glyphsDirty = true;
+		}
+
+		/// <summary>
+		/// Will invoke <see cref="RebuildGlyphs"/> event when glyphs are dirty or <see cref="forceRebuild"/> parameter is true.
+		/// </summary>
+		/// <param name="forceRebuild">When true will rebuild regardless of the value of <see cref="glyphsDirty"/>. When false will only rebuild if glyphs are dirty.</param>
+		public static void InvokeRebuild(bool forceRebuild = false)
+		{
+			if (glyphsDirty || forceRebuild)
+			{
+				RebuildGlyphs.Invoke();
+				glyphsDirty = false;
+			}
 		}
 
 		#region Internal Use

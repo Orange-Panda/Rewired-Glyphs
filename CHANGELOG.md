@@ -19,8 +19,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - InputGlyphs now uses an integer parameter for actions instead of string
 - Most class names containing `InputGlyph` have been simplified to just `Glyph`
   - `InputGlyphs` will not be renamed.
+- `InputGlyphObserver` is now `RewiredGlyphManager` and is required to be added to the Rewired `Input Manager` for Input Glyph system to function.
+
+### Removed
+- The glyph collection is no longer referenced through the `Resources` folder.
 
 ## [0.1.0] - 2023-06-20
 
 ### Added
-- Package created.~~~~
+- Package created.
