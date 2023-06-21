@@ -9,7 +9,7 @@ namespace LMirman.RewiredGlyphs
 	/// Data about a particular input including <see cref="Sprite"/> and <see cref="string"/>. 
 	/// </summary>
 	[Serializable, PublicAPI]
-	public class InputGlyph
+	public class Glyph
 	{
 		[SerializeField]
 		private int inputID;
@@ -69,7 +69,7 @@ namespace LMirman.RewiredGlyphs
 			}
 		}
 
-		public InputGlyph(int inputID, string description, Sprite sprite, Sprite positiveSprite, Sprite negativeSprite)
+		public Glyph(int inputID, string description, Sprite sprite, Sprite positiveSprite, Sprite negativeSprite)
 		{
 			this.inputID = inputID;
 			this.description = description;
@@ -78,7 +78,7 @@ namespace LMirman.RewiredGlyphs
 			this.negativeSprite = negativeSprite;
 		}
 
-		public InputGlyph(int inputID, string description, Sprite sprite = null)
+		public Glyph(int inputID, string description, Sprite sprite = null)
 		{
 			this.inputID = inputID;
 			this.description = description;
@@ -87,7 +87,7 @@ namespace LMirman.RewiredGlyphs
 			negativeSprite = null;
 		}
 
-		public InputGlyph(string description)
+		public Glyph(string description)
 		{
 			inputID = -1;
 			this.description = description;

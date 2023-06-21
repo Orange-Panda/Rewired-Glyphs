@@ -6,11 +6,11 @@ using UnityEngine.Serialization;
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// A <see cref="ScriptableObject"/> asset that references <see cref="InputGlyphMap"/> assets that should be utilized at runtime.
+	/// A <see cref="ScriptableObject"/> asset that references <see cref="GlyphMap"/> assets that should be utilized at runtime.
 	/// </summary>
 	[PublicAPI]
 	[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Collection")]
-	public class InputGlyphCollection : ScriptableObject
+	public class GlyphCollection : ScriptableObject
 	{
 		[FormerlySerializedAs("maps")]
 		[Tooltip("Maps to be used on specific user hardware.")]
@@ -24,29 +24,29 @@ namespace LMirman.RewiredGlyphs
 		[Space]
 		[Tooltip("The glyph to be shown if the action exists but there is not input mapping to it.")]
 		[SerializeField]
-		private InputGlyph unboundGlyph;
+		private Glyph unboundGlyph;
 		[Space]
 		[Tooltip("The glyph to be shown if the action does not exist, usually as a result of an action name mismatch.")]
 		[SerializeField]
-		private InputGlyph nullGlyph;
+		private Glyph nullGlyph;
 
 		public HardwareEntry[] HardwareMaps => hardwareMaps;
 		public TemplateEntry[] TemplateMaps => templateMaps;
-		public InputGlyph UnboundGlyph => unboundGlyph;
-		public InputGlyph NullGlyph => nullGlyph;
+		public Glyph UnboundGlyph => unboundGlyph;
+		public Glyph NullGlyph => nullGlyph;
 
 		[Serializable]
 		public class HardwareEntry
 		{
 			public HardwareDefinition controllerType;
-			public InputGlyphMap glyphMap;
+			public GlyphMap glyphMap;
 		}
 
 		[Serializable]
 		public class TemplateEntry
 		{
 			public SymbolPreference controllerType;
-			public InputGlyphMap glyphMap;
+			public GlyphMap glyphMap;
 		}
 	}
 }

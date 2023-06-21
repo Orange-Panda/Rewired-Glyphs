@@ -2,11 +2,14 @@ using Rewired;
 using System;
 using UnityEngine;
 
-namespace LMirman.RewiredGlyphs
+namespace LMirman.RewiredGlyphs.Components
 {
 	/// <summary>
 	/// Responsible for firing the <see cref="OnGlyphsDirty"/> event to update all glyph displays when they are out of date.
 	/// </summary>
+	/// <remarks>
+	/// Add this component to your input manager for it to function.
+	/// </remarks>
 	public class InputGlyphObserver : MonoBehaviour
 	{
 		/// <summary>

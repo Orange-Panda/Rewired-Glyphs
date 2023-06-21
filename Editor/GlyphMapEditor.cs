@@ -4,10 +4,10 @@ using UnityEditor;
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// An editor window that makes modifying <see cref="InputGlyphMap"/>s easier.
+	/// An editor window that makes modifying <see cref="GlyphMap"/>s easier.
 	/// </summary>
-	[CustomEditor(typeof(InputGlyphMap))]
-	public class InputGlyphMapEditor : Editor
+	[CustomEditor(typeof(GlyphMap))]
+	public class GlyphMapEditor : Editor
 	{
 		private int page = 1;
 		private int PageMax => (serializedObject.FindProperty("glyphs").arraySize / PageSize) + 1;
@@ -19,7 +19,7 @@ namespace LMirman.RewiredGlyphs
 		private int requestMoveDownAt = -1;
 		private int requestDeleteAt = -1;
 
-		private static Object[] copiedObjects = new Object[3];
+		private static readonly Object[] CopiedObjects = new Object[3];
 
 		public override void OnInspectorGUI()
 		{
@@ -94,16 +94,16 @@ namespace LMirman.RewiredGlyphs
 
 			if (GUILayout.Button("Copy"))
 			{
-				copiedObjects[0] = sprite.objectReferenceValue;
-				copiedObjects[1] = negativeSprite.objectReferenceValue;
-				copiedObjects[2] = positiveSprite.objectReferenceValue;
+				CopiedObjects[0] = sprite.objectReferenceValue;
+				CopiedObjects[1] = negativeSprite.objectReferenceValue;
+				CopiedObjects[2] = positiveSprite.objectReferenceValue;
 			}
 
 			if (GUILayout.Button("Paste"))
 			{
-				sprite.objectReferenceValue = copiedObjects[0];
-				negativeSprite.objectReferenceValue = copiedObjects[1];
-				positiveSprite.objectReferenceValue = copiedObjects[2];
+				sprite.objectReferenceValue = CopiedObjects[0];
+				negativeSprite.objectReferenceValue = CopiedObjects[1];
+				positiveSprite.objectReferenceValue = CopiedObjects[2];
 			}
 
 			EditorGUILayout.EndVertical();

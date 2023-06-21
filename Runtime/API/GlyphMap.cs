@@ -9,16 +9,16 @@ namespace LMirman.RewiredGlyphs
 	/// A set of input glyphs for a particular circumstance, such as hardware device or template scheme.
 	/// </summary>
 	[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Map")]
-	public class InputGlyphMap : ScriptableObject
+	public class GlyphMap : ScriptableObject
 	{
 		[SerializeField]
-		private InputGlyph[] glyphs = Array.Empty<InputGlyph>();
+		private Glyph[] glyphs = Array.Empty<Glyph>();
 
-		public Dictionary<int, InputGlyph> CreateDictionary()
+		public Dictionary<int, Glyph> CreateDictionary()
 		{
 			// TODO: This could probably be cached.
-			Dictionary<int, InputGlyph> lookup = new Dictionary<int, InputGlyph>();
-			foreach (InputGlyph current in glyphs)
+			Dictionary<int, Glyph> lookup = new Dictionary<int, Glyph>();
+			foreach (Glyph current in glyphs)
 			{
 				lookup.Add(current.InputID, current);
 			}
@@ -30,11 +30,11 @@ namespace LMirman.RewiredGlyphs
 		[ContextMenu("Generate Mouse")]
 		private void GenerateMouse()
 		{
-			List<InputGlyph> newGlyphs = new List<InputGlyph>();
+			List<Glyph> newGlyphs = new List<Glyph>();
 			Mouse mouse = ReInput.controllers.Mouse;
 			foreach (ControllerElementIdentifier element in mouse.ElementIdentifiers)
 			{
-				newGlyphs.Add(new InputGlyph(element.id, element.name));
+				newGlyphs.Add(new Glyph(element.id, element.name));
 			}
 
 			glyphs = newGlyphs.ToArray();
@@ -43,11 +43,11 @@ namespace LMirman.RewiredGlyphs
 		[ContextMenu("Generate Keyboard")]
 		private void GenerateKeyboard()
 		{
-			List<InputGlyph> newGlyphs = new List<InputGlyph>();
+			List<Glyph> newGlyphs = new List<Glyph>();
 			Keyboard keyboard = ReInput.controllers.Keyboard;
 			foreach (ControllerElementIdentifier element in keyboard.ElementIdentifiers)
 			{
-				newGlyphs.Add(new InputGlyph(element.id, element.name));
+				newGlyphs.Add(new Glyph(element.id, element.name));
 			}
 
 			glyphs = newGlyphs.ToArray();

@@ -21,7 +21,7 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Automatically generated glyphs for inputs that have no glyph defined anywhere.
 		/// </summary>
-		private static readonly Dictionary<string, InputGlyph> FallbackGlyphs = new Dictionary<string, InputGlyph>();
+		private static readonly Dictionary<string, Glyph> FallbackGlyphs = new Dictionary<string, Glyph>();
 		/// <summary>
 		/// Cache lookup for players 
 		/// </summary>
@@ -29,11 +29,11 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Glyph mapping based on hardware specific glyphs and hardware specific input ids.
 		/// </summary>
-		private static readonly Dictionary<HardwareDefinition, Dictionary<int, InputGlyph>> HardwareGlyphMaps = new Dictionary<HardwareDefinition, Dictionary<int, InputGlyph>>();
+		private static readonly Dictionary<HardwareDefinition, Dictionary<int, Glyph>> HardwareGlyphMaps = new Dictionary<HardwareDefinition, Dictionary<int, Glyph>>();
 		/// <summary>
 		/// Glyph mapping based on template glyphs and template input ids.
 		/// </summary>
-		private static readonly Dictionary<SymbolPreference, Dictionary<int, InputGlyph>> TemplateGlyphMaps = new Dictionary<SymbolPreference, Dictionary<int, InputGlyph>>();
+		private static readonly Dictionary<SymbolPreference, Dictionary<int, Glyph>> TemplateGlyphMaps = new Dictionary<SymbolPreference, Dictionary<int, Glyph>>();
 		/// <summary>
 		/// Lookup table that matches hardware ids to what kind of glyphs should be shown.
 		/// </summary>
@@ -50,8 +50,8 @@ namespace LMirman.RewiredGlyphs
 			{ new Guid("7bf3154b-9db8-4d52-950f-cd0eed8a5819"), HardwareDefinition.NintendoSwitch } // Pro controller
 		};
 
-		public static InputGlyph NullGlyph { get; private set; }
-		public static InputGlyph UnboundGlyph { get; private set; }
+		public static Glyph NullGlyph { get; private set; }
+		public static Glyph UnboundGlyph { get; private set; }
 		public static HardwarePreference PreferredHardware { get; private set; } = HardwarePreference.Auto;
 		public static SymbolPreference PreferredSymbols { get; private set; } = SymbolPreference.Auto;
 
@@ -67,27 +67,27 @@ namespace LMirman.RewiredGlyphs
 		static InputGlyphs()
 		{
 			const string ResourcePath = "Rewired Glyphs/Default Glyphs";
-			InputGlyphCollection collection = Resources.Load<InputGlyphCollection>(ResourcePath);
+			GlyphCollection collection = Resources.Load<GlyphCollection>(ResourcePath);
 			if (collection == null)
 			{
-				throw new NullReferenceException($"There was no {nameof(InputGlyphCollection)} found at \"{ResourcePath}\". Please create one.");
+				throw new NullReferenceException($"There was no {nameof(GlyphCollection)} found at \"{ResourcePath}\". Please create one.");
 			}
 
 			LoadGlyphCollection(collection);
 		}
 
-		public static void LoadGlyphCollection(InputGlyphCollection collection)
+		public static void LoadGlyphCollection(GlyphCollection collection)
 		{
 			// Create hardware glyph lookup
 			HardwareGlyphMaps.Clear();
-			foreach (InputGlyphCollection.HardwareEntry entry in collection.HardwareMaps)
+			foreach (GlyphCollection.HardwareEntry entry in collection.HardwareMaps)
 			{
 				HardwareGlyphMaps[entry.controllerType] = entry.glyphMap.CreateDictionary();
 			}
 
 			// Create template glyph lookup
 			TemplateGlyphMaps.Clear();
-			foreach (InputGlyphCollection.TemplateEntry entry in collection.TemplateMaps)
+			foreach (GlyphCollection.TemplateEntry entry in collection.TemplateMaps)
 			{
 				TemplateGlyphMaps[entry.controllerType] = entry.glyphMap.CreateDictionary();
 			}
@@ -110,7 +110,7 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static InputGlyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
 		{
 			return GetPlayer(playerIndex).GetCurrentGlyph(actionID, pole, out axisRange);
 		}
@@ -118,7 +118,7 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Get the InputGlyph that represents the glyph for the current input scheme
 		/// </summary>
-		public static InputGlyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
+		public static Glyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
 		{
 			Controller last = player.controllers.GetLastActiveController();
 
@@ -163,7 +163,7 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static InputGlyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
 		{
 			return GetPlayer(playerIndex).GetKeyboardMouseGlyph(actionID, pole, out axisRange);
 		}
@@ -172,7 +172,7 @@ namespace LMirman.RewiredGlyphs
 		/// Get the InputGlyph that represents the input action on the Keyboard/Mouse.
 		/// If an action is present on both devices, precedence is given to the mouse device.
 		/// </summary>
-		public static InputGlyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
+		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
 		{
 			axisRange = AxisRange.Full;
 			InputAction action = ReInput.mapping.GetAction(actionID);
@@ -186,14 +186,14 @@ namespace LMirman.RewiredGlyphs
 			if (mouseMap != null)
 			{
 				axisRange = mouseMap.axisRange;
-				InputGlyph glyph = GetGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
+				Glyph glyph = GetGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
 				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			if (keyboardMap != null)
 			{
 				axisRange = keyboardMap.axisRange;
-				InputGlyph glyph = GetGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
+				Glyph glyph = GetGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
 				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
 			}
 
@@ -201,7 +201,7 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static InputGlyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0)
 		{
 			return GetPlayer(playerIndex).GetJoystickGlyph(actionID, controller, pole, out axisRange);
 		}
@@ -209,10 +209,10 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Get the InputGlyph that represents the Joystick input action.
 		/// </summary>
-		public static InputGlyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange)
+		public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange)
 		{
 			// Initialize variables
-			InputGlyph glyph;
+			Glyph glyph;
 			axisRange = AxisRange.Full;
 			InputAction action = ReInput.mapping.GetAction(actionID);
 
@@ -308,11 +308,11 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <param name="controller">The hardware type that the <see cref="elementID"/> maps to</param>
 		/// <param name="elementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="InputGlyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
-		private static InputGlyph GetGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
+		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		private static Glyph GetGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
 		{
-			bool hasHardwareGlyphMap = HardwareGlyphMaps.TryGetValue(controller, out Dictionary<int, InputGlyph> value);
-			return hasHardwareGlyphMap && value.TryGetValue(elementID, out InputGlyph glyph) ? glyph : null;
+			bool hasHardwareGlyphMap = HardwareGlyphMaps.TryGetValue(controller, out Dictionary<int, Glyph> value);
+			return hasHardwareGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
 		}
 
 		/// <summary>
@@ -320,12 +320,12 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <param name="symbolPreference">The preferred symbol styling to present for this template element</param>
 		/// <param name="templateElementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="InputGlyph"/> inside of a template glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		/// <returns>The found <see cref="Glyph"/> inside of a template glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
 		[CanBeNull]
-		private static InputGlyph GetGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID)
+		private static Glyph GetGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID)
 		{
-			bool hasTemplateGlyphMap = TemplateGlyphMaps.TryGetValue(symbolPreference, out Dictionary<int, InputGlyph> templateGlyphMap);
-			return hasTemplateGlyphMap && templateGlyphMap.TryGetValue(templateElementID, out InputGlyph glyph) ? glyph : null;
+			bool hasTemplateGlyphMap = TemplateGlyphMaps.TryGetValue(symbolPreference, out Dictionary<int, Glyph> templateGlyphMap);
+			return hasTemplateGlyphMap && templateGlyphMap.TryGetValue(templateElementID, out Glyph glyph) ? glyph : null;
 		}
 
 		/// <summary>
@@ -333,7 +333,7 @@ namespace LMirman.RewiredGlyphs
 		/// If none is found will use the automatic template glyph map.
 		/// If that doesn't exist outputs null.
 		/// </summary>
-		private static bool TryGetTemplateGlyphMap(SymbolPreference symbolPreference, out Dictionary<int, InputGlyph> templateGlyphMap)
+		private static bool TryGetTemplateGlyphMap(SymbolPreference symbolPreference, out Dictionary<int, Glyph> templateGlyphMap)
 		{
 			// If we have a specific symbol preference, try to get the glyph map for that symbol type
 			if (symbolPreference != SymbolPreference.Auto && TemplateGlyphMaps.TryGetValue(symbolPreference, out templateGlyphMap))
@@ -360,15 +360,34 @@ namespace LMirman.RewiredGlyphs
 		/// Since we obviously can't assume what this element would look like with a sprite we at least give it a description so text glyph outputs can still function.<br/><br/>
 		/// Ultimately this is a fallback mechanism and having specific element definitions for all inputs should be done.
 		/// </remarks>
-		private static InputGlyph GetFallbackGlyph(string name)
+		private static Glyph GetFallbackGlyph(string name)
 		{
 			if (!FallbackGlyphs.ContainsKey(name))
 			{
 				// TODO: Maybe there should be a missing glyph sprite to inform developer? The InputGlyph would need to recognize it should prefer description in that case.
-				FallbackGlyphs.Add(name, new InputGlyph(-1, name));
+				FallbackGlyphs.Add(name, new Glyph(-1, name));
 			}
 
 			return FallbackGlyphs[name];
+		}
+		
+		private static readonly List<ActionElementMap> MapLookupResults = new List<ActionElementMap>();
+		
+		/// <summary>
+		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
+		/// </summary>
+		private static ActionElementMap GetActionElementMap(this Player player, ControllerType controller, int actionID, Pole pole)
+		{
+			int count = player.controllers.maps.GetElementMapsWithAction(controller, actionID, false, MapLookupResults);
+			for (int i = 0; i < count; i++)
+			{
+				if (MapLookupResults[i].axisContribution == pole)
+				{
+					return MapLookupResults[i];
+				}
+			}
+
+			return null;
 		}
 		#endregion
 	}

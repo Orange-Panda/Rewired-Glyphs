@@ -1,24 +1,34 @@
+using JetBrains.Annotations;
 using Rewired;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LMirman.RewiredGlyphs
+namespace LMirman.RewiredGlyphs.Components
 {
-	public class HorizontalInputGlyph : InputGlyphDisplay
+	/// <summary>
+	/// An input glyph display that shows both an image and text for a particular input glyph.
+	/// </summary>
+	/// <remarks>
+	/// The text does not necessarily relate to the action and can be any set by <see cref="SetText"/>.
+	/// The main purpose of this class is to automatically handle layout of the elements.
+	/// </remarks>
+	[PublicAPI]
+	[AddComponentMenu("Rewired Glyphs/Labeled Image Output")]
+	public class GlyphLabeledImageOutput : GlyphDisplay
 	{
 		[Header("Auto Layout")]
-		[SerializeField]
+		[SerializeField, Tooltip("Space between the text and glyph icon")]
 		private float spacing;
-		[SerializeField]
+		[SerializeField, Tooltip("Padding from the edges of the parent rect transform and the graphic components")]
 		private float padding;
 
 		[Header("Component Reference")]
-		[SerializeField]
+		[SerializeField, Tooltip("Image to set the glyph sprite to")]
 		private Image image;
-		[SerializeField]
+		[SerializeField, Tooltip("The text mesh to control the text of")]
 		private TextMeshProUGUI textMesh;
-		[SerializeField]
+		[SerializeField, Tooltip("The parent rect transform of the image and text mesh component")]
 		private RectTransform rectTransform;
 
 		public void SetText(string text)
@@ -45,7 +55,7 @@ namespace LMirman.RewiredGlyphs
 			LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
 		}
 
-		public override void SetGlyph(InputGlyph glyph, AxisRange axisRange)
+		public override void SetGlyph(Glyph glyph, AxisRange axisRange)
 		{
 			image.sprite = glyph.GetSprite(axisRange);
 			SetLayout();

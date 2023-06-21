@@ -2,13 +2,16 @@ using JetBrains.Annotations;
 using Rewired;
 using UnityEngine;
 
-namespace LMirman.RewiredGlyphs
+namespace LMirman.RewiredGlyphs.Components
 {
 	/// <summary>
-	/// An abstract class that provides common functionality for a ui element to display an <see cref="InputGlyph"/>.
+	/// An abstract class that provides common functionality for a ui element to display an <see cref="Glyph"/>.
 	/// </summary>
+	/// <remarks>
+	/// Usage of this class is completely optional.
+	/// </remarks>
 	[PublicAPI]
-	public abstract class InputGlyphDisplay : MonoBehaviour
+	public abstract class GlyphDisplay : MonoBehaviour
 	{
 		[Header("Input Glyph Information")]
 		[SerializeField, Min(-1)]
@@ -52,11 +55,11 @@ namespace LMirman.RewiredGlyphs
 		[ContextMenu("Update Glyph")]
 		public void UpdateGlyph()
 		{
-			InputGlyph glyph = InputGlyphs.GetCurrentGlyph(ReInput.mapping.GetActionId(actionName), pole, out AxisRange axisRange, playerIndex);
+			Glyph glyph = InputGlyphs.GetCurrentGlyph(ReInput.mapping.GetActionId(actionName), pole, out AxisRange axisRange, playerIndex);
 			SetGlyph(glyph, axisRange);
 		}
 
-		public abstract void SetGlyph(InputGlyph glyph, AxisRange axisRange);
+		public abstract void SetGlyph(Glyph glyph, AxisRange axisRange);
 
 		/// <summary>
 		/// Change the input action this should display.
