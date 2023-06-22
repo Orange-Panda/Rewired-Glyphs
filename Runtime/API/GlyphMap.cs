@@ -14,6 +14,8 @@ namespace LMirman.RewiredGlyphs
 		[SerializeField]
 		private Glyph[] glyphs = Array.Empty<Glyph>();
 
+		public Glyph[] Glyphs => glyphs;
+
 		public Dictionary<int, Glyph> CreateDictionary()
 		{
 			// TODO: This could probably be cached.

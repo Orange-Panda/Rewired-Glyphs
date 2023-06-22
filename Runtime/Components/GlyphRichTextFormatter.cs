@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Rewired;
 using System;
 using System.Text;
@@ -7,18 +8,23 @@ using UnityEngine;
 
 namespace LMirman.RewiredGlyphs.Components
 {
+	[PublicAPI]
 	[RequireComponent(typeof(TMP_Text))]
-	public class GlyphRichTextOutput : MonoBehaviour
+	[AddComponentMenu("Rewired Glyphs/Glyph TMP Rich Text Formatter")]
+	public class GlyphRichTextFormatter : MonoBehaviour
 	{
 		[SerializeField]
 		[Tooltip("When enabled will check for text changes every frame. When text changes will automatically reformat text.\n\n" +
 				 "This is somewhat expensive so only enable if you don't want to or can't use the \"SetText\" method of this class.")]
 		private bool autoUpdate;
 
-		private readonly StringBuilder stringBuilder = new StringBuilder();
 		private TMP_Text textMesh;
 		private int lastHashCode;
+
+		private readonly StringBuilder stringBuilder = new StringBuilder();
 		private static readonly Regex GlyphRegex = new Regex("<glyph ([^>|^<]*)>", RegexOptions.IgnoreCase);
+
+		public TMP_Text TextMesh => textMesh;
 
 		private void Awake()
 		{
@@ -103,8 +109,10 @@ namespace LMirman.RewiredGlyphs.Components
 
 					Glyph glyph = InputGlyphs.GetCurrentGlyph(actionId, pole, out AxisRange axisRange, player);
 					Sprite sprite = glyph.GetSprite(axisRange);
-					string assetName = "TODO"; //TODO: Actually generate such sprite sheet in editor and point to it. Probably need to cache sprite sheet name in Glyph itself.
-					stringBuilder.Replace(match.Groups[0].Value, $"<sprite=\"{assetName}\" name=\"{sprite.name}\">");
+					if (sprite != null)
+					{
+						stringBuilder.Replace(match.Groups[0].Value, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">");
+					}
 				}
 			}
 

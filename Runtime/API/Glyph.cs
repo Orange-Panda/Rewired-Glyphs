@@ -21,6 +21,8 @@ namespace LMirman.RewiredGlyphs
 		private Sprite positiveSprite;
 		[SerializeField]
 		private Sprite negativeSprite;
+		[SerializeField]
+		private string textMeshSpriteSheetName;
 
 		/// <summary>
 		/// The id for the input on the Input Manager.
@@ -48,6 +50,11 @@ namespace LMirman.RewiredGlyphs
 		/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>. Will be null if <see cref="negativeSprite"/> is undefined.
 		/// </remarks>
 		public Sprite NegativeSprite => negativeSprite;
+		public string TextMeshSpriteSheetName
+		{
+			get => textMeshSpriteSheetName;
+			set => textMeshSpriteSheetName = value;
+		}
 
 		/// <summary>
 		/// Get the sprite for a particular input direction.
