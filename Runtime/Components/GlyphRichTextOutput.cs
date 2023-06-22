@@ -18,7 +18,7 @@ namespace LMirman.RewiredGlyphs.Components
 		private readonly StringBuilder stringBuilder = new StringBuilder();
 		private TMP_Text textMesh;
 		private int lastHashCode;
-		private static readonly Regex GlyphRegex = new Regex("<glyph ([^>|^<]*)>");
+		private static readonly Regex GlyphRegex = new Regex("<glyph ([^>|^<]*)>", RegexOptions.IgnoreCase);
 
 		private void Awake()
 		{
