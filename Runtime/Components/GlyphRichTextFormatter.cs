@@ -8,6 +8,18 @@ using UnityEngine;
 
 namespace LMirman.RewiredGlyphs.Components
 {
+	/// <summary>
+	/// Adds support for inline input glyphs on a <see cref="TMP_Text"/> component.
+	/// </summary>
+	/// <remarks>
+	/// The two main ways to use this component are the following:<br/><br/>
+	/// Director Pattern (Recommended): The text mesh's text is set exclusively via this component's <see cref="SetFormattedText"/> method.<br/>
+	/// - This pattern is achieved by disabling the <see cref="automaticallyCheckForTextChanges"/> field and never changing the text mesh component's text elsewhere.<br/>
+	/// - This pattern is encouraged because it ensures that glyph tags are not lost in translation, which can especially happen if you are appending text.<br/><br/>
+	/// Observer Pattern: The text mesh's text is updated whenever it is changed externally.<br/>
+	/// - This pattern is achieved by enabled the <see cref="automaticallyCheckForTextChanges"/> field.<br/>
+	/// - This pattern is useful if you can't change text via the <see cref="SetFormattedText"/> but runs the risk of losing preformatted text.
+	/// </remarks>
 	[PublicAPI]
 	[RequireComponent(typeof(TMP_Text))]
 	[AddComponentMenu("Rewired Glyphs/Glyph TMP Rich Text Formatter")]
@@ -137,6 +149,10 @@ namespace LMirman.RewiredGlyphs.Components
 					if (sprite != null)
 					{
 						Output.Replace(match.Groups[0].Value, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">");
+					}
+					else
+					{
+						Output.Replace(match.Groups[0].Value, $"[{glyph.Description}]");
 					}
 				}
 			}

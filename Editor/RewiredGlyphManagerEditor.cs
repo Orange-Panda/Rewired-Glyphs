@@ -26,7 +26,11 @@ namespace LMirman.RewiredGlyphs
 				}
 
 				// Get all glyphs
-				List<Glyph> glyphs = new List<Glyph>() { collection.NullGlyph, collection.UnboundGlyph };
+				List<Glyph> glyphs = new List<Glyph>()
+				{
+					collection.NullGlyph,
+					collection.UnboundGlyph
+				};
 				foreach (GlyphCollection.HardwareEntry hardwareEntry in collection.HardwareMaps)
 				{
 					EditorUtility.SetDirty(hardwareEntry.glyphMap);
@@ -67,7 +71,7 @@ namespace LMirman.RewiredGlyphs
 					SpriteSheetOutput sheetOutput = GenerateSpriteAsset(assetAtPath);
 					spriteSheetOutputs.Add(sheetOutput.spriteAssetPath, sheetOutput);
 				}
-				
+
 				foreach (Glyph glyph in glyphs)
 				{
 					Sprite sprite = glyph.FullSprite;
@@ -85,6 +89,7 @@ namespace LMirman.RewiredGlyphs
 			}
 		}
 
+		// Based on: TMP_SpriteAssetMenu
 		private static SpriteSheetOutput GenerateSpriteAsset(Texture2D target)
 		{
 			// Get the path to the selected asset.
@@ -129,16 +134,11 @@ namespace LMirman.RewiredGlyphs
 			{
 				propertyInfo.SetValue(spriteAsset, value);
 			}
-			else
-			{
-				Debug.LogError($"No property found for \"{propertyName}\".");
-			}
 		}
-		
+
+		// Based on: TMP_SpriteAssetMenu
 		private static void PopulateSpriteTables(Texture source, ref List<TMP_SpriteCharacter> spriteCharacterTable, ref List<TMP_SpriteGlyph> spriteGlyphTable)
 		{
-			//Debug.Log("Creating new Sprite Asset.");
-
 			string filePath = AssetDatabase.GetAssetPath(source);
 
 			// Get all the Sprites sorted by Index
@@ -147,29 +147,28 @@ namespace LMirman.RewiredGlyphs
 			for (int i = 0; i < sprites.Length; i++)
 			{
 				Sprite sprite = sprites[i];
-
-				TMP_SpriteGlyph spriteGlyph = new TMP_SpriteGlyph();
-				spriteGlyph.index = (uint)i;
-				spriteGlyph.metrics = new GlyphMetrics(sprite.rect.width, sprite.rect.height, 0, sprite.rect.height * 0.9f, sprite.rect.width);
-				spriteGlyph.glyphRect = new GlyphRect(sprite.rect);
-				spriteGlyph.scale = 1.0f;
-				spriteGlyph.sprite = sprite;
+				TMP_SpriteGlyph spriteGlyph = new TMP_SpriteGlyph
+				{
+					index = (uint)i,
+					metrics = new GlyphMetrics(sprite.rect.width, sprite.rect.height, 0, sprite.rect.height * 0.9f, sprite.rect.width),
+					glyphRect = new GlyphRect(sprite.rect),
+					scale = 1.0f,
+					sprite = sprite
+				};
 
 				spriteGlyphTable.Add(spriteGlyph);
 
-				TMP_SpriteCharacter spriteCharacter = new TMP_SpriteCharacter(0xFFFE, spriteGlyph);
-				spriteCharacter.name = sprite.name;
-				spriteCharacter.scale = 1.0f;
+				TMP_SpriteCharacter spriteCharacter = new TMP_SpriteCharacter(0xFFFE, spriteGlyph)
+				{
+					name = sprite.name,
+					scale = 1.0f
+				};
 
 				spriteCharacterTable.Add(spriteCharacter);
 			}
 		}
-		
-		/// <summary>
-		/// Create and add new default material to sprite asset.
-		/// </summary>
-		/// <param name="spriteAsset"></param>
-		// Imported from TMP Source Code 
+
+		// Based on: TMP_SpriteAssetMenu
 		private static void AddDefaultMaterial(TMP_SpriteAsset spriteAsset)
 		{
 			Shader shader = Shader.Find("TextMeshPro/Sprite");
