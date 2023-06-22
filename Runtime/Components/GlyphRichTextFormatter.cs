@@ -14,14 +14,20 @@ namespace LMirman.RewiredGlyphs.Components
 	public class GlyphRichTextFormatter : MonoBehaviour
 	{
 		[SerializeField]
+		[Tooltip("When enabled the text will be updated with new sprites when glyphs are rebuilt.\n\n" +
+				 "This should usually be enabled so you are always showing up to date glyphs. However, if you do not want the value of text mesh to change consider disabling this.")]
+		private bool updateTextOnRebuildGlyphs = true;
+		[SerializeField]
 		[Tooltip("When enabled will check for text changes every frame. When text changes will automatically reformat text.\n\n" +
-				 "This is somewhat expensive so only enable if you don't want to or can't use the \"SetText\" method of this class.")]
-		private bool autoUpdate;
+				 "This is somewhat expensive and may lose glyph references if you append text so only enable if you don't want to or can't use the \"SetText\" method of this class.")]
+		private bool automaticallyCheckForTextChanges;
 
 		private TMP_Text textMesh;
 		private int lastHashCode;
+		private bool lastPreformatTextHasGlyph;
+		private string lastPreformatText;
 
-		private readonly StringBuilder stringBuilder = new StringBuilder();
+		private static readonly StringBuilder Output = new StringBuilder();
 		private static readonly Regex GlyphRegex = new Regex("<glyph ([^>|^<]*)>", RegexOptions.IgnoreCase);
 
 		public TMP_Text TextMesh => textMesh;
@@ -31,6 +37,24 @@ namespace LMirman.RewiredGlyphs.Components
 			textMesh = GetComponent<TMP_Text>();
 		}
 
+		protected virtual void OnEnable()
+		{
+			InputGlyphs.RebuildGlyphs += InputGlyphsOnRebuildGlyphs;
+		}
+
+		protected virtual void OnDisable()
+		{
+			InputGlyphs.RebuildGlyphs -= InputGlyphsOnRebuildGlyphs;
+		}
+
+		private void InputGlyphsOnRebuildGlyphs()
+		{
+			if (updateTextOnRebuildGlyphs && lastPreformatTextHasGlyph)
+			{
+				SetFormattedText(lastPreformatText);
+			}
+		}
+
 		private void Start()
 		{
 			AutoUpdateText();
@@ -38,7 +62,7 @@ namespace LMirman.RewiredGlyphs.Components
 
 		private void LateUpdate()
 		{
-			if (autoUpdate)
+			if (automaticallyCheckForTextChanges)
 			{
 				AutoUpdateText();
 			}
@@ -58,20 +82,21 @@ namespace LMirman.RewiredGlyphs.Components
 
 		public void SetFormattedText(string text)
 		{
-			if (!GlyphRegex.IsMatch(text))
-			{
-				textMesh.SetText(text);
-				lastHashCode = text.GetHashCode();
-				return;
-			}
+			lastPreformatText = text;
+			lastPreformatTextHasGlyph = GlyphRegex.IsMatch(text);
+			string textToSet = lastPreformatTextHasGlyph ? ReplaceGlyphTagsWithSpriteTags(text) : text;
+			textMesh.SetText(textToSet);
+			lastHashCode = textToSet.GetHashCode();
+		}
 
-			stringBuilder.Clear();
-			stringBuilder.Append(text);
+		public static string ReplaceGlyphTagsWithSpriteTags(string text)
+		{
+			Output.Clear();
+			Output.Append(text);
 			foreach (Match match in GlyphRegex.Matches(text))
 			{
 				if (match.Groups.Count > 1)
 				{
-					// TODO: It would be nice if the regex made space separated groups but I am too stupid to figure it out.
 					string[] splitArgs = match.Groups[1].Value.Split(' ');
 					bool didSetActionId = false;
 					int actionId = 0;
@@ -111,14 +136,12 @@ namespace LMirman.RewiredGlyphs.Components
 					Sprite sprite = glyph.GetSprite(axisRange);
 					if (sprite != null)
 					{
-						stringBuilder.Replace(match.Groups[0].Value, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">");
+						Output.Replace(match.Groups[0].Value, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">");
 					}
 				}
 			}
 
-			string finalText = stringBuilder.ToString();
-			textMesh.SetText(finalText);
-			lastHashCode = finalText.GetHashCode();
+			return Output.ToString();
 		}
 	}
 }
