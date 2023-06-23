@@ -11,6 +11,7 @@ namespace LMirman.RewiredGlyphs
 	/// Add this component to your input manager for it to function.
 	/// The Input Glyph system will not behave as expected without this present.
 	/// </remarks>
+	[AddComponentMenu("Rewired Glyphs/Rewired Glyph Manager")]
 	public class RewiredGlyphManager : MonoBehaviour
 	{
 		[SerializeField, Tooltip("The collection of glyphs to use in the Rewired Input Glyph system.")]

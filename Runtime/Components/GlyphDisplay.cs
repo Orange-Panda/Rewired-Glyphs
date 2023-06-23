@@ -30,6 +30,8 @@ namespace LMirman.RewiredGlyphs.Components
 		public int ActionID { get; protected set; }
 		public Pole PoleValue { get; protected set; }
 
+		public abstract void SetGlyph(Glyph glyph, AxisRange axisRange);
+
 		protected virtual void Awake()
 		{
 			ActionID = useActionID ? actionID : ReInput.mapping.GetActionId(actionName);
@@ -47,7 +49,7 @@ namespace LMirman.RewiredGlyphs.Components
 			InputGlyphs.RebuildGlyphs -= InputGlyphsOnRebuildGlyphs;
 		}
 
-		private void InputGlyphsOnRebuildGlyphs()
+		protected virtual void InputGlyphsOnRebuildGlyphs()
 		{
 			UpdateGlyph();
 		}
@@ -58,8 +60,6 @@ namespace LMirman.RewiredGlyphs.Components
 			Glyph glyph = InputGlyphs.GetCurrentGlyph(ActionID, PoleValue, out AxisRange axisRange, playerIndex);
 			SetGlyph(glyph, axisRange);
 		}
-
-		public abstract void SetGlyph(Glyph glyph, AxisRange axisRange);
 
 		/// <summary>
 		/// Change the input action this should display.

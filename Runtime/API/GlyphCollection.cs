@@ -18,6 +18,7 @@ namespace LMirman.RewiredGlyphs
 		private GuidEntry[] guidMaps = Array.Empty<GuidEntry>();
 		/// <inheritdoc cref="HardwareMaps"/>
 		[FormerlySerializedAs("maps")]
+		[Space]
 		[Tooltip("Maps that associate glyphs with action ids of specific hardware types.")]
 		[SerializeField]
 		private HardwareEntry[] hardwareMaps = Array.Empty<HardwareEntry>();
