@@ -3,6 +3,14 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2023-06-23
+
+### Added
+- Added support for inline input glyphs using `GlyphRichTextFormatter`
+- Added support for entering a glyph map into a collection via hardware Guid
+- Added sample glyphs and glyph mappings to improve onboarding experience
+- Fallback glyphs now use the null glyph's sprite. If you do not wish to show this sprite evaluate the `Glyph.PreferDescription` value.
+
 ## [0.2.0] - 2023-06-21
 
 ### Added
