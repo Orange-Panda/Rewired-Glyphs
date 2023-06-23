@@ -71,6 +71,10 @@ namespace LMirman.RewiredGlyphs
 			get => textMeshSpriteSheetName;
 			set => textMeshSpriteSheetName = value;
 		}
+		/// <summary>
+		/// When true this Glyph should show as text instead of its sprite.
+		/// </summary>
+		public bool PreferDescription { get; set; }
 
 		/// <summary>
 		/// Get the sprite for a particular input direction.
@@ -99,28 +103,31 @@ namespace LMirman.RewiredGlyphs
 			this.sprite = sprite;
 			this.positiveSprite = positiveSprite;
 			this.negativeSprite = negativeSprite;
+			PreferDescription = false;
 		}
 
-		public Glyph(int inputID, string description, Sprite sprite = null)
+		public Glyph(int inputID, string description, Sprite sprite)
 		{
 			this.inputID = inputID;
 			this.description = description;
 			this.sprite = sprite;
 			positiveSprite = null;
 			negativeSprite = null;
+			PreferDescription = sprite != null;
 		}
 
 		/// <summary>
 		/// Create a fallback glyph that only contains a description.
 		/// </summary>
 		/// <remarks>The main use case is if there is no glyph found but there is <i>some</i> information about the input that can allow it to be shown in text.</remarks>
-		public Glyph(string description)
+		public Glyph(string description, Sprite sprite = null)
 		{
 			inputID = -1;
 			this.description = description;
-			sprite = null;
+			this.sprite = sprite;
 			positiveSprite = null;
 			negativeSprite = null;
+			PreferDescription = true;
 		}
 	}
 }

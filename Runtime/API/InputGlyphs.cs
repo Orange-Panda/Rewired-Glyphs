@@ -407,8 +407,7 @@ namespace LMirman.RewiredGlyphs
 		{
 			if (!FallbackGlyphs.ContainsKey(name))
 			{
-				// TODO: Maybe there should be a missing glyph sprite to inform developer? The InputGlyph would need to recognize it should prefer description in that case.
-				FallbackGlyphs.Add(name, new Glyph(-1, name));
+				FallbackGlyphs.Add(name, new Glyph(name, NullGlyph.FullSprite));
 			}
 
 			return FallbackGlyphs[name];

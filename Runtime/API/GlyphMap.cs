@@ -35,7 +35,7 @@ namespace LMirman.RewiredGlyphs
 			Mouse mouse = ReInput.controllers.Mouse;
 			foreach (ControllerElementIdentifier element in mouse.ElementIdentifiers)
 			{
-				newGlyphs.Add(new Glyph(element.id, element.name));
+				newGlyphs.Add(new Glyph(element.id, element.name, null));
 			}
 
 			glyphs = newGlyphs.ToArray();
@@ -48,7 +48,7 @@ namespace LMirman.RewiredGlyphs
 			Keyboard keyboard = ReInput.controllers.Keyboard;
 			foreach (ControllerElementIdentifier element in keyboard.ElementIdentifiers)
 			{
-				newGlyphs.Add(new Glyph(element.id, element.name));
+				newGlyphs.Add(new Glyph(element.id, element.name, null));
 			}
 
 			glyphs = newGlyphs.ToArray();

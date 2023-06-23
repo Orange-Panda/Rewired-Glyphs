@@ -146,7 +146,7 @@ namespace LMirman.RewiredGlyphs.Components
 
 					Glyph glyph = InputGlyphs.GetCurrentGlyph(actionId, pole, out AxisRange axisRange, player);
 					Sprite sprite = glyph.GetSprite(axisRange);
-					if (sprite != null)
+					if (sprite != null && !glyph.PreferDescription)
 					{
 						Output.Replace(match.Groups[0].Value, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">");
 					}
