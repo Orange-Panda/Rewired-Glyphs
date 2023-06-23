@@ -40,7 +40,7 @@ An expansion for Guavaman's [Rewired Unity Asset](https://assetstore.unity.com/p
 
 ## Usage
 
-There are several ways to show input glyphs in your project such as: ~~~~
+There are several ways to show input glyphs in your project such as:
 - Built-in components
 - Custom components
 - Polling the `InputGlyphs` API directly
@@ -61,7 +61,7 @@ Let's cover some of these methods and how to use them in your project.
 ### Custom Components
 
 Custom components can be created by inheriting from `GlyphDisplay`.
-This class provides the `void SetGlyph(Glyph glyph, AxisRange axisRange)` which is automatically invoked when a glyph may have changed such as a input device changes or preferences modifications.
+This class provides the `void SetGlyph(Glyph glyph, AxisRange axisRange)` method which is automatically invoked when a glyph may have changed such as a input device changes or preferences modifications.
 
 Most of the built-in components inherit from `GlyphDisplay` so consider referencing them for examples.
 
@@ -84,4 +84,4 @@ This package is developed by [Luke Mirman](https://lukemirman.com/).
 
 - Joystick icon used in the logo is provided by Google Fonts under the Appache 2.0 license.
 - [Lato font](https://fonts.google.com/specimen/Lato/about) in the logo is provided by Google Fonts under the Open Font License.
-- Sample Input Icons included in package samples is attributed to [Kenney](https://kenney.nl/assets/input-prompts-pixel-16) assets under Creative Commons CC0 license.~~~~
+- Sample Input Icons included in package samples is attributed to [Kenney](https://kenney.nl/assets/input-prompts-pixel-16) assets under Creative Commons CC0 license.
