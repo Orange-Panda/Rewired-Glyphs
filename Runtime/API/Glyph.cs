@@ -11,22 +11,32 @@ namespace LMirman.RewiredGlyphs
 	[Serializable, PublicAPI]
 	public class Glyph
 	{
+		/// <inheritdoc cref="InputID"/>
 		[SerializeField]
 		private int inputID;
+		/// <inheritdoc cref="Description"/>
 		[SerializeField]
 		private string description;
+		/// <inheritdoc cref="Sprite"/>
 		[SerializeField]
 		private Sprite sprite;
+		/// <inheritdoc cref="PositiveSprite"/>
 		[SerializeField]
 		private Sprite positiveSprite;
+		/// <inheritdoc cref="NegativeSprite"/>
 		[SerializeField]
 		private Sprite negativeSprite;
+		/// <inheritdoc cref="TextMeshSpriteSheetName"/>
 		[SerializeField]
 		private string textMeshSpriteSheetName;
 
 		/// <summary>
-		/// The id for the input on the Input Manager.
+		/// The ID for this glyph in the context of this glyph map.
 		/// </summary>
+		/// <remarks>
+		/// Please reference the official Rewired documentation for more information about what element ids map to for each hardware device.<br/>
+		/// https://guavaman.com/projects/rewired/docs/HowTos.html#display-glyph-for-action
+		/// </remarks>
 		public int InputID => inputID;
 		/// <summary>
 		/// Description of the input on the device.
@@ -50,6 +60,12 @@ namespace LMirman.RewiredGlyphs
 		/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>. Will be null if <see cref="negativeSprite"/> is undefined.
 		/// </remarks>
 		public Sprite NegativeSprite => negativeSprite;
+		/// <summary>
+		/// The name of the text mesh sprite sheet that contains the sprites for this glyph.
+		/// </summary>
+		/// <remarks>
+		/// Used by <see cref="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter"/> to display in line glyphs in Text Mesh Pro text.
+		/// </remarks>
 		public string TextMeshSpriteSheetName
 		{
 			get => textMeshSpriteSheetName;
@@ -94,6 +110,10 @@ namespace LMirman.RewiredGlyphs
 			negativeSprite = null;
 		}
 
+		/// <summary>
+		/// Create a fallback glyph that only contains a description.
+		/// </summary>
+		/// <remarks>The main use case is if there is no glyph found but there is <i>some</i> information about the input that can allow it to be shown in text.</remarks>
 		public Glyph(string description)
 		{
 			inputID = -1;

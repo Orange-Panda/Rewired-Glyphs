@@ -6,7 +6,8 @@ using UnityEngine;
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// A set of input glyphs for a particular circumstance, such as hardware device or template scheme.
+	/// A set of glyphs for an input device.
+	/// Glyph maps can map to a particular hardware device or a controller template.
 	/// </summary>
 	[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Map")]
 	public class GlyphMap : ScriptableObject
@@ -18,7 +19,6 @@ namespace LMirman.RewiredGlyphs
 
 		public Dictionary<int, Glyph> CreateDictionary()
 		{
-			// TODO: This could probably be cached.
 			Dictionary<int, Glyph> lookup = new Dictionary<int, Glyph>();
 			foreach (Glyph current in glyphs)
 			{
@@ -28,7 +28,6 @@ namespace LMirman.RewiredGlyphs
 			return lookup;
 		}
 
-		// Easy way to quickly populate the glyph fields with ids and names.
 		[ContextMenu("Generate Mouse")]
 		private void GenerateMouse()
 		{

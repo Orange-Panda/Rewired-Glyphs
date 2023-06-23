@@ -14,7 +14,7 @@ namespace LMirman.RewiredGlyphs
 	public static class InputGlyphs
 	{
 		internal static bool glyphsDirty;
-		
+
 		/// <summary>
 		/// The type Guid of the Controller Template.
 		/// </summary>
@@ -29,7 +29,11 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		private static readonly Dictionary<int, Player> Players = new Dictionary<int, Player>();
 		/// <summary>
-		/// Glyph mapping based on hardware specific glyphs and hardware specific input ids.
+		/// Glyph mapping based on hardware specific glyphs and hardware specific input ids, found via hardware Guid.
+		/// </summary>
+		private static readonly Dictionary<Guid, Dictionary<int, Glyph>> GuidGlyphMaps = new Dictionary<Guid, Dictionary<int, Glyph>>();
+		/// <summary>
+		/// Glyph mapping based on hardware specific glyphs and hardware specific input ids, found via hardware type definition.
 		/// </summary>
 		private static readonly Dictionary<HardwareDefinition, Dictionary<int, Glyph>> HardwareGlyphMaps = new Dictionary<HardwareDefinition, Dictionary<int, Glyph>>();
 		/// <summary>
@@ -39,6 +43,9 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Lookup table that matches hardware ids to what kind of glyphs should be shown.
 		/// </summary>
+		/// <remarks>
+		/// This table is not exhaustive and only contains the most common controller guids.
+		/// </remarks>
 		private static readonly Dictionary<Guid, HardwareDefinition> ControllerGuids = new Dictionary<Guid, HardwareDefinition>
 		{
 			{ new Guid("d74a350e-fe8b-4e9e-bbcd-efff16d34115"), HardwareDefinition.Xbox }, // Xbox 360
@@ -69,18 +76,25 @@ namespace LMirman.RewiredGlyphs
 
 		public static void LoadGlyphCollection(GlyphCollection collection)
 		{
+			// Create guid glyph lookup
+			GuidGlyphMaps.Clear();
+			foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
+			{
+				GuidGlyphMaps[guidEntry.GuidValue] = guidEntry.glyphMap.CreateDictionary();
+			}
+
 			// Create hardware glyph lookup
 			HardwareGlyphMaps.Clear();
 			foreach (GlyphCollection.HardwareEntry entry in collection.HardwareMaps)
 			{
-				HardwareGlyphMaps[entry.controllerType] = entry.glyphMap.CreateDictionary();
+				HardwareGlyphMaps[entry.hardwareDefinition] = entry.glyphMap.CreateDictionary();
 			}
 
 			// Create template glyph lookup
 			TemplateGlyphMaps.Clear();
 			foreach (GlyphCollection.TemplateEntry entry in collection.TemplateMaps)
 			{
-				TemplateGlyphMaps[entry.controllerType] = entry.glyphMap.CreateDictionary();
+				TemplateGlyphMaps[entry.symbolPreference] = entry.glyphMap.CreateDictionary();
 			}
 
 			UnboundGlyph = collection.UnboundGlyph;
@@ -225,6 +239,12 @@ namespace LMirman.RewiredGlyphs
 			// Try to retrieve a glyph that is specific to the user's controller hardware.
 			if (controller != null && PreferredSymbols == SymbolPreference.Auto)
 			{
+				glyph = GetGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
+				if (glyph != null)
+				{
+					return glyph;
+				}
+
 				HardwareDefinition controllerType = GetHardwareDefinition(controller);
 				glyph = GetGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
 				if (glyph != null)
@@ -313,11 +333,25 @@ namespace LMirman.RewiredGlyphs
 
 		#region Internal Use
 		/// <summary>
-		/// Retrieve a glyph for this element id that belongs to a specific hardware setup.
+		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid.
+		/// </summary>
+		/// <param name="hardwareGuid">The hardware guid that the <see cref="elementID"/> maps to</param>
+		/// <param name="elementID">The element input id to get a glyph for</param>
+		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		[CanBeNull]
+		private static Glyph GetGlyphFromGuidMap(Guid hardwareGuid, int elementID)
+		{
+			bool hasGuidGlyphMap = GuidGlyphMaps.TryGetValue(hardwareGuid, out Dictionary<int, Glyph> value);
+			return hasGuidGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
+		}
+
+		/// <summary>
+		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware type.
 		/// </summary>
 		/// <param name="controller">The hardware type that the <see cref="elementID"/> maps to</param>
 		/// <param name="elementID">The element input id to get a glyph for</param>
 		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		[CanBeNull]
 		private static Glyph GetGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
 		{
 			bool hasHardwareGlyphMap = HardwareGlyphMaps.TryGetValue(controller, out Dictionary<int, Glyph> value);
@@ -379,9 +413,9 @@ namespace LMirman.RewiredGlyphs
 
 			return FallbackGlyphs[name];
 		}
-		
+
 		private static readonly List<ActionElementMap> MapLookupResults = new List<ActionElementMap>();
-		
+
 		/// <summary>
 		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
 		/// </summary>

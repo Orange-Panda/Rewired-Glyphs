@@ -31,6 +31,15 @@ namespace LMirman.RewiredGlyphs
 					collection.NullGlyph,
 					collection.UnboundGlyph
 				};
+				foreach (GlyphCollection.GuidEntry hardwareEntry in collection.GuidMaps)
+				{
+					EditorUtility.SetDirty(hardwareEntry.glyphMap);
+					foreach (Glyph glyph in hardwareEntry.glyphMap.Glyphs)
+					{
+						glyphs.Add(glyph);
+					}
+				}
+
 				foreach (GlyphCollection.HardwareEntry hardwareEntry in collection.HardwareMaps)
 				{
 					EditorUtility.SetDirty(hardwareEntry.glyphMap);
