@@ -6,16 +6,23 @@
   "hideInEditor": true,
   "keywords": [
     "input",
-	"TextMeshPro",
-	"ugui",
-	"ui",
-	"Unity UI"
+    "TextMeshPro",
+    "ugui",
+    "ui",
+    "Unity UI"
   ],
   "author": {
     "name": "Luke Mirman",
     "url": "http://lukemirman.com/"
   },
   "dependencies": {
-
-  }
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "samples": [
+    {
+      "displayName": "Kenney Default Glyphs",
+      "description": "Contains default glyph sprite sheets and mappings for the sprite sheets.\n\nThe icons used are public domain attributed to Kenney assets. For more information and licensing info refer to https://kenney.nl/assets/input-prompts-pixel-16",
+      "path": "Samples~/Default Glyphs"
+    }
+  ]
 }
