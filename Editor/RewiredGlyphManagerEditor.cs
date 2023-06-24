@@ -108,6 +108,8 @@ namespace LMirman.RewiredGlyphs
 				{
 					EditorUtility.SetDirty(templateEntry.glyphMap);
 				}
+
+				EditorUtility.SetDirty(collection);
 			}
 		}
 
