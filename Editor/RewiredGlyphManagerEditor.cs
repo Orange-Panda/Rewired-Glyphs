@@ -31,10 +31,9 @@ namespace LMirman.RewiredGlyphs
 					collection.NullGlyph,
 					collection.UnboundGlyph
 				};
-				foreach (GlyphCollection.GuidEntry hardwareEntry in collection.GuidMaps)
+				foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
 				{
-					EditorUtility.SetDirty(hardwareEntry.glyphMap);
-					foreach (Glyph glyph in hardwareEntry.glyphMap.Glyphs)
+					foreach (Glyph glyph in guidEntry.glyphMap.Glyphs)
 					{
 						glyphs.Add(glyph);
 					}
@@ -42,7 +41,6 @@ namespace LMirman.RewiredGlyphs
 
 				foreach (GlyphCollection.HardwareEntry hardwareEntry in collection.HardwareMaps)
 				{
-					EditorUtility.SetDirty(hardwareEntry.glyphMap);
 					foreach (Glyph glyph in hardwareEntry.glyphMap.Glyphs)
 					{
 						glyphs.Add(glyph);
@@ -51,7 +49,6 @@ namespace LMirman.RewiredGlyphs
 
 				foreach (GlyphCollection.TemplateEntry templateEntry in collection.TemplateMaps)
 				{
-					EditorUtility.SetDirty(templateEntry.glyphMap);
 					foreach (Glyph glyph in templateEntry.glyphMap.Glyphs)
 					{
 						glyphs.Add(glyph);
@@ -94,6 +91,22 @@ namespace LMirman.RewiredGlyphs
 					{
 						glyph.TextMeshSpriteSheetName = spriteSheetOutput.spriteAssetName;
 					}
+				}
+
+				// Set assets as dirty
+				foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
+				{
+					EditorUtility.SetDirty(guidEntry.glyphMap);
+				}
+
+				foreach (GlyphCollection.HardwareEntry hardwareEntry in collection.HardwareMaps)
+				{
+					EditorUtility.SetDirty(hardwareEntry.glyphMap);
+				}
+
+				foreach (GlyphCollection.TemplateEntry templateEntry in collection.TemplateMaps)
+				{
+					EditorUtility.SetDirty(templateEntry.glyphMap);
 				}
 			}
 		}
