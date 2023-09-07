@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace LMirman.RewiredGlyphs
 {
@@ -48,6 +48,11 @@ namespace LMirman.RewiredGlyphs
 			{
 				glyphs.DeleteArrayElementAtIndex(requestDeleteAt);
 				requestDeleteAt = -1;
+			}
+
+			if (GUILayout.Button("Insert New Element"))
+			{
+				glyphs.InsertArrayElementAtIndex(glyphs.arraySize);
 			}
 
 			glyphs.serializedObject.ApplyModifiedProperties();
