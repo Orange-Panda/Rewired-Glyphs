@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using Rewired;
+using System.Collections;
 using UnityEngine;
 
 namespace LMirman.RewiredGlyphs.Components
@@ -30,12 +31,56 @@ namespace LMirman.RewiredGlyphs.Components
 		public int ActionID { get; protected set; }
 		public Pole PoleValue { get; protected set; }
 
+		private bool hasSetValues;
+
 		public abstract void SetGlyph(Glyph glyph, AxisRange axisRange);
 
 		protected virtual void Awake()
 		{
+			if (!ReInput.isReady)
+			{
+				StartCoroutine(InitializeWhenReady());
+			}
+			else
+			{
+				InitializeValues();
+			}
+		}
+
+		protected virtual IEnumerator InitializeWhenReady()
+		{
+			while (!ReInput.isReady)
+			{
+				yield return null;
+			}
+
+			InitializeValues();
+
+			// We must update the glyph manually since OnEnable has likely already occurred.
+			// We don't do it in InitializeValues() since that method may be called in Awake
+			UpdateGlyph();
+		}
+
+		protected virtual IEnumerator SetTargetWhenReady(string newActionName, Pole newPole)
+		{
+			while (!ReInput.isReady)
+			{
+				yield return null;
+			}
+
+			SetTarget(ReInput.mapping.GetActionId(newActionName), newPole);
+		}
+
+		protected virtual void InitializeValues(bool forced = false)
+		{
+			if (!forced && hasSetValues)
+			{
+				return;
+			}
+
 			ActionID = useActionID ? actionID : ReInput.mapping.GetActionId(actionName);
 			PoleValue = pole;
+			hasSetValues = true;
 		}
 
 		protected virtual void OnEnable()
@@ -57,7 +102,8 @@ namespace LMirman.RewiredGlyphs.Components
 		[ContextMenu("Update Glyph")]
 		public void UpdateGlyph()
 		{
-			Glyph glyph = InputGlyphs.GetCurrentGlyph(ActionID, PoleValue, out AxisRange axisRange, playerIndex);
+			AxisRange axisRange = AxisRange.Full;
+			Glyph glyph = hasSetValues ? InputGlyphs.GetCurrentGlyph(ActionID, PoleValue, out axisRange, playerIndex) : InputGlyphs.UninitializedGlyph;
 			SetGlyph(glyph, axisRange);
 		}
 
@@ -68,9 +114,16 @@ namespace LMirman.RewiredGlyphs.Components
 		/// <param name="newPole">The direction of input to represent. In most cases should be positive unless it represents a dual-axis input (i.e move left instead move right)</param>
 		public void SetTarget(string newActionName, Pole newPole)
 		{
-			ActionID = ReInput.mapping.GetActionId(newActionName);
-			PoleValue = newPole;
-			UpdateGlyph();
+			if (ReInput.isReady)
+			{
+				StopAllCoroutines();
+				SetTarget(ReInput.mapping.GetActionId(newActionName), newPole);
+			}
+			else
+			{
+				StopAllCoroutines();
+				StartCoroutine(SetTargetWhenReady(newActionName, newPole));
+			}
 		}
 
 		/// <summary>
@@ -82,6 +135,7 @@ namespace LMirman.RewiredGlyphs.Components
 		{
 			ActionID = newActionID;
 			PoleValue = newPole;
+			hasSetValues = true;
 			UpdateGlyph();
 		}
 	}

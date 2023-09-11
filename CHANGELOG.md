@@ -12,7 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Fixed incorrect Dualsense and Dualshock 4 glyph map in package sample
   - Requires reimporting sample to fix
 - Fixed some calls being made to Rewired when it is not active
-- Fixed glyph system cache referencing null players when input manager is restarted
+- Fixed glyph system cache referencing null players when input manager is quit or restarted
+- Fixed glyph display never initializing action id if Reinput system was not ready on Awake
+- Fixed rebuilds not sometimes not occuring on later glyph displays if an exception occured in an earlier glyph display
 
 ## [1.0.1] - 2023-06-23
 
