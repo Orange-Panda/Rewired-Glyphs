@@ -81,7 +81,7 @@ namespace LMirman.RewiredGlyphs
 			}
 		}
 
-		private bool IsKeyboardMouse(HardwareDefinition type)
+		private static bool IsKeyboardMouse(HardwareDefinition type)
 		{
 			return type == HardwareDefinition.Mouse || type == HardwareDefinition.Keyboard;
 		}

@@ -38,6 +38,10 @@ namespace LMirman.RewiredGlyphs
 		[Tooltip("The glyph to be shown if the action does not exist, usually as a result of an invalid action id query.")]
 		[SerializeField]
 		private Glyph nullGlyph;
+		[Space]
+		[Tooltip("The glyph to be shown if the input system is not ready to show input icons, usually due to edit mode query or inactive input system")]
+		[SerializeField]
+		private Glyph uninitializedGlyph;
 
 		/// <summary>
 		/// Maps that associate glyphs with action ids of hardware with a specific guid.
@@ -59,6 +63,10 @@ namespace LMirman.RewiredGlyphs
 		/// The glyph to be shown if the action does not exist, usually as a result of an invalid action id query.
 		/// </summary>
 		public Glyph NullGlyph => nullGlyph;
+		/// <summary>
+		/// The glyph to be shown if the input system is not ready to show input icons, usually due to edit mode query or inactive input system
+		/// </summary>
+		public Glyph UninitializedGlyph => uninitializedGlyph;
 
 		/// <summary>
 		/// A hardware entry associates a glyph map with specific hardware action ids.

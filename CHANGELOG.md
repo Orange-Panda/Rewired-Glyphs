@@ -3,6 +3,17 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2023-09-11
+
+### Added
+- Added support for inserting new glyph definitions to glyph map in editor
+
+### Fixed
+- Fixed incorrect Dualsense and Dualshock 4 glyph map in package sample
+  - Requires reimporting sample to fix
+- Fixed some calls being made to Rewired when it is not active
+- Fixed glyph system cache referencing null players when input manager is restarted
+
 ## [1.0.1] - 2023-06-23
 
 ### Fixed

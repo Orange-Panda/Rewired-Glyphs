@@ -59,10 +59,12 @@ namespace LMirman.RewiredGlyphs
 			{ new Guid("7bf3154b-9db8-4d52-950f-cd0eed8a5819"), HardwareDefinition.NintendoSwitch } // Pro controller
 		};
 
-		public static Glyph NullGlyph { get; private set; }
-		public static Glyph UnboundGlyph { get; private set; }
+		public static Glyph NullGlyph { get; private set; } = new Glyph("Null");
+		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound");
+		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized");
 		public static HardwarePreference PreferredHardware { get; private set; } = HardwarePreference.Auto;
 		public static SymbolPreference PreferredSymbols { get; private set; } = SymbolPreference.Auto;
+		private static bool CanRetrieveGlyph => Application.isPlaying && ReInput.isReady;
 
 		/// <summary>
 		/// An event that is invoked when the output of the input glyph may have changed.
@@ -73,6 +75,23 @@ namespace LMirman.RewiredGlyphs
 		/// As such this event gives the opportunity for others to update the glyph output without having to query the InputGlyphs system every frame. 
 		/// </remarks>
 		public static event Action RebuildGlyphs = delegate { };
+
+		static InputGlyphs()
+		{
+			ReInput.InitializedEvent += ReInputOnInitializedEvent;
+			ReInput.ShutDownEvent += ReInputOnShutDownEvent;
+		}
+
+		private static void ReInputOnInitializedEvent()
+		{
+			FlushPlayersCache();
+			glyphsDirty = true;
+		}
+
+		private static void ReInputOnShutDownEvent()
+		{
+			FlushPlayersCache();
+		}
 
 		public static void LoadGlyphCollection(GlyphCollection collection)
 		{
@@ -97,6 +116,7 @@ namespace LMirman.RewiredGlyphs
 				TemplateGlyphMaps[entry.symbolPreference] = entry.glyphMap.CreateDictionary();
 			}
 
+			UninitializedGlyph = collection.UninitializedGlyph;
 			UnboundGlyph = collection.UnboundGlyph;
 			NullGlyph = collection.NullGlyph;
 			MarkGlyphsDirty();
@@ -117,7 +137,13 @@ namespace LMirman.RewiredGlyphs
 		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
 		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
 		{
-			return GetPlayer(playerIndex).GetCurrentGlyph(actionID, pole, out axisRange);
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetCurrentGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
 		}
 
 		/// <summary>
@@ -125,6 +151,12 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		public static Glyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
 		{
+			if (!CanRetrieveGlyph)
+			{
+				axisRange = AxisRange.Full;
+				return UninitializedGlyph;
+			}
+			
 			Controller last = player.controllers.GetLastActiveController();
 
 			// Force a particular mode if the user preferences say so
@@ -170,7 +202,13 @@ namespace LMirman.RewiredGlyphs
 		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
 		public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
 		{
-			return GetPlayer(playerIndex).GetKeyboardMouseGlyph(actionID, pole, out axisRange);
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
 		}
 
 		/// <summary>
@@ -179,6 +217,12 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
 		{
+			if (!CanRetrieveGlyph)
+			{
+				axisRange = AxisRange.Full;
+				return UninitializedGlyph;
+			}
+			
 			axisRange = AxisRange.Full;
 			InputAction action = ReInput.mapping.GetAction(actionID);
 			if (action == null)
@@ -208,7 +252,13 @@ namespace LMirman.RewiredGlyphs
 		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange)"/>
 		public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0)
 		{
-			return GetPlayer(playerIndex).GetJoystickGlyph(actionID, controller, pole, out axisRange);
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetJoystickGlyph(actionID, controller, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
 		}
 
 		/// <summary>
@@ -216,6 +266,12 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange)
 		{
+			if (!CanRetrieveGlyph)
+			{
+				axisRange = AxisRange.Full;
+				return UninitializedGlyph;
+			}
+			
 			// Initialize variables
 			Glyph glyph;
 			axisRange = AxisRange.Full;
@@ -278,7 +334,7 @@ namespace LMirman.RewiredGlyphs
 		/// </returns>
 		public static HardwareDefinition GetHardwareDefinition(Controller controller)
 		{
-			if (controller == null)
+			if (!CanRetrieveGlyph || controller == null)
 			{
 				return HardwareDefinition.Unknown;
 			}
@@ -296,21 +352,6 @@ namespace LMirman.RewiredGlyphs
 		public static void FlushPlayersCache()
 		{
 			Players.Clear();
-		}
-
-		/// <summary>
-		/// Retrieve a cached player reference from <see cref="ReInput"/>.
-		/// </summary>
-		private static Player GetPlayer(int index)
-		{
-			if (!Players.TryGetValue(index, out Player player) || player == null)
-			{
-				player = ReInput.players.GetPlayer(index);
-				Players.Add(index, player);
-				return player;
-			}
-
-			return player;
 		}
 
 		public static void MarkGlyphsDirty()
@@ -332,6 +373,28 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		#region Internal Use
+		/// <summary>
+		/// Retrieve a cached player reference from <see cref="ReInput"/>.
+		/// </summary>
+		private static bool TryGetPlayer(int index, out Player player)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				player = null;
+				return false;
+			}
+
+			if (!Players.TryGetValue(index, out player) || player == null)
+			{
+				player = ReInput.players.GetPlayer(index);
+				Players.Add(index, player);
+				return true;
+			}
+
+			player = null;
+			return false;
+		}
+
 		/// <summary>
 		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid.
 		/// </summary>
