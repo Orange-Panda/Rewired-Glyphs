@@ -384,15 +384,19 @@ namespace LMirman.RewiredGlyphs
 				return false;
 			}
 
-			if (!Players.TryGetValue(index, out player) || player == null)
+			if (Players.TryGetValue(index, out player) && player != null)
 			{
-				player = ReInput.players.GetPlayer(index);
-				Players.Add(index, player);
 				return true;
 			}
 
-			player = null;
-			return false;
+			player = ReInput.players.GetPlayer(index);
+			if (player == null)
+			{
+				return false;
+			}
+
+			Players.Add(index, player);
+			return true;
 		}
 
 		/// <summary>
