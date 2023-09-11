@@ -156,7 +156,7 @@ namespace LMirman.RewiredGlyphs
 				axisRange = AxisRange.Full;
 				return UninitializedGlyph;
 			}
-			
+
 			Controller last = player.controllers.GetLastActiveController();
 
 			// Force a particular mode if the user preferences say so
@@ -222,7 +222,7 @@ namespace LMirman.RewiredGlyphs
 				axisRange = AxisRange.Full;
 				return UninitializedGlyph;
 			}
-			
+
 			axisRange = AxisRange.Full;
 			InputAction action = ReInput.mapping.GetAction(actionID);
 			if (action == null)
@@ -271,7 +271,7 @@ namespace LMirman.RewiredGlyphs
 				axisRange = AxisRange.Full;
 				return UninitializedGlyph;
 			}
-			
+
 			// Initialize variables
 			Glyph glyph;
 			axisRange = AxisRange.Full;
@@ -365,11 +365,26 @@ namespace LMirman.RewiredGlyphs
 		/// <param name="forceRebuild">When true will rebuild regardless of the value of <see cref="glyphsDirty"/>. When false will only rebuild if glyphs are dirty.</param>
 		public static void InvokeRebuild(bool forceRebuild = false)
 		{
-			if (glyphsDirty || forceRebuild)
+			if (!glyphsDirty && !forceRebuild)
 			{
-				RebuildGlyphs.Invoke();
-				glyphsDirty = false;
+				return;
 			}
+
+			foreach (Delegate evaluateDelegate in RebuildGlyphs.GetInvocationList())
+			{
+				try
+				{
+					evaluateDelegate.DynamicInvoke();
+				}
+				catch (Exception e)
+				{
+#if UNITY_EDITOR
+					Debug.LogException(e);
+#endif
+				}
+			}
+
+			glyphsDirty = false;
 		}
 
 		#region Internal Use
