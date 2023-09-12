@@ -1,4 +1,5 @@
-using Rewired;
+using JetBrains.Annotations;
+using Rewired.Data;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,11 @@ namespace LMirman.RewiredGlyphs
 	[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Map")]
 	public class GlyphMap : ScriptableObject
 	{
+		[SerializeField, UsedImplicitly]
+		private ControllerDataFiles controllerDataFiles;
+		[SerializeField, UsedImplicitly]
+		private string controllerGuid;
+
 		[SerializeField]
 		private Glyph[] glyphs = Array.Empty<Glyph>();
 
@@ -26,32 +32,6 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			return lookup;
-		}
-
-		[ContextMenu("Generate Mouse")]
-		private void GenerateMouse()
-		{
-			List<Glyph> newGlyphs = new List<Glyph>();
-			Mouse mouse = ReInput.controllers.Mouse;
-			foreach (ControllerElementIdentifier element in mouse.ElementIdentifiers)
-			{
-				newGlyphs.Add(new Glyph(element.id, element.name, null));
-			}
-
-			glyphs = newGlyphs.ToArray();
-		}
-
-		[ContextMenu("Generate Keyboard")]
-		private void GenerateKeyboard()
-		{
-			List<Glyph> newGlyphs = new List<Glyph>();
-			Keyboard keyboard = ReInput.controllers.Keyboard;
-			foreach (ControllerElementIdentifier element in keyboard.ElementIdentifiers)
-			{
-				newGlyphs.Add(new Glyph(element.id, element.name, null));
-			}
-
-			glyphs = newGlyphs.ToArray();
 		}
 	}
 }

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Added descriptions for `Positive` and `Negative` axis range on Glyph
   - If you have created custom components you are encouraged to use `GetDescription()` instead of the now obsolete ~~`Description`~~
+- Added a brand new `Glyph Map` Editor
+  - Quickly generate a glyph map based on your project's Rewired controller maps
 
 ## [1.1.0] - 2023-09-11
 
