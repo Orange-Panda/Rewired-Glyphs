@@ -5,7 +5,7 @@ using UnityEngine;
 namespace LMirman.RewiredGlyphs.Components
 {
 	/// <summary>
-	/// A <see cref="GlyphDisplay"/> element that will set it's <see cref="textMesh"/> component to the <see cref="GlyphDisplay.actionName"/>'s <see cref="Glyph.Description"/>
+	/// A <see cref="GlyphDisplay"/> element that will set it's <see cref="textMesh"/> component to the <see cref="GlyphDisplay.actionName"/>'s <see cref="Glyph.GetDescription"/>
 	/// </summary>
 	[AddComponentMenu("Rewired Glyphs/Text Output")]
 	[RequireComponent(typeof(TMP_Text))]
@@ -21,7 +21,7 @@ namespace LMirman.RewiredGlyphs.Components
 
 		public override void SetGlyph(Glyph glyph, AxisRange axisRange)
 		{
-			textMesh.text = glyph.Description;
+			textMesh.text = glyph.GetDescription(axisRange);
 		}
 	}
 }

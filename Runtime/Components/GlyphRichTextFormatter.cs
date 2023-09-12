@@ -152,7 +152,7 @@ namespace LMirman.RewiredGlyphs.Components
 					}
 					else
 					{
-						Output.Replace(match.Groups[0].Value, $"[{glyph.Description}]");
+						Output.Replace(match.Groups[0].Value, $"[{glyph.GetDescription(axisRange)}]");
 					}
 				}
 			}

@@ -14,9 +14,15 @@ namespace LMirman.RewiredGlyphs
 		/// <inheritdoc cref="InputID"/>
 		[SerializeField]
 		private int inputID;
-		/// <inheritdoc cref="Description"/>
+		/// <inheritdoc cref="FullDescription"/>
 		[SerializeField]
 		private string description;
+		/// <inheritdoc cref="PositiveDescription"/>
+		[SerializeField]
+		private string positiveDescription;
+		/// <inheritdoc cref="NegativeDescription"/>
+		[SerializeField]
+		private string negativeDescription;
 		/// <inheritdoc cref="Sprite"/>
 		[SerializeField]
 		private Sprite sprite;
@@ -39,26 +45,65 @@ namespace LMirman.RewiredGlyphs
 		/// </remarks>
 		public int InputID => inputID;
 		/// <summary>
-		/// Description of the input on the device.
+		/// Deprecated description of the input that formerly represent an absolute description of the Glyph.
+		/// Superseded by <see cref="GetDescription"/> and <see cref="FullDescription"/>.
 		/// </summary>
+		/// <seealso cref="GetDescription"/><seealso cref="FullDescription"/>.
+		[Obsolete("Description is obsolete since it does not represent a particular axis. Use GetDescription(AxisRange) to get a dynamic description or FullDescription to explicitly get the AxisRange.Full description.")]
 		public string Description => description;
 		/// <summary>
-		/// Get the sprite for the <see cref="AxisRange.Full"/>
+		/// The description of this input for the device for the <see cref="AxisRange.Full"/> axis.
 		/// </summary>
+		/// <remarks>
+		/// You should usually use <see cref="GetDescription"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetDescription"/>
+		public string FullDescription => description;
+		/// <summary>
+		/// The description of this input for the device for the <see cref="AxisRange.Positive"/> axis.
+		/// </summary>
+		/// <remarks>
+		/// Does not fallback to <see cref="FullDescription"/> unlike <see cref="GetDescription"/>.<br/><br/>
+		/// You should usually use <see cref="GetDescription"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetDescription"/>
+		public string PositiveDescription => positiveDescription;
+		/// <summary>
+		/// The description of this input for the device for the <see cref="AxisRange.Negative"/> axis.
+		/// </summary>
+		/// <remarks>
+		/// Does not fallback to <see cref="FullDescription"/> unlike <see cref="GetDescription"/>.<br/><br/>
+		/// You should usually use <see cref="GetDescription"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetDescription"/>
+		public string NegativeDescription => negativeDescription;
+		/// <summary>
+		/// The sprite representing this input for the <see cref="AxisRange.Full"/> axis.
+		/// </summary>
+		/// <remarks>
+		/// You should usually use <see cref="GetSprite"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetSprite"/>
 		public Sprite FullSprite => sprite;
 		/// <summary>
-		/// Explicitly get the sprite for the <see cref="AxisRange.Positive"/>.
+		/// The sprite representing this input for the <see cref="AxisRange.Positive"/> axis.
 		/// </summary>
 		/// <remarks>
-		/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>. Will be null if <see cref="positiveSprite"/> is undefined.
+		/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>.
+		/// Will be null if <see cref="positiveSprite"/> is undefined.<br/><br/>
+		/// You should usually use <see cref="GetSprite"/> instead.
 		/// </remarks>
+		/// <seealso cref="GetSprite"/>
 		public Sprite PositiveSprite => positiveSprite;
 		/// <summary>
-		/// Explicitly get the sprite for the <see cref="AxisRange.Negative"/>.
+		/// The sprite representing this input for the <see cref="AxisRange.Negative"/> axis.
 		/// </summary>
 		/// <remarks>
-		/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>. Will be null if <see cref="negativeSprite"/> is undefined.
+		/// Does not fallback to <see cref="FullSprite"/> unlike <see cref="GetSprite"/>.
+		/// Will be null if <see cref="negativeSprite"/> is undefined.<br/><br/>
+		/// You should usually use <see cref="GetSprite"/> instead.
 		/// </remarks>
+		/// <seealso cref="GetSprite"/>
 		public Sprite NegativeSprite => negativeSprite;
 		/// <summary>
 		/// The name of the text mesh sprite sheet that contains the sprites for this glyph.
@@ -77,10 +122,30 @@ namespace LMirman.RewiredGlyphs
 		public bool PreferDescription { get; set; }
 
 		/// <summary>
+		/// Get the description for a particular input direction.
+		/// </summary>
+		/// <param name="axis">The direction of input.</param>
+		/// <returns>The description defined for the <see cref="AxisRange"/> or the <see cref="AxisRange.Full"/> if one is not found for the positive or negative direction.</returns>
+		public string GetDescription(AxisRange axis)
+		{
+			switch (axis)
+			{
+				case AxisRange.Full:
+					return description;
+				case AxisRange.Positive:
+					return string.IsNullOrWhiteSpace(positiveDescription) ? positiveDescription : description;
+				case AxisRange.Negative:
+					return string.IsNullOrWhiteSpace(negativeDescription) ? negativeDescription : description;
+				default:
+					return description;
+			}
+		}
+
+		/// <summary>
 		/// Get the sprite for a particular input direction.
 		/// </summary>
 		/// <param name="axis">The direction of input.</param>
-		/// <returns>The sprite define for the <see cref="AxisRange"/> or the <see cref="AxisRange.Full"/> if one is not found for the positive or negative direction.</returns>
+		/// <returns>The sprite defined for the <see cref="AxisRange"/> or the <see cref="AxisRange.Full"/> if one is not found for the positive or negative direction.</returns>
 		public Sprite GetSprite(AxisRange axis)
 		{
 			switch (axis)
