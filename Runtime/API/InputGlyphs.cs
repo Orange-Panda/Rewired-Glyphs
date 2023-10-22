@@ -59,10 +59,40 @@ namespace LMirman.RewiredGlyphs
 			{ new Guid("7bf3154b-9db8-4d52-950f-cd0eed8a5819"), HardwareDefinition.NintendoSwitch } // Pro controller
 		};
 
+		/// <summary>
+		/// Glyph representing an action that is invalid.
+		/// Most commonly occurs due an invalid action name or action id.
+		/// </summary>
+		/// <remarks>
+		/// Remedied by correcting the glyph display's target value
+		/// </remarks>
 		public static Glyph NullGlyph { get; private set; } = new Glyph("Null");
+		/// <summary>
+		/// Glyph representing an action that does not have an input assigned.
+		/// </summary>
+		/// <remarks>
+		/// Remedied by assigning an input to the action either in the Rewired Input Manager at editor time or a control remapping tool at runtime.
+		/// </remarks>
 		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound");
+		/// <summary>
+		/// Glyph representing a query that occured before the InputGlyphs system was ready.
+		/// </summary>
+		/// <remarks>
+		/// Remedied by ensuring the presence of a <see cref="RewiredGlyphManager"/> component on the Rewired Input Manager prefab.<br/><br/>
+		/// The rewired glyph system is initialized in Awake.
+		/// Depending on script execution order your display may query before the glyph system is ready.
+		/// The safest approach is to query in OnEnable or Start.
+		/// </remarks>
 		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized");
+		/// <summary>
+		/// The preferred hardware (Controller or Mouse/Keyboard) to display in <see cref="GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// </summary>
+		/// <seealso cref="SetGlyphPreferences"/>
 		public static HardwarePreference PreferredHardware { get; private set; } = HardwarePreference.Auto;
+		/// <summary>
+		/// The preferred symbols to display for gamepad glyphs.
+		/// </summary>
+		/// <seealso cref="SetGlyphPreferences"/>
 		public static SymbolPreference PreferredSymbols { get; private set; } = SymbolPreference.Auto;
 		private static bool CanRetrieveGlyph => Application.isPlaying && ReInput.isReady;
 
@@ -93,6 +123,15 @@ namespace LMirman.RewiredGlyphs
 			FlushPlayersCache();
 		}
 
+		/// <summary>
+		/// Reinitialize the InputGlyphs system with a new <see cref="GlyphCollection"/>.
+		/// </summary>
+		/// <remarks>
+		/// Unloads all glyph maps and glyph definitions, replacing them with the provided data from the provided <see cref="GlyphCollection"/>.<br/><br/>
+		/// Usage of this method is not necessary unless you wish to intentionally change the glyphs displayed due to special circumstances in your application.
+		/// Such cases may be unique glyphs for a particular environment, team, or faction.<br/><br/>
+		/// Automatically called in Awake by <see cref="RewiredGlyphManager"/>.
+		/// </remarks>
 		public static void LoadGlyphCollection(GlyphCollection collection)
 		{
 			// Create guid glyph lookup
@@ -212,9 +251,11 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		/// <summary>
-		/// Get the InputGlyph that represents the input action on the Keyboard/Mouse.
-		/// If an action is present on both devices, precedence is given to the mouse device.
+		/// Get the InputGlyph that represents the input action on the user's Mouse or Keyboard.
 		/// </summary>
+		/// <remarks>
+		/// If an input is present on both the keyboard and mouse, precedence is given to the mouse. 
+		/// </remarks>
 		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
 		{
 			if (!CanRetrieveGlyph)
@@ -354,6 +395,13 @@ namespace LMirman.RewiredGlyphs
 			Players.Clear();
 		}
 
+		/// <summary>
+		/// Notify the glyph system that input state has changed and glyphs should be reevaluated.
+		/// </summary>
+		/// <remarks>
+		/// For performance reasons the input glyph system only evaluates glyphs when it believes the output has changed such as a player using a different input device.
+		/// By default however, the InputGlyph system is unaware of changes such as control remapping and needs to be manually informed of such changes using this method. 
+		/// </remarks>
 		public static void MarkGlyphsDirty()
 		{
 			glyphsDirty = true;
