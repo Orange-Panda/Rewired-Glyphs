@@ -276,15 +276,97 @@ namespace LMirman.RewiredGlyphs
 			if (mouseMap != null)
 			{
 				axisRange = mouseMap.axisRange;
-				Glyph glyph = GetGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
 				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			if (keyboardMap != null)
 			{
 				axisRange = keyboardMap.axisRange;
-				Glyph glyph = GetGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
 				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+			}
+
+			return UnboundGlyph;
+		}
+
+		/// <inheritdoc cref="GetKeyboardGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetKeyboardGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetKeyboardGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <summary>
+		/// Get the InputGlyph that represents the input action on the user's Keyboard.
+		/// </summary>
+		public static Glyph GetKeyboardGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				axisRange = AxisRange.Full;
+				return UninitializedGlyph;
+			}
+
+			axisRange = AxisRange.Full;
+			InputAction action = ReInput.mapping.GetAction(actionID);
+			if (action == null)
+			{
+				return NullGlyph;
+			}
+
+			ActionElementMap keyboardMap = player.GetActionElementMap(ControllerType.Keyboard, action.id, pole);
+			if (keyboardMap != null)
+			{
+				axisRange = keyboardMap.axisRange;
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
+				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+			}
+
+			return UnboundGlyph;
+		}
+
+		/// <inheritdoc cref="GetMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetMouseGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <summary>
+		/// Get the InputGlyph that represents the input action on the user's Mouse.
+		/// </summary>
+		public static Glyph GetMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				axisRange = AxisRange.Full;
+				return UninitializedGlyph;
+			}
+
+			axisRange = AxisRange.Full;
+			InputAction action = ReInput.mapping.GetAction(actionID);
+			if (action == null)
+			{
+				return NullGlyph;
+			}
+
+			ActionElementMap mouseMap = player.GetActionElementMap(ControllerType.Mouse, action.id, pole);
+			if (mouseMap != null)
+			{
+				axisRange = mouseMap.axisRange;
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
+				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			return UnboundGlyph;
@@ -336,14 +418,14 @@ namespace LMirman.RewiredGlyphs
 			// Try to retrieve a glyph that is specific to the user's controller hardware.
 			if (controller != null && PreferredSymbols == SymbolPreference.Auto)
 			{
-				glyph = GetGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
+				glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
 				if (glyph != null)
 				{
 					return glyph;
 				}
 
 				HardwareDefinition controllerType = GetHardwareDefinition(controller);
-				glyph = GetGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
+				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
 				if (glyph != null)
 				{
 					return glyph;
@@ -358,7 +440,7 @@ namespace LMirman.RewiredGlyphs
 			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
 
 			// Use the template glyph if one exists.
-			glyph = GetGlyphFromTemplateMap(PreferredSymbols, templateElementId);
+			glyph = GetNativeGlyphFromTemplateMap(PreferredSymbols, templateElementId);
 			return glyph ?? GetFallbackGlyph(map.elementIdentifierName);
 		}
 
@@ -435,6 +517,65 @@ namespace LMirman.RewiredGlyphs
 			glyphsDirty = false;
 		}
 
+		#region Public Unsafe
+		/// <summary>
+		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid.
+		/// </summary>
+		/// <remarks>
+		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
+		/// You are encouraged to use <see cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int)"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// <param name="hardwareGuid">The hardware guid that the <see cref="elementID"/> maps to</param>
+		/// <param name="elementID">The element input id to get a glyph for</param>
+		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		[CanBeNull]
+		public static Glyph GetNativeGlyphFromGuidMap(Guid hardwareGuid, int elementID)
+		{
+			bool hasGuidGlyphMap = GuidGlyphMaps.TryGetValue(hardwareGuid, out Dictionary<int, Glyph> value);
+			return hasGuidGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
+		}
+
+		/// <summary>
+		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware type.
+		/// </summary>
+		/// <remarks>
+		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
+		/// You are encouraged to use <see cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int)"/> or <see cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int)"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// <seealso cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// <seealso cref="GetKeyboardGlyph(int,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// <seealso cref="GetMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// <param name="controller">The hardware type that the <see cref="elementID"/> maps to</param>
+		/// <param name="elementID">The element input id to get a glyph for</param>
+		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		[CanBeNull]
+		public static Glyph GetNativeGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
+		{
+			bool hasHardwareGlyphMap = HardwareGlyphMaps.TryGetValue(controller, out Dictionary<int, Glyph> value);
+			return hasHardwareGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
+		}
+
+		/// <summary>
+		/// Retrieve a <see cref="SymbolPreference"/> styled glyph for this <see cref="templateElementID"/> via the generic glyph mapping.
+		/// </summary>
+		/// <remarks>
+		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
+		/// You are encouraged to use <see cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int)"/> instead.
+		/// </remarks>
+		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int)"/>
+		/// <param name="symbolPreference">The preferred symbol styling to present for this template element</param>
+		/// <param name="templateElementID">The element input id to get a glyph for</param>
+		/// <returns>The found <see cref="Glyph"/> inside of a template glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
+		[CanBeNull]
+		public static Glyph GetNativeGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID)
+		{
+			bool hasTemplateGlyphMap = TemplateGlyphMaps.TryGetValue(symbolPreference, out Dictionary<int, Glyph> templateGlyphMap);
+			return hasTemplateGlyphMap && templateGlyphMap.TryGetValue(templateElementID, out Glyph glyph) ? glyph : null;
+		}
+		#endregion
+		
 		#region Internal Use
 		/// <summary>
 		/// Retrieve a cached player reference from <see cref="ReInput"/>.
@@ -460,45 +601,6 @@ namespace LMirman.RewiredGlyphs
 
 			Players.Add(index, player);
 			return true;
-		}
-
-		/// <summary>
-		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid.
-		/// </summary>
-		/// <param name="hardwareGuid">The hardware guid that the <see cref="elementID"/> maps to</param>
-		/// <param name="elementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
-		[CanBeNull]
-		private static Glyph GetGlyphFromGuidMap(Guid hardwareGuid, int elementID)
-		{
-			bool hasGuidGlyphMap = GuidGlyphMaps.TryGetValue(hardwareGuid, out Dictionary<int, Glyph> value);
-			return hasGuidGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
-		}
-
-		/// <summary>
-		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware type.
-		/// </summary>
-		/// <param name="controller">The hardware type that the <see cref="elementID"/> maps to</param>
-		/// <param name="elementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
-		[CanBeNull]
-		private static Glyph GetGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
-		{
-			bool hasHardwareGlyphMap = HardwareGlyphMaps.TryGetValue(controller, out Dictionary<int, Glyph> value);
-			return hasHardwareGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
-		}
-
-		/// <summary>
-		/// Retrieve a <see cref="SymbolPreference"/> styled glyph for this <see cref="templateElementID"/> via the generic glyph mapping.
-		/// </summary>
-		/// <param name="symbolPreference">The preferred symbol styling to present for this template element</param>
-		/// <param name="templateElementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="Glyph"/> inside of a template glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
-		[CanBeNull]
-		private static Glyph GetGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID)
-		{
-			bool hasTemplateGlyphMap = TemplateGlyphMaps.TryGetValue(symbolPreference, out Dictionary<int, Glyph> templateGlyphMap);
-			return hasTemplateGlyphMap && templateGlyphMap.TryGetValue(templateElementID, out Glyph glyph) ? glyph : null;
 		}
 
 		/// <summary>
