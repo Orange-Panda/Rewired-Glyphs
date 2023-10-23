@@ -16,6 +16,9 @@ namespace LMirman.RewiredGlyphs
 	[CustomEditor(typeof(GlyphMap))]
 	public class GlyphMapEditor : Editor
 	{
+		private bool wantsToValidateMap = true;
+		private int mapWarnings;
+		private int mapErrors;
 		private Vector2 scrollPosition;
 		private int page = 1;
 		private int PageMax => (serializedObject.FindProperty("glyphs").arraySize / PageSize) + 1;
@@ -28,6 +31,7 @@ namespace LMirman.RewiredGlyphs
 		private int requestDeleteAt = -1;
 
 		private static readonly Object[] CopiedObjects = new Object[3];
+		private static readonly HashSet<int> ExpectedIds = new HashSet<int>();
 
 		public override void OnInspectorGUI()
 		{
@@ -52,6 +56,7 @@ namespace LMirman.RewiredGlyphs
 			SerializedProperty glyphs = serializedObject.FindProperty("glyphs");
 			if (controllerDataFiles != null)
 			{
+				wantsToValidateMap = EditorGUILayout.Toggle("Validate Map", wantsToValidateMap);
 				EditorGUILayout.BeginHorizontal();
 				GUILayout.Label($"Based on: {targetName}");
 
@@ -173,9 +178,76 @@ namespace LMirman.RewiredGlyphs
 			EditorGUILayout.EndHorizontal();
 
 			scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-			for (int i = (page - 1) * PageSize; glyphs.isArray && i < glyphs.arraySize && i < page * PageSize; i++)
+			bool validateMap = wantsToValidateMap && controllerGuidProperty.stringValue != string.Empty;
+			if (validateMap)
 			{
-				DrawInputGlyph(glyphs.GetArrayElementAtIndex(i), i);
+				ExpectedIds.Clear();
+				if (hasHardwareTarget)
+				{
+					foreach (ControllerElementIdentifier identifier in hardwareTarget.ElementIdentifiers)
+					{
+						ExpectedIds.Add(identifier.id);
+					}
+				}
+				else if (hasTemplateTarget)
+				{
+					foreach (ControllerTemplateElementIdentifier identifier in templateTarget.ElementIdentifiers)
+					{
+						ExpectedIds.Add(identifier.id);
+					}
+				}
+
+				for (int i = 0; glyphs.isArray && i < glyphs.arraySize; i++)
+				{
+					SerializedProperty glyph = glyphs.GetArrayElementAtIndex(i);
+					SerializedProperty inputId = glyph.FindPropertyRelative("inputID");
+					ExpectedIds.Remove(inputId.intValue);
+				}
+
+				if (ExpectedIds.Count > 0)
+				{
+					EditorGUILayout.HelpBox($"{ExpectedIds.Count} expected element(s) from the target map are missing from this glyph map!", MessageType.Error);
+				}
+
+				// HACK: Technically these values are from the previous draw.
+				// I think it is more valuable to show this value before input glyphs though so it is here instead.
+				// This could be fixed by doing a separate pass on all the input glyphs but that feels excessive and separates the help box drawing functionality from error calculation.
+				if (mapErrors > 0)
+				{
+					EditorGUILayout.HelpBox($"{mapErrors} error(s) found in glyph map!", MessageType.Error, true);
+				}
+
+				if (mapWarnings > 0)
+				{
+					EditorGUILayout.HelpBox($"{mapWarnings} warning(s) found in glyph map!", MessageType.Warning, true);
+				}
+			}
+
+			mapErrors = 0;
+			mapWarnings = 0;
+			if (validateMap)
+			{
+				for (int i = 0; glyphs.isArray && i < glyphs.arraySize; i++)
+				{
+					bool drawGlyph = i >= (page - 1) * PageSize && i < page * PageSize;
+					ProcessInputGlyph(glyphs.GetArrayElementAtIndex(i), i, drawGlyph);
+				}
+			}
+			else
+			{
+				for (int i = (page - 1) * PageSize; glyphs.isArray && i < glyphs.arraySize && i < page * PageSize; i++)
+				{
+					bool drawGlyph = i >= (page - 1) * PageSize && i < page * PageSize;
+					ProcessInputGlyph(glyphs.GetArrayElementAtIndex(i), i, drawGlyph);
+				}
+			}
+
+			if (validateMap)
+			{
+				foreach (int expectedId in ExpectedIds)
+				{
+					EditorGUILayout.HelpBox($"Expected glyph with input id of \"{expectedId}\", but no such glyph was found!", MessageType.Error);
+				}
 			}
 
 			EditorGUILayout.EndScrollView();
@@ -214,82 +286,172 @@ namespace LMirman.RewiredGlyphs
 				hardwareMap = dataFiles != null ? dataFiles.GetHardwareJoystickMap(guid) : null;
 				return hardwareMap != null;
 			}
-		}
 
-		private void DrawInputGlyph(SerializedProperty glyph, int index)
-		{
-			SerializedProperty inputID = glyph.FindPropertyRelative("inputID");
-			SerializedProperty description = glyph.FindPropertyRelative("description");
-			SerializedProperty positiveDescription = glyph.FindPropertyRelative("positiveDescription");
-			SerializedProperty negativeDescription = glyph.FindPropertyRelative("negativeDescription");
-			SerializedProperty sprite = glyph.FindPropertyRelative("sprite");
-			SerializedProperty positiveSprite = glyph.FindPropertyRelative("positiveSprite");
-			SerializedProperty negativeSprite = glyph.FindPropertyRelative("negativeSprite");
-
-			EditorGUILayout.BeginHorizontal();
-			GUI.enabled = false;
-			EditorGUILayout.IntField(index, GUILayout.Width(32));
-			GUI.enabled = true;
-			inputID.intValue = EditorGUILayout.IntField(inputID.intValue, GUILayout.Width(32));
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Full Description", GUILayout.Width(120));
-			description.stringValue = EditorGUILayout.TextField(description.stringValue);
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Positive Description", GUILayout.Width(120));
-			positiveDescription.stringValue = EditorGUILayout.TextField(positiveDescription.stringValue);
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Negative Description", GUILayout.Width(120));
-			negativeDescription.stringValue = EditorGUILayout.TextField(negativeDescription.stringValue);
-			EditorGUILayout.EndHorizontal();
-
-			EditorGUILayout.BeginHorizontal();
-			sprite.objectReferenceValue = EditorGUILayout.ObjectField(sprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
-			negativeSprite.objectReferenceValue = EditorGUILayout.ObjectField(negativeSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
-			positiveSprite.objectReferenceValue = EditorGUILayout.ObjectField(positiveSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
-			EditorGUILayout.BeginVertical();
-			if (GUILayout.Button("Move Up"))
+			void ProcessInputGlyph(SerializedProperty glyph, int index, bool drawGlyph)
 			{
-				requestMoveUpAt = index;
-			}
+				if (!validateMap && !drawGlyph)
+				{
+					return;
+				}
 
-			if (GUILayout.Button("Move Down"))
-			{
-				requestMoveDownAt = index;
-			}
+				SerializedProperty inputID = glyph.FindPropertyRelative("inputID");
+				SerializedProperty description = glyph.FindPropertyRelative("description");
+				SerializedProperty positiveDescription = glyph.FindPropertyRelative("positiveDescription");
+				SerializedProperty negativeDescription = glyph.FindPropertyRelative("negativeDescription");
+				SerializedProperty sprite = glyph.FindPropertyRelative("sprite");
+				SerializedProperty positiveSprite = glyph.FindPropertyRelative("positiveSprite");
+				SerializedProperty negativeSprite = glyph.FindPropertyRelative("negativeSprite");
 
-			if (GUILayout.Button("Delete"))
-			{
-				requestDeleteAt = index;
-			}
+				if (validateMap)
+				{
+					try
+					{
+						ValidateMap();
+					}
+					catch (Exception e)
+					{
+						Debug.LogException(e);
+					}
+				}
 
-			if (GUILayout.Button("Copy"))
-			{
-				CopiedObjects[0] = sprite.objectReferenceValue;
-				CopiedObjects[1] = negativeSprite.objectReferenceValue;
-				CopiedObjects[2] = positiveSprite.objectReferenceValue;
-			}
+				if (!drawGlyph)
+				{
+					return;
+				}
 
-			if (GUILayout.Button("Paste"))
-			{
-				sprite.objectReferenceValue = CopiedObjects[0];
-				negativeSprite.objectReferenceValue = CopiedObjects[1];
-				positiveSprite.objectReferenceValue = CopiedObjects[2];
-			}
+				EditorGUILayout.BeginHorizontal();
+				GUI.enabled = false;
+				EditorGUILayout.IntField(index, GUILayout.Width(32));
+				GUI.enabled = true;
+				inputID.intValue = EditorGUILayout.IntField(inputID.intValue, GUILayout.Width(32));
+				EditorGUILayout.EndHorizontal();
 
-			EditorGUILayout.EndVertical();
-			EditorGUILayout.EndHorizontal();
-			EditorGUILayout.BeginHorizontal();
-			GUILayout.Label("Full", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
-			GUILayout.Label("Negative", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
-			GUILayout.Label("Positive", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
-			EditorGUILayout.EndHorizontal();
-			EditorGUILayout.Space();
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Full Description", GUILayout.Width(120));
+				description.stringValue = EditorGUILayout.TextField(description.stringValue);
+				EditorGUILayout.EndHorizontal();
+
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Positive Description", GUILayout.Width(120));
+				positiveDescription.stringValue = EditorGUILayout.TextField(positiveDescription.stringValue);
+				EditorGUILayout.EndHorizontal();
+
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Negative Description", GUILayout.Width(120));
+				negativeDescription.stringValue = EditorGUILayout.TextField(negativeDescription.stringValue);
+				EditorGUILayout.EndHorizontal();
+
+				EditorGUILayout.BeginHorizontal();
+				sprite.objectReferenceValue = EditorGUILayout.ObjectField(sprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+				negativeSprite.objectReferenceValue = EditorGUILayout.ObjectField(negativeSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+				positiveSprite.objectReferenceValue = EditorGUILayout.ObjectField(positiveSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+				EditorGUILayout.BeginVertical();
+				if (GUILayout.Button("Move Up"))
+				{
+					requestMoveUpAt = index;
+				}
+
+				if (GUILayout.Button("Move Down"))
+				{
+					requestMoveDownAt = index;
+				}
+
+				if (GUILayout.Button("Delete"))
+				{
+					requestDeleteAt = index;
+				}
+
+				if (GUILayout.Button("Copy"))
+				{
+					CopiedObjects[0] = sprite.objectReferenceValue;
+					CopiedObjects[1] = negativeSprite.objectReferenceValue;
+					CopiedObjects[2] = positiveSprite.objectReferenceValue;
+				}
+
+				if (GUILayout.Button("Paste"))
+				{
+					sprite.objectReferenceValue = CopiedObjects[0];
+					negativeSprite.objectReferenceValue = CopiedObjects[1];
+					positiveSprite.objectReferenceValue = CopiedObjects[2];
+				}
+
+				EditorGUILayout.EndVertical();
+				EditorGUILayout.EndHorizontal();
+				EditorGUILayout.BeginHorizontal();
+				GUILayout.Label("Full", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
+				GUILayout.Label("Negative", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
+				GUILayout.Label("Positive", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
+				EditorGUILayout.EndHorizontal();
+				EditorGUILayout.Space();
+
+				void ValidateMap()
+				{
+					if (!hasHardwareTarget && !hasTemplateTarget)
+					{
+						HelpBox("Glyph can't be validated due to a missing map", MessageType.Info);
+						return;
+					}
+
+					string elementName;
+					string positiveName;
+					string negativeName;
+
+					if (hasHardwareTarget)
+					{
+						ControllerElementIdentifier elementIdentifier = hardwareTarget.GetElementIdentifier(inputID.intValue);
+						if (elementIdentifier == null)
+						{
+							HelpBox($"The hardware map does not contain an action with input id {inputID.intValue}", MessageType.Error);
+							mapErrors++;
+							return;
+						}
+
+						elementName = elementIdentifier.name;
+						positiveName = elementIdentifier.positiveName;
+						negativeName = elementIdentifier.negativeName;
+					}
+					else
+					{
+						ControllerTemplateElementIdentifier elementIdentifier = templateTarget.GetElementIdentifier(inputID.intValue);
+						if (elementIdentifier == null)
+						{
+							HelpBox($"The template map does not contain an action with input id {inputID.intValue}", MessageType.Error);
+							mapErrors++;
+							return;
+						}
+
+						elementName = elementIdentifier.name;
+						positiveName = elementIdentifier.positiveName;
+						negativeName = elementIdentifier.negativeName;
+					}
+
+					if (!string.Equals(elementName, description.stringValue, StringComparison.OrdinalIgnoreCase))
+					{
+						HelpBox($"Description mismatch between target map and glyph. Expected \"{elementName}\"", MessageType.Warning);
+						mapWarnings++;
+					}
+					else if (!string.Equals(positiveName, positiveDescription.stringValue, StringComparison.OrdinalIgnoreCase))
+					{
+						HelpBox($"Positive description mismatch between target map and glyph. Expected \"{elementName}\"", MessageType.Warning);
+						mapWarnings++;
+					}
+					else if (!string.Equals(negativeName, negativeDescription.stringValue, StringComparison.OrdinalIgnoreCase))
+					{
+						HelpBox($"Negative description mismatch between target map and glyph. Expected \"{elementName}\"", MessageType.Warning);
+						mapWarnings++;
+					}
+				}
+
+				void HelpBox(string message, MessageType messageType)
+				{
+					if (!drawGlyph)
+					{
+						return;
+					}
+
+					EditorGUILayout.HelpBox(message, messageType, true);
+				}
+			}
 		}
 	}
 }
