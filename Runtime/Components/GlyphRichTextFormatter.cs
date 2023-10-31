@@ -59,6 +59,11 @@ namespace LMirman.RewiredGlyphs.Components
 
 		protected virtual void OnEnable()
 		{
+			if (lastPreformatTextHasGlyph)
+			{
+				SetFormattedText(lastPreformatText);
+			}
+
 			InputGlyphs.RebuildGlyphs += InputGlyphsOnRebuildGlyphs;
 		}
 

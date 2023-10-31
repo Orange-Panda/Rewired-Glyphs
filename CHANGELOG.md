@@ -3,7 +3,7 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.3.0] - 2023-10-30
+## [1.3.0] - 2023-10-31
 
 ### Added
 - Added `useSpritesWhenAvailable` field to `GlyphRichTextFormatter`.
@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   - Defaults to `true` which matches the behaviour of previous implementation
 - Added `descriptionFormat` field to `GlyphRichTextFormatter` which controls the way descriptions are output.
   - Defaults to `[{0}]` which matches the behaviour of previous implementation
+
+### Fixed
+- Fixed `GlyphRichTextFormatter` not having up to date glyphs if component was not enabled during glyph rebuild.
 
 ## [1.2.0] - 2023-10-22
 
