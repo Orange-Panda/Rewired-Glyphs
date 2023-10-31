@@ -27,6 +27,10 @@ namespace LMirman.RewiredGlyphs.Components
 	{
 		[Header("Update Contexts")]
 		[SerializeField]
+		[Tooltip("When enabled the text will be formatted in start.\n\n" +
+				 "This should usually be enabled unless you are setting formatted text elsewhere during initialization.")]
+		private bool formatTextOnStart = true;
+		[SerializeField]
 		[Tooltip("When enabled the text will be updated with new sprites when glyphs are rebuilt.\n\n" +
 				 "This should usually be enabled so you are always showing up to date glyphs. However, if you do not want the value of text mesh to change consider disabling this.")]
 		private bool updateTextOnRebuildGlyphs = true;
@@ -82,7 +86,10 @@ namespace LMirman.RewiredGlyphs.Components
 
 		private void Start()
 		{
-			UpdateTextFromObservedValue();
+			if (formatTextOnStart)
+			{
+				UpdateTextFromObservedValue();
+			}
 		}
 
 		private void LateUpdate()

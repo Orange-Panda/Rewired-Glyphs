@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   - Defaults to `true` which matches the behaviour of previous implementation
 - Added `descriptionFormat` field to `GlyphRichTextFormatter` which controls the way descriptions are output.
   - Defaults to `[{0}]` which matches the behaviour of previous implementation
+- Added `formatTextOnStart` field to `GlyphRichTextFormatter`
+  - Defaults to `true` which matches the behaviour of previous implementation
 
 ### Fixed
 - Fixed `GlyphRichTextFormatter` not having up to date glyphs if component was not enabled during glyph rebuild.
