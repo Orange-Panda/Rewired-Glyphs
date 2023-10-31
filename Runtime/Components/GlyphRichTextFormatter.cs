@@ -50,9 +50,6 @@ namespace LMirman.RewiredGlyphs.Components
 		private bool lastPreformatTextHasGlyph;
 		private string lastPreformatText;
 
-		private static readonly StringBuilder Output = new StringBuilder();
-		private static readonly Regex GlyphRegex = new Regex("<glyph ([^>|^<]*)>", RegexOptions.IgnoreCase);
-
 		public TMP_Text TextMesh => textMesh;
 
 		private void Awake()
@@ -80,19 +77,20 @@ namespace LMirman.RewiredGlyphs.Components
 
 		private void Start()
 		{
-			AutoUpdateText();
+			UpdateTextFromObservedValue();
 		}
 
 		private void LateUpdate()
 		{
 			if (automaticallyCheckForTextChanges)
 			{
-				AutoUpdateText();
+				UpdateTextFromObservedValue();
 			}
 		}
 
-		private void AutoUpdateText()
+		private void UpdateTextFromObservedValue()
 		{
+			// Don't set formatted text if it is deemed identical to the last formatted text.
 			int hashCode = textMesh.text.GetHashCode();
 			if (hashCode == lastHashCode)
 			{
@@ -115,6 +113,10 @@ namespace LMirman.RewiredGlyphs.Components
 			textMesh.SetText(textToSet);
 			lastHashCode = textToSet.GetHashCode();
 		}
+
+		#region Static
+		private static readonly StringBuilder Output = new StringBuilder();
+		private static readonly Regex GlyphRegex = new Regex("<glyph ([^>|^<]*)>", RegexOptions.IgnoreCase);
 
 		/// <summary>
 		/// Replace glyph rich text such as &lt;glyph "Jump"&gt; in the provided <paramref name="text"/> with a sprite or description for its corresponding Glyph in the Rewired Glyph system.
@@ -181,5 +183,6 @@ namespace LMirman.RewiredGlyphs.Components
 
 			return Output.ToString();
 		}
+		#endregion
 	}
 }
