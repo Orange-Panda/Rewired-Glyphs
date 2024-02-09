@@ -124,7 +124,7 @@ namespace LMirman.RewiredGlyphs
 		/// What this Glyph is intended to represent at runtime.
 		/// </summary>
 		/// <seealso cref="Type"/>
-		public Type GlyphType { get; private set; }
+		public Type GlyphType { get; internal set; }
 		/// <summary>
 		/// True when <see cref="GlyphType"/> is <see cref="Type.Input"/>.
 		/// </summary>

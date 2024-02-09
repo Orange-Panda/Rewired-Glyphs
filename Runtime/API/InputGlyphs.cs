@@ -156,8 +156,11 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			UninitializedGlyph = collection.UninitializedGlyph;
+			UninitializedGlyph.GlyphType = Glyph.Type.Uninitialized;
 			UnboundGlyph = collection.UnboundGlyph;
+			UnboundGlyph.GlyphType = Glyph.Type.Unbound;
 			NullGlyph = collection.NullGlyph;
+			NullGlyph.GlyphType = Glyph.Type.Null;
 			MarkGlyphsDirty();
 		}
 
