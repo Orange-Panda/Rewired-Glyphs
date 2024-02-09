@@ -120,8 +120,22 @@ namespace LMirman.RewiredGlyphs
 		/// When true this Glyph should show as text instead of its sprite.
 		/// </summary>
 		public bool PreferDescription { get; set; }
+		/// <summary>
+		/// What this Glyph is intended to represent at runtime.
+		/// </summary>
+		/// <seealso cref="Type"/>
 		public Type GlyphType { get; private set; }
+		/// <summary>
+		/// True when <see cref="GlyphType"/> is <see cref="Type.Input"/>.
+		/// </summary>
 		public bool IsInputGlyph => GlyphType == Type.Input;
+		/// <summary>
+		/// True when <see cref="GlyphType"/> is <i>not</i> <see cref="Type.Undefined"/> or <see cref="Type.Input"/>.
+		/// </summary>
+		/// <remarks>
+		/// Consider evaluating this in custom components to hide the output when there isn't an appropriate element to output.
+		/// </remarks>
+		public bool IsFallbackGlyph => GlyphType != Type.Undefined && GlyphType != Type.Input;
 
 		/// <summary>
 		/// Get the description for a particular input direction.
@@ -203,7 +217,30 @@ namespace LMirman.RewiredGlyphs
 		[PublicAPI]
 		public enum Type
 		{
-			Undefined = -1, Input = 0, Null = 1, Unbound = 2, Uninitialized = 3
+			/// <summary>
+			/// The intention of this glyph is unspecified.
+			/// You are highly encouraged to use another type if one is appropriate.
+			/// </summary>
+			Undefined = -1,
+			/// <summary>
+			/// This glyph represents an element for a particular hardware.
+			/// </summary>
+			Input = 0,
+			/// <summary>
+			/// This glyph represents an action that does not exist.
+			/// Likely due to an invalid action id.
+			/// </summary>
+			Null = 1,
+			/// <summary>
+			/// This glyph represents an action that does not have any elements that control it.
+			/// Likely due to the Input Manager maps missing an ActionElementMap for it.
+			/// </summary>
+			Unbound = 2,
+			/// <summary>
+			/// This glyph represents an action that does not exist for the specific reason that either <see cref="InputGlyphs"/> or Rewired itself are not ready.
+			/// If this is output for more than a single frame there is likely no valid Input Manager present or it does not contain a <see cref="RewiredGlyphManager"/> component.
+			/// </summary>
+			Uninitialized = 3
 		}
 	}
 }

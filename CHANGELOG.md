@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## [UNRELEASED] - TBD
 
 ### Added
-- Added `GlyphType` and `IsInputGlyph` to `Glyph`
+- Added `GlyphType`, `IsFallbackGlyph` and `IsInputGlyph` properties to `Glyph`
   - Allows for checking if a Glyph is intended to represent a `Null`, `Unbound`, or `Uninitialized` glyph through code.
 - Added methods to `InputGlyphs` that allow for getting glyphs via `axisRange` instead of `pole`
   - Methods to get a glyph via `pole` are not directly changed.
