@@ -8,8 +8,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Added `GlyphType`, `IsFallbackGlyph` and `IsInputGlyph` properties to `Glyph`
   - Allows for checking if a Glyph is intended to represent a `Null`, `Unbound`, or `Uninitialized` glyph through code.
-- Added methods to `InputGlyphs` that allow for getting glyphs via `axisRange` instead of `pole`
-  - Methods to get a glyph via `pole` are not directly changed.
+- Added `forceAxis` parameter to `InputGlyphs` GetGlyph methods
+  - When true, will get the glyph for the entire axis such as "Move Horizontal" instead of "Move Left" and "Move Right"
+  - Defaults to false, providing a similar behavior to before
+- Added improved documentation to `InputGlyphs` GetGlyph methods
+
+### Changed
+- Getting glyphs for button or split elements for an axis action is now significantly more reliable
+  - Previously getting positive/negative actions such as "Move Horizontal" for joysticks would return the unbound glyph despite a full axis map to the entire horizontal joystick
+  - Now InputGlyph will infer the Joystick Left and Joystick Right from the full axis map.
 
 ## [1.3.0] - 2023-10-31
 
