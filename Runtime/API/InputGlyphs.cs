@@ -66,14 +66,14 @@ namespace LMirman.RewiredGlyphs
 		/// <remarks>
 		/// Remedied by correcting the glyph display's target value
 		/// </remarks>
-		public static Glyph NullGlyph { get; private set; } = new Glyph("Null");
+		public static Glyph NullGlyph { get; private set; } = new Glyph("Null", type: Glyph.Type.Null);
 		/// <summary>
 		/// Glyph representing an action that does not have an input assigned.
 		/// </summary>
 		/// <remarks>
 		/// Remedied by assigning an input to the action either in the Rewired Input Manager at editor time or a control remapping tool at runtime.
 		/// </remarks>
-		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound");
+		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound", type: Glyph.Type.Unbound);
 		/// <summary>
 		/// Glyph representing a query that occured before the InputGlyphs system was ready.
 		/// </summary>
@@ -83,7 +83,7 @@ namespace LMirman.RewiredGlyphs
 		/// Depending on script execution order your display may query before the glyph system is ready.
 		/// The safest approach is to query in OnEnable or Start.
 		/// </remarks>
-		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized");
+		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized", type: Glyph.Type.Uninitialized);
 		/// <summary>
 		/// The preferred hardware (Controller or Mouse/Keyboard) to display in <see cref="GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int)"/>
 		/// </summary>

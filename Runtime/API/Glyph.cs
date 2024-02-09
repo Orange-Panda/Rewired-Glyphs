@@ -120,6 +120,8 @@ namespace LMirman.RewiredGlyphs
 		/// When true this Glyph should show as text instead of its sprite.
 		/// </summary>
 		public bool PreferDescription { get; set; }
+		public Type GlyphType { get; private set; }
+		public bool IsInputGlyph => GlyphType == Type.Input;
 
 		/// <summary>
 		/// Get the description for a particular input direction.
@@ -161,7 +163,7 @@ namespace LMirman.RewiredGlyphs
 			}
 		}
 
-		public Glyph(int inputID, string description, Sprite sprite, Sprite positiveSprite, Sprite negativeSprite)
+		public Glyph(int inputID, string description, Sprite sprite, Sprite positiveSprite, Sprite negativeSprite, Type type = Type.Input)
 		{
 			this.inputID = inputID;
 			this.description = description;
@@ -169,9 +171,10 @@ namespace LMirman.RewiredGlyphs
 			this.positiveSprite = positiveSprite;
 			this.negativeSprite = negativeSprite;
 			PreferDescription = false;
+			GlyphType = type;
 		}
 
-		public Glyph(int inputID, string description, Sprite sprite)
+		public Glyph(int inputID, string description, Sprite sprite, Type type = Type.Input)
 		{
 			this.inputID = inputID;
 			this.description = description;
@@ -179,13 +182,14 @@ namespace LMirman.RewiredGlyphs
 			positiveSprite = null;
 			negativeSprite = null;
 			PreferDescription = sprite != null;
+			GlyphType = type;
 		}
 
 		/// <summary>
 		/// Create a fallback glyph that only contains a description.
 		/// </summary>
 		/// <remarks>The main use case is if there is no glyph found but there is <i>some</i> information about the input that can allow it to be shown in text.</remarks>
-		public Glyph(string description, Sprite sprite = null)
+		public Glyph(string description, Sprite sprite = null, Type type = Type.Input)
 		{
 			inputID = -1;
 			this.description = description;
@@ -193,6 +197,13 @@ namespace LMirman.RewiredGlyphs
 			positiveSprite = null;
 			negativeSprite = null;
 			PreferDescription = true;
+			GlyphType = type;
+		}
+
+		[PublicAPI]
+		public enum Type
+		{
+			Undefined = -1, Input = 0, Null = 1, Unbound = 2, Uninitialized = 3
 		}
 	}
 }
