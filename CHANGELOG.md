@@ -3,6 +3,14 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [UNRELEASED] - TBD
+
+### Added
+- Added `GlyphType` and `IsInputGlyph` to `Glyph`
+  - Allows for checking if a Glyph is intended to represent a `Null`, `Unbound`, or `Uninitialized` glyph through code.
+- Added methods to `InputGlyphs` that allow for getting glyphs via `axisRange` instead of `pole`
+  - Methods to get a glyph via `pole` are not directly changed.
+
 ## [1.3.0] - 2023-10-31
 
 ### Added

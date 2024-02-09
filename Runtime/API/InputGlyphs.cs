@@ -173,18 +173,7 @@ namespace LMirman.RewiredGlyphs
 			MarkGlyphsDirty();
 		}
 
-		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
-		{
-			if (TryGetPlayer(playerIndex, out Player player))
-			{
-				return player.GetCurrentGlyph(actionID, pole, out axisRange);
-			}
-
-			axisRange = AxisRange.Full;
-			return UninitializedGlyph;
-		}
-
+		#region Core - Get By Pole
 		/// <summary>
 		/// Get the InputGlyph that represents the glyph for the current input scheme
 		/// </summary>
@@ -238,18 +227,6 @@ namespace LMirman.RewiredGlyphs
 			}
 		}
 
-		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
-		{
-			if (TryGetPlayer(playerIndex, out Player player))
-			{
-				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
-			}
-
-			axisRange = AxisRange.Full;
-			return UninitializedGlyph;
-		}
-
 		/// <summary>
 		/// Get the InputGlyph that represents the input action on the user's Mouse or Keyboard.
 		/// </summary>
@@ -290,18 +267,6 @@ namespace LMirman.RewiredGlyphs
 			return UnboundGlyph;
 		}
 
-		/// <inheritdoc cref="GetKeyboardGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static Glyph GetKeyboardGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
-		{
-			if (TryGetPlayer(playerIndex, out Player player))
-			{
-				return player.GetKeyboardGlyph(actionID, pole, out axisRange);
-			}
-
-			axisRange = AxisRange.Full;
-			return UninitializedGlyph;
-		}
-
 		/// <summary>
 		/// Get the InputGlyph that represents the input action on the user's Keyboard.
 		/// </summary>
@@ -331,18 +296,6 @@ namespace LMirman.RewiredGlyphs
 			return UnboundGlyph;
 		}
 
-		/// <inheritdoc cref="GetMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static Glyph GetMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
-		{
-			if (TryGetPlayer(playerIndex, out Player player))
-			{
-				return player.GetMouseGlyph(actionID, pole, out axisRange);
-			}
-
-			axisRange = AxisRange.Full;
-			return UninitializedGlyph;
-		}
-
 		/// <summary>
 		/// Get the InputGlyph that represents the input action on the user's Mouse.
 		/// </summary>
@@ -370,18 +323,6 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			return UnboundGlyph;
-		}
-
-		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange)"/>
-		public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0)
-		{
-			if (TryGetPlayer(playerIndex, out Player player))
-			{
-				return player.GetJoystickGlyph(actionID, controller, pole, out axisRange);
-			}
-
-			axisRange = AxisRange.Full;
-			return UninitializedGlyph;
 		}
 
 		/// <summary>
@@ -443,6 +384,327 @@ namespace LMirman.RewiredGlyphs
 			glyph = GetNativeGlyphFromTemplateMap(PreferredSymbols, templateElementId);
 			return glyph ?? GetFallbackGlyph(map.elementIdentifierName);
 		}
+		#endregion
+
+		#region Core - Get By Axis Range
+		/// <summary>
+		/// Get the <see cref="Glyph"/> that represents an action by a particular <paramref name="axisRange"/>.<br/><br/>
+		/// Will represent the most recently used device.
+		/// </summary>
+		public static Glyph GetCurrentGlyph(this Player player, int actionID, AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				return UninitializedGlyph;
+			}
+
+			Controller last = player.controllers.GetLastActiveController();
+
+			// Force a particular mode if the user preferences say so
+			switch (PreferredHardware)
+			{
+				case HardwarePreference.Auto:
+					break;
+				case HardwarePreference.KeyboardMouse:
+					return player.GetKeyboardMouseGlyph(actionID, axisRange);
+				case HardwarePreference.Gamepad:
+					return player.GetJoystickGlyph(actionID, last, axisRange);
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+
+			// Use the mode that matches the last controller used by user.
+			if (last != null)
+			{
+				switch (last.type)
+				{
+					case ControllerType.Keyboard:
+					case ControllerType.Mouse:
+						return player.GetKeyboardMouseGlyph(actionID, axisRange);
+					case ControllerType.Joystick:
+					case ControllerType.Custom:
+						return player.GetJoystickGlyph(actionID, last, axisRange);
+					default:
+						throw new ArgumentOutOfRangeException();
+				}
+			}
+
+			// Use the expected mode for this hardware if there is no controller is active (usually only at the start of the application)
+			if (SystemInfo.deviceType == DeviceType.Desktop)
+			{
+				return player.GetKeyboardMouseGlyph(actionID, axisRange);
+			}
+			else
+			{
+				return player.GetJoystickGlyph(actionID, null, axisRange);
+			}
+		}
+
+		/// <summary>
+		/// Get the <see cref="Glyph"/> that represents an action by a particular <paramref name="axisRange"/>.<br/><br/>
+		/// Will represent either the keyboard or mouse input devices.
+		/// </summary>
+		/// <remarks>
+		/// If an input is present on both the keyboard and mouse, precedence is given to the mouse. 
+		/// </remarks>
+		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				return UninitializedGlyph;
+			}
+
+			InputAction action = ReInput.mapping.GetAction(actionID);
+			if (action == null)
+			{
+				return NullGlyph;
+			}
+
+			ActionElementMap mouseMap = GetActionElementMap(player, ControllerType.Mouse, action.id, axisRange);
+			ActionElementMap keyboardMap = GetActionElementMap(player, ControllerType.Keyboard, action.id, axisRange);
+			if (mouseMap != null)
+			{
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
+				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
+			}
+
+			if (keyboardMap != null)
+			{
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
+				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+			}
+
+			return UnboundGlyph;
+		}
+
+		/// <summary>
+		/// Get the <see cref="Glyph"/> that represents an action by a particular <paramref name="axisRange"/>.<br/><br/>
+		/// Will represent the keyboard device.
+		/// </summary>
+		public static Glyph GetKeyboardGlyph(this Player player, int actionID, AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				return UninitializedGlyph;
+			}
+
+			InputAction action = ReInput.mapping.GetAction(actionID);
+			if (action == null)
+			{
+				return NullGlyph;
+			}
+
+			ActionElementMap keyboardMap = player.GetActionElementMap(ControllerType.Keyboard, action.id, axisRange);
+			if (keyboardMap != null)
+			{
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
+				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+			}
+
+			return UnboundGlyph;
+		}
+
+		/// <summary>
+		/// Get the <see cref="Glyph"/> that represents an action by a particular <paramref name="axisRange"/>.<br/><br/>
+		/// Will represent the Mouse device.
+		/// </summary>
+		public static Glyph GetMouseGlyph(this Player player, int actionID, AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				return UninitializedGlyph;
+			}
+
+			InputAction action = ReInput.mapping.GetAction(actionID);
+			if (action == null)
+			{
+				return NullGlyph;
+			}
+
+			ActionElementMap mouseMap = player.GetActionElementMap(ControllerType.Mouse, action.id, axisRange);
+			if (mouseMap != null)
+			{
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
+				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
+			}
+
+			return UnboundGlyph;
+		}
+
+		/// <summary>
+		/// Get the <see cref="Glyph"/> that represents an action by a particular <paramref name="axisRange"/>.<br/><br/>
+		/// Will represent the <paramref name="controller"/> device.
+		/// </summary>
+		public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, AxisRange axisRange)
+		{
+			if (!CanRetrieveGlyph)
+			{
+				return UninitializedGlyph;
+			}
+
+			// Initialize variables
+			Glyph glyph;
+			InputAction action = ReInput.mapping.GetAction(actionID);
+
+			// Make sure the action expected is valid, escape with null glyph if invalid action given by developer.
+			if (action == null)
+			{
+				return NullGlyph;
+			}
+
+			// Make sure the action is actually bound, if not escape with an unbound glyph.
+			ActionElementMap map = player.GetActionElementMap(ControllerType.Joystick, action.id, axisRange);
+			if (map == null)
+			{
+				return UnboundGlyph;
+			}
+
+			// Try to retrieve a glyph that is specific to the user's controller hardware.
+			if (controller != null && PreferredSymbols == SymbolPreference.Auto)
+			{
+				glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
+				if (glyph != null)
+				{
+					return glyph;
+				}
+
+				HardwareDefinition controllerType = GetHardwareDefinition(controller);
+				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
+				if (glyph != null)
+				{
+					return glyph;
+				}
+			}
+
+			// Try to retrieve a glyph that is mapped to the gamepad template (since at this point one was not found for the user's controller)
+			// Determine the element expected on the template
+			controller = player.controllers.GetFirstControllerWithTemplate(GamepadTemplateGuid);
+			IControllerTemplate template = controller.GetTemplate(GamepadTemplateGuid);
+			int targets = template.GetElementTargets(map, TemplateTargets);
+			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
+
+			// Use the template glyph if one exists.
+			glyph = GetNativeGlyphFromTemplateMap(PreferredSymbols, templateElementId);
+			return glyph ?? GetFallbackGlyph(map.elementIdentifierName);
+		}
+		#endregion
+
+		#region Convenience Overloads
+		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetCurrentGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetKeyboardGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetKeyboardGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetKeyboardGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetMouseGlyph(actionID, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange)"/>
+		public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetJoystickGlyph(actionID, controller, pole, out axisRange);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.AxisRange)"/>
+		public static Glyph GetCurrentGlyph(int actionID, AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetCurrentGlyph(actionID, axisRange);
+			}
+
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.AxisRange)"/>
+		public static Glyph GetKeyboardMouseGlyph(int actionID, AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetKeyboardMouseGlyph(actionID, axisRange);
+			}
+
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetKeyboardGlyph(Player, int, Rewired.AxisRange)"/>
+		public static Glyph GetKeyboardGlyph(int actionID, AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetKeyboardGlyph(actionID, axisRange);
+			}
+
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetMouseGlyph(Player, int, Rewired.AxisRange)"/>
+		public static Glyph GetMouseGlyph(int actionID, AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetMouseGlyph(actionID, axisRange);
+			}
+
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.AxisRange)"/>
+		public static Glyph GetJoystickGlyph(int actionID, Controller controller, AxisRange axisRange, int playerIndex = 0)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetJoystickGlyph(actionID, controller, axisRange);
+			}
+
+			return UninitializedGlyph;
+		}
+		#endregion
 
 		/// <summary>
 		/// Determine the hardware definition to use for a controller based on the controller's hardwareTypeGuid.
@@ -575,7 +837,7 @@ namespace LMirman.RewiredGlyphs
 			return hasTemplateGlyphMap && templateGlyphMap.TryGetValue(templateElementID, out Glyph glyph) ? glyph : null;
 		}
 		#endregion
-		
+
 		#region Internal Use
 		/// <summary>
 		/// Retrieve a cached player reference from <see cref="ReInput"/>.
@@ -656,6 +918,23 @@ namespace LMirman.RewiredGlyphs
 			for (int i = 0; i < count; i++)
 			{
 				if (MapLookupResults[i].axisContribution == pole)
+				{
+					return MapLookupResults[i];
+				}
+			}
+
+			return null;
+		}
+
+		/// <summary>
+		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
+		/// </summary>
+		private static ActionElementMap GetActionElementMap(this Player player, ControllerType controller, int actionID, AxisRange axisRange)
+		{
+			int count = player.controllers.maps.GetElementMapsWithAction(controller, actionID, false, MapLookupResults);
+			for (int i = 0; i < count; i++)
+			{
+				if (MapLookupResults[i].axisRange == axisRange)
 				{
 					return MapLookupResults[i];
 				}
