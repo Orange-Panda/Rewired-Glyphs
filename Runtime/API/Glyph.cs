@@ -147,13 +147,13 @@ namespace LMirman.RewiredGlyphs
 			switch (axis)
 			{
 				case AxisRange.Full:
-					return description;
+					return description ?? string.Empty;
 				case AxisRange.Positive:
-					return string.IsNullOrWhiteSpace(positiveDescription) ? positiveDescription : description;
+					return string.IsNullOrWhiteSpace(positiveDescription) ? positiveDescription : description ?? string.Empty;
 				case AxisRange.Negative:
-					return string.IsNullOrWhiteSpace(negativeDescription) ? negativeDescription : description;
+					return string.IsNullOrWhiteSpace(negativeDescription) ? negativeDescription : description ?? string.Empty;
 				default:
-					return description;
+					return description ?? string.Empty;
 			}
 		}
 

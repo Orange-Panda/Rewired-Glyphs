@@ -119,6 +119,9 @@ namespace LMirman.RewiredGlyphs.Components
 		/// <param name="text"></param>
 		public void SetFormattedText(string text)
 		{
+			// Use empty string if null is provided. Otherwise, an exception will occur. We assume the intent of passing a null value is equivalent to an empty string.
+			text ??= string.Empty;
+
 			lastPreformatText = text;
 			lastPreformatTextHasGlyph = GlyphRegex.IsMatch(text);
 			string textToSet = lastPreformatTextHasGlyph ? ReplaceGlyphTagsWithSpriteTags(text, useSpritesWhenAvailable, descriptionFormat) : text;

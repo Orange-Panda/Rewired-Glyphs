@@ -18,6 +18,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   - Previously getting positive/negative actions such as "Move Horizontal" for joysticks would return the unbound glyph despite a full axis map to the entire horizontal joystick
   - Now InputGlyph will infer the Joystick Left and Joystick Right from the full axis map.
 
+### Fixed
+- Fixed `Glyph.GetDescription()` returning a null string in rare cases
+- Fixed exception in `GlyphRichTextFormatter` when providing a null string to `SetFormattedText(string)` method
+
 ## [1.3.0] - 2023-10-31
 
 ### Added
