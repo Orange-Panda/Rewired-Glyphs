@@ -154,6 +154,7 @@ namespace LMirman.RewiredGlyphs.Components
 				int actionId = 0;
 				int player = 0;
 				Pole pole = Pole.Positive;
+				bool forceAxis = false;
 				foreach (string splitArg in splitArgs)
 				{
 					if (string.IsNullOrWhiteSpace(splitArg))
@@ -166,11 +167,16 @@ namespace LMirman.RewiredGlyphs.Components
 					if (!didSetActionId)
 					{
 						bool isInt = int.TryParse(trimmedArg, out int foundActionId);
+						// If the value is an int, we set it directly as the action id.
+						// Otherwise, try to find an action id with the string value from rewired
 						actionId = isInt ? foundActionId : ReInput.mapping.GetActionId(trimmedArg);
 						didSetActionId = true;
+						continue;
 					}
-					// If this isn't the first arg (since action id has been set) interpret it as player id if it is int.
-					else if (int.TryParse(trimmedArg, out int playerId))
+
+					// We are no longer evaluating the first arg (since action id has been set)
+
+					if (int.TryParse(trimmedArg, out int playerId))
 					{
 						player = playerId;
 					}
@@ -182,9 +188,13 @@ namespace LMirman.RewiredGlyphs.Components
 					{
 						pole = Pole.Negative;
 					}
+					else if (trimmedArg.Equals("Full", StringComparison.OrdinalIgnoreCase) || trimmedArg.Equals("Full Axis", StringComparison.OrdinalIgnoreCase))
+					{
+						forceAxis = true;
+					}
 				}
 
-				Glyph glyph = InputGlyphs.GetCurrentGlyph(actionId, pole, out AxisRange axisRange, player);
+				Glyph glyph = InputGlyphs.GetCurrentGlyph(actionId, pole, out AxisRange axisRange, player, forceAxis);
 				Sprite sprite = glyph.GetSprite(axisRange);
 				if (useSpritesWhenAvailable && sprite != null && !glyph.PreferDescription)
 				{

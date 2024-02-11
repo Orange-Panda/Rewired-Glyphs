@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Added `forceAxis` parameter to `InputGlyphs` GetGlyph methods
   - When true, will get the glyph for the entire axis such as "Move Horizontal" instead of "Move Left" and "Move Right"
   - Defaults to false, providing a similar behavior to before
+  - `GlyphRichTextFormatter` can output the full axis with the "Full Axis" parameter. Example: `<glyph "Move Horizontal" Full>`
 - Added improved documentation to `InputGlyphs` GetGlyph methods
 
 ### Changed
