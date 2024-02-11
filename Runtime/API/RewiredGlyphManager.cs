@@ -69,7 +69,7 @@ namespace LMirman.RewiredGlyphs
 			timer = hardwareChangePollingRate;
 			foreach (ObservedPlayer observedPlayer in observedPlayers)
 			{
-				Controller lastActiveController = observedPlayer.player.controllers.GetLastActiveController();
+				Controller lastActiveController = observedPlayer.player.controllers.GetMostRecentController();
 				HardwareDefinition controllerType = InputGlyphs.GetHardwareDefinition(lastActiveController);
 				bool isDifferentHardware = controllerType != observedPlayer.lastHardwareUsed;
 				bool isHardwareSimilar = IsKeyboardMouse(observedPlayer.lastHardwareUsed) && IsKeyboardMouse(controllerType);

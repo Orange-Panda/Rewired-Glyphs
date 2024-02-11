@@ -123,6 +123,59 @@ namespace LMirman.RewiredGlyphs
 			FlushPlayersCache();
 		}
 
+		internal static Controller GetMostRecentController(this Player.ControllerHelper controllers)
+		{
+			Controller last = controllers.GetLastActiveController();
+			if (last != null)
+			{
+				return last;
+			}
+
+			ReInput.ControllerHelper allControllers = ReInput.controllers;
+			last = allControllers.GetLastActiveController();
+			if (last != null)
+			{
+				return last;
+			}
+
+			if (allControllers.joystickCount > 0)
+			{
+				return allControllers.Joysticks[0];
+			}
+
+			return allControllers.controllerCount > 0 ? allControllers.Controllers[0] : null;
+		}
+
+		internal static Controller GetMostRecentController(this Player.ControllerHelper controllers, ControllerType controllerType)
+		{
+			Controller last = controllers.GetLastActiveController(controllerType);
+			if (last != null)
+			{
+				return last;
+			}
+
+			ReInput.ControllerHelper allControllers = ReInput.controllers;
+			last = allControllers.GetLastActiveController(controllerType);
+			if (last != null)
+			{
+				return last;
+			}
+
+			switch (controllerType)
+			{
+				case ControllerType.Keyboard:
+					return allControllers.Keyboard;
+				case ControllerType.Mouse:
+					return allControllers.Mouse;
+				case ControllerType.Joystick:
+					return allControllers.joystickCount > 0 ? allControllers.Joysticks[0] : null;
+				case ControllerType.Custom:
+					return allControllers.customControllerCount > 0 ? allControllers.CustomControllers[0] : null;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(controllerType), controllerType, null);
+			}
+		}
+
 		/// <summary>
 		/// Reinitialize the InputGlyphs system with a new <see cref="GlyphCollection"/>.
 		/// </summary>
@@ -223,7 +276,7 @@ namespace LMirman.RewiredGlyphs
 				return UninitializedGlyph;
 			}
 
-			Controller last = player.controllers.GetLastActiveController();
+			Controller last = player.controllers.GetMostRecentController();
 
 			// Force a particular mode if the user preferences say so
 			switch (PreferredHardware)
@@ -433,6 +486,40 @@ namespace LMirman.RewiredGlyphs
 		#endregion
 
 		#region Convenience Overloads
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <summary>
+		/// Get a <see cref="Glyph"/> to represent an action for the user.
+		/// <br/><br/>
+		/// Will pick an icon to represent the <paramref name="controllerType"/>
+		/// </summary>
+		public static Glyph GetGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		{
+			switch (controllerType)
+			{
+				case ControllerType.Keyboard:
+					return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis);
+				case ControllerType.Mouse:
+					return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis);
+				case ControllerType.Joystick:
+				case ControllerType.Custom:
+					return player.GetJoystickGlyph(actionID, player.controllers.GetMostRecentController(controllerType), pole, out axisRange, forceAxis);
+				default:
+					throw new ArgumentOutOfRangeException(nameof(controllerType), controllerType, null);
+			}
+		}
+
+		/// <inheritdoc cref="InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool)"/>
+		public static Glyph GetGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetGlyph(controllerType, actionID, pole, out axisRange, forceAxis);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
 		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
 		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
 		{

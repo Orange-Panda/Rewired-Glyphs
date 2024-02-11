@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   - Defaults to false, providing a similar behavior to before
   - `GlyphRichTextFormatter` can output the full axis with the "Full Axis" parameter. Example: `<glyph "Move Horizontal" Full>`
 - Added improved documentation to `InputGlyphs` GetGlyph methods
+- Added `GetGlyph` method to `InputGlyphs` which uses a ControllerType parameter to map to the other specific GetGlyph methods
 
 ### Changed
 - Getting glyphs for button or split elements for an axis action is now significantly more reliable
@@ -22,6 +23,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 - Fixed `Glyph.GetDescription()` returning a null string in rare cases
 - Fixed exception in `GlyphRichTextFormatter` when providing a null string to `SetFormattedText(string)` method
+- Fixed no controller being recognized until it inputs at least once
+  - Now defaults to the first joystick if the player has not yet input using a controller yet, ensuring there is *some* glyph shown initially
 
 ## [1.3.0] - 2023-10-31
 
