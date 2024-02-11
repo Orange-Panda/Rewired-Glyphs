@@ -53,10 +53,11 @@ Let's cover some of these methods and how to use them in your project.
 	- `<glyph "Jump">` will show the jump input sprite for player at index 0
 	- `<glyph "Move Horizontal" 1 Negative>` will show the move left input sprite for player at index 1
 	- `<glyph 13 0>` will show the action #13 input sprite for player at index 0
+    - `<glyph "Move Horizontal" Full>` will show the move left or right input sprite for player at index 0
 - `GlyphImageOutput` - Show an input icon for an action, even if there is no sprite.
 - `GlyphTextOutput` - Show an input description for an action.
 - `GlyphHybridOutput` - Show an input icon for an action or fallback to text if there is no sprite available.
-- `GlyphLabeledImageOutput` - Show an input icon with an associated but indepdendent `TMP_Text` and set their layout.
+- `GlyphLabeledImageOutput` - Show an input icon with an associated but independent `TMP_Text` and set their layout.
 
 ### Custom Components
 
