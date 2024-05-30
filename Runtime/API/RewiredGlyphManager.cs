@@ -17,7 +17,7 @@ namespace LMirman.RewiredGlyphs
 		[SerializeField, Tooltip("The collection of glyphs to use in the Rewired Input Glyph system.")]
 		private GlyphCollection glyphCollection;
 		[SerializeField, Tooltip("The player ids to check input changes for rebuilding glyphs on hardware changes.")]
-		private int[] playerIds = new int[] { 0 };
+		private int[] playerIds = { 0 };
 		[SerializeField, Tooltip("How frequently the observer will poll players to check for hardware changes."), Range(0, 5)]
 		private float hardwareChangePollingRate = 0.5f;
 
@@ -40,12 +40,11 @@ namespace LMirman.RewiredGlyphs
 			HashSet<int> playersAdded = new HashSet<int>();
 			foreach (int playerId in playerIds)
 			{
-				if (playersAdded.Contains(playerId))
+				if (!playersAdded.Add(playerId))
 				{
 					continue;
 				}
 
-				playersAdded.Add(playerId);
 				Player player = ReInput.players.GetPlayer(playerId);
 				ObservedPlayer observedPlayer = new ObservedPlayer(player);
 				observedPlayers.Add(observedPlayer);

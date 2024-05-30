@@ -8,13 +8,13 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace LMirman.RewiredGlyphs
+namespace LMirman.RewiredGlyphs.Editor
 {
 	/// <summary>
 	/// An editor window that makes modifying <see cref="GlyphMap"/>s easier.
 	/// </summary>
 	[CustomEditor(typeof(GlyphMap))]
-	public class GlyphMapEditor : Editor
+	public class GlyphMapEditor : UnityEditor.Editor
 	{
 		private bool wantsToValidateMap = true;
 		private int mapWarnings;

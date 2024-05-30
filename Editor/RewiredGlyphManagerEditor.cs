@@ -7,10 +7,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore;
 
-namespace LMirman.RewiredGlyphs
+namespace LMirman.RewiredGlyphs.Editor
 {
 	[CustomEditor(typeof(RewiredGlyphManager))]
-	public class RewiredGlyphManagerEditor : Editor
+	public class RewiredGlyphManagerEditor : UnityEditor.Editor
 	{
 		public override void OnInspectorGUI()
 		{
