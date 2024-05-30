@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [1.5.0] - UNRELEASED
 
+### Added
+
+- `GlyphRichTextFormatter` now supports specifier syntax for additional arguments such as `pole=Positive`, `player=2`, or `type=Joystick`
+- `GlyphRichTextFormatter` now supports specifying the controller type for the glyph such as `type=Keyboard`, `type=Mouse`, or `type=Joystick`
+	- Caution: Specifying controller type is more prone to showing `UNBOUND` glyph since it will not fall back to any other type if there is no glyph for that controller
+
 ### Changed
 
 - ⚠️ **[Breaking]** - Editor scripts have been moved from the `LMirman.RewiredGlyphs` namespace to `LMirman.RewiredGlyphs.Editor` namespace.
