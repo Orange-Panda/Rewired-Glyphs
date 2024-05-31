@@ -25,7 +25,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		private static readonly Dictionary<string, Glyph> FallbackGlyphs = new Dictionary<string, Glyph>();
 		/// <summary>
-		/// Cache lookup for players 
+		/// Cache lookup for players
 		/// </summary>
 		private static readonly Dictionary<int, Player> Players = new Dictionary<int, Player>();
 		/// <summary>
@@ -67,6 +67,7 @@ namespace LMirman.RewiredGlyphs
 		/// Remedied by correcting the glyph display's target value
 		/// </remarks>
 		public static Glyph NullGlyph { get; private set; } = new Glyph("Null", type: Glyph.Type.Null);
+
 		/// <summary>
 		/// Glyph representing an action that does not have an input assigned.
 		/// </summary>
@@ -74,6 +75,7 @@ namespace LMirman.RewiredGlyphs
 		/// Remedied by assigning an input to the action either in the Rewired Input Manager at editor time or a control remapping tool at runtime.
 		/// </remarks>
 		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound", type: Glyph.Type.Unbound);
+
 		/// <summary>
 		/// Glyph representing a query that occured before the InputGlyphs system was ready.
 		/// </summary>
@@ -84,16 +86,19 @@ namespace LMirman.RewiredGlyphs
 		/// The safest approach is to query in OnEnable or Start.
 		/// </remarks>
 		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized", type: Glyph.Type.Uninitialized);
+
 		/// <summary>
 		/// The preferred hardware (Controller or Mouse/Keyboard) to display in <see cref="GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
 		/// </summary>
 		/// <seealso cref="SetGlyphPreferences"/>
 		public static HardwarePreference PreferredHardware { get; private set; } = HardwarePreference.Auto;
+
 		/// <summary>
 		/// The preferred symbols to display for gamepad glyphs.
 		/// </summary>
 		/// <seealso cref="SetGlyphPreferences"/>
 		public static SymbolPreference PreferredSymbols { get; private set; } = SymbolPreference.Auto;
+
 		private static bool CanRetrieveGlyph => Application.isPlaying && ReInput.isReady;
 
 		/// <summary>
@@ -102,7 +107,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <remarks>
 		/// The aforementioned preferences can mutate the output of glyph symbol queries.
-		/// As such this event gives the opportunity for others to update the glyph output without having to query the InputGlyphs system every frame. 
+		/// As such this event gives the opportunity for others to update the glyph output without having to query the InputGlyphs system every frame.
 		/// </remarks>
 		public static event Action RebuildGlyphs = delegate { };
 
@@ -270,6 +275,16 @@ namespace LMirman.RewiredGlyphs
 		/// </returns>
 		public static Glyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
 		{
+			return player.GetSpecificCurrentGlyph(actionID, pole, out axisRange, PreferredSymbols, forceAxis);
+		}
+
+		/// <inheritdoc cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/>
+		/// <remarks>
+		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
+		/// </remarks>
+		/// <seealso cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/>
+		public static Glyph GetSpecificCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false)
+		{
 			if (!CanRetrieveGlyph)
 			{
 				axisRange = AxisRange.Full;
@@ -286,7 +301,7 @@ namespace LMirman.RewiredGlyphs
 				case HardwarePreference.KeyboardMouse:
 					return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
 				case HardwarePreference.Gamepad:
-					return player.GetJoystickGlyph(actionID, last, pole, out axisRange);
+					return player.GetSpecificJoystickGlyph(actionID, last, pole, out axisRange, symbolPreference);
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
@@ -301,7 +316,7 @@ namespace LMirman.RewiredGlyphs
 						return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
 					case ControllerType.Joystick:
 					case ControllerType.Custom:
-						return player.GetJoystickGlyph(actionID, last, pole, out axisRange);
+						return player.GetSpecificJoystickGlyph(actionID, last, pole, out axisRange, symbolPreference);
 					default:
 						throw new ArgumentOutOfRangeException();
 				}
@@ -314,7 +329,7 @@ namespace LMirman.RewiredGlyphs
 			}
 			else
 			{
-				return player.GetJoystickGlyph(actionID, null, pole, out axisRange);
+				return player.GetSpecificJoystickGlyph(actionID, null, pole, out axisRange, symbolPreference);
 			}
 		}
 
@@ -325,7 +340,7 @@ namespace LMirman.RewiredGlyphs
 		/// Will pick an icon to represent the mouse or keyboard devices (in that order).
 		/// </summary>
 		/// <remarks>
-		/// If an input is present on both the keyboard and mouse, precedence is given to the mouse. 
+		/// If an input is present on both the keyboard and mouse, precedence is given to the mouse.
 		/// </remarks>
 		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
 		{
@@ -430,6 +445,20 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, bool forceAxis = false)
 		{
+			return player.GetSpecificJoystickGlyph(actionID, controller, pole, out axisRange, PreferredSymbols, forceAxis);
+		}
+
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <summary>
+		/// Get a joystick <see cref="Glyph"/> with a specific <see cref="SymbolPreference"/> to represent an action for the user.
+		/// </summary>
+		/// <remarks>
+		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
+		/// </remarks>
+		/// <seealso cref="GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool)"/>
+		public static Glyph GetSpecificJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference,
+			bool forceAxis = false)
+		{
 			axisRange = AxisRange.Full;
 			if (!CanRetrieveGlyph)
 			{
@@ -456,7 +485,7 @@ namespace LMirman.RewiredGlyphs
 			axisRange = expectedAxis;
 
 			// Try to retrieve a glyph that is specific to the user's controller hardware.
-			if (controller != null && PreferredSymbols == SymbolPreference.Auto)
+			if (controller != null && symbolPreference == SymbolPreference.Auto)
 			{
 				glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
 				if (glyph != null)
@@ -480,7 +509,7 @@ namespace LMirman.RewiredGlyphs
 			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
 
 			// Use the template glyph if one exists.
-			glyph = GetNativeGlyphFromTemplateMap(PreferredSymbols, templateElementId);
+			glyph = GetNativeGlyphFromTemplateMap(symbolPreference, templateElementId);
 			return glyph ?? GetFallbackGlyph(map.elementIdentifierName);
 		}
 		#endregion
@@ -526,6 +555,64 @@ namespace LMirman.RewiredGlyphs
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
 				return player.GetCurrentGlyph(actionID, pole, out axisRange, forceAxis);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <summary>
+		/// Get a <see cref="Glyph"/> to represent an action for the user.
+		/// <br/><br/>
+		/// Will pick an icon to represent the <paramref name="controllerType"/>
+		/// </summary>
+		/// <remarks>
+		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
+		/// </remarks>
+		public static Glyph GetSpecificGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference,
+			bool forceAxis = false)
+		{
+			switch (controllerType)
+			{
+				case ControllerType.Keyboard:
+					return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis);
+				case ControllerType.Mouse:
+					return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis);
+				case ControllerType.Joystick:
+				case ControllerType.Custom:
+					return player.GetSpecificJoystickGlyph(actionID, player.controllers.GetMostRecentController(controllerType), pole, out axisRange, symbolPreference, forceAxis);
+				default:
+					throw new ArgumentOutOfRangeException(nameof(controllerType), controllerType, null);
+			}
+		}
+
+		/// <inheritdoc cref="InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool)"/>
+		/// <remarks>
+		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
+		/// </remarks>
+		public static Glyph GetSpecificGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0,
+			bool forceAxis = false)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetSpecificGlyph(controllerType, actionID, pole, out axisRange, symbolPreference, forceAxis);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
+
+		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
+		/// <remarks>
+		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
+		/// </remarks>
+		/// <seealso cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/>
+		public static Glyph GetSpecificCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetSpecificCurrentGlyph(actionID, pole, out axisRange, symbolPreference, forceAxis);
 			}
 
 			axisRange = AxisRange.Full;
@@ -579,6 +666,19 @@ namespace LMirman.RewiredGlyphs
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
+
+		/// <inheritdoc cref="GetSpecificJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange, SymbolPreference, bool)"/>
+		public static Glyph GetSpecificJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0,
+			bool forceAxis = false)
+		{
+			if (TryGetPlayer(playerIndex, out Player player))
+			{
+				return player.GetSpecificJoystickGlyph(actionID, controller, pole, out axisRange, symbolPreference, forceAxis);
+			}
+
+			axisRange = AxisRange.Full;
+			return UninitializedGlyph;
+		}
 		#endregion
 
 		/// <summary>
@@ -619,7 +719,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <remarks>
 		/// For performance reasons the input glyph system only evaluates glyphs when it believes the output has changed such as a player using a different input device.
-		/// By default however, the InputGlyph system is unaware of changes such as control remapping and needs to be manually informed of such changes using this method. 
+		/// By default however, the InputGlyph system is unaware of changes such as control remapping and needs to be manually informed of such changes using this method.
 		/// </remarks>
 		public static void MarkGlyphsDirty()
 		{

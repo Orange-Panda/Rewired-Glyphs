@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Rewired;
 using System;
 using System.Linq;
@@ -7,6 +8,7 @@ namespace LMirman.RewiredGlyphs
 	/// <summary>
 	/// Internal only: data type that parses and outputs display values for a user input glyph tag.
 	/// </summary>
+	[PublicAPI]
 	internal class GlyphParseResult
 	{
 		internal readonly int actionId;
@@ -18,10 +20,16 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		internal readonly bool useCurrentController = true;
 		internal readonly ControllerType controllerType = ControllerType.Joystick;
+		/// <summary>
+		/// When true uses <see cref="InputGlyphs.PreferredSymbols"/> instead of overriding its value.
+		/// </summary>
+		internal readonly bool useGlobalSymbols = true;
+		internal readonly SymbolPreference symbolPreference = SymbolPreference.Auto;
 
 		private const string PlayerSpecifier = "player=";
 		private const string PolaritySpecifier = "pole=";
 		private const string ControllerSpecifier = "type=";
+		private const string SymbolSpecifier = "symbol=";
 		private static readonly string[] PositivePoleKeywords =
 		{
 			"Positive",
@@ -65,6 +73,18 @@ namespace LMirman.RewiredGlyphs
 			"Custom",
 			"Other"
 		};
+		private static readonly string[] SymbolAutoKeywords =
+		{
+			"Auto",
+			"Device"
+		};
+		private static readonly string[] SymbolXboxKeywords = { "Xbox" };
+		private static readonly string[] SymbolPlaystationKeywords =
+		{
+			"Playstation",
+			"PS"
+		};
+		private static readonly string[] SymbolSwitchKeywords = { "Switch" };
 
 		internal GlyphParseResult(string[] tagContents)
 		{
@@ -178,7 +198,43 @@ namespace LMirman.RewiredGlyphs
 						controllerType = ControllerType.Custom;
 					}
 				}
+				// -- Parsing Symbol Preference --
+				else if (trimmedArg.StartsWith(SymbolSpecifier, StringComparison.OrdinalIgnoreCase))
+				{
+					trimmedArg = trimmedArg.Remove(0, SymbolSpecifier.Length).Trim('\"');
+					if (ArgEqualsAny(trimmedArg, SymbolAutoKeywords))
+					{
+						useGlobalSymbols = false;
+						symbolPreference = SymbolPreference.Auto;
+					}
+					else if (ArgEqualsAny(trimmedArg, SymbolXboxKeywords))
+					{
+						useGlobalSymbols = false;
+						symbolPreference = SymbolPreference.Xbox;
+					}
+					else if (ArgEqualsAny(trimmedArg, SymbolPlaystationKeywords))
+					{
+						useGlobalSymbols = false;
+						symbolPreference = SymbolPreference.Playstation;
+					}
+					else if (ArgEqualsAny(trimmedArg, SymbolSwitchKeywords))
+					{
+						useGlobalSymbols = false;
+						symbolPreference = SymbolPreference.NintendoSwitch;
+					}
+				}
 			}
+		}
+
+		internal Glyph GetGlyph(out AxisRange axisRange)
+		{
+			SymbolPreference symbol = useGlobalSymbols ? InputGlyphs.PreferredSymbols : symbolPreference;
+			if (useCurrentController)
+			{
+				return InputGlyphs.GetSpecificCurrentGlyph(actionId, pole, out axisRange, symbol, playerId, forceAxis);
+			}
+
+			return InputGlyphs.GetSpecificGlyph(controllerType, actionId, pole, out axisRange, symbol, playerId, forceAxis);
 		}
 
 		private static bool ArgEqualsAny(string arg, string[] keywords)

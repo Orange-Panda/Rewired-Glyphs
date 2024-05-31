@@ -158,6 +158,10 @@ namespace LMirman.RewiredGlyphs.Components
 		/// Warning: Specifying a controller that the runtime device doesn't have connected (such as Joystick) will show the `UNBOUND` symbol until they connect that controller type.<br/>
 		/// Warning: Specifying a controller that does not have the specified action bound to that specific controller will show the `UNBOUND` symbol without falling back to another controller.
 		/// <br/><br/>
+		/// - `Symbol Preference` (Default: <see cref="InputGlyphs.PreferredSymbols"/>)<br/>
+		/// Specify the symbols to use for `Joystick` glyphs.
+		/// Valid values are `symbol=auto`, `symbol=xbox`, `symbol=ps`, or `symbol=switch`.
+		/// <br/><br/>
 		/// All additional arguments that are string based are <b>case-insensitive</b> such that "TYPE=JOYSTICK" and "type=joystick" are equivalent inputs.
 		/// </summary>
 		/// <remarks>Does not mutate the provided string.</remarks>
@@ -175,17 +179,7 @@ namespace LMirman.RewiredGlyphs.Components
 
 				string[] splitArgs = match.Groups[1].Value.Split(' ');
 				GlyphParseResult result = new GlyphParseResult(splitArgs);
-				Glyph glyph;
-				AxisRange axisRange;
-				if (result.useCurrentController)
-				{
-					glyph = InputGlyphs.GetCurrentGlyph(result.actionId, result.pole, out axisRange, result.playerId, result.forceAxis);
-				}
-				else
-				{
-					glyph = InputGlyphs.GetGlyph(result.controllerType, result.actionId, result.pole, out axisRange, result.playerId, result.forceAxis);
-				}
-
+				Glyph glyph = result.GetGlyph(out AxisRange axisRange);
 				Sprite sprite = glyph.GetSprite(axisRange);
 				if (useSpritesWhenAvailable && sprite != null && !glyph.PreferDescription)
 				{

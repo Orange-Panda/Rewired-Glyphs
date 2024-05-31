@@ -8,9 +8,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 
+- Added `Specific` methods to `InputGlyphs` that enable getting joystick symbols of a specific type regardless of the value of `InputGlyphs.PreferredSymbols`
+	- These methods are generally not recommended unless you need to explicitly show that symbol while `InputGlyphs.PreferredSymbols` has a differing value
 - `GlyphRichTextFormatter` now supports specifier syntax for additional arguments such as `pole=Positive`, `player=2`, or `type=Joystick`
 - `GlyphRichTextFormatter` now supports specifying the controller type for the glyph such as `type=Keyboard`, `type=Mouse`, or `type=Joystick`
 	- Caution: Specifying controller type is more prone to showing `UNBOUND` glyph since it will not fall back to any other type if there is no glyph for that controller
+- `GlyphRichTextFormatter` now supports specifying the symbol for the glyph such as  `symbol=Auto`, `symbol=Xbox`, `symbol=PS`, or `symbol=Switch`
 
 ### Changed
 
