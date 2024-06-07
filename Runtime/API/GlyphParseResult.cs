@@ -14,6 +14,8 @@ namespace LMirman.RewiredGlyphs
 		internal readonly int actionId;
 		internal readonly int playerId;
 		internal readonly Pole pole = Pole.Positive;
+		internal readonly bool hideKeyboardMouseGlyphs;
+		internal readonly bool hideInvalidGlyphs;
 		internal readonly bool forceAxis;
 		/// <summary>
 		/// When true this means we use the most recently input controller for this player.
@@ -30,6 +32,8 @@ namespace LMirman.RewiredGlyphs
 		private const string PolaritySpecifier = "pole=";
 		private const string ControllerSpecifier = "type=";
 		private const string SymbolSpecifier = "symbol=";
+		private const string HideKeyboardSpecifier = "hideKBM";
+		private const string HideInvalidSpecifier = "hideInvalid";
 		private static readonly string[] PositivePoleKeywords =
 		{
 			"Positive",
@@ -222,6 +226,16 @@ namespace LMirman.RewiredGlyphs
 						useGlobalSymbols = false;
 						symbolPreference = SymbolPreference.NintendoSwitch;
 					}
+				}
+				// -- Parsing Hide Keyboard Mouse Glyphs --
+				else if (trimmedArg.StartsWith(HideKeyboardSpecifier, StringComparison.OrdinalIgnoreCase))
+				{
+					hideKeyboardMouseGlyphs = true;
+				}
+				// -- Parsing Hide Invalid Glyphs --
+				else if (trimmedArg.StartsWith(HideInvalidSpecifier, StringComparison.OrdinalIgnoreCase))
+				{
+					hideInvalidGlyphs = true;
 				}
 			}
 		}

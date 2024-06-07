@@ -47,6 +47,9 @@ namespace LMirman.RewiredGlyphs.Components
 		[SerializeField]
 		[Tooltip("The format for Glyph descriptions that replace glyph rich text values. Default: \"[{0}]\" will output \"[R2]\" for a primary fire action for example.")]
 		private string descriptionFormat = "[{0}]";
+		[SerializeField]
+		[Tooltip("The format for Glyph in line sprites that replace glyph rich text values. Default: \"{0}\" will output \"<sprite ...>\" with no leading or trailing spaces.")]
+		private string spriteFormat = "{0}";
 
 		private TMP_Text textMesh;
 		private int lastHashCode;
@@ -123,7 +126,7 @@ namespace LMirman.RewiredGlyphs.Components
 
 			lastPreformatText = text;
 			lastPreformatTextHasGlyph = GlyphRegex.IsMatch(text);
-			string textToSet = lastPreformatTextHasGlyph ? ReplaceGlyphTagsWithSpriteTags(text, useSpritesWhenAvailable, descriptionFormat) : text;
+			string textToSet = lastPreformatTextHasGlyph ? ReplaceGlyphTagsWithSpriteTags(text, useSpritesWhenAvailable, descriptionFormat, spriteFormat) : text;
 			textMesh.SetText(textToSet);
 			lastHashCode = textToSet.GetHashCode();
 		}
@@ -166,7 +169,7 @@ namespace LMirman.RewiredGlyphs.Components
 		/// </summary>
 		/// <remarks>Does not mutate the provided string.</remarks>
 		[Pure]
-		public static string ReplaceGlyphTagsWithSpriteTags(string text, bool useSpritesWhenAvailable = true, string descriptionFormat = "[{0}]")
+		public static string ReplaceGlyphTagsWithSpriteTags(string text, bool useSpritesWhenAvailable = true, string descriptionFormat = "[{0}]", string spriteFormat = "{0}")
 		{
 			Output.Clear();
 			Output.Append(text);
@@ -181,9 +184,13 @@ namespace LMirman.RewiredGlyphs.Components
 				GlyphParseResult result = new GlyphParseResult(splitArgs);
 				Glyph glyph = result.GetGlyph(out AxisRange axisRange);
 				Sprite sprite = glyph.GetSprite(axisRange);
-				if (useSpritesWhenAvailable && sprite != null && !glyph.PreferDescription)
+				if (result.hideKeyboardMouseGlyphs && glyph.ControllerType is ControllerType.Keyboard or ControllerType.Mouse)
 				{
-					Output.Replace(match.Groups[0].Value, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">");
+					Output.Replace(match.Groups[0].Value, string.Empty);
+				}
+				else if (useSpritesWhenAvailable && sprite != null && !glyph.PreferDescription)
+				{
+					Output.Replace(match.Groups[0].Value, string.Format(spriteFormat, $"<sprite=\"{glyph.TextMeshSpriteSheetName}\" name=\"{sprite.name}\">"));
 				}
 				else
 				{

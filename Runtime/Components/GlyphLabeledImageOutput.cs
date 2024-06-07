@@ -41,7 +41,7 @@ namespace LMirman.RewiredGlyphs.Components
 		public void SetLayout()
 		{
 			float textWidth = textMesh.preferredWidth;
-			float imageWidth = image.rectTransform.rect.width;
+			float imageWidth = image.enabled ? image.rectTransform.rect.width : -spacing;
 			image.rectTransform.anchorMin = new Vector2(0, 0.5f);
 			image.rectTransform.anchorMax = new Vector2(0, 0.5f);
 			image.rectTransform.pivot = new Vector2(0, 0.5f);
@@ -58,6 +58,7 @@ namespace LMirman.RewiredGlyphs.Components
 		public override void SetGlyph(Glyph glyph, AxisRange axisRange)
 		{
 			image.sprite = glyph.GetSprite(axisRange);
+			image.enabled = !ShouldHideGlyph(glyph);
 			SetLayout();
 		}
 	}

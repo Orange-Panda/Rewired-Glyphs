@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Added `ControllerType` property to `Glyph` to inform components about the device the glyph intends to represent.
 	- All GUID and Template maps represent `Joystick` glyphs, Hardware maps are usually `Joystick` except for `Keyboard`, `Mouse`, and `Unknown` hardware definition.
+- Added optional feature for hiding non-input glyphs (null, uninitialized, etc.) in built-in components (default does not hide)
+	- Enable in `GlyphRichTextFormatter` using `hideInvalid` option in glyph tag (Example: `<glyph Jump hideInvalid>`)
+- Added optional feature for hiding keyboard and mouse glyphs in built-in components (default does not hide)
+	- Enable in `GlyphRichTextFormatter` using `hideKBM` option in glyph tag (Example: `<glyph Jump hideKBM>`)
+- Added `ShouldHideGlyph(Glyph)` protected method to `GlyphDisplay` which can be used by inheritors to inform if they should hide the output glyph (due to the above rules)
+	- If you don't implement this check in your `SetGlyph` component it will behave identically to before, but will not support these optional settings.
 
 ## [1.5.0] - 2024-05-30
 

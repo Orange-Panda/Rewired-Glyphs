@@ -29,12 +29,13 @@ namespace LMirman.RewiredGlyphs.Components
 
 		public override void SetGlyph(Glyph glyph, AxisRange axisRange)
 		{
+			bool shouldShow = !ShouldHideGlyph(glyph);
 			Sprite sprite = glyph.GetSprite(axisRange);
 			bool useSprite = sprite != null && !glyph.PreferDescription;
-			image.enabled = useSprite;
+			image.enabled = useSprite && shouldShow;
 			image.sprite = sprite;
 
-			textMesh.enabled = alwaysRenderBoth || !useSprite;
+			textMesh.enabled = shouldShow && (alwaysRenderBoth || !useSprite);
 			textMesh.text = glyph.GetDescription(axisRange);
 		}
 	}

@@ -28,7 +28,22 @@ namespace LMirman.RewiredGlyphs.Components
 		[SerializeField, Tooltip("The direction of input to represent. In most cases should be positive unless it represents a dual-axis input (i.e move left instead move right)")]
 		protected Pole pole = Pole.Positive;
 
+		/// <remarks>
+		/// When this is true: Keyboard and Mouse glyphs are still input to the <see cref="SetGlyph"/> method.
+		/// Therefore, if you are creating a custom component you <b>must</b> implement this functionality yourself for it to do anything.
+		/// </remarks>
+		[Header("Extra Settings")]
+		[SerializeField]
+		[Tooltip("When true inform the component that you'd rather not show the glyph at all if it is a Keyboard or Mouse glyph." +
+		         "Therefore, will only show a glyph if the device is a Joystick and show nothing if the device is a Keyboard or Mouse")]
+		protected bool hideKeyboardMouseGlyphs;
+		[SerializeField]
+		[Tooltip("When true inform the component that you'd rather not show glyphs that don't represent an actual input (such as Null or Uninitialized).\n\n" +
+		         "Caution: A value of true cause misconfigurations to go unnoticed.")]
+		protected bool hideNonInputGlyphs;
+
 		public int ActionID { get; protected set; }
+
 		public Pole PoleValue { get; protected set; }
 
 		private bool hasSetValues;
@@ -137,6 +152,27 @@ namespace LMirman.RewiredGlyphs.Components
 			PoleValue = newPole;
 			hasSetValues = true;
 			UpdateGlyph();
+		}
+
+		/// <summary>
+		/// Evaluate if the configuration of this Glyph would rather not show the Glyph in certain contexts.
+		/// </summary>
+		/// <example>
+		/// If <see cref="hideKeyboardMouseGlyphs"/> is true and the glyph represents a keyboard or mouse glyph this will return true.
+		/// </example>
+		/// <remarks>
+		/// The exact behavior of "hidden" is up to the component itself.
+		/// For instance, a <see cref="GlyphRichTextFormatter"/> will not show the glyph for that action while a <see cref="GlyphImageOutput"/> may hide itself entirely.
+		/// </remarks>
+		/// <returns>True if the glyph should be hidden, false if the glyph should be shown.</returns>
+		protected bool ShouldHideGlyph(Glyph glyph)
+		{
+			if (hideNonInputGlyphs && glyph.GlyphType is not Glyph.Type.Input)
+			{
+				return true;
+			}
+
+			return hideKeyboardMouseGlyphs && glyph.ControllerType is ControllerType.Keyboard or ControllerType.Mouse;
 		}
 	}
 }

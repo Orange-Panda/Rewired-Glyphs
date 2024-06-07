@@ -21,9 +21,10 @@ namespace LMirman.RewiredGlyphs.Components
 
 		public override void SetGlyph(Glyph glyph, AxisRange axisRange)
 		{
+			bool shouldShow = !ShouldHideGlyph(glyph);
 			Sprite sprite = glyph.GetSprite(axisRange);
 			image.sprite = sprite;
-			image.enabled = sprite != null;
+			image.enabled = shouldShow && sprite != null;
 		}
 	}
 }

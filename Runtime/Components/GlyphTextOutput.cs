@@ -21,7 +21,7 @@ namespace LMirman.RewiredGlyphs.Components
 
 		public override void SetGlyph(Glyph glyph, AxisRange axisRange)
 		{
-			textMesh.text = glyph.GetDescription(axisRange);
+			textMesh.text = ShouldHideGlyph(glyph) ? string.Empty : glyph.GetDescription(axisRange);
 		}
 	}
 }
