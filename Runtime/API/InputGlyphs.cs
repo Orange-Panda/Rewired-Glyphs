@@ -197,6 +197,13 @@ namespace LMirman.RewiredGlyphs
 			foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
 			{
 				GuidGlyphMaps[guidEntry.GuidValue] = guidEntry.glyphMap.CreateDictionary();
+				foreach (Glyph glyph in guidEntry.glyphMap.Glyphs)
+				{
+					// HACK: Big assumption here that every GUID reference is a Joystick.
+					// I am not aware of a way to determine controller type of controllers not plugged in.
+					// Maybe we can load from the Controller data file?
+					glyph.ControllerType = ControllerType.Joystick;
+				}
 			}
 
 			// Create hardware glyph lookup
@@ -204,6 +211,16 @@ namespace LMirman.RewiredGlyphs
 			foreach (GlyphCollection.HardwareEntry entry in collection.HardwareMaps)
 			{
 				HardwareGlyphMaps[entry.hardwareDefinition] = entry.glyphMap.CreateDictionary();
+				foreach (Glyph glyph in entry.glyphMap.Glyphs)
+				{
+					glyph.ControllerType = entry.hardwareDefinition switch
+					{
+						HardwareDefinition.Unknown => null,
+						HardwareDefinition.Keyboard => ControllerType.Keyboard,
+						HardwareDefinition.Mouse => ControllerType.Mouse,
+						_ => ControllerType.Joystick
+					};
+				}
 			}
 
 			// Create template glyph lookup
@@ -211,6 +228,11 @@ namespace LMirman.RewiredGlyphs
 			foreach (GlyphCollection.TemplateEntry entry in collection.TemplateMaps)
 			{
 				TemplateGlyphMaps[entry.symbolPreference] = entry.glyphMap.CreateDictionary();
+				foreach (Glyph glyph in entry.glyphMap.Glyphs)
+				{
+					// We can safely assume any template entry is a joystick since template maps are used exclusively by that controller type.
+					glyph.ControllerType = ControllerType.Joystick;
+				}
 			}
 
 			UninitializedGlyph = collection.UninitializedGlyph;

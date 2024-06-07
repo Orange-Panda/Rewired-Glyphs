@@ -6,7 +6,7 @@ using UnityEngine;
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// Data about a particular input including <see cref="Sprite"/> and <see cref="string"/>. 
+	/// Data about a particular input including <see cref="Sprite"/> and <see cref="string"/>.
 	/// </summary>
 	[Serializable, PublicAPI]
 	public class Glyph
@@ -125,6 +125,15 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <seealso cref="Type"/>
 		public Type GlyphType { get; internal set; }
+		/// <summary>
+		/// The <see cref="Rewired.ControllerType"/> that this Glyph intends to be represent.
+		/// </summary>
+		/// <remarks>
+		/// <b>Important:</b> Depending on the value of <see cref="GlyphType"/> this value may be null if it doesn't represent a specific device.<br/><br/>
+		/// For example: a <see cref="Type.Null"/> or <see cref="Type.Uninitialized"/> glyph will have a null value since it doesn't represent any specific device.
+		/// </remarks>
+		[CanBeNull]
+		public ControllerType? ControllerType { get; internal set; }
 		/// <summary>
 		/// True when <see cref="GlyphType"/> is <see cref="Type.Input"/>.
 		/// </summary>
