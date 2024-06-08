@@ -184,7 +184,11 @@ namespace LMirman.RewiredGlyphs.Components
 				GlyphParseResult result = new GlyphParseResult(splitArgs);
 				Glyph glyph = result.GetGlyph(out AxisRange axisRange);
 				Sprite sprite = glyph.GetSprite(axisRange);
-				if (result.hideKeyboardMouseGlyphs && glyph.ControllerType is ControllerType.Keyboard or ControllerType.Mouse)
+				if (result.hideInvalidGlyphs && glyph.GlyphType is not Glyph.Type.Input)
+				{
+					Output.Replace(match.Groups[0].Value, string.Empty);
+				}
+				else if (result.hideKeyboardMouseGlyphs && glyph.ControllerType is ControllerType.Keyboard or ControllerType.Mouse)
 				{
 					Output.Replace(match.Groups[0].Value, string.Empty);
 				}
