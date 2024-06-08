@@ -14,6 +14,7 @@ namespace LMirman.RewiredGlyphs
 	public static class InputGlyphs
 	{
 		internal static bool glyphsDirty;
+		private static List<(ActionElementMap, AxisRange)> elementQueryOutput = new List<(ActionElementMap, AxisRange)>();
 
 		/// <summary>
 		/// The type Guid of the Controller Template.
@@ -418,14 +419,15 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			ActionElementMap keyboardMap = player.GetActionElementMap(ControllerType.Keyboard, action.id, pole, forceAxis, out AxisRange expectedAxis);
-			if (keyboardMap != null)
+			if (keyboardMap == null)
 			{
-				axisRange = expectedAxis;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
-				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+				return UnboundGlyph;
 			}
 
-			return UnboundGlyph;
+			axisRange = expectedAxis;
+			Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
+			return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+
 		}
 
 		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
@@ -478,6 +480,7 @@ namespace LMirman.RewiredGlyphs
 		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
 		/// </remarks>
 		/// <seealso cref="GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool)"/>
+		[NotNull]
 		public static Glyph GetSpecificJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference,
 			bool forceAxis = false)
 		{
@@ -488,7 +491,6 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			// Initialize variables
-			Glyph glyph;
 			InputAction action = ReInput.mapping.GetAction(actionID);
 
 			// Make sure the action expected is valid, escape with null glyph if invalid action given by developer.
@@ -505,34 +507,111 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			axisRange = expectedAxis;
+			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference) ?? GetFallbackGlyph(map.elementIdentifierName);
+		}
 
-			// Try to retrieve a glyph that is specific to the user's controller hardware.
-			if (controller != null && symbolPreference == SymbolPreference.Auto)
+		/// <summary>
+		/// Get a list of <b>all</b> glyphs that could represent a particular action.
+		/// </summary>
+		/// <remarks>
+		/// By design does not filter by controller type since you may decide to filter the <paramref name="output"/> list yourself using the glyph <see cref="Glyph.ControllerType"/>.
+		/// <br/><br/>
+		/// The results list will <b>not</b> include any <see cref="NullGlyph"/>, <see cref="UninitializedGlyph"/>, or <see cref="UnboundGlyph"/>.
+		/// It is <i>your responsibility</i> to decide whether you'd like to show these glyphs depending on the returned <see cref="SetQueryResult"/> or output list values.
+		/// </remarks>
+		/// <example>
+		/// Primitive example of how to call this method.
+		/// <code>
+		/// // Defining the list outside of the method is highly encouraged so we don't generate garbage memory every method call
+		/// private List&lt;(Glyph, AxisRange)&gt; output = new List&lt;(Glyph, AxisRange)&gt;();
+		///
+		/// <br/>
+		///
+		/// private void SetGlyphs()
+		/// {
+		///		// TODO: Specify `playerID`, `actionID`, and `pole` based on what you want to represent.
+		///		Player player = ReInput.players.GetPlayer(playerID);
+		///		player.GetGlyphSet(actionID, pole, output);
+		///		foreach ((Glyph, AxisRange) result in output)
+		///		{
+		///			// TODO: Your functionality here. Use result.Item1 and glyph.Item2.
+		///		}
+		/// }
+		/// </code>
+		/// </example>
+		/// <param name="player">The player to check the input map of</param>
+		/// <param name="actionID">The identifier of the action to represent</param>
+		/// <param name="pole">
+		/// The direction of the action to represent.
+		/// <br/><br/>
+		/// Usually positive unless it is an axis action such as Move Left in a Move Horizontal action.
+		/// </param>
+		/// <param name="output">
+		/// A list storing the output results of this function that is defined by the calling type.
+		/// The list is cleared when this method is called and will contain the results after the method executes.
+		/// Must <b>not</b> be a null value.
+		/// </param>
+		/// <param name="forceAxis">
+		/// Usually the Input Glyph system, when <paramref name="forceAxis"/> is false, only checks for single axis inputs such that it will only look for "Move Left" with <see cref="Pole.Negative"/> and "Move Right" with <see cref="Pole.Positive"/> and thus never checking "Move Horizontal" as an axis itself.
+		/// <br/><br/>
+		/// When true, explicitly request for the Input Glyph system to evaluate this glyph as the full axis ("Move Horizontal" in the example case) so we can represent it properly for axis inputs.
+		/// <br/><br/>
+		/// TL;DR: For axis actions: True represents the axis itself "Move Horizontal". False represents negative pole "Move Left" and positive pole "Move Right". In most cases should be false.
+		/// </param>
+		/// <param name="joystickSymbols">
+		/// Determines the symbol type used to represent joystick glyphs.<br/><br/>
+		/// When null (default): Use the <see cref="PreferredSymbols"/> for representing joystick glyphs.
+		/// </param>
+		/// <returns>The resulting <see cref="SetQueryResult"/> informing the caller of if the query was successful or why it was unsuccessful if it wasn't</returns>
+		public static SetQueryResult GetGlyphSet(this Player player, int actionID, Pole pole, [NotNull] List<(Glyph, AxisRange)> output, bool forceAxis = false, SymbolPreference? joystickSymbols = null)
+		{
+			output.Clear();
+			if (!CanRetrieveGlyph)
 			{
-				glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
-				if (glyph != null)
-				{
-					return glyph;
-				}
+				return SetQueryResult.ErrorUninitialized;
+			}
 
-				HardwareDefinition controllerType = GetHardwareDefinition(controller);
-				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
+			// --- Get all joystick glyphs ---
+			if (player.GetAllActionElementMaps(ControllerType.Joystick, actionID, pole, forceAxis, elementQueryOutput) == SetQueryResult.ErrorUnknownAction)
+			{
+				// If the joystick outputs unknown action we can just bail now since we will get the same result from other controller types.
+				return SetQueryResult.ErrorUnknownAction;
+			}
+
+			Controller last = player.controllers.GetMostRecentController(ControllerType.Joystick);
+			SymbolPreference symbolPreference = joystickSymbols ?? PreferredSymbols;
+			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
+			{
+				Glyph glyph = GetJoystickGlyphFromElementMap(player, last, element.Item1, symbolPreference);
 				if (glyph != null)
 				{
-					return glyph;
+					output.Add((glyph, element.Item2));
 				}
 			}
 
-			// Try to retrieve a glyph that is mapped to the gamepad template (since at this point one was not found for the user's controller)
-			// Determine the element expected on the template
-			controller = player.controllers.GetFirstControllerWithTemplate(GamepadTemplateGuid);
-			IControllerTemplate template = controller.GetTemplate(GamepadTemplateGuid);
-			int targets = template.GetElementTargets(map, TemplateTargets);
-			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
+			// --- Get all keyboard glyphs ---
+			player.GetAllActionElementMaps(ControllerType.Keyboard, actionID, pole, forceAxis, elementQueryOutput);
+			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
+			{
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, element.Item1.elementIdentifierId);
+				if (glyph != null)
+				{
+					output.Add((glyph, element.Item2));
+				}
+			}
 
-			// Use the template glyph if one exists.
-			glyph = GetNativeGlyphFromTemplateMap(symbolPreference, templateElementId);
-			return glyph ?? GetFallbackGlyph(map.elementIdentifierName);
+			// --- Get all mouse glyphs ---
+			player.GetAllActionElementMaps(ControllerType.Mouse, actionID, pole, forceAxis, elementQueryOutput);
+			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
+			{
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, element.Item1.elementIdentifierId);
+				if (glyph != null)
+				{
+					output.Add((glyph, element.Item2));
+				}
+			}
+
+			return SetQueryResult.Success;
 		}
 		#endregion
 
@@ -836,6 +915,37 @@ namespace LMirman.RewiredGlyphs
 		#endregion
 
 		#region Internal Use
+		[CanBeNull]
+		private static Glyph GetJoystickGlyphFromElementMap(Player player, Controller controller, ActionElementMap map, SymbolPreference symbolPreference)
+		{
+			// Try to retrieve a glyph that is specific to the user's controller hardware.
+			if (controller != null && symbolPreference == SymbolPreference.Auto)
+			{
+				Glyph glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
+				if (glyph != null)
+				{
+					return glyph;
+				}
+
+				HardwareDefinition controllerType = GetHardwareDefinition(controller);
+				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
+				if (glyph != null)
+				{
+					return glyph;
+				}
+			}
+
+			// Try to retrieve a glyph that is mapped to the gamepad template (since at this point one was not found for the user's controller)
+			// Determine the element expected on the template
+			controller = player.controllers.GetFirstControllerWithTemplate(GamepadTemplateGuid);
+			IControllerTemplate template = controller.GetTemplate(GamepadTemplateGuid);
+			int targets = template.GetElementTargets(map, TemplateTargets);
+			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
+
+			// Use the template glyph if one exists.
+			return GetNativeGlyphFromTemplateMap(symbolPreference, templateElementId);
+		}
+
 		/// <summary>
 		/// Retrieve a cached player reference from <see cref="ReInput"/>.
 		/// </summary>
@@ -943,6 +1053,99 @@ namespace LMirman.RewiredGlyphs
 			expectedAxis = AxisRange.Full;
 			return null;
 		}
+
+		/// <summary>
+		/// Get all mappings (if any) for this controller that has the correct polarity.
+		/// </summary>
+		/// <remarks>
+		/// Stores its output in the <paramref name="output"/> list.
+		/// This list must not be null and is to be created somewhere by the calling type.
+		/// It will be cleared and populated with the output of this method, if any.
+		/// <br/><br/>
+		/// If the action is not valid or there are no mappings available for the action the method will still succeed.
+		/// In such a case, the output list will be empty.
+		/// </remarks>
+		private static SetQueryResult GetAllActionElementMaps(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis, [NotNull] List<(ActionElementMap, AxisRange)> output)
+		{
+			output.Clear();
+			InputAction inputAction = ReInput.mapping.GetAction(actionID);
+			if (inputAction == null)
+			{
+				return SetQueryResult.ErrorUnknownAction;
+			}
+
+			bool actionIsAxis = inputAction.type == InputActionType.Axis;
+			int count = player.controllers.maps.GetElementMapsWithAction(controller, actionID, false, MapLookupResults);
+			for (int i = 0; i < count; i++)
+			{
+				ActionElementMap elementMap = MapLookupResults[i];
+				switch (getAsAxis)
+				{
+					// Pick this when the element is an axis and we want to get an axis element.
+					case true when actionIsAxis && elementMap.axisType == AxisType.Normal:
+						output.Add((elementMap, elementMap.axisRange));
+						break;
+					// Pick this when the element is an axis but we want to get a specific axis range for it.
+					case false when actionIsAxis && (elementMap.axisType != AxisType.None || elementMap.axisContribution == pole):
+						output.Add((elementMap,  pole == Pole.Positive ? AxisRange.Positive : AxisRange.Negative));
+						break;
+					// Pick this when the action is a button and it has the expected axis contribution value
+					case false when !actionIsAxis && elementMap.axisContribution == pole:
+						output.Add((elementMap, elementMap.axisRange));
+						break;
+				}
+			}
+
+			return SetQueryResult.Success;
+		}
 		#endregion
+
+		/// <summary>
+		/// Enum value used to communicate the result of glyph set queries.
+		/// </summary>
+		[PublicAPI]
+		public enum SetQueryResult
+		{
+			/// <summary>
+			/// Default value, methods should never return this value unless some unhandled exception occurs.
+			/// </summary>
+			/// <remarks>
+			/// The value of the output list is undetermined if this value is somehow output.
+			/// <br/><br/>
+			/// If you get this result consider using the <see cref="InputGlyphs.UninitializedGlyph"/>
+			/// </remarks>
+			Undefined = 0,
+			/// <summary>
+			/// Represents a successful set query, no errors or invalid configuration occurred.
+			/// </summary>
+			/// <remarks>
+			/// This does not necessarily mean there are any mappings/glyphs, just that no error occurred.
+			/// <br/><br/>
+			/// In other words, this means there are zero to many output items but those items accurately represents the query for the action.
+			/// <br/><br/>
+			/// If you get this result <b>and</b> the output list is empty consider using the <see cref="InputGlyphs.UnboundGlyph"/>
+			/// </remarks>
+			Success = 1,
+			/// <summary>
+			/// Represents a query that failed due to an unknown action identifier.
+			/// <br/><br/>
+			/// If you get this result validate the input action ID or name is correct.
+			/// </summary>
+			/// <remarks>
+			/// The output list will be empty as a result since there is no action to represent.
+			/// <br/><br/>
+			/// If you get this result consider using the <see cref="InputGlyphs.NullGlyph"/>
+			/// </remarks>
+			ErrorUnknownAction = 2,
+			/// <summary>
+			/// Represents a query that failed due to the glyph system not being ready yet.
+			/// </summary>
+			/// <remarks>
+			/// The output list will be empty since it is impossible for use to find actions or maps for those actions.
+			/// <br/><br/>
+			/// If you get this result consider using the <see cref="InputGlyphs.UninitializedGlyph"/>
+			/// </remarks>
+			ErrorUninitialized = 3
+		}
 	}
 }

@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 	- Enable in `GlyphRichTextFormatter` using `hideKBM` option in glyph tag (Example: `<glyph Jump hideKBM>`)
 - Added `ShouldHideGlyph(Glyph)` protected method to `GlyphDisplay` which can be used by inheritors to inform if they should hide the output glyph (due to the above rules)
 	- If you don't implement this check in your `SetGlyph` component it will behave identically to before, but will not support these optional settings.
+- Added `GetGlyphSet` method to `InputGlyphs` for getting *all* glyphs for an action across all controller types, including multiple maps on a single controller.
 
 ## [1.5.0] - 2024-05-30
 
