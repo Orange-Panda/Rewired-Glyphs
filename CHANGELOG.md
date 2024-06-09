@@ -4,25 +4,34 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.6.0] - UNRELEASED
+## [2.0.0] - UNRELEASED
 
 ### Added
 
 - Added `ControllerType` property to `Glyph` to inform components about the device the glyph intends to represent.
 	- All GUID and Template maps represent `Joystick` glyphs, Hardware maps are usually `Joystick` except for `Keyboard`, `Mouse`, and `Unknown` hardware definition.
-- Added optional feature for hiding non-input glyphs (null, uninitialized, etc.) in built-in components (default does not hide)
+- Added optional feature for hiding non-input glyphs (null, uninitialized, etc.) on built-in components (default does not hide)
 	- Enable in `GlyphRichTextFormatter` using `hideInvalid` option in glyph tag (Example: `<glyph Jump hideInvalid>`)
 - Added optional feature for hiding keyboard and mouse glyphs in built-in components (default does not hide)
 	- Enable in `GlyphRichTextFormatter` using `hideKBM` option in glyph tag (Example: `<glyph Jump hideKBM>`)
 - Added `ShouldHideGlyph(Glyph)` protected method to `GlyphDisplay` which can be used by inheritors to inform if they should hide the output glyph (due to the above rules)
 	- If you don't implement this check in your `SetGlyph` component it will behave identically to before, but will not support these optional settings.
 - Added `GetGlyphSet` method to `InputGlyphs` for getting *all* glyphs for an action across all controller types, including multiple maps on a single controller.
+- Added `collectionKey` string field to `GlyphCollection` for distinctly identifying and referencing collections at runtime
+- ⚠️ **[Breaking]** - Added `collectionKey` optional parameter to all `InputGlyphs` methods for referencing secondary (non-default) collections
+- Added `additionalCollections` field to `RewiredGlyphManager` for additively loading additional collection for reference by their `collectionKey`
 
 ### Changed
 
 - Rewrote the way glyph collections are loaded into memory internally
 	- Switching the active glyph collection is now much more performant
-    - Loading a glyph collection now only dispatch a glyph update if it may have changed the output of glyph queries
+	- Loading a glyph collection now only dispatch a glyph update if it may have changed the output of glyph queries
+
+### Fixed
+
+- ⚠️ **[Breaking]** - Fixed `GetSpecificCurrentGlyph` and `GetCurrentGlyph` not utilizing the value of its 'forceAxis' parameter.
+	- If you were utilizing a value of `true` you may notice different output of this method.
+	- This method was being used by `GlyphRichTextFormatter` therefore tags such as `<glyph "MoveH" pole=FullAxis>` will output differently.
 
 ## [1.5.0] - 2024-05-30
 

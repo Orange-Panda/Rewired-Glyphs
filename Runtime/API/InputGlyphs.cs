@@ -8,9 +8,34 @@ using UnityEngine;
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// The InputGlyphs class contains various methods to easily get <see cref="Sprite"/> and <see cref="string"/> information about user input controls.
+	/// Static class containing methods and properties to conveniently get <see cref="Sprite"/> and <see cref="string"/> information about Rewired input actions through <see cref="Glyph"/> queries.
 	/// </summary>
-	/// <remarks>The <see cref="GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string)"/> function should provide most functionality needed.</remarks>
+	/// <remarks>
+	/// Requires the <see cref="RewiredGlyphManager"/> component to be added to your Rewired `Input Manager` for the <see cref="InputGlyphs"/> system to function properly.
+	/// <br/><br/>
+	/// <b>Common Query Functions</b>
+	/// <br/><br/>
+	/// - <see cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/>: Get glyph to represent an action for the player's most recently used device<br/>
+	/// - <see cref="GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,LMirman.RewiredGlyphs.SymbolPreference,bool,string)"/>: Get glyph to represent an action for the player's most recently used device with hardware specific symbols<br/>
+	/// - <see cref="GetGlyph(Rewired.Player,Rewired.ControllerType,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/>: Get glyph to represent an action for the player for a specific type of controller<br/>
+	/// - <see cref="GetGlyphSet"/>: Outputs a list of <b>all</b> glyphs for a particular action for a player across all controller types<br/>
+	/// <br/>
+	/// <b>Other Useful Functionality</b>
+	/// <br/><br/>
+	/// - <see cref="RebuildGlyphs"/>: Event that is invoked when the output of Glyph queries may have changed (such as a user switching controller)<br/>
+	/// - <see cref="LoadGlyphCollection"/>: Used for loading additional glyph collections and changing the default glyph collection<br/>
+	/// - <see cref="SetGlyphPreferences"/>: Set the preferred symbols to show for Joystick controllers and preferred type of controller to show glyphs for<br/>
+	/// - <see cref="MarkGlyphsDirty"/>: Inform InputGlyphs that it should dispatch the <see cref="RebuildGlyphs"/> event next <see cref="RewiredGlyphManager"/> update.
+	/// Particularly important to use when Rewired data may have changed externally such as remapping controls<br/>
+	/// </remarks>
+	/// <seealso cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/>
+	/// <seealso cref="GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,LMirman.RewiredGlyphs.SymbolPreference,bool,string)"/>
+	/// <seealso cref="GetGlyph(Rewired.Player,Rewired.ControllerType,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/>
+	/// <seealso cref="GetGlyphSet"/>
+	/// <seealso cref="RebuildGlyphs"/>
+	/// <seealso cref="LoadGlyphCollection"/>
+	/// <seealso cref="SetGlyphPreferences"/>
+	/// <seealso cref="MarkGlyphsDirty"/>
 	[PublicAPI]
 	public static partial class InputGlyphs
 	{
@@ -39,7 +64,7 @@ namespace LMirman.RewiredGlyphs
 		/// </remarks>
 		private static readonly Dictionary<string, RuntimeGlyphCollection> Collections = new Dictionary<string, RuntimeGlyphCollection>(StringComparer.OrdinalIgnoreCase);
 		/// <summary>
-		/// The glyph collection to used by default (due to invalid <see cref="Collections"/> lookup or no specifier provbided).
+		/// The glyph collection to used by default (due to invalid <see cref="Collections"/> lookup or no specifier provided).
 		/// </summary>
 		private static RuntimeGlyphCollection defaultCollection;
 		/// <summary>
@@ -153,7 +178,7 @@ namespace LMirman.RewiredGlyphs
 				AllCollections.Add(collection, runtimeCollection);
 			}
 
-			// ----- Determine if we are going to modify value so we can dispatch update later. -----
+			// ----- Determine if we are going to modify value, so we can dispatch update later. -----
 			bool hasLookup = Collections.TryGetValue(collection.Key, out RuntimeGlyphCollection lookupCollection);
 			if (hasLookup && lookupCollection != runtimeCollection)
 			{
@@ -279,7 +304,7 @@ namespace LMirman.RewiredGlyphs
 		/// Get a <see cref="Glyph"/> to represent an action for the user for the `Mouse` device.
 		/// </summary>
 		/// <remarks>
-		/// Does <b>not</b> show glyphs for the keybaord.
+		/// Does <b>not</b> show glyphs for the keyboard.
 		/// Use <see cref="GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/> if you want to show keyboard or mouse glyph.
 		/// </remarks>
 		public static Glyph GetMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
@@ -491,7 +516,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <remarks>
 		/// For performance reasons the input glyph system only evaluates glyphs when it believes the output has changed such as a player using a different input device.
-		/// By default however, the InputGlyph system is unaware of changes such as control remapping and needs to be manually informed of such changes using this method.
+		/// By default, however, the InputGlyph system is unaware of changes such as control remapping and needs to be manually informed of such changes using this method.
 		/// </remarks>
 		public static void MarkGlyphsDirty()
 		{
@@ -714,7 +739,7 @@ namespace LMirman.RewiredGlyphs
 					case true when actionIsAxis && elementMap.axisType == AxisType.Normal:
 						expectedAxis = elementMap.axisRange;
 						return elementMap;
-					// Pick this when the element is an axis but we want to get a specific axis range for it.
+					// Pick this when the element is an axis, but we want to get a specific axis range for it.
 					case false when actionIsAxis && (elementMap.axisType != AxisType.None || elementMap.axisContribution == pole):
 						expectedAxis = pole == Pole.Positive ? AxisRange.Positive : AxisRange.Negative;
 						return elementMap;
@@ -761,7 +786,7 @@ namespace LMirman.RewiredGlyphs
 					case true when actionIsAxis && elementMap.axisType == AxisType.Normal:
 						output.Add((elementMap, elementMap.axisRange));
 						break;
-					// Pick this when the element is an axis but we want to get a specific axis range for it.
+					// Pick this when the element is an axis, but we want to get a specific axis range for it.
 					case false when actionIsAxis && (elementMap.axisType != AxisType.None || elementMap.axisContribution == pole):
 						output.Add((elementMap, pole == Pole.Positive ? AxisRange.Positive : AxisRange.Negative));
 						break;

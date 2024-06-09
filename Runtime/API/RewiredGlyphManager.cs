@@ -1,24 +1,26 @@
 using Rewired;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// Responsible for initializing and running Input Glyph behaviors.
+	/// Responsible for initializing the <see cref="InputGlyphs"/> system and running <see cref="InputGlyphs"/> functionality through built in Unity functions.
 	/// </summary>
 	/// <remarks>
-	/// Add this component to your input manager for it to function.
-	/// The Input Glyph system will not behave as expected without this present.
+	/// You must add this component to your input manager for <see cref="InputGlyphs"/> system to fully function.
 	/// </remarks>
 	[AddComponentMenu("Rewired Glyphs/Rewired Glyph Manager")]
 	public class RewiredGlyphManager : MonoBehaviour
 	{
-		[SerializeField, Tooltip("The collection of glyphs to use in the Rewired Input Glyph system.")]
+		[SerializeField, Tooltip("The default collection of glyphs to use in the Rewired Input Glyph system when initialized.")]
 		private GlyphCollection glyphCollection;
+		[SerializeField, Tooltip("Additional glyph collections to load on start which can be referenced via their collectionKey.")]
+		private GlyphCollection[] additionalCollections = { };
 		[SerializeField, Tooltip("The player ids to check input changes for rebuilding glyphs on hardware changes.")]
 		private int[] playerIds = { 0 };
-		[SerializeField, Tooltip("How frequently the observer will poll players to check for hardware changes."), Range(0, 5)]
+		[SerializeField, Tooltip("How frequently this manager will poll the device list all observed `playerIds` to check for hardware changes."), Range(0, 5)]
 		private float hardwareChangePollingRate = 0.5f;
 
 		private float timer;
@@ -28,11 +30,17 @@ namespace LMirman.RewiredGlyphs
 		{
 			if (glyphCollection == null)
 			{
-				Debug.LogError("Please provide a Glyph Collection on the Input Glyph Observer.");
-				return;
+				Debug.LogError($"No default GlyphCollection defined on \"{gameObject.name}\". Please add a Glyph Collection on the Rewired Glyph Manager.", gameObject);
+			}
+			else
+			{
+				InputGlyphs.LoadGlyphCollection(glyphCollection);
 			}
 
-			InputGlyphs.LoadGlyphCollection(glyphCollection);
+			foreach (GlyphCollection collection in additionalCollections ?? Array.Empty<GlyphCollection>())
+			{
+				InputGlyphs.LoadGlyphCollection(collection, false);
+			}
 		}
 
 		private void Start()
@@ -82,7 +90,7 @@ namespace LMirman.RewiredGlyphs
 
 		private static bool IsKeyboardMouse(HardwareDefinition type)
 		{
-			return type == HardwareDefinition.Mouse || type == HardwareDefinition.Keyboard;
+			return type is HardwareDefinition.Mouse or HardwareDefinition.Keyboard;
 		}
 
 		private class ObservedPlayer
