@@ -1,0 +1,602 @@
+{
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID_1.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID_1.html",
+    "title": "Property ActionID | Rewired Glyphs Docs",
+    "keywords": "Property ActionID ActionID Declaration public int ActionID { get; protected set; } Property Value Type Description int"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html",
+    "title": "Method Awake | Rewired Glyphs Docs",
+    "keywords": "Method Awake Awake() Declaration protected virtual void Awake()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues.html",
+    "title": "Method InitializeValues | Rewired Glyphs Docs",
+    "keywords": "Method InitializeValues InitializeValues(bool) Declaration protected virtual void InitializeValues(bool forced = false) Parameters Type Name Description bool forced"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady.html",
+    "title": "Method InitializeWhenReady | Rewired Glyphs Docs",
+    "keywords": "Method InitializeWhenReady InitializeWhenReady() Declaration protected virtual IEnumerator InitializeWhenReady() Returns Type Description IEnumerator"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs.html",
+    "title": "Method InputGlyphsOnRebuildGlyphs | Rewired Glyphs Docs",
+    "keywords": "Method InputGlyphsOnRebuildGlyphs InputGlyphsOnRebuildGlyphs() Declaration protected virtual void InputGlyphsOnRebuildGlyphs()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable.html",
+    "title": "Method OnDisable | Rewired Glyphs Docs",
+    "keywords": "Method OnDisable OnDisable() Declaration protected virtual void OnDisable()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable.html",
+    "title": "Method OnEnable | Rewired Glyphs Docs",
+    "keywords": "Method OnEnable OnEnable() Declaration protected virtual void OnEnable()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html",
+    "title": "Property PoleValue | Rewired Glyphs Docs",
+    "keywords": "Property PoleValue PoleValue Declaration public Pole PoleValue { get; protected set; } Property Value Type Description Pole"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph.html",
+    "title": "Method SetGlyph | Rewired Glyphs Docs",
+    "keywords": "Method SetGlyph SetGlyph(Glyph, AxisRange) Declaration public abstract void SetGlyph(Glyph glyph, AxisRange axisRange) Parameters Type Name Description Glyph glyph AxisRange axisRange"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html",
+    "title": "Method SetTarget | Rewired Glyphs Docs",
+    "keywords": "Method SetTarget SetTarget(string, Pole) Change the input action this should display. Declaration public void SetTarget(string newActionName, Pole newPole) Parameters Type Name Description string newActionName The name of the action as defined in the input manager Pole newPole The direction of input to represent. In most cases should be positive unless it represents a dual-axis input (i.e move left instead move right) SetTarget(int, Pole) Change the input action this should display. Declaration public void SetTarget(int newActionID, Pole newPole) Parameters Type Name Description int newActionID The id of the action as defined in the input manager Pole newPole The direction of input to represent. In most cases should be positive unless it represents a dual-axis input (i.e move left instead move right)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady.html",
+    "title": "Method SetTargetWhenReady | Rewired Glyphs Docs",
+    "keywords": "Method SetTargetWhenReady SetTargetWhenReady(string, Pole) Declaration protected virtual IEnumerator SetTargetWhenReady(string newActionName, Pole newPole) Parameters Type Name Description string newActionName Pole newPole Returns Type Description IEnumerator"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html",
+    "title": "Method ShouldHideGlyph | Rewired Glyphs Docs",
+    "keywords": "Method ShouldHideGlyph ShouldHideGlyph(Glyph) Evaluate if the configuration of this Glyph would rather not show the Glyph in certain contexts. Declaration protected bool ShouldHideGlyph(Glyph glyph) Parameters Type Name Description Glyph glyph Returns Type Description bool True if the glyph should be hidden, false if the glyph should be shown. Remarks The exact behavior of \"hidden\" is up to the component itself. For instance, a GlyphRichTextFormatter will not show the glyph for that action while a GlyphImageOutput may hide itself entirely. Examples If hideKeyboardMouseGlyphs is true and the glyph represents a keyboard or mouse glyph this will return true."
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html",
+    "title": "Method UpdateGlyph | Rewired Glyphs Docs",
+    "keywords": "Method UpdateGlyph UpdateGlyph() Declaration public void UpdateGlyph()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID.html",
+    "title": "Field actionID | Rewired Glyphs Docs",
+    "keywords": "Field actionID Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected int actionID Returns Type Description int"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName.html",
+    "title": "Field actionName | Rewired Glyphs Docs",
+    "keywords": "Field actionName Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected string actionName Returns Type Description string"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs.html",
+    "title": "Field hideKeyboardMouseGlyphs | Rewired Glyphs Docs",
+    "keywords": "Field hideKeyboardMouseGlyphs Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected bool hideKeyboardMouseGlyphs Returns Type Description bool Remarks When this is true: Keyboard and Mouse glyphs are still input to the SetGlyph(Glyph, AxisRange) method. Therefore, if you are creating a custom component you must implement this functionality yourself for it to do anything."
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs.html",
+    "title": "Field hideNonInputGlyphs | Rewired Glyphs Docs",
+    "keywords": "Field hideNonInputGlyphs Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected bool hideNonInputGlyphs Returns Type Description bool"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.html",
+    "title": "Class GlyphDisplay | Rewired Glyphs Docs",
+    "keywords": "Class GlyphDisplay An abstract class that provides common functionality for a ui element to display an Glyph. Inheritance object GlyphDisplay GlyphHybridOutput GlyphImageOutput GlyphLabeledImageOutput GlyphTextOutput Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax public abstract class GlyphDisplay : MonoBehaviour Remarks Usage of this class is completely optional. Fields Name Description actionID actionName hideKeyboardMouseGlyphs hideNonInputGlyphs playerIndex pole useActionID Properties Name Description ActionID PoleValue Methods Name Description Awake() InitializeValues(bool) InitializeWhenReady() InputGlyphsOnRebuildGlyphs() OnDisable() OnEnable() SetGlyph(Glyph, AxisRange) SetTarget(int, Pole) Change the input action this should display. SetTarget(string, Pole) Change the input action this should display. SetTargetWhenReady(string, Pole) ShouldHideGlyph(Glyph) Evaluate if the configuration of this Glyph would rather not show the Glyph in certain contexts. UpdateGlyph()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex.html",
+    "title": "Field playerIndex | Rewired Glyphs Docs",
+    "keywords": "Field playerIndex Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected int playerIndex Returns Type Description int"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.pole.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.pole.html",
+    "title": "Field pole | Rewired Glyphs Docs",
+    "keywords": "Field pole Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected Pole pole Returns Type Description Pole"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID.html",
+    "title": "Field useActionID | Rewired Glyphs Docs",
+    "keywords": "Field useActionID Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax protected bool useActionID Returns Type Description bool"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake.html",
+    "title": "Method Awake | Rewired Glyphs Docs",
+    "keywords": "Method Awake Awake() Declaration protected override void Awake() Overrides GlyphDisplay.Awake()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph.html",
+    "title": "Method SetGlyph | Rewired Glyphs Docs",
+    "keywords": "Method SetGlyph SetGlyph(Glyph, AxisRange) Declaration public override void SetGlyph(Glyph glyph, AxisRange axisRange) Parameters Type Name Description Glyph glyph AxisRange axisRange Overrides GlyphDisplay.SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.html",
+    "title": "Class GlyphHybridOutput | Rewired Glyphs Docs",
+    "keywords": "Class GlyphHybridOutput A GlyphDisplay element that will set it's textMesh and image components to the actionName's GetDescription(AxisRange) and GetSprite(AxisRange) values respectively. Inheritance object GlyphDisplay GlyphHybridOutput Inherited Members GlyphDisplay.playerIndex GlyphDisplay.useActionID GlyphDisplay.actionID GlyphDisplay.actionName GlyphDisplay.pole GlyphDisplay.hideKeyboardMouseGlyphs GlyphDisplay.hideNonInputGlyphs GlyphDisplay.ActionID GlyphDisplay.PoleValue GlyphDisplay.InitializeWhenReady() GlyphDisplay.SetTargetWhenReady(string, Pole) GlyphDisplay.InitializeValues(bool) GlyphDisplay.OnEnable() GlyphDisplay.OnDisable() GlyphDisplay.InputGlyphsOnRebuildGlyphs() GlyphDisplay.UpdateGlyph() GlyphDisplay.SetTarget(string, Pole) GlyphDisplay.SetTarget(int, Pole) GlyphDisplay.ShouldHideGlyph(Glyph) Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax public class GlyphHybridOutput : GlyphDisplay Remarks Using the alwaysRenderBoth as true can show both sprite and description elements where using it as false can utilize the text component as a fallback if the InputGlyph does not have a sprite defined. Methods Name Description Awake() SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake.html",
+    "title": "Method Awake | Rewired Glyphs Docs",
+    "keywords": "Method Awake Awake() Declaration protected override void Awake() Overrides GlyphDisplay.Awake()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph.html",
+    "title": "Method SetGlyph | Rewired Glyphs Docs",
+    "keywords": "Method SetGlyph SetGlyph(Glyph, AxisRange) Declaration public override void SetGlyph(Glyph glyph, AxisRange axisRange) Parameters Type Name Description Glyph glyph AxisRange axisRange Overrides GlyphDisplay.SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.html",
+    "title": "Class GlyphImageOutput | Rewired Glyphs Docs",
+    "keywords": "Class GlyphImageOutput A GlyphDisplay element that will set it's image component to the actionName's GetSprite(AxisRange) value. Inheritance object GlyphDisplay GlyphImageOutput Inherited Members GlyphDisplay.playerIndex GlyphDisplay.useActionID GlyphDisplay.actionID GlyphDisplay.actionName GlyphDisplay.pole GlyphDisplay.hideKeyboardMouseGlyphs GlyphDisplay.hideNonInputGlyphs GlyphDisplay.ActionID GlyphDisplay.PoleValue GlyphDisplay.InitializeWhenReady() GlyphDisplay.SetTargetWhenReady(string, Pole) GlyphDisplay.InitializeValues(bool) GlyphDisplay.OnEnable() GlyphDisplay.OnDisable() GlyphDisplay.InputGlyphsOnRebuildGlyphs() GlyphDisplay.UpdateGlyph() GlyphDisplay.SetTarget(string, Pole) GlyphDisplay.SetTarget(int, Pole) GlyphDisplay.ShouldHideGlyph(Glyph) Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax public class GlyphImageOutput : GlyphDisplay Methods Name Description Awake() SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph.html",
+    "title": "Method SetGlyph | Rewired Glyphs Docs",
+    "keywords": "Method SetGlyph SetGlyph(Glyph, AxisRange) Declaration public override void SetGlyph(Glyph glyph, AxisRange axisRange) Parameters Type Name Description Glyph glyph AxisRange axisRange Overrides GlyphDisplay.SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout.html",
+    "title": "Method SetLayout | Rewired Glyphs Docs",
+    "keywords": "Method SetLayout SetLayout() Declaration public void SetLayout()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText.html",
+    "title": "Method SetText | Rewired Glyphs Docs",
+    "keywords": "Method SetText SetText(string) Declaration public void SetText(string text) Parameters Type Name Description string text"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.html",
+    "title": "Class GlyphLabeledImageOutput | Rewired Glyphs Docs",
+    "keywords": "Class GlyphLabeledImageOutput An input glyph display that shows both an image and text for a particular input glyph. Inheritance object GlyphDisplay GlyphLabeledImageOutput Inherited Members GlyphDisplay.playerIndex GlyphDisplay.useActionID GlyphDisplay.actionID GlyphDisplay.actionName GlyphDisplay.pole GlyphDisplay.hideKeyboardMouseGlyphs GlyphDisplay.hideNonInputGlyphs GlyphDisplay.ActionID GlyphDisplay.PoleValue GlyphDisplay.Awake() GlyphDisplay.InitializeWhenReady() GlyphDisplay.SetTargetWhenReady(string, Pole) GlyphDisplay.InitializeValues(bool) GlyphDisplay.OnEnable() GlyphDisplay.OnDisable() GlyphDisplay.InputGlyphsOnRebuildGlyphs() GlyphDisplay.UpdateGlyph() GlyphDisplay.SetTarget(string, Pole) GlyphDisplay.SetTarget(int, Pole) GlyphDisplay.ShouldHideGlyph(Glyph) Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax public class GlyphLabeledImageOutput : GlyphDisplay Remarks The text does not necessarily relate to the action and can be any set by SetText(string). The main purpose of this class is to automatically handle layout of the elements. Methods Name Description SetGlyph(Glyph, AxisRange) SetLayout() SetText(string)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable.html",
+    "title": "Method OnDisable | Rewired Glyphs Docs",
+    "keywords": "Method OnDisable OnDisable() Declaration protected virtual void OnDisable()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable.html",
+    "title": "Method OnEnable | Rewired Glyphs Docs",
+    "keywords": "Method OnEnable OnEnable() Declaration protected virtual void OnEnable()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html",
+    "title": "Method ReplaceGlyphTagsWithSpriteTags | Rewired Glyphs Docs",
+    "keywords": "Method ReplaceGlyphTagsWithSpriteTags ReplaceGlyphTagsWithSpriteTags(string, bool, string, string) Replace glyph rich text such as <glyph \"Jump\"> in the provided text with a sprite or description for its corresponding Glyph in the Rewired Glyph system. Syntax Rules: The glyph tag begins with verbatim <glyph and ends at any > character. The first argument must always represent the action to represent as either an integer for the action ID or a string for the action name if and only if it does not contain any spaces. Following the action argument all arguments may appear in any order. Arguments are delimited by any occurrence of the space character, even if the space is contained within quotes. Additional Arguments: Following the action argument you may optionally include the following arguments to control the output glyph. Player ID (Default: 0) Specify the player you'd like to show glyph for using player=2 where 2 can be any int. If an integer is alone without any specifier it is interpret as player id, such as <glyph Jump 2> where 2 is player id Polarity (Default: Positive) Specify the expected axis or pole input for the action such as positive for \"Move Right\" and negative for \"Move Left\" on a Move Horizontal action using pole=Positive, pole=Negative, or pole=FullAxis. You may exclude pole specifier from your input. Controller Type (Default: Current) Specify the controller type to show symbols for using type=Joystick. Valid values are type=Current, type=Keyboard, type=Mouse, and type=Joystick. Warning: Specifying a controller that the runtime device doesn't have connected (such as Joystick) will show the UNBOUND symbol until they connect that controller type. Warning: Specifying a controller that does not have the specified action bound to that specific controller will show the UNBOUND symbol without falling back to another controller. Symbol Preference (Default: PreferredSymbols) Specify the symbols to use for Joystick glyphs. Valid values are symbol=auto, symbol=xbox, symbol=ps, or symbol=switch. All additional arguments that are string based are case-insensitive such that \"TYPE=JOYSTICK\" and \"type=joystick\" are equivalent inputs. Declaration public static string ReplaceGlyphTagsWithSpriteTags(string text, bool useSpritesWhenAvailable = true, string descriptionFormat = \"[{0}]\", string spriteFormat = \"{0}\") Parameters Type Name Description string text bool useSpritesWhenAvailable string descriptionFormat string spriteFormat Returns Type Description string Remarks Does not mutate the provided string."
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html",
+    "title": "Method SetFormattedText | Rewired Glyphs Docs",
+    "keywords": "Method SetFormattedText SetFormattedText(string) Set the text for this text output, replacing glyph rich text such as &lt;glyph \"Jump\"&gt; with its glyph's sprite or description. Declaration public void SetFormattedText(string text) Parameters Type Name Description string text"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh.html",
+    "title": "Property TextMesh | Rewired Glyphs Docs",
+    "keywords": "Property TextMesh TextMesh Declaration public TMP_Text TextMesh { get; } Property Value Type Description TMP_Text"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.html",
+    "title": "Class GlyphRichTextFormatter | Rewired Glyphs Docs",
+    "keywords": "Class GlyphRichTextFormatter Adds support for inline input glyphs on a TMP_Text component. Inheritance object GlyphRichTextFormatter Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax public class GlyphRichTextFormatter : MonoBehaviour Remarks The two main ways to use this component are the following: Director Pattern (Recommended): The text mesh's text is set exclusively via this component's SetFormattedText(string) method. This pattern is achieved by disabling the automaticallyCheckForTextChanges field and never changing the text mesh component's text elsewhere. This pattern is encouraged because it ensures that glyph tags are not lost in translation, which can especially happen if you are appending text. Observer Pattern: The text mesh's text is updated whenever it is changed externally. This pattern is achieved by enabling the automaticallyCheckForTextChanges field. This pattern is useful if you can't change text via the SetFormattedText(string). This pattern does however run the risk of losing preformatted text if not used carefully. Properties Name Description TextMesh Methods Name Description OnDisable() OnEnable() ReplaceGlyphTagsWithSpriteTags(string, bool, string, string) Replace glyph rich text such as <glyph \"Jump\"> in the provided text with a sprite or description for its corresponding Glyph in the Rewired Glyph system. Syntax Rules: The glyph tag begins with verbatim <glyph and ends at any > character. The first argument must always represent the action to represent as either an integer for the action ID or a string for the action name if and only if it does not contain any spaces. Following the action argument all arguments may appear in any order. Arguments are delimited by any occurrence of the space character, even if the space is contained within quotes. Additional Arguments: Following the action argument you may optionally include the following arguments to control the output glyph. Player ID (Default: 0) Specify the player you'd like to show glyph for using player=2 where 2 can be any int. If an integer is alone without any specifier it is interpret as player id, such as <glyph Jump 2> where 2 is player id Polarity (Default: Positive) Specify the expected axis or pole input for the action such as positive for \"Move Right\" and negative for \"Move Left\" on a Move Horizontal action using pole=Positive, pole=Negative, or pole=FullAxis. You may exclude pole specifier from your input. Controller Type (Default: Current) Specify the controller type to show symbols for using type=Joystick. Valid values are type=Current, type=Keyboard, type=Mouse, and type=Joystick. Warning: Specifying a controller that the runtime device doesn't have connected (such as Joystick) will show the UNBOUND symbol until they connect that controller type. Warning: Specifying a controller that does not have the specified action bound to that specific controller will show the UNBOUND symbol without falling back to another controller. Symbol Preference (Default: PreferredSymbols) Specify the symbols to use for Joystick glyphs. Valid values are symbol=auto, symbol=xbox, symbol=ps, or symbol=switch. All additional arguments that are string based are case-insensitive such that \"TYPE=JOYSTICK\" and \"type=joystick\" are equivalent inputs. SetFormattedText(string) Set the text for this text output, replacing glyph rich text such as &lt;glyph \"Jump\"&gt; with its glyph's sprite or description."
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake.html",
+    "title": "Method Awake | Rewired Glyphs Docs",
+    "keywords": "Method Awake Awake() Declaration protected override void Awake() Overrides GlyphDisplay.Awake()"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph.html",
+    "title": "Method SetGlyph | Rewired Glyphs Docs",
+    "keywords": "Method SetGlyph SetGlyph(Glyph, AxisRange) Declaration public override void SetGlyph(Glyph glyph, AxisRange axisRange) Parameters Type Name Description Glyph glyph AxisRange axisRange Overrides GlyphDisplay.SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.html",
+    "title": "Class GlyphTextOutput | Rewired Glyphs Docs",
+    "keywords": "Class GlyphTextOutput A GlyphDisplay element that will set it's textMesh component to the actionName's GetDescription(AxisRange) Inheritance object GlyphDisplay GlyphTextOutput Inherited Members GlyphDisplay.playerIndex GlyphDisplay.useActionID GlyphDisplay.actionID GlyphDisplay.actionName GlyphDisplay.pole GlyphDisplay.hideKeyboardMouseGlyphs GlyphDisplay.hideNonInputGlyphs GlyphDisplay.ActionID GlyphDisplay.PoleValue GlyphDisplay.InitializeWhenReady() GlyphDisplay.SetTargetWhenReady(string, Pole) GlyphDisplay.InitializeValues(bool) GlyphDisplay.OnEnable() GlyphDisplay.OnDisable() GlyphDisplay.InputGlyphsOnRebuildGlyphs() GlyphDisplay.UpdateGlyph() GlyphDisplay.SetTarget(string, Pole) GlyphDisplay.SetTarget(int, Pole) GlyphDisplay.ShouldHideGlyph(Glyph) Namespace: LMirman.RewiredGlyphs.Components Assembly: .dll Syntax public class GlyphTextOutput : GlyphDisplay Methods Name Description Awake() SetGlyph(Glyph, AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Components.html": {
+    "href": "api/LMirman.RewiredGlyphs.Components.html",
+    "title": "Namespace LMirman.RewiredGlyphs.Components | Rewired Glyphs Docs",
+    "keywords": "Namespace LMirman.RewiredGlyphs.Components Classes GlyphDisplay An abstract class that provides common functionality for a ui element to display an Glyph. GlyphHybridOutput A GlyphDisplay element that will set it's textMesh and image components to the actionName's GetDescription(AxisRange) and GetSprite(AxisRange) values respectively. GlyphImageOutput A GlyphDisplay element that will set it's image component to the actionName's GetSprite(AxisRange) value. GlyphLabeledImageOutput An input glyph display that shows both an image and text for a particular input glyph. GlyphRichTextFormatter Adds support for inline input glyphs on a TMP_Text component. GlyphTextOutput A GlyphDisplay element that will set it's textMesh component to the actionName's GetDescription(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI.html": {
+    "href": "api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI.html",
+    "title": "Method OnInspectorGUI | Rewired Glyphs Docs",
+    "keywords": "Method OnInspectorGUI OnInspectorGUI() Declaration public override void OnInspectorGUI()"
+  },
+  "api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.html": {
+    "href": "api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.html",
+    "title": "Class GlyphMapEditor | Rewired Glyphs Docs",
+    "keywords": "Class GlyphMapEditor An editor window that makes modifying GlyphMaps easier. Inheritance object GlyphMapEditor Namespace: LMirman.RewiredGlyphs.Editor Assembly: .dll Syntax public class GlyphMapEditor : UnityEditor.Editor Methods Name Description OnInspectorGUI()"
+  },
+  "api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI.html": {
+    "href": "api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI.html",
+    "title": "Method OnInspectorGUI | Rewired Glyphs Docs",
+    "keywords": "Method OnInspectorGUI OnInspectorGUI() Declaration public override void OnInspectorGUI()"
+  },
+  "api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.html": {
+    "href": "api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.html",
+    "title": "Class RewiredGlyphManagerEditor | Rewired Glyphs Docs",
+    "keywords": "Class RewiredGlyphManagerEditor Inheritance object RewiredGlyphManagerEditor Namespace: LMirman.RewiredGlyphs.Editor Assembly: .dll Syntax public class RewiredGlyphManagerEditor : UnityEditor.Editor Methods Name Description OnInspectorGUI()"
+  },
+  "api/LMirman.RewiredGlyphs.Editor.html": {
+    "href": "api/LMirman.RewiredGlyphs.Editor.html",
+    "title": "Namespace LMirman.RewiredGlyphs.Editor | Rewired Glyphs Docs",
+    "keywords": "Namespace LMirman.RewiredGlyphs.Editor Classes GlyphMapEditor An editor window that makes modifying GlyphMaps easier. RewiredGlyphManagerEditor"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.-ctor.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.-ctor.html",
+    "title": "Constructor Glyph | Rewired Glyphs Docs",
+    "keywords": "Constructor Glyph Glyph(int, string, Sprite, Sprite, Sprite, Type) Declaration public Glyph(int inputID, string description, Sprite sprite, Sprite positiveSprite, Sprite negativeSprite, Glyph.Type type = Type.Input) Parameters Type Name Description int inputID string description Sprite sprite Sprite positiveSprite Sprite negativeSprite Glyph.Type type Glyph(int, string, Sprite, Type) Declaration public Glyph(int inputID, string description, Sprite sprite, Glyph.Type type = Type.Input) Parameters Type Name Description int inputID string description Sprite sprite Glyph.Type type Glyph(string, Sprite, Type) Create a fallback glyph that only contains a description. Declaration public Glyph(string description, Sprite sprite = null, Glyph.Type type = Type.Input) Parameters Type Name Description string description Sprite sprite Glyph.Type type Remarks The main use case is if there is no glyph found but there is some information about the input that can allow it to be shown in text."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.ControllerType.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.ControllerType.html",
+    "title": "Property ControllerType | Rewired Glyphs Docs",
+    "keywords": "Property ControllerType ControllerType The Rewired.ControllerType that this Glyph intends to be represent. Declaration public ControllerType? ControllerType { get; } Property Value Type Description ControllerType? Remarks Important: Depending on the value of GlyphType this value may be null if it doesn't represent a specific device. For example: a Null or Uninitialized glyph will have a null value since it doesn't represent any specific device."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.Description.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.Description.html",
+    "title": "Property Description | Rewired Glyphs Docs",
+    "keywords": "Property Description Description Deprecated description of the input that formerly represent an absolute description of the Glyph. Superseded by GetDescription(AxisRange) and FullDescription. Declaration [Obsolete(\"Description is obsolete since it does not represent a particular axis. Use GetDescription(AxisRange) to get a dynamic description or FullDescription to explicitly get the AxisRange.Full description.\")] public string Description { get; } Property Value Type Description string See Also GetDescription(AxisRange) FullDescription"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.FullDescription.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.FullDescription.html",
+    "title": "Property FullDescription | Rewired Glyphs Docs",
+    "keywords": "Property FullDescription FullDescription The description of this input for the device for the AxisRange.Full axis. Declaration public string FullDescription { get; } Property Value Type Description string Remarks You should usually use GetDescription(AxisRange) instead. See Also GetDescription(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.FullSprite.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.FullSprite.html",
+    "title": "Property FullSprite | Rewired Glyphs Docs",
+    "keywords": "Property FullSprite FullSprite The sprite representing this input for the AxisRange.Full axis. Declaration public Sprite FullSprite { get; } Property Value Type Description Sprite Remarks You should usually use GetSprite(AxisRange) instead. See Also GetSprite(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.GetDescription.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.GetDescription.html",
+    "title": "Method GetDescription | Rewired Glyphs Docs",
+    "keywords": "Method GetDescription GetDescription(AxisRange) Get the description for a particular input direction. Declaration public string GetDescription(AxisRange axis) Parameters Type Name Description AxisRange axis The direction of input. Returns Type Description string The description defined for the AxisRange or the AxisRange.Full if one is not found for the positive or negative direction."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.GetSprite.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.GetSprite.html",
+    "title": "Method GetSprite | Rewired Glyphs Docs",
+    "keywords": "Method GetSprite GetSprite(AxisRange) Get the sprite for a particular input direction. Declaration public Sprite GetSprite(AxisRange axis) Parameters Type Name Description AxisRange axis The direction of input. Returns Type Description Sprite The sprite defined for the AxisRange or the AxisRange.Full if one is not found for the positive or negative direction."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.GlyphType.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.GlyphType.html",
+    "title": "Property GlyphType | Rewired Glyphs Docs",
+    "keywords": "Property GlyphType GlyphType What this Glyph is intended to represent at runtime. Declaration public Glyph.Type GlyphType { get; } Property Value Type Description Glyph.Type See Also Glyph.Type"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.InputID.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.InputID.html",
+    "title": "Property InputID | Rewired Glyphs Docs",
+    "keywords": "Property InputID InputID The ID for this glyph in the context of this glyph map. Declaration public int InputID { get; } Property Value Type Description int Remarks Please reference the official Rewired documentation for more information about what element ids map to for each hardware device. https://guavaman.com/projects/rewired/docs/HowTos.html#display-glyph-for-action"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph.html",
+    "title": "Property IsFallbackGlyph | Rewired Glyphs Docs",
+    "keywords": "Property IsFallbackGlyph IsFallbackGlyph True when GlyphType is not Undefined or Input. Declaration public bool IsFallbackGlyph { get; } Property Value Type Description bool Remarks Consider evaluating this in custom components to hide the output when there isn't an appropriate element to output."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.IsInputGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.IsInputGlyph.html",
+    "title": "Property IsInputGlyph | Rewired Glyphs Docs",
+    "keywords": "Property IsInputGlyph IsInputGlyph True when GlyphType is Input. Declaration public bool IsInputGlyph { get; } Property Value Type Description bool"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.NegativeDescription.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.NegativeDescription.html",
+    "title": "Property NegativeDescription | Rewired Glyphs Docs",
+    "keywords": "Property NegativeDescription NegativeDescription The description of this input for the device for the AxisRange.Negative axis. Declaration public string NegativeDescription { get; } Property Value Type Description string Remarks Does not fallback to FullDescription unlike GetDescription(AxisRange). You should usually use GetDescription(AxisRange) instead. See Also GetDescription(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.NegativeSprite.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.NegativeSprite.html",
+    "title": "Property NegativeSprite | Rewired Glyphs Docs",
+    "keywords": "Property NegativeSprite NegativeSprite The sprite representing this input for the AxisRange.Negative axis. Declaration public Sprite NegativeSprite { get; } Property Value Type Description Sprite Remarks Does not fallback to FullSprite unlike GetSprite(AxisRange). Will be null if negativeSprite is undefined. You should usually use GetSprite(AxisRange) instead. See Also GetSprite(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.PositiveDescription.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.PositiveDescription.html",
+    "title": "Property PositiveDescription | Rewired Glyphs Docs",
+    "keywords": "Property PositiveDescription PositiveDescription The description of this input for the device for the AxisRange.Positive axis. Declaration public string PositiveDescription { get; } Property Value Type Description string Remarks Does not fallback to FullDescription unlike GetDescription(AxisRange). You should usually use GetDescription(AxisRange) instead. See Also GetDescription(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.PositiveSprite.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.PositiveSprite.html",
+    "title": "Property PositiveSprite | Rewired Glyphs Docs",
+    "keywords": "Property PositiveSprite PositiveSprite The sprite representing this input for the AxisRange.Positive axis. Declaration public Sprite PositiveSprite { get; } Property Value Type Description Sprite Remarks Does not fallback to FullSprite unlike GetSprite(AxisRange). Will be null if positiveSprite is undefined. You should usually use GetSprite(AxisRange) instead. See Also GetSprite(AxisRange)"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.PreferDescription.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.PreferDescription.html",
+    "title": "Property PreferDescription | Rewired Glyphs Docs",
+    "keywords": "Property PreferDescription PreferDescription When true this Glyph should show as text instead of its sprite. Declaration public bool PreferDescription { get; set; } Property Value Type Description bool"
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName.html",
+    "title": "Property TextMeshSpriteSheetName | Rewired Glyphs Docs",
+    "keywords": "Property TextMeshSpriteSheetName TextMeshSpriteSheetName The name of the text mesh sprite sheet that contains the sprites for this glyph. Declaration public string TextMeshSpriteSheetName { get; set; } Property Value Type Description string Remarks Used by GlyphRichTextFormatter to display in line glyphs in Text Mesh Pro text."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.Type.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.Type.html",
+    "title": "Enum Glyph.Type | Rewired Glyphs Docs",
+    "keywords": "Enum Glyph.Type Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public enum Glyph.Type Fields Name Description Input This glyph represents an element for a particular hardware. Null This glyph represents an action that does not exist. Likely due to an invalid action id. Unbound This glyph represents an action that does not have any elements that control it. Likely due to the Input Manager maps missing an ActionElementMap for it. Undefined The intention of this glyph is unspecified. You are highly encouraged to use another type if one is appropriate. Uninitialized This glyph represents an action that does not exist for the specific reason that either InputGlyphs or Rewired itself are not ready. If this is output for more than a single frame there is likely no valid Input Manager present or it does not contain a RewiredGlyphManager component."
+  },
+  "api/LMirman.RewiredGlyphs.Glyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.Glyph.html",
+    "title": "Class Glyph | Rewired Glyphs Docs",
+    "keywords": "Class Glyph Data about a particular input including Sprite and string. Inheritance object Glyph Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax [Serializable] public class Glyph Constructors Name Description Glyph(int, string, Sprite, Type) Glyph(int, string, Sprite, Sprite, Sprite, Type) Glyph(string, Sprite, Type) Create a fallback glyph that only contains a description. Properties Name Description ControllerType The Rewired.ControllerType that this Glyph intends to be represent. Description Deprecated description of the input that formerly represent an absolute description of the Glyph. Superseded by GetDescription(AxisRange) and FullDescription. FullDescription The description of this input for the device for the AxisRange.Full axis. FullSprite The sprite representing this input for the AxisRange.Full axis. GlyphType What this Glyph is intended to represent at runtime. InputID The ID for this glyph in the context of this glyph map. IsFallbackGlyph True when GlyphType is not Undefined or Input. IsInputGlyph True when GlyphType is Input. NegativeDescription The description of this input for the device for the AxisRange.Negative axis. NegativeSprite The sprite representing this input for the AxisRange.Negative axis. PositiveDescription The description of this input for the device for the AxisRange.Positive axis. PositiveSprite The sprite representing this input for the AxisRange.Positive axis. PreferDescription When true this Glyph should show as text instead of its sprite. TextMeshSpriteSheetName The name of the text mesh sprite sheet that contains the sprites for this glyph. Methods Name Description GetDescription(AxisRange) Get the description for a particular input direction. GetSprite(AxisRange) Get the sprite for a particular input direction."
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue.html",
+    "title": "Property GuidValue | Rewired Glyphs Docs",
+    "keywords": "Property GuidValue GuidValue Declaration public Guid GuidValue { get; } Property Value Type Description Guid"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap.html",
+    "title": "Field glyphMap | Rewired Glyphs Docs",
+    "keywords": "Field glyphMap Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public GlyphMap glyphMap Returns Type Description GlyphMap"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.html",
+    "title": "Class GlyphCollection.GuidEntry | Rewired Glyphs Docs",
+    "keywords": "Class GlyphCollection.GuidEntry Inheritance object GlyphCollection.GuidEntry Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax [Serializable] public class GlyphCollection.GuidEntry Fields Name Description glyphMap Properties Name Description GuidValue"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html",
+    "title": "Property GuidMaps | Rewired Glyphs Docs",
+    "keywords": "Property GuidMaps GuidMaps Maps that associate glyphs with action ids of hardware with a specific guid. Declaration public GlyphCollection.GuidEntry[] GuidMaps { get; } Property Value Type Description GuidEntry[]"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap.html",
+    "title": "Field glyphMap | Rewired Glyphs Docs",
+    "keywords": "Field glyphMap Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public GlyphMap glyphMap Returns Type Description GlyphMap"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition.html",
+    "title": "Field hardwareDefinition | Rewired Glyphs Docs",
+    "keywords": "Field hardwareDefinition Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public HardwareDefinition hardwareDefinition Returns Type Description HardwareDefinition"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.html",
+    "title": "Class GlyphCollection.HardwareEntry | Rewired Glyphs Docs",
+    "keywords": "Class GlyphCollection.HardwareEntry A hardware entry associates a glyph map with specific hardware action ids. Inheritance object GlyphCollection.HardwareEntry Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax [Serializable] public class GlyphCollection.HardwareEntry Remarks Including at least a keyboard and mouse glyph map here is highly encouraged. Otherwise there will be no glyphs presented for this input mode. The hardwareDefinition is the key for the glyph map, thus having multiple template entries with the same hardwareDefinition value should be avoided. Fields Name Description glyphMap hardwareDefinition"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html",
+    "title": "Property HardwareMaps | Rewired Glyphs Docs",
+    "keywords": "Property HardwareMaps HardwareMaps Maps that associate glyphs with action ids of specific hardware types. Declaration public GlyphCollection.HardwareEntry[] HardwareMaps { get; } Property Value Type Description HardwareEntry[]"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.Key.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.Key.html",
+    "title": "Property Key | Rewired Glyphs Docs",
+    "keywords": "Property Key Key A unique alphanumeric key used for referencing this collection at runtime if it is not the default collection. Declaration public string Key { get; } Property Value Type Description string Remarks Must not contain spaces, special characters, or casing."
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.NullGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.NullGlyph.html",
+    "title": "Property NullGlyph | Rewired Glyphs Docs",
+    "keywords": "Property NullGlyph NullGlyph The glyph to be shown if the action does not exist, usually as a result of an invalid action id query. Declaration public Glyph NullGlyph { get; } Property Value Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap.html",
+    "title": "Field glyphMap | Rewired Glyphs Docs",
+    "keywords": "Field glyphMap Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public GlyphMap glyphMap Returns Type Description GlyphMap"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.html",
+    "title": "Class GlyphCollection.TemplateEntry | Rewired Glyphs Docs",
+    "keywords": "Class GlyphCollection.TemplateEntry A template entry associates a glyph map with a particular SymbolPreference. Inheritance object GlyphCollection.TemplateEntry Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax [Serializable] public class GlyphCollection.TemplateEntry Remarks Only controller inputs will use templates so keyboard and mouse glyphs should not be included. When checking for a specific SymbolPreference and it is not found the Auto will be used as a fallback. Therefore you can consider a TemplateEntry with Auto as the default glyph display. The symbolPreference is the key for the glyph map, thus having multiple template entries with the same symbolPreference value should be avoided. Fields Name Description glyphMap symbolPreference"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html",
+    "title": "Field symbolPreference | Rewired Glyphs Docs",
+    "keywords": "Field symbolPreference Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public SymbolPreference symbolPreference Returns Type Description SymbolPreference"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html",
+    "title": "Property TemplateMaps | Rewired Glyphs Docs",
+    "keywords": "Property TemplateMaps TemplateMaps Maps that associate glyphs with action ids of controller templates. Declaration public GlyphCollection.TemplateEntry[] TemplateMaps { get; } Property Value Type Description TemplateEntry[]"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph.html",
+    "title": "Property UnboundGlyph | Rewired Glyphs Docs",
+    "keywords": "Property UnboundGlyph UnboundGlyph The glyph to be shown if the action exists but there is no input mapping to it. Declaration public Glyph UnboundGlyph { get; } Property Value Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph.html",
+    "title": "Property UninitializedGlyph | Rewired Glyphs Docs",
+    "keywords": "Property UninitializedGlyph UninitializedGlyph The glyph to be shown if the input system is not ready to show input icons, usually due to edit mode query or inactive input system Declaration public Glyph UninitializedGlyph { get; } Property Value Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphCollection.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphCollection.html",
+    "title": "Class GlyphCollection | Rewired Glyphs Docs",
+    "keywords": "Class GlyphCollection A ScriptableObject asset that references GlyphMap assets that should be utilized at runtime. Inheritance object GlyphCollection Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public class GlyphCollection : ScriptableObject Properties Name Description GuidMaps Maps that associate glyphs with action ids of hardware with a specific guid. HardwareMaps Maps that associate glyphs with action ids of specific hardware types. Key A unique alphanumeric key used for referencing this collection at runtime if it is not the default collection. NullGlyph The glyph to be shown if the action does not exist, usually as a result of an invalid action id query. TemplateMaps Maps that associate glyphs with action ids of controller templates. UnboundGlyph The glyph to be shown if the action exists but there is no input mapping to it. UninitializedGlyph The glyph to be shown if the input system is not ready to show input icons, usually due to edit mode query or inactive input system"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphMap.CreateDictionary.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphMap.CreateDictionary.html",
+    "title": "Method CreateDictionary | Rewired Glyphs Docs",
+    "keywords": "Method CreateDictionary CreateDictionary() Declaration public Dictionary<int, Glyph> CreateDictionary() Returns Type Description Dictionary<int, Glyph>"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphMap.Glyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphMap.Glyphs.html",
+    "title": "Property Glyphs | Rewired Glyphs Docs",
+    "keywords": "Property Glyphs Glyphs Declaration public Glyph[] Glyphs { get; } Property Value Type Description Glyph[]"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphMap.html",
+    "title": "Class GlyphMap | Rewired Glyphs Docs",
+    "keywords": "Class GlyphMap A set of glyphs to be used for a particular input device or template. Inheritance object GlyphMap Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public class GlyphMap : ScriptableObject Properties Name Description Glyphs Methods Name Description CreateDictionary()"
+  },
+  "api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html": {
+    "href": "api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html",
+    "title": "Enum GlyphSetQueryResult | Rewired Glyphs Docs",
+    "keywords": "Enum GlyphSetQueryResult Enum value used to communicate the result of glyph set queries. Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public enum GlyphSetQueryResult Fields Name Description ErrorUninitialized Represents a query that failed due to the glyph system not being ready yet. ErrorUnknownAction Represents a query that failed due to an unknown action identifier. If you get this result validate the input action ID or name is correct. Success Represents a successful set query, no errors or invalid configuration occurred. Undefined Default value, methods should never return this value unless some unhandled exception occurs."
+  },
+  "api/LMirman.RewiredGlyphs.HardwareDefinition.html": {
+    "href": "api/LMirman.RewiredGlyphs.HardwareDefinition.html",
+    "title": "Enum HardwareDefinition | Rewired Glyphs Docs",
+    "keywords": "Enum HardwareDefinition Definitions for hardware that can be automatically handled by the Input Glyph system. These values are usually used to automatically determine what glyphs to show based on the player's most recent controller used. Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public enum HardwareDefinition Fields Name Description Generic Keyboard Mouse NintendoSwitch Playstation Playstation2 Playstation3 Unknown This hardware is unrecognized or doesn't fit any other category Xbox"
+  },
+  "api/LMirman.RewiredGlyphs.HardwarePreference.html": {
+    "href": "api/LMirman.RewiredGlyphs.HardwarePreference.html",
+    "title": "Enum HardwarePreference | Rewired Glyphs Docs",
+    "keywords": "Enum HardwarePreference Determines the preferred hardware to show input glyphs considering or disregarding the user's most recently used device. Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public enum HardwarePreference Fields Name Description Auto The preferred hardware is the most recently used hardware by the player. Gamepad The preferred hardware is the gamepad. KeyboardMouse The preferred hardware is the keyboard and mouse."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache.html",
+    "title": "Method FlushPlayersCache | Rewired Glyphs Docs",
+    "keywords": "Method FlushPlayersCache FlushPlayersCache() Clear out the player cache of the input glyph system. Declaration public static void FlushPlayersCache() Remarks Invoking this method is rarely necessary but might be required in cases where the player list indices change."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html",
+    "title": "Method GetCurrentGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetCurrentGlyph GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string) Declaration public static Glyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player int actionID Pole pole AxisRange axisRange bool forceAxis string collectionKey Returns Type Description Glyph Remarks Uses the value of PreferredSymbols for determining Joystick glyph symbols. GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string) Declaration public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Pole pole AxisRange axisRange int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html",
+    "title": "Method GetGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetGlyph GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user. Will pick an icon to represent the controllerType Declaration public static Glyph GetGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player ControllerType controllerType int actionID Pole pole AxisRange axisRange bool forceAxis string collectionKey Returns Type Description Glyph GetGlyph(ControllerType, int, Pole, out AxisRange, int, bool, string) Declaration public static Glyph GetGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description ControllerType controllerType int actionID Pole pole AxisRange axisRange int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet.html",
+    "title": "Method GetGlyphSet | Rewired Glyphs Docs",
+    "keywords": "Method GetGlyphSet GetGlyphSet(Player, int, Pole, List<(Glyph, AxisRange)>, bool, SymbolPreference?, string) Get a list of all glyphs that could represent a particular action. Declaration public static GlyphSetQueryResult GetGlyphSet(this Player player, int actionID, Pole pole, List<(Glyph, AxisRange)> output, bool forceAxis = false, SymbolPreference? joystickSymbols = null, string collectionKey = null) Parameters Type Name Description Player player The player to check the input map of int actionID The identifier of the action to represent Pole pole The direction of the action to represent. Usually positive unless it is an axis action such as Move Left in a Move Horizontal action. List<(Glyph, AxisRange)> output A list storing the output results of this function that is defined by the calling type. The list is cleared when this method is called and will contain the results after the method executes. Must not be a null value. bool forceAxis Usually the Input Glyph system, when forceAxis is false, only checks for single axis inputs such that it will only look for \"Move Left\" with Pole.Negative and \"Move Right\" with Pole.Positive and thus never checking \"Move Horizontal\" as an axis itself. When true, explicitly request for the Input Glyph system to evaluate this glyph as the full axis (\"Move Horizontal\" in the example case) so we can represent it properly for axis inputs. TL;DR: For axis actions: True represents the axis itself \"Move Horizontal\". False represents negative pole \"Move Left\" and positive pole \"Move Right\". In most cases should be false. SymbolPreference? joystickSymbols Determines the symbol type used to represent joystick glyphs. When null (default): Use the PreferredSymbols for representing joystick glyphs. string collectionKey Optionally used for getting glyphs from a non-default glyph collection. Should match the value of Key Returns Type Description GlyphSetQueryResult The resulting GlyphSetQueryResult informing the caller of if the query was successful or why it was unsuccessful if it wasn't Remarks By design does not filter by controller type since you may decide to filter the output list yourself using the glyph ControllerType. The results list will not include any NullGlyph, UninitializedGlyph, or UnboundGlyph. It is your responsibility to decide whether you'd like to show these glyphs depending on the returned GlyphSetQueryResult or output list values. Examples Primitive example of how to call this method. // Defining the list outside of the method is highly encouraged so we don't generate garbage memory every method call private List<(Glyph, AxisRange)> output = new List<(Glyph, AxisRange)>(); private void SetGlyphs() { // !!! Specify `playerID`, `actionID`, and `pole` based on what you want to represent. !!! Player player = ReInput.players.GetPlayer(playerID); player.GetGlyphSet(actionID, pole, output); foreach ((Glyph, AxisRange) result in output) { // !!! Your functionality here. Use result.Item1 and glyph.Item2. !!! } }"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html",
+    "title": "Method GetHardwareDefinition | Rewired Glyphs Docs",
+    "keywords": "Method GetHardwareDefinition GetHardwareDefinition(Controller) Determine the hardware definition to use for a controller based on the controller's hardwareTypeGuid. Declaration public static HardwareDefinition GetHardwareDefinition(Controller controller) Parameters Type Name Description Controller controller The controller the evaluate the hardware definition of Returns Type Description HardwareDefinition The HardwareDefinition for the provided controller. Will return Unknown if the controller is null or no definition found in ControllerGuids Remarks The hardware id is searched within ControllerGuids."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html",
+    "title": "Method GetJoystickGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetJoystickGlyph GetJoystickGlyph(Player, int, Controller, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the Joystick device. Declaration public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player int actionID Controller controller Pole pole AxisRange axisRange bool forceAxis string collectionKey Returns Type Description Glyph Remarks Uses the value of PreferredSymbols for determining Joystick glyph symbols. GetJoystickGlyph(int, Controller, Pole, out AxisRange, int, bool, string) Declaration public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Controller controller Pole pole AxisRange axisRange int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph.html",
+    "title": "Method GetKeyboardGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetKeyboardGlyph GetKeyboardGlyph(Player, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the Keyboard device. Declaration public static Glyph GetKeyboardGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player int actionID Pole pole AxisRange axisRange bool forceAxis string collectionKey Returns Type Description Glyph Remarks Does not show glyphs for the mouse. Use GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string) if you want to show keyboard or mouse glyph. GetKeyboardGlyph(int, Pole, out AxisRange, int, bool, string) Declaration public static Glyph GetKeyboardGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Pole pole AxisRange axisRange int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph.html",
+    "title": "Method GetKeyboardMouseGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetKeyboardMouseGlyph GetKeyboardMouseGlyph(Player, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the mouse or keyboard devices (in that order). Declaration public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player int actionID Pole pole AxisRange axisRange bool forceAxis string collectionKey Returns Type Description Glyph Remarks If an input is present on both the keyboard and mouse, precedence is given to the mouse. GetKeyboardMouseGlyph(int, Pole, out AxisRange, int, bool, string) Declaration public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Pole pole AxisRange axisRange int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph.html",
+    "title": "Method GetMouseGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetMouseGlyph GetMouseGlyph(Player, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the Mouse device. Declaration public static Glyph GetMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player int actionID Pole pole AxisRange axisRange bool forceAxis string collectionKey Returns Type Description Glyph Remarks Does not show glyphs for the keyboard. Use GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string) if you want to show keyboard or mouse glyph. GetMouseGlyph(int, Pole, out AxisRange, int, bool, string) Declaration public static Glyph GetMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Pole pole AxisRange axisRange int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html",
+    "title": "Method GetNativeGlyphFromGuidMap | Rewired Glyphs Docs",
+    "keywords": "Method GetNativeGlyphFromGuidMap GetNativeGlyphFromGuidMap(Guid, int, string) Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid. Declaration public static Glyph GetNativeGlyphFromGuidMap(Guid hardwareGuid, int elementID, string collectionKey = null) Parameters Type Name Description Guid hardwareGuid The hardware guid that the elementID maps to int elementID The element input id to get a glyph for string collectionKey Returns Type Description Glyph The found Glyph inside of this hardware's glyph map. Returns null (NOTnullGlyph) if none is found. Remarks Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display. You are encouraged to use InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string) instead."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html",
+    "title": "Method GetNativeGlyphFromHardwareMap | Rewired Glyphs Docs",
+    "keywords": "Method GetNativeGlyphFromHardwareMap GetNativeGlyphFromHardwareMap(HardwareDefinition, int, string) Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware type. Declaration public static Glyph GetNativeGlyphFromHardwareMap(HardwareDefinition controller, int elementID, string collectionKey = null) Parameters Type Name Description HardwareDefinition controller The hardware type that the elementID maps to int elementID The element input id to get a glyph for string collectionKey Returns Type Description Glyph The found Glyph inside of this hardware's glyph map. Returns null (NOTnullGlyph) if none is found. Remarks Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display. You are encouraged to use InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string) or InputGlyphs.GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string) instead."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html",
+    "title": "Method GetNativeGlyphFromTemplateMap | Rewired Glyphs Docs",
+    "keywords": "Method GetNativeGlyphFromTemplateMap GetNativeGlyphFromTemplateMap(SymbolPreference, int, string) Retrieve a SymbolPreference styled glyph for this templateElementID via the generic glyph mapping. Declaration public static Glyph GetNativeGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID, string collectionKey = null) Parameters Type Name Description SymbolPreference symbolPreference The preferred symbol styling to present for this template element int templateElementID The element input id to get a glyph for string collectionKey Returns Type Description Glyph The found Glyph inside of a template glyph map. Returns null (NOTnullGlyph) if none is found. Remarks Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display. You are encouraged to use InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string) instead."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html",
+    "title": "Method GetSpecificCurrentGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetSpecificCurrentGlyph GetSpecificCurrentGlyph(Player, int, Pole, out AxisRange, SymbolPreference, bool, string) Get a Glyph to represent an action for the user for the most recently used device. Declaration public static Glyph GetSpecificCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player The player to evaluate for. This is relevant since different players are likely using different devices and maps. int actionID The integer ID for the action to evaluate. Integers are more efficient but consider using the following if you only have access to string names: int actionID = ReInput.mapping.GetActionId(\"your_action_string_here\"); Pole pole What is the polarity for the action? Pole.Positive is most common but you can expect Pole.Negative for inputs such as \"Move Left\" since that would be the negative side of a \"Move Horizontal\" axis. AxisRange axisRange The axis range that should be utilized in the output glyph. For elements that use axis input (sticks, mouse movement, etc.) we need to know direction of the element we want to display. For example: AxisRange.Positive would represent \"Joystick Right\". AxisRange.Negative would represent \"Joystick Left\", and AxisRange.Full would represent \"Joystick Horizontal\" SymbolPreference symbolPreference The preferred hardware symbol type to use for Joystick glyphs bool forceAxis Usually the Input Glyph system, when forceAxis is false, only checks for single axis inputs such that it will only look for \"Move Left\" with Pole.Negative and \"Move Right\" with Pole.Positive and thus never checking \"Move Horizontal\" as an axis itself. When true, explicitly request for the Input Glyph system to evaluate this glyph as the full axis (\"Move Horizontal\" in the example case) so we can represent it properly for axis inputs. TL;DR: For axis actions: True represents the axis itself \"Move Horizontal\". False represents negative pole \"Move Left\" and positive pole \"Move Right\". In most cases should be false. string collectionKey Optionally used for getting glyphs from a non-default glyph collection. Should match the value of Key Returns Type Description Glyph A Glyph that can be utilized in UI elements to display the element that is associated with this particular action. In cases where there is no element available this may return a \"fallback\" glyph Remarks This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph. Use GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool, string) in the cases where you don't want to specify. GetSpecificCurrentGlyph(int, Pole, out AxisRange, SymbolPreference, int, bool, string) Declaration public static Glyph GetSpecificCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Pole pole AxisRange axisRange SymbolPreference symbolPreference int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph Remarks This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph.html",
+    "title": "Method GetSpecificGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetSpecificGlyph GetSpecificGlyph(Player, ControllerType, int, Pole, out AxisRange, SymbolPreference, bool, string) Get a Glyph to represent an action for the user. Will pick an icon to represent the controllerType Declaration public static Glyph GetSpecificGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player ControllerType controllerType int actionID Pole pole AxisRange axisRange SymbolPreference symbolPreference bool forceAxis string collectionKey Returns Type Description Glyph Remarks This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph. GetSpecificGlyph(ControllerType, int, Pole, out AxisRange, SymbolPreference, int, bool, string) Declaration public static Glyph GetSpecificGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description ControllerType controllerType int actionID Pole pole AxisRange axisRange SymbolPreference symbolPreference int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph Remarks This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html",
+    "title": "Method GetSpecificJoystickGlyph | Rewired Glyphs Docs",
+    "keywords": "Method GetSpecificJoystickGlyph GetSpecificJoystickGlyph(Player, int, Controller, Pole, out AxisRange, SymbolPreference, bool, string) Get a Glyph to represent an action for the user for the Joystick device with a specific SymbolPreference . Declaration public static Glyph GetSpecificJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description Player player int actionID Controller controller Pole pole AxisRange axisRange SymbolPreference symbolPreference bool forceAxis string collectionKey Returns Type Description Glyph Remarks This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph. Use GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool, string) if you don't need to specify symbol preference. GetSpecificJoystickGlyph(int, Controller, Pole, out AxisRange, SymbolPreference, int, bool, string) Declaration public static Glyph GetSpecificJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false, string collectionKey = null) Parameters Type Name Description int actionID Controller controller Pole pole AxisRange axisRange SymbolPreference symbolPreference int playerIndex bool forceAxis string collectionKey Returns Type Description Glyph"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild.html",
+    "title": "Method InvokeRebuild | Rewired Glyphs Docs",
+    "keywords": "Method InvokeRebuild InvokeRebuild(bool) Will invoke RebuildGlyphs event when glyphs are dirty or forceRebuild parameter is true. Declaration public static void InvokeRebuild(bool forceRebuild = false) Parameters Type Name Description bool forceRebuild When true will rebuild regardless of the value of glyphsDirty. When false will only rebuild if glyphs are dirty. Remarks You usually shouldn't need to invoke this method. Consider using MarkGlyphsDirty() instead if you want to inform the system the glyphs may have changed."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection.html",
+    "title": "Method LoadGlyphCollection | Rewired Glyphs Docs",
+    "keywords": "Method LoadGlyphCollection LoadGlyphCollection(GlyphCollection, bool) Additively load a GlyphCollection into runtime memory on InputGlyphs, allowing it to be utilized by Glyph queries. Provides the setAsDefault parameter to determine if this glyph should be used as the primary (default) glyph collection for queries. Declaration public static void LoadGlyphCollection(GlyphCollection collection, bool setAsDefault = true) Parameters Type Name Description GlyphCollection collection The collection to load into memory. bool setAsDefault When true set this collection as the default collection, using it for all queries that do not specify another collection Remarks RewiredGlyphManager invokes this method on Awake to set its glyphCollection as the default when initializing. From that point onward you can use this method to add additional collections and change the default collection. This method can safely be used even if a collection has already been loaded into memory, primarily for changing the default collection (with setAsDefault true). Examples You may consider creating and loading alternative glyph collections for light/dark themes, in-game teams, enviornments, or factions."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty.html",
+    "title": "Method MarkGlyphsDirty | Rewired Glyphs Docs",
+    "keywords": "Method MarkGlyphsDirty MarkGlyphsDirty() Notify the glyph system that input state has changed and glyphs should be reevaluated. Declaration public static void MarkGlyphsDirty() Remarks For performance reasons the input glyph system only evaluates glyphs when it believes the output has changed such as a player using a different input device. By default, however, the InputGlyph system is unaware of changes such as control remapping and needs to be manually informed of such changes using this method."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.NullGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.NullGlyph.html",
+    "title": "Property NullGlyph | Rewired Glyphs Docs",
+    "keywords": "Property NullGlyph NullGlyph Glyph representing an action that is invalid. Most commonly occurs due an invalid action name or action id. Declaration public static Glyph NullGlyph { get; } Property Value Type Description Glyph Remarks Remedied by correcting the glyph display's target value"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware.html",
+    "title": "Property PreferredHardware | Rewired Glyphs Docs",
+    "keywords": "Property PreferredHardware PreferredHardware The preferred hardware (Controller or Mouse/Keyboard) to display in GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string) Declaration public static HardwarePreference PreferredHardware { get; } Property Value Type Description HardwarePreference See Also SetGlyphPreferences(HardwarePreference, SymbolPreference)"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html",
+    "title": "Property PreferredSymbols | Rewired Glyphs Docs",
+    "keywords": "Property PreferredSymbols PreferredSymbols The preferred symbols to display for gamepad glyphs. Declaration public static SymbolPreference PreferredSymbols { get; } Property Value Type Description SymbolPreference See Also SetGlyphPreferences(HardwarePreference, SymbolPreference)"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs.html",
+    "title": "Event RebuildGlyphs | Rewired Glyphs Docs",
+    "keywords": "Event RebuildGlyphs An event that is invoked when the output of the input glyph may have changed. This occurs usually when preferences are changed or the most recently used device by a player has changed. Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public static event Action RebuildGlyphs Returns Type Description Action Remarks The aforementioned preferences can mutate the output of glyph symbol queries. As such this event gives the opportunity for others to update the glyph output without having to query the InputGlyphs system every frame."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences.html",
+    "title": "Method SetGlyphPreferences | Rewired Glyphs Docs",
+    "keywords": "Method SetGlyphPreferences SetGlyphPreferences(HardwarePreference, SymbolPreference) Set the user preference for glyph display. Declaration public static void SetGlyphPreferences(HardwarePreference hardwarePreference, SymbolPreference symbolPreference) Parameters Type Name Description HardwarePreference hardwarePreference The preferred hardware to show symbols for SymbolPreference symbolPreference The preferred type of symbols to display"
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph.html",
+    "title": "Property UnboundGlyph | Rewired Glyphs Docs",
+    "keywords": "Property UnboundGlyph UnboundGlyph Glyph representing an action that does not have an input assigned. Declaration public static Glyph UnboundGlyph { get; } Property Value Type Description Glyph Remarks Remedied by assigning an input to the action either in the Rewired Input Manager at editor time or a control remapping tool at runtime."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph.html",
+    "title": "Property UninitializedGlyph | Rewired Glyphs Docs",
+    "keywords": "Property UninitializedGlyph UninitializedGlyph Glyph representing a query that occured before the InputGlyphs system was ready. Declaration public static Glyph UninitializedGlyph { get; } Property Value Type Description Glyph Remarks Remedied by ensuring the presence of a RewiredGlyphManager component on the Rewired Input Manager prefab. The rewired glyph system is initialized in Awake. Depending on script execution order your display may query before the glyph system is ready. The safest approach is to query in OnEnable or Start."
+  },
+  "api/LMirman.RewiredGlyphs.InputGlyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.InputGlyphs.html",
+    "title": "Class InputGlyphs | Rewired Glyphs Docs",
+    "keywords": "Class InputGlyphs Static class containing methods and properties to conveniently get Sprite and string information about Rewired input actions through Glyph queries. Inheritance object InputGlyphs Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public static class InputGlyphs Remarks Requires the RewiredGlyphManager component to be added to your Rewired Input Manager for the InputGlyphs system to function properly. Common Query Functions GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string): Get glyph to represent an action for the player's most recently used device GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,LMirman.RewiredGlyphs.SymbolPreference,bool,string): Get glyph to represent an action for the player's most recently used device with hardware specific symbols GetGlyph(Rewired.Player,Rewired.ControllerType,int,Rewired.Pole,out Rewired.AxisRange,bool,string): Get glyph to represent an action for the player for a specific type of controller GetGlyphSet(Player, int, Pole, List<(Glyph, AxisRange)>, bool, SymbolPreference?, string): Outputs a list of all glyphs for a particular action for a player across all controller types Other Useful Functionality RebuildGlyphs: Event that is invoked when the output of Glyph queries may have changed (such as a user switching controller) LoadGlyphCollection(GlyphCollection, bool): Used for loading additional glyph collections and changing the default glyph collection SetGlyphPreferences(HardwarePreference, SymbolPreference): Set the preferred symbols to show for Joystick controllers and preferred type of controller to show glyphs for MarkGlyphsDirty(): Inform InputGlyphs that it should dispatch the RebuildGlyphs event next RewiredGlyphManager update. Particularly important to use when Rewired data may have changed externally such as remapping controls Properties Name Description NullGlyph Glyph representing an action that is invalid. Most commonly occurs due an invalid action name or action id. PreferredHardware The preferred hardware (Controller or Mouse/Keyboard) to display in GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string) PreferredSymbols The preferred symbols to display for gamepad glyphs. UnboundGlyph Glyph representing an action that does not have an input assigned. UninitializedGlyph Glyph representing a query that occured before the InputGlyphs system was ready. Methods Name Description FlushPlayersCache() Clear out the player cache of the input glyph system. GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string) GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string) GetGlyph(ControllerType, int, Pole, out AxisRange, int, bool, string) GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user. Will pick an icon to represent the controllerType GetGlyphSet(Player, int, Pole, List<(Glyph, AxisRange)>, bool, SymbolPreference?, string) Get a list of all glyphs that could represent a particular action. GetHardwareDefinition(Controller) Determine the hardware definition to use for a controller based on the controller's hardwareTypeGuid. GetJoystickGlyph(Player, int, Controller, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the Joystick device. GetJoystickGlyph(int, Controller, Pole, out AxisRange, int, bool, string) GetKeyboardGlyph(Player, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the Keyboard device. GetKeyboardGlyph(int, Pole, out AxisRange, int, bool, string) GetKeyboardMouseGlyph(Player, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the mouse or keyboard devices (in that order). GetKeyboardMouseGlyph(int, Pole, out AxisRange, int, bool, string) GetMouseGlyph(Player, int, Pole, out AxisRange, bool, string) Get a Glyph to represent an action for the user for the Mouse device. GetMouseGlyph(int, Pole, out AxisRange, int, bool, string) GetNativeGlyphFromGuidMap(Guid, int, string) Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid. GetNativeGlyphFromHardwareMap(HardwareDefinition, int, string) Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware type. GetNativeGlyphFromTemplateMap(SymbolPreference, int, string) Retrieve a SymbolPreference styled glyph for this templateElementID via the generic glyph mapping. GetSpecificCurrentGlyph(Player, int, Pole, out AxisRange, SymbolPreference, bool, string) Get a Glyph to represent an action for the user for the most recently used device. GetSpecificCurrentGlyph(int, Pole, out AxisRange, SymbolPreference, int, bool, string) GetSpecificGlyph(ControllerType, int, Pole, out AxisRange, SymbolPreference, int, bool, string) GetSpecificGlyph(Player, ControllerType, int, Pole, out AxisRange, SymbolPreference, bool, string) Get a Glyph to represent an action for the user. Will pick an icon to represent the controllerType GetSpecificJoystickGlyph(Player, int, Controller, Pole, out AxisRange, SymbolPreference, bool, string) Get a Glyph to represent an action for the user for the Joystick device with a specific SymbolPreference . GetSpecificJoystickGlyph(int, Controller, Pole, out AxisRange, SymbolPreference, int, bool, string) InvokeRebuild(bool) Will invoke RebuildGlyphs event when glyphs are dirty or forceRebuild parameter is true. LoadGlyphCollection(GlyphCollection, bool) Additively load a GlyphCollection into runtime memory on InputGlyphs, allowing it to be utilized by Glyph queries. Provides the setAsDefault parameter to determine if this glyph should be used as the primary (default) glyph collection for queries. MarkGlyphsDirty() Notify the glyph system that input state has changed and glyphs should be reevaluated. SetGlyphPreferences(HardwarePreference, SymbolPreference) Set the user preference for glyph display. Events Name Description RebuildGlyphs An event that is invoked when the output of the input glyph may have changed. This occurs usually when preferences are changed or the most recently used device by a player has changed. See Also GetGlyphSet(Player, int, Pole, List<(Glyph, AxisRange)>, bool, SymbolPreference?, string) RebuildGlyphs LoadGlyphCollection(GlyphCollection, bool) SetGlyphPreferences(HardwarePreference, SymbolPreference) MarkGlyphsDirty()"
+  },
+  "api/LMirman.RewiredGlyphs.RewiredGlyphManager.html": {
+    "href": "api/LMirman.RewiredGlyphs.RewiredGlyphManager.html",
+    "title": "Class RewiredGlyphManager | Rewired Glyphs Docs",
+    "keywords": "Class RewiredGlyphManager Responsible for initializing the InputGlyphs system and running InputGlyphs functionality through built in Unity functions. Inheritance object RewiredGlyphManager Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public class RewiredGlyphManager : MonoBehaviour Remarks You must add this component to your input manager for InputGlyphs system to fully function."
+  },
+  "api/LMirman.RewiredGlyphs.SymbolPreference.html": {
+    "href": "api/LMirman.RewiredGlyphs.SymbolPreference.html",
+    "title": "Enum SymbolPreference | Rewired Glyphs Docs",
+    "keywords": "Enum SymbolPreference Determines the preferred symbol type to show to the player when acquiring glyphs. Namespace: LMirman.RewiredGlyphs Assembly: .dll Syntax public enum SymbolPreference Fields Name Description Auto Use the symbols that match the hardware id of the controller being used, when possible. NintendoSwitch Prefer the Nintendo Switch symbols, even when this controller is recognized as a different type. Playstation Prefer the Playstation symbols, even when this controller is recognized as a different type. Xbox Prefer the Xbox symbols, even when this controller is recognized as a different type."
+  },
+  "api/LMirman.RewiredGlyphs.html": {
+    "href": "api/LMirman.RewiredGlyphs.html",
+    "title": "Namespace LMirman.RewiredGlyphs | Rewired Glyphs Docs",
+    "keywords": "Namespace LMirman.RewiredGlyphs Classes Glyph Data about a particular input including Sprite and string. GlyphCollection A ScriptableObject asset that references GlyphMap assets that should be utilized at runtime. GlyphCollection.GuidEntry GlyphCollection.HardwareEntry A hardware entry associates a glyph map with specific hardware action ids. GlyphCollection.TemplateEntry A template entry associates a glyph map with a particular SymbolPreference. GlyphMap A set of glyphs to be used for a particular input device or template. InputGlyphs Static class containing methods and properties to conveniently get Sprite and string information about Rewired input actions through Glyph queries. RewiredGlyphManager Responsible for initializing the InputGlyphs system and running InputGlyphs functionality through built in Unity functions. Enums Glyph.Type GlyphSetQueryResult Enum value used to communicate the result of glyph set queries. HardwareDefinition Definitions for hardware that can be automatically handled by the Input Glyph system. These values are usually used to automatically determine what glyphs to show based on the player's most recent controller used. HardwarePreference Determines the preferred hardware to show input glyphs considering or disregarding the user's most recently used device. SymbolPreference Determines the preferred symbol type to show to the player when acquiring glyphs."
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "Rewired Glyphs Documentation | Rewired Glyphs Docs",
+    "keywords": "Rewired Glyphs Documentation"
+  },
+  "pages/manual/docs-overview.html": {
+    "href": "pages/manual/docs-overview.html",
+    "title": "Docs Overview | Rewired Glyphs Docs",
+    "keywords": "Docs Overview This article explains the technologies used for our documentation then details how to install and contribute using them. How the Docs Website Works This docs are generated using a tool known as DocFX. Simply put it generates a website from our codebase (referred to as the scripting API) and articles we have written (such as this very page!). Installing DocFX To install the docfx tool run the following command in a terminal or command prompt window. dotnet tool install -g docfx Note You may need to install the .NET SDK if you receive a Unrecognized command 'dotnet' error Note Our documentation is generated using 2.75.0. Using an earlier version may not generate the website correctly. You can check your version using docfx --version. You can update your version with the dotnet tool update -g docfx command. Caution Do NOT install DocFX using a package manager (such as homebrew or chocolatey). These are usually out of date and unmaintained. Generate Website To generate a website from the codebase and articles run the following command from the Documentation folder: docfx Warning Getting the Cannot find config file docfx.json error? Make sure you change the directory of the terminal window to the project's documentation folder using cd Viewing the Website Locally To view the generated website after it has been generated run the following command from the Documentation folder: docfx serve You can now view the website in your browser at http://localhost:8080 Tip You can generate and serve the website in a single command by using an argument on the command: docfx --serve Editing Articles To edit articles head to the ~/Documentation~/pages/* directory of the package. Find the article you would like to edit in this directory and open it in a text editor of your choice. These pages are all written in the markdown format. We recommend reviewing the Markdown Syntax page for an overview of the features of markdown. Since we are generating the website using DocFX we also gain access to special DocFX Specifc Markdown Synax which can be used in our articles. Tip Visual Studio Code is recommended for editing markdown files, but any text editor will do. Adding New Articles To create a new article follow these steps: Create a new markdown file in one of the existing directories at ~/Documentation/pages/* These directories correspond to the category the article is in. Creating a new category is out of the scope of this article. Within the directory you created the article modify the table of contents (toc.yml) file and add a reference to your new article file. View DocFX TOC Docs for more information. Optional: Consider adding a link to your article at in the index.md of the category and root index.md so this article can more easily be found. Adding New Attachments Want to add images to an article? Simply add the file to the ~/Documentation~/attachments/ directory and it can be referenced in your article as such: ![Attachment](../../attachments/manual/docs-overview/example_attachment.png) Or if you want more control over the html properties: <img src=\"../../attachments/manual/docs-overview/example_attachment.png\" width=\"450\"> Tip All files in the attachments folder can be referenced regardless of it's location. However, for organizational purposes you are strongly encouraged to place your attachments in a directory that is related to the article it is included in."
+  },
+  "pages/manual/index.html": {
+    "href": "pages/manual/index.html",
+    "title": "Manual | Rewired Glyphs Docs",
+    "keywords": "Manual"
+  }
+}

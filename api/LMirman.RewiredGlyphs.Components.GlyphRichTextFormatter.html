@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class GlyphRichTextFormatter
+ | Rewired Glyphs Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class GlyphRichTextFormatter
+ | Rewired Glyphs Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="../attachments/site/favicon.png">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="../index.html">
+              <img src="../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+              <span class="brand-title">Rewired Glyphs Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+                          <span class="brand-title">Rewired Glyphs Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+                </div>
+                <div class="footer">
+  <strong>Rewired Glyphs</strong>
+  
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+
+                    <article class="content wrap" id="_content" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter">
+
+
+
+  <h1 id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter" class="text-break">Class GlyphRichTextFormatter
+</h1>
+  <div class="markdown level0 summary"><p>Adds support for inline input glyphs on a TMP_Text component.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">GlyphRichTextFormatter</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LMirman.html">LMirman</a>.<a class="xref" href="LMirman.RewiredGlyphs.html">RewiredGlyphs</a>.<a class="xref" href="LMirman.RewiredGlyphs.Components.html">Components</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GlyphRichTextFormatter : MonoBehaviour</code></pre>
+  </div>
+  <h5 id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The two main ways to use this component are the following:<br><br>
+Director Pattern (Recommended): The text mesh's text is set exclusively via this component's <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_SetFormattedText_System_String_">SetFormattedText(string)</a> method.<br></p>
+<ul>
+<li>This pattern is achieved by disabling the <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.automaticallyCheckForTextChanges.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_automaticallyCheckForTextChanges">automaticallyCheckForTextChanges</a> field and never changing the text mesh component's text elsewhere.<br></li>
+<li>This pattern is encouraged because it ensures that glyph tags are not lost in translation, which can especially happen if you are appending text.<br><br>
+Observer Pattern: The text mesh's text is updated whenever it is changed externally.<br></li>
+<li>This pattern is achieved by enabling the <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.automaticallyCheckForTextChanges.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_automaticallyCheckForTextChanges">automaticallyCheckForTextChanges</a> field.<br></li>
+<li>This pattern is useful if you can't change text via the <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_SetFormattedText_System_String_">SetFormattedText(string)</a>. This pattern does however run the risk of losing preformatted text if not used carefully.</li>
+</ul>
+</div>
+  <h3 id="properties">Properties
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_TextMesh" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_TextMesh">TextMesh</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_OnDisable" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_OnDisable">OnDisable()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_OnEnable" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_OnEnable">OnEnable()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_ReplaceGlyphTagsWithSpriteTags_System_String_System_Boolean_System_String_System_String_" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(System.String,System.Boolean,System.String,System.String)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_ReplaceGlyphTagsWithSpriteTags_System_String_System_Boolean_System_String_System_String_">ReplaceGlyphTagsWithSpriteTags(string, bool, string, string)</a>
+        </td>
+        <td class="markdown level1 summary"><p>Replace glyph rich text such as &lt;glyph &quot;Jump&quot;&gt; in the provided <code class="paramref">text</code> with a sprite or description for its corresponding Glyph in the Rewired Glyph system.
+<br><br>
+<b>Syntax Rules:</b><br></p>
+<ul>
+<li>The glyph tag begins with verbatim <code>&lt;glyph </code> and ends at any <code>&gt;</code> character.<br></li>
+<li>The first argument must <b>always</b> represent the action to represent as either an integer for the action ID or a string for the action name <i>if and only if</i> it does not contain any spaces.<br></li>
+<li>Following the action argument all arguments may appear in any order.<br></li>
+<li>Arguments are delimited by any occurrence of the space character, <i>even if the space is contained within quotes</i>.<br>
+<br>
+<b>Additional Arguments:</b><br>
+Following the action argument you may optionally include the following arguments to control the output glyph.
+<br><br></li>
+<li><code>Player ID</code> (Default: 0)<br>
+Specify the player you'd like to show glyph for using <code>player=2</code> where 2 can be any int.
+If an integer is alone without any specifier it is interpret as player id, such as <code>&lt;glyph Jump 2&gt;</code> where 2 is player id
+<br><br></li>
+<li><code>Polarity</code> (Default: Positive)<br>
+Specify the expected axis or pole input for the action such as positive for &quot;Move Right&quot; and negative for &quot;Move Left&quot; on a Move Horizontal action
+using <code>pole=Positive</code>, <code>pole=Negative</code>, or <code>pole=FullAxis</code>. You may exclude <code>pole</code> specifier from your input.
+<br><br></li>
+<li><code>Controller Type</code> (Default: Current)<br>
+Specify the controller type to show symbols for using <code>type=Joystick</code>.
+Valid values are <code>type=Current</code>, <code>type=Keyboard</code>, <code>type=Mouse</code>, and <code>type=Joystick</code>.<br>
+Warning: Specifying a controller that the runtime device doesn't have connected (such as Joystick) will show the <code>UNBOUND</code> symbol until they connect that controller type.<br>
+Warning: Specifying a controller that does not have the specified action bound to that specific controller will show the <code>UNBOUND</code> symbol without falling back to another controller.
+<br><br></li>
+<li><code>Symbol Preference</code> (Default: <a class="xref" href="LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html#LMirman_RewiredGlyphs_InputGlyphs_PreferredSymbols">PreferredSymbols</a>)<br>
+Specify the symbols to use for <code>Joystick</code> glyphs.
+Valid values are <code>symbol=auto</code>, <code>symbol=xbox</code>, <code>symbol=ps</code>, or <code>symbol=switch</code>.
+<br><br>
+All additional arguments that are string based are <b>case-insensitive</b> such that &quot;TYPE=JOYSTICK&quot; and &quot;type=joystick&quot; are equivalent inputs.</li>
+</ul>
+</td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_SetFormattedText_System_String_" data-uid="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText(System.String)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_SetFormattedText_System_String_">SetFormattedText(string)</a>
+        </td>
+        <td class="markdown level1 summary"><p>Set the text for this text output, replacing glyph rich text such as &amp;lt;glyph &quot;Jump&quot;&amp;gt; with its glyph's sprite or description.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+                </div>
+
+                <div class="copyright-footer">
+                    <span>Docs generated for Rewired-Glyphs Unity Package. Package distributed under MIT license.</span>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
+</html>

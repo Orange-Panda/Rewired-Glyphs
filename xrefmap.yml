@@ -1,0 +1,1512 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: LMirman.RewiredGlyphs
+  name: LMirman.RewiredGlyphs
+  href: api/LMirman.RewiredGlyphs.html
+  commentId: N:LMirman.RewiredGlyphs
+  fullName: LMirman.RewiredGlyphs
+  nameWithType: LMirman.RewiredGlyphs
+- uid: LMirman.RewiredGlyphs.Components
+  name: LMirman.RewiredGlyphs.Components
+  href: api/LMirman.RewiredGlyphs.Components.html
+  commentId: N:LMirman.RewiredGlyphs.Components
+  fullName: LMirman.RewiredGlyphs.Components
+  nameWithType: LMirman.RewiredGlyphs.Components
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay
+  name: GlyphDisplay
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.html
+  commentId: T:LMirman.RewiredGlyphs.Components.GlyphDisplay
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay
+  nameWithType: GlyphDisplay
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID
+  name: ActionID
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID_1.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_ActionID
+  commentId: P:LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID
+  nameWithType: GlyphDisplay.ActionID
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID*
+  name: ActionID
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID_1.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID
+  nameWithType: GlyphDisplay.ActionID
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake
+  name: Awake()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_Awake
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake()
+  nameWithType: GlyphDisplay.Awake()
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake*
+  name: Awake
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake
+  nameWithType: GlyphDisplay.Awake
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues(System.Boolean)
+  name: InitializeValues(bool)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_InitializeValues_System_Boolean_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues(System.Boolean)
+  name.vb: InitializeValues(Boolean)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues(bool)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues(Boolean)
+  nameWithType: GlyphDisplay.InitializeValues(bool)
+  nameWithType.vb: GlyphDisplay.InitializeValues(Boolean)
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues*
+  name: InitializeValues
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues
+  nameWithType: GlyphDisplay.InitializeValues
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady
+  name: InitializeWhenReady()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_InitializeWhenReady
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady()
+  nameWithType: GlyphDisplay.InitializeWhenReady()
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady*
+  name: InitializeWhenReady
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady
+  nameWithType: GlyphDisplay.InitializeWhenReady
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs
+  name: InputGlyphsOnRebuildGlyphs()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_InputGlyphsOnRebuildGlyphs
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs()
+  nameWithType: GlyphDisplay.InputGlyphsOnRebuildGlyphs()
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs*
+  name: InputGlyphsOnRebuildGlyphs
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs
+  nameWithType: GlyphDisplay.InputGlyphsOnRebuildGlyphs
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable
+  name: OnDisable()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_OnDisable
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable()
+  nameWithType: GlyphDisplay.OnDisable()
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable*
+  name: OnDisable
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable
+  nameWithType: GlyphDisplay.OnDisable
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable
+  name: OnEnable()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_OnEnable
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable()
+  nameWithType: GlyphDisplay.OnEnable()
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable*
+  name: OnEnable
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable
+  nameWithType: GlyphDisplay.OnEnable
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue
+  name: PoleValue
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_PoleValue
+  commentId: P:LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue
+  nameWithType: GlyphDisplay.PoleValue
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue*
+  name: PoleValue
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue
+  nameWithType: GlyphDisplay.PoleValue
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  name: SetGlyph(Glyph, AxisRange)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph(LMirman.RewiredGlyphs.Glyph, AxisRange)
+  nameWithType: GlyphDisplay.SetGlyph(Glyph, AxisRange)
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph*
+  name: SetGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph
+  nameWithType: GlyphDisplay.SetGlyph
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(System.Int32,Pole)
+  name: SetTarget(int, Pole)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTarget_System_Int32_Pole_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(System.Int32,Pole)
+  name.vb: SetTarget(Integer, Pole)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(int, Pole)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(Integer, Pole)
+  nameWithType: GlyphDisplay.SetTarget(int, Pole)
+  nameWithType.vb: GlyphDisplay.SetTarget(Integer, Pole)
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(System.String,Pole)
+  name: SetTarget(string, Pole)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTarget_System_String_Pole_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(System.String,Pole)
+  name.vb: SetTarget(String, Pole)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(string, Pole)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(String, Pole)
+  nameWithType: GlyphDisplay.SetTarget(string, Pole)
+  nameWithType.vb: GlyphDisplay.SetTarget(String, Pole)
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget*
+  name: SetTarget
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget
+  nameWithType: GlyphDisplay.SetTarget
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady(System.String,Pole)
+  name: SetTargetWhenReady(string, Pole)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTargetWhenReady_System_String_Pole_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady(System.String,Pole)
+  name.vb: SetTargetWhenReady(String, Pole)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady(string, Pole)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady(String, Pole)
+  nameWithType: GlyphDisplay.SetTargetWhenReady(string, Pole)
+  nameWithType.vb: GlyphDisplay.SetTargetWhenReady(String, Pole)
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady*
+  name: SetTargetWhenReady
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady
+  nameWithType: GlyphDisplay.SetTargetWhenReady
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph(LMirman.RewiredGlyphs.Glyph)
+  name: ShouldHideGlyph(Glyph)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_ShouldHideGlyph_LMirman_RewiredGlyphs_Glyph_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph(LMirman.RewiredGlyphs.Glyph)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph(LMirman.RewiredGlyphs.Glyph)
+  nameWithType: GlyphDisplay.ShouldHideGlyph(Glyph)
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph*
+  name: ShouldHideGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph
+  nameWithType: GlyphDisplay.ShouldHideGlyph
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph
+  name: UpdateGlyph()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_UpdateGlyph
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph()
+  nameWithType: GlyphDisplay.UpdateGlyph()
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph*
+  name: UpdateGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph
+  nameWithType: GlyphDisplay.UpdateGlyph
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID
+  name: actionID
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID
+  nameWithType: GlyphDisplay.actionID
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName
+  name: actionName
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName
+  nameWithType: GlyphDisplay.actionName
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs
+  name: hideKeyboardMouseGlyphs
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs
+  nameWithType: GlyphDisplay.hideKeyboardMouseGlyphs
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs
+  name: hideNonInputGlyphs
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs
+  nameWithType: GlyphDisplay.hideNonInputGlyphs
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex
+  name: playerIndex
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex
+  nameWithType: GlyphDisplay.playerIndex
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.pole
+  name: pole
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.pole.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.pole
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.pole
+  nameWithType: GlyphDisplay.pole
+- uid: LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID
+  name: useActionID
+  href: api/LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID.html
+  commentId: F:LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID
+  fullName: LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID
+  nameWithType: GlyphDisplay.useActionID
+- uid: LMirman.RewiredGlyphs.Components.GlyphHybridOutput
+  name: GlyphHybridOutput
+  href: api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.html
+  commentId: T:LMirman.RewiredGlyphs.Components.GlyphHybridOutput
+  fullName: LMirman.RewiredGlyphs.Components.GlyphHybridOutput
+  nameWithType: GlyphHybridOutput
+- uid: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake
+  name: Awake()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake.html#LMirman_RewiredGlyphs_Components_GlyphHybridOutput_Awake
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake()
+  nameWithType: GlyphHybridOutput.Awake()
+- uid: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake*
+  name: Awake
+  href: api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.Awake
+  nameWithType: GlyphHybridOutput.Awake
+- uid: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  name: SetGlyph(Glyph, AxisRange)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph.html#LMirman_RewiredGlyphs_Components_GlyphHybridOutput_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph, AxisRange)
+  nameWithType: GlyphHybridOutput.SetGlyph(Glyph, AxisRange)
+- uid: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph*
+  name: SetGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph
+  nameWithType: GlyphHybridOutput.SetGlyph
+- uid: LMirman.RewiredGlyphs.Components.GlyphImageOutput
+  name: GlyphImageOutput
+  href: api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.html
+  commentId: T:LMirman.RewiredGlyphs.Components.GlyphImageOutput
+  fullName: LMirman.RewiredGlyphs.Components.GlyphImageOutput
+  nameWithType: GlyphImageOutput
+- uid: LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake
+  name: Awake()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake.html#LMirman_RewiredGlyphs_Components_GlyphImageOutput_Awake
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake()
+  nameWithType: GlyphImageOutput.Awake()
+- uid: LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake*
+  name: Awake
+  href: api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphImageOutput.Awake
+  nameWithType: GlyphImageOutput.Awake
+- uid: LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  name: SetGlyph(Glyph, AxisRange)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph.html#LMirman_RewiredGlyphs_Components_GlyphImageOutput_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph, AxisRange)
+  nameWithType: GlyphImageOutput.SetGlyph(Glyph, AxisRange)
+- uid: LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph*
+  name: SetGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph
+  nameWithType: GlyphImageOutput.SetGlyph
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput
+  name: GlyphLabeledImageOutput
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.html
+  commentId: T:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput
+  nameWithType: GlyphLabeledImageOutput
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  name: SetGlyph(Glyph, AxisRange)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph.html#LMirman_RewiredGlyphs_Components_GlyphLabeledImageOutput_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph, AxisRange)
+  nameWithType: GlyphLabeledImageOutput.SetGlyph(Glyph, AxisRange)
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph*
+  name: SetGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetGlyph
+  nameWithType: GlyphLabeledImageOutput.SetGlyph
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout
+  name: SetLayout()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout.html#LMirman_RewiredGlyphs_Components_GlyphLabeledImageOutput_SetLayout
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout()
+  nameWithType: GlyphLabeledImageOutput.SetLayout()
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout*
+  name: SetLayout
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout
+  nameWithType: GlyphLabeledImageOutput.SetLayout
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText(System.String)
+  name: SetText(string)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText.html#LMirman_RewiredGlyphs_Components_GlyphLabeledImageOutput_SetText_System_String_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText(System.String)
+  name.vb: SetText(String)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText(string)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText(String)
+  nameWithType: GlyphLabeledImageOutput.SetText(string)
+  nameWithType.vb: GlyphLabeledImageOutput.SetText(String)
+- uid: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText*
+  name: SetText
+  href: api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText
+  fullName: LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText
+  nameWithType: GlyphLabeledImageOutput.SetText
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter
+  name: GlyphRichTextFormatter
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.html
+  commentId: T:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter
+  nameWithType: GlyphRichTextFormatter
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable
+  name: OnDisable()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_OnDisable
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable()
+  nameWithType: GlyphRichTextFormatter.OnDisable()
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable*
+  name: OnDisable
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnDisable
+  nameWithType: GlyphRichTextFormatter.OnDisable
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable
+  name: OnEnable()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_OnEnable
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable()
+  nameWithType: GlyphRichTextFormatter.OnEnable()
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable*
+  name: OnEnable
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.OnEnable
+  nameWithType: GlyphRichTextFormatter.OnEnable
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(System.String,System.Boolean,System.String,System.String)
+  name: ReplaceGlyphTagsWithSpriteTags(string, bool, string, string)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_ReplaceGlyphTagsWithSpriteTags_System_String_System_Boolean_System_String_System_String_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(System.String,System.Boolean,System.String,System.String)
+  name.vb: ReplaceGlyphTagsWithSpriteTags(String, Boolean, String, String)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(string, bool, string, string)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(String, Boolean, String, String)
+  nameWithType: GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(string, bool, string, string)
+  nameWithType.vb: GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags(String, Boolean, String, String)
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags*
+  name: ReplaceGlyphTagsWithSpriteTags
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags
+  nameWithType: GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText(System.String)
+  name: SetFormattedText(string)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_SetFormattedText_System_String_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText(System.String)
+  name.vb: SetFormattedText(String)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText(string)
+  fullName.vb: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText(String)
+  nameWithType: GlyphRichTextFormatter.SetFormattedText(string)
+  nameWithType.vb: GlyphRichTextFormatter.SetFormattedText(String)
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText*
+  name: SetFormattedText
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.SetFormattedText
+  nameWithType: GlyphRichTextFormatter.SetFormattedText
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh
+  name: TextMesh
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh.html#LMirman_RewiredGlyphs_Components_GlyphRichTextFormatter_TextMesh
+  commentId: P:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh
+  nameWithType: GlyphRichTextFormatter.TextMesh
+- uid: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh*
+  name: TextMesh
+  href: api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh
+  fullName: LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.TextMesh
+  nameWithType: GlyphRichTextFormatter.TextMesh
+- uid: LMirman.RewiredGlyphs.Components.GlyphTextOutput
+  name: GlyphTextOutput
+  href: api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.html
+  commentId: T:LMirman.RewiredGlyphs.Components.GlyphTextOutput
+  fullName: LMirman.RewiredGlyphs.Components.GlyphTextOutput
+  nameWithType: GlyphTextOutput
+- uid: LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake
+  name: Awake()
+  href: api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake.html#LMirman_RewiredGlyphs_Components_GlyphTextOutput_Awake
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake()
+  nameWithType: GlyphTextOutput.Awake()
+- uid: LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake*
+  name: Awake
+  href: api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake
+  fullName: LMirman.RewiredGlyphs.Components.GlyphTextOutput.Awake
+  nameWithType: GlyphTextOutput.Awake
+- uid: LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  name: SetGlyph(Glyph, AxisRange)
+  href: api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph.html#LMirman_RewiredGlyphs_Components_GlyphTextOutput_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)
+  fullName: LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph(LMirman.RewiredGlyphs.Glyph, AxisRange)
+  nameWithType: GlyphTextOutput.SetGlyph(Glyph, AxisRange)
+- uid: LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph*
+  name: SetGlyph
+  href: api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph
+  fullName: LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph
+  nameWithType: GlyphTextOutput.SetGlyph
+- uid: LMirman.RewiredGlyphs.Editor
+  name: LMirman.RewiredGlyphs.Editor
+  href: api/LMirman.RewiredGlyphs.Editor.html
+  commentId: N:LMirman.RewiredGlyphs.Editor
+  fullName: LMirman.RewiredGlyphs.Editor
+  nameWithType: LMirman.RewiredGlyphs.Editor
+- uid: LMirman.RewiredGlyphs.Editor.GlyphMapEditor
+  name: GlyphMapEditor
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.html
+  commentId: T:LMirman.RewiredGlyphs.Editor.GlyphMapEditor
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphMapEditor
+  nameWithType: GlyphMapEditor
+- uid: LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI
+  name: OnInspectorGUI()
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI.html#LMirman_RewiredGlyphs_Editor_GlyphMapEditor_OnInspectorGUI
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI()
+  nameWithType: GlyphMapEditor.OnInspectorGUI()
+- uid: LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI*
+  name: OnInspectorGUI
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI
+  nameWithType: GlyphMapEditor.OnInspectorGUI
+- uid: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor
+  name: RewiredGlyphManagerEditor
+  href: api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.html
+  commentId: T:LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor
+  fullName: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor
+  nameWithType: RewiredGlyphManagerEditor
+- uid: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI
+  name: OnInspectorGUI()
+  href: api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI.html#LMirman_RewiredGlyphs_Editor_RewiredGlyphManagerEditor_OnInspectorGUI
+  commentId: M:LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI
+  fullName: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI()
+  nameWithType: RewiredGlyphManagerEditor.OnInspectorGUI()
+- uid: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI*
+  name: OnInspectorGUI
+  href: api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI
+  fullName: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.OnInspectorGUI
+  nameWithType: RewiredGlyphManagerEditor.OnInspectorGUI
+- uid: LMirman.RewiredGlyphs.Glyph
+  name: Glyph
+  href: api/LMirman.RewiredGlyphs.Glyph.html
+  commentId: T:LMirman.RewiredGlyphs.Glyph
+  fullName: LMirman.RewiredGlyphs.Glyph
+  nameWithType: Glyph
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name: Glyph(int, string, Sprite, Type)
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_Int32_System_String_Sprite_LMirman_RewiredGlyphs_Glyph_Type_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name.vb: New(Integer, String, Sprite, Type)
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph(int, string, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New(Integer, String, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  nameWithType: Glyph.Glyph(int, string, Sprite, Glyph.Type)
+  nameWithType.vb: Glyph.New(Integer, String, Sprite, Glyph.Type)
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,Sprite,Sprite,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name: Glyph(int, string, Sprite, Sprite, Sprite, Type)
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_Int32_System_String_Sprite_Sprite_Sprite_LMirman_RewiredGlyphs_Glyph_Type_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,Sprite,Sprite,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name.vb: New(Integer, String, Sprite, Sprite, Sprite, Type)
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph(int, string, Sprite, Sprite, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New(Integer, String, Sprite, Sprite, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  nameWithType: Glyph.Glyph(int, string, Sprite, Sprite, Sprite, Glyph.Type)
+  nameWithType.vb: Glyph.New(Integer, String, Sprite, Sprite, Sprite, Glyph.Type)
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.String,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name: Glyph(string, Sprite, Type)
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_String_Sprite_LMirman_RewiredGlyphs_Glyph_Type_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.#ctor(System.String,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name.vb: New(String, Sprite, Type)
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph(string, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New(String, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  nameWithType: Glyph.Glyph(string, Sprite, Glyph.Type)
+  nameWithType.vb: Glyph.New(String, Sprite, Glyph.Type)
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor*
+  name: Glyph
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.#ctor
+  name.vb: New
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New
+  nameWithType: Glyph.Glyph
+  nameWithType.vb: Glyph.New
+- uid: LMirman.RewiredGlyphs.Glyph.ControllerType
+  name: ControllerType
+  href: api/LMirman.RewiredGlyphs.Glyph.ControllerType.html#LMirman_RewiredGlyphs_Glyph_ControllerType
+  commentId: P:LMirman.RewiredGlyphs.Glyph.ControllerType
+  fullName: LMirman.RewiredGlyphs.Glyph.ControllerType
+  nameWithType: Glyph.ControllerType
+- uid: LMirman.RewiredGlyphs.Glyph.ControllerType*
+  name: ControllerType
+  href: api/LMirman.RewiredGlyphs.Glyph.ControllerType.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.ControllerType
+  fullName: LMirman.RewiredGlyphs.Glyph.ControllerType
+  nameWithType: Glyph.ControllerType
+- uid: LMirman.RewiredGlyphs.Glyph.Description
+  name: Description
+  href: api/LMirman.RewiredGlyphs.Glyph.Description.html#LMirman_RewiredGlyphs_Glyph_Description
+  commentId: P:LMirman.RewiredGlyphs.Glyph.Description
+  fullName: LMirman.RewiredGlyphs.Glyph.Description
+  nameWithType: Glyph.Description
+- uid: LMirman.RewiredGlyphs.Glyph.Description*
+  name: Description
+  href: api/LMirman.RewiredGlyphs.Glyph.Description.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.Description
+  fullName: LMirman.RewiredGlyphs.Glyph.Description
+  nameWithType: Glyph.Description
+- uid: LMirman.RewiredGlyphs.Glyph.FullDescription
+  name: FullDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.FullDescription.html#LMirman_RewiredGlyphs_Glyph_FullDescription
+  commentId: P:LMirman.RewiredGlyphs.Glyph.FullDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.FullDescription
+  nameWithType: Glyph.FullDescription
+- uid: LMirman.RewiredGlyphs.Glyph.FullDescription*
+  name: FullDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.FullDescription.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.FullDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.FullDescription
+  nameWithType: Glyph.FullDescription
+- uid: LMirman.RewiredGlyphs.Glyph.FullSprite
+  name: FullSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.FullSprite.html#LMirman_RewiredGlyphs_Glyph_FullSprite
+  commentId: P:LMirman.RewiredGlyphs.Glyph.FullSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.FullSprite
+  nameWithType: Glyph.FullSprite
+- uid: LMirman.RewiredGlyphs.Glyph.FullSprite*
+  name: FullSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.FullSprite.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.FullSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.FullSprite
+  nameWithType: Glyph.FullSprite
+- uid: LMirman.RewiredGlyphs.Glyph.GetDescription(AxisRange)
+  name: GetDescription(AxisRange)
+  href: api/LMirman.RewiredGlyphs.Glyph.GetDescription.html#LMirman_RewiredGlyphs_Glyph_GetDescription_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.GetDescription(AxisRange)
+  fullName: LMirman.RewiredGlyphs.Glyph.GetDescription(AxisRange)
+  nameWithType: Glyph.GetDescription(AxisRange)
+- uid: LMirman.RewiredGlyphs.Glyph.GetDescription*
+  name: GetDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.GetDescription.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.GetDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.GetDescription
+  nameWithType: Glyph.GetDescription
+- uid: LMirman.RewiredGlyphs.Glyph.GetSprite(AxisRange)
+  name: GetSprite(AxisRange)
+  href: api/LMirman.RewiredGlyphs.Glyph.GetSprite.html#LMirman_RewiredGlyphs_Glyph_GetSprite_AxisRange_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.GetSprite(AxisRange)
+  fullName: LMirman.RewiredGlyphs.Glyph.GetSprite(AxisRange)
+  nameWithType: Glyph.GetSprite(AxisRange)
+- uid: LMirman.RewiredGlyphs.Glyph.GetSprite*
+  name: GetSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.GetSprite.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.GetSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.GetSprite
+  nameWithType: Glyph.GetSprite
+- uid: LMirman.RewiredGlyphs.Glyph.GlyphType
+  name: GlyphType
+  href: api/LMirman.RewiredGlyphs.Glyph.GlyphType.html#LMirman_RewiredGlyphs_Glyph_GlyphType
+  commentId: P:LMirman.RewiredGlyphs.Glyph.GlyphType
+  fullName: LMirman.RewiredGlyphs.Glyph.GlyphType
+  nameWithType: Glyph.GlyphType
+- uid: LMirman.RewiredGlyphs.Glyph.GlyphType*
+  name: GlyphType
+  href: api/LMirman.RewiredGlyphs.Glyph.GlyphType.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.GlyphType
+  fullName: LMirman.RewiredGlyphs.Glyph.GlyphType
+  nameWithType: Glyph.GlyphType
+- uid: LMirman.RewiredGlyphs.Glyph.InputID
+  name: InputID
+  href: api/LMirman.RewiredGlyphs.Glyph.InputID.html#LMirman_RewiredGlyphs_Glyph_InputID
+  commentId: P:LMirman.RewiredGlyphs.Glyph.InputID
+  fullName: LMirman.RewiredGlyphs.Glyph.InputID
+  nameWithType: Glyph.InputID
+- uid: LMirman.RewiredGlyphs.Glyph.InputID*
+  name: InputID
+  href: api/LMirman.RewiredGlyphs.Glyph.InputID.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.InputID
+  fullName: LMirman.RewiredGlyphs.Glyph.InputID
+  nameWithType: Glyph.InputID
+- uid: LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph
+  name: IsFallbackGlyph
+  href: api/LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph.html#LMirman_RewiredGlyphs_Glyph_IsFallbackGlyph
+  commentId: P:LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph
+  fullName: LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph
+  nameWithType: Glyph.IsFallbackGlyph
+- uid: LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph*
+  name: IsFallbackGlyph
+  href: api/LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph
+  fullName: LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph
+  nameWithType: Glyph.IsFallbackGlyph
+- uid: LMirman.RewiredGlyphs.Glyph.IsInputGlyph
+  name: IsInputGlyph
+  href: api/LMirman.RewiredGlyphs.Glyph.IsInputGlyph.html#LMirman_RewiredGlyphs_Glyph_IsInputGlyph
+  commentId: P:LMirman.RewiredGlyphs.Glyph.IsInputGlyph
+  fullName: LMirman.RewiredGlyphs.Glyph.IsInputGlyph
+  nameWithType: Glyph.IsInputGlyph
+- uid: LMirman.RewiredGlyphs.Glyph.IsInputGlyph*
+  name: IsInputGlyph
+  href: api/LMirman.RewiredGlyphs.Glyph.IsInputGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.IsInputGlyph
+  fullName: LMirman.RewiredGlyphs.Glyph.IsInputGlyph
+  nameWithType: Glyph.IsInputGlyph
+- uid: LMirman.RewiredGlyphs.Glyph.NegativeDescription
+  name: NegativeDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.NegativeDescription.html#LMirman_RewiredGlyphs_Glyph_NegativeDescription
+  commentId: P:LMirman.RewiredGlyphs.Glyph.NegativeDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.NegativeDescription
+  nameWithType: Glyph.NegativeDescription
+- uid: LMirman.RewiredGlyphs.Glyph.NegativeDescription*
+  name: NegativeDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.NegativeDescription.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.NegativeDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.NegativeDescription
+  nameWithType: Glyph.NegativeDescription
+- uid: LMirman.RewiredGlyphs.Glyph.NegativeSprite
+  name: NegativeSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.NegativeSprite.html#LMirman_RewiredGlyphs_Glyph_NegativeSprite
+  commentId: P:LMirman.RewiredGlyphs.Glyph.NegativeSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.NegativeSprite
+  nameWithType: Glyph.NegativeSprite
+- uid: LMirman.RewiredGlyphs.Glyph.NegativeSprite*
+  name: NegativeSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.NegativeSprite.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.NegativeSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.NegativeSprite
+  nameWithType: Glyph.NegativeSprite
+- uid: LMirman.RewiredGlyphs.Glyph.PositiveDescription
+  name: PositiveDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.PositiveDescription.html#LMirman_RewiredGlyphs_Glyph_PositiveDescription
+  commentId: P:LMirman.RewiredGlyphs.Glyph.PositiveDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.PositiveDescription
+  nameWithType: Glyph.PositiveDescription
+- uid: LMirman.RewiredGlyphs.Glyph.PositiveDescription*
+  name: PositiveDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.PositiveDescription.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.PositiveDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.PositiveDescription
+  nameWithType: Glyph.PositiveDescription
+- uid: LMirman.RewiredGlyphs.Glyph.PositiveSprite
+  name: PositiveSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.PositiveSprite.html#LMirman_RewiredGlyphs_Glyph_PositiveSprite
+  commentId: P:LMirman.RewiredGlyphs.Glyph.PositiveSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.PositiveSprite
+  nameWithType: Glyph.PositiveSprite
+- uid: LMirman.RewiredGlyphs.Glyph.PositiveSprite*
+  name: PositiveSprite
+  href: api/LMirman.RewiredGlyphs.Glyph.PositiveSprite.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.PositiveSprite
+  fullName: LMirman.RewiredGlyphs.Glyph.PositiveSprite
+  nameWithType: Glyph.PositiveSprite
+- uid: LMirman.RewiredGlyphs.Glyph.PreferDescription
+  name: PreferDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.PreferDescription.html#LMirman_RewiredGlyphs_Glyph_PreferDescription
+  commentId: P:LMirman.RewiredGlyphs.Glyph.PreferDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.PreferDescription
+  nameWithType: Glyph.PreferDescription
+- uid: LMirman.RewiredGlyphs.Glyph.PreferDescription*
+  name: PreferDescription
+  href: api/LMirman.RewiredGlyphs.Glyph.PreferDescription.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.PreferDescription
+  fullName: LMirman.RewiredGlyphs.Glyph.PreferDescription
+  nameWithType: Glyph.PreferDescription
+- uid: LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName
+  name: TextMeshSpriteSheetName
+  href: api/LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName.html#LMirman_RewiredGlyphs_Glyph_TextMeshSpriteSheetName
+  commentId: P:LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName
+  fullName: LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName
+  nameWithType: Glyph.TextMeshSpriteSheetName
+- uid: LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName*
+  name: TextMeshSpriteSheetName
+  href: api/LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName.html
+  commentId: Overload:LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName
+  fullName: LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName
+  nameWithType: Glyph.TextMeshSpriteSheetName
+- uid: LMirman.RewiredGlyphs.Glyph.Type
+  name: Glyph.Type
+  href: api/LMirman.RewiredGlyphs.Glyph.Type.html
+  commentId: T:LMirman.RewiredGlyphs.Glyph.Type
+  fullName: LMirman.RewiredGlyphs.Glyph.Type
+  nameWithType: Glyph.Type
+- uid: LMirman.RewiredGlyphs.Glyph.Type.Input
+  name: Input
+  href: api/LMirman.RewiredGlyphs.Glyph.Type.html#LMirman_RewiredGlyphs_Glyph_Type_Input
+  commentId: F:LMirman.RewiredGlyphs.Glyph.Type.Input
+  fullName: LMirman.RewiredGlyphs.Glyph.Type.Input
+  nameWithType: Glyph.Type.Input
+- uid: LMirman.RewiredGlyphs.Glyph.Type.Null
+  name: "Null"
+  href: api/LMirman.RewiredGlyphs.Glyph.Type.html#LMirman_RewiredGlyphs_Glyph_Type_Null
+  commentId: F:LMirman.RewiredGlyphs.Glyph.Type.Null
+  fullName: LMirman.RewiredGlyphs.Glyph.Type.Null
+  nameWithType: Glyph.Type.Null
+- uid: LMirman.RewiredGlyphs.Glyph.Type.Unbound
+  name: Unbound
+  href: api/LMirman.RewiredGlyphs.Glyph.Type.html#LMirman_RewiredGlyphs_Glyph_Type_Unbound
+  commentId: F:LMirman.RewiredGlyphs.Glyph.Type.Unbound
+  fullName: LMirman.RewiredGlyphs.Glyph.Type.Unbound
+  nameWithType: Glyph.Type.Unbound
+- uid: LMirman.RewiredGlyphs.Glyph.Type.Undefined
+  name: Undefined
+  href: api/LMirman.RewiredGlyphs.Glyph.Type.html#LMirman_RewiredGlyphs_Glyph_Type_Undefined
+  commentId: F:LMirman.RewiredGlyphs.Glyph.Type.Undefined
+  fullName: LMirman.RewiredGlyphs.Glyph.Type.Undefined
+  nameWithType: Glyph.Type.Undefined
+- uid: LMirman.RewiredGlyphs.Glyph.Type.Uninitialized
+  name: Uninitialized
+  href: api/LMirman.RewiredGlyphs.Glyph.Type.html#LMirman_RewiredGlyphs_Glyph_Type_Uninitialized
+  commentId: F:LMirman.RewiredGlyphs.Glyph.Type.Uninitialized
+  fullName: LMirman.RewiredGlyphs.Glyph.Type.Uninitialized
+  nameWithType: Glyph.Type.Uninitialized
+- uid: LMirman.RewiredGlyphs.GlyphCollection
+  name: GlyphCollection
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.html
+  commentId: T:LMirman.RewiredGlyphs.GlyphCollection
+  fullName: LMirman.RewiredGlyphs.GlyphCollection
+  nameWithType: GlyphCollection
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry
+  name: GlyphCollection.GuidEntry
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.html
+  commentId: T:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry
+  nameWithType: GlyphCollection.GuidEntry
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
+  name: GuidValue
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue.html#LMirman_RewiredGlyphs_GlyphCollection_GuidEntry_GuidValue
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
+  nameWithType: GlyphCollection.GuidEntry.GuidValue
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue*
+  name: GuidValue
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
+  nameWithType: GlyphCollection.GuidEntry.GuidValue
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap
+  name: glyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap.html
+  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap
+  nameWithType: GlyphCollection.GuidEntry.glyphMap
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
+  name: GuidMaps
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html#LMirman_RewiredGlyphs_GlyphCollection_GuidMaps
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
+  nameWithType: GlyphCollection.GuidMaps
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidMaps*
+  name: GuidMaps
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
+  nameWithType: GlyphCollection.GuidMaps
+- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry
+  name: GlyphCollection.HardwareEntry
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.html
+  commentId: T:LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry
+  nameWithType: GlyphCollection.HardwareEntry
+- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap
+  name: glyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap.html
+  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap
+  nameWithType: GlyphCollection.HardwareEntry.glyphMap
+- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition
+  name: hardwareDefinition
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition.html
+  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition
+  nameWithType: GlyphCollection.HardwareEntry.hardwareDefinition
+- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
+  name: HardwareMaps
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html#LMirman_RewiredGlyphs_GlyphCollection_HardwareMaps
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
+  nameWithType: GlyphCollection.HardwareMaps
+- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps*
+  name: HardwareMaps
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
+  nameWithType: GlyphCollection.HardwareMaps
+- uid: LMirman.RewiredGlyphs.GlyphCollection.Key
+  name: Key
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.Key.html#LMirman_RewiredGlyphs_GlyphCollection_Key
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.Key
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.Key
+  nameWithType: GlyphCollection.Key
+- uid: LMirman.RewiredGlyphs.GlyphCollection.Key*
+  name: Key
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.Key.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.Key
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.Key
+  nameWithType: GlyphCollection.Key
+- uid: LMirman.RewiredGlyphs.GlyphCollection.NullGlyph
+  name: NullGlyph
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.NullGlyph.html#LMirman_RewiredGlyphs_GlyphCollection_NullGlyph
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.NullGlyph
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.NullGlyph
+  nameWithType: GlyphCollection.NullGlyph
+- uid: LMirman.RewiredGlyphs.GlyphCollection.NullGlyph*
+  name: NullGlyph
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.NullGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.NullGlyph
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.NullGlyph
+  nameWithType: GlyphCollection.NullGlyph
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry
+  name: GlyphCollection.TemplateEntry
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.html
+  commentId: T:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry
+  nameWithType: GlyphCollection.TemplateEntry
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap
+  name: glyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap.html
+  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap
+  nameWithType: GlyphCollection.TemplateEntry.glyphMap
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference
+  name: symbolPreference
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html
+  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference
+  nameWithType: GlyphCollection.TemplateEntry.symbolPreference
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps
+  name: TemplateMaps
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateMaps
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps
+  nameWithType: GlyphCollection.TemplateMaps
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps*
+  name: TemplateMaps
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps
+  nameWithType: GlyphCollection.TemplateMaps
+- uid: LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph
+  name: UnboundGlyph
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph.html#LMirman_RewiredGlyphs_GlyphCollection_UnboundGlyph
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph
+  nameWithType: GlyphCollection.UnboundGlyph
+- uid: LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph*
+  name: UnboundGlyph
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph
+  nameWithType: GlyphCollection.UnboundGlyph
+- uid: LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph
+  name: UninitializedGlyph
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph.html#LMirman_RewiredGlyphs_GlyphCollection_UninitializedGlyph
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph
+  nameWithType: GlyphCollection.UninitializedGlyph
+- uid: LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph*
+  name: UninitializedGlyph
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph
+  nameWithType: GlyphCollection.UninitializedGlyph
+- uid: LMirman.RewiredGlyphs.GlyphMap
+  name: GlyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphMap.html
+  commentId: T:LMirman.RewiredGlyphs.GlyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphMap
+  nameWithType: GlyphMap
+- uid: LMirman.RewiredGlyphs.GlyphMap.CreateDictionary
+  name: CreateDictionary()
+  href: api/LMirman.RewiredGlyphs.GlyphMap.CreateDictionary.html#LMirman_RewiredGlyphs_GlyphMap_CreateDictionary
+  commentId: M:LMirman.RewiredGlyphs.GlyphMap.CreateDictionary
+  fullName: LMirman.RewiredGlyphs.GlyphMap.CreateDictionary()
+  nameWithType: GlyphMap.CreateDictionary()
+- uid: LMirman.RewiredGlyphs.GlyphMap.CreateDictionary*
+  name: CreateDictionary
+  href: api/LMirman.RewiredGlyphs.GlyphMap.CreateDictionary.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphMap.CreateDictionary
+  fullName: LMirman.RewiredGlyphs.GlyphMap.CreateDictionary
+  nameWithType: GlyphMap.CreateDictionary
+- uid: LMirman.RewiredGlyphs.GlyphMap.Glyphs
+  name: Glyphs
+  href: api/LMirman.RewiredGlyphs.GlyphMap.Glyphs.html#LMirman_RewiredGlyphs_GlyphMap_Glyphs
+  commentId: P:LMirman.RewiredGlyphs.GlyphMap.Glyphs
+  fullName: LMirman.RewiredGlyphs.GlyphMap.Glyphs
+  nameWithType: GlyphMap.Glyphs
+- uid: LMirman.RewiredGlyphs.GlyphMap.Glyphs*
+  name: Glyphs
+  href: api/LMirman.RewiredGlyphs.GlyphMap.Glyphs.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphMap.Glyphs
+  fullName: LMirman.RewiredGlyphs.GlyphMap.Glyphs
+  nameWithType: GlyphMap.Glyphs
+- uid: LMirman.RewiredGlyphs.GlyphSetQueryResult
+  name: GlyphSetQueryResult
+  href: api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html
+  commentId: T:LMirman.RewiredGlyphs.GlyphSetQueryResult
+  fullName: LMirman.RewiredGlyphs.GlyphSetQueryResult
+  nameWithType: GlyphSetQueryResult
+- uid: LMirman.RewiredGlyphs.GlyphSetQueryResult.ErrorUninitialized
+  name: ErrorUninitialized
+  href: api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html#LMirman_RewiredGlyphs_GlyphSetQueryResult_ErrorUninitialized
+  commentId: F:LMirman.RewiredGlyphs.GlyphSetQueryResult.ErrorUninitialized
+  fullName: LMirman.RewiredGlyphs.GlyphSetQueryResult.ErrorUninitialized
+  nameWithType: GlyphSetQueryResult.ErrorUninitialized
+- uid: LMirman.RewiredGlyphs.GlyphSetQueryResult.ErrorUnknownAction
+  name: ErrorUnknownAction
+  href: api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html#LMirman_RewiredGlyphs_GlyphSetQueryResult_ErrorUnknownAction
+  commentId: F:LMirman.RewiredGlyphs.GlyphSetQueryResult.ErrorUnknownAction
+  fullName: LMirman.RewiredGlyphs.GlyphSetQueryResult.ErrorUnknownAction
+  nameWithType: GlyphSetQueryResult.ErrorUnknownAction
+- uid: LMirman.RewiredGlyphs.GlyphSetQueryResult.Success
+  name: Success
+  href: api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html#LMirman_RewiredGlyphs_GlyphSetQueryResult_Success
+  commentId: F:LMirman.RewiredGlyphs.GlyphSetQueryResult.Success
+  fullName: LMirman.RewiredGlyphs.GlyphSetQueryResult.Success
+  nameWithType: GlyphSetQueryResult.Success
+- uid: LMirman.RewiredGlyphs.GlyphSetQueryResult.Undefined
+  name: Undefined
+  href: api/LMirman.RewiredGlyphs.GlyphSetQueryResult.html#LMirman_RewiredGlyphs_GlyphSetQueryResult_Undefined
+  commentId: F:LMirman.RewiredGlyphs.GlyphSetQueryResult.Undefined
+  fullName: LMirman.RewiredGlyphs.GlyphSetQueryResult.Undefined
+  nameWithType: GlyphSetQueryResult.Undefined
+- uid: LMirman.RewiredGlyphs.HardwareDefinition
+  name: HardwareDefinition
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html
+  commentId: T:LMirman.RewiredGlyphs.HardwareDefinition
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition
+  nameWithType: HardwareDefinition
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Generic
+  name: Generic
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Generic
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Generic
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Generic
+  nameWithType: HardwareDefinition.Generic
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Keyboard
+  name: Keyboard
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Keyboard
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Keyboard
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Keyboard
+  nameWithType: HardwareDefinition.Keyboard
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Mouse
+  name: Mouse
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Mouse
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Mouse
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Mouse
+  nameWithType: HardwareDefinition.Mouse
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.NintendoSwitch
+  name: NintendoSwitch
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_NintendoSwitch
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.NintendoSwitch
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.NintendoSwitch
+  nameWithType: HardwareDefinition.NintendoSwitch
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Playstation
+  name: Playstation
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Playstation
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Playstation
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Playstation
+  nameWithType: HardwareDefinition.Playstation
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Playstation2
+  name: Playstation2
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Playstation2
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Playstation2
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Playstation2
+  nameWithType: HardwareDefinition.Playstation2
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Playstation3
+  name: Playstation3
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Playstation3
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Playstation3
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Playstation3
+  nameWithType: HardwareDefinition.Playstation3
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Unknown
+  name: Unknown
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Unknown
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Unknown
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Unknown
+  nameWithType: HardwareDefinition.Unknown
+- uid: LMirman.RewiredGlyphs.HardwareDefinition.Xbox
+  name: Xbox
+  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Xbox
+  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Xbox
+  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Xbox
+  nameWithType: HardwareDefinition.Xbox
+- uid: LMirman.RewiredGlyphs.HardwarePreference
+  name: HardwarePreference
+  href: api/LMirman.RewiredGlyphs.HardwarePreference.html
+  commentId: T:LMirman.RewiredGlyphs.HardwarePreference
+  fullName: LMirman.RewiredGlyphs.HardwarePreference
+  nameWithType: HardwarePreference
+- uid: LMirman.RewiredGlyphs.HardwarePreference.Auto
+  name: Auto
+  href: api/LMirman.RewiredGlyphs.HardwarePreference.html#LMirman_RewiredGlyphs_HardwarePreference_Auto
+  commentId: F:LMirman.RewiredGlyphs.HardwarePreference.Auto
+  fullName: LMirman.RewiredGlyphs.HardwarePreference.Auto
+  nameWithType: HardwarePreference.Auto
+- uid: LMirman.RewiredGlyphs.HardwarePreference.Gamepad
+  name: Gamepad
+  href: api/LMirman.RewiredGlyphs.HardwarePreference.html#LMirman_RewiredGlyphs_HardwarePreference_Gamepad
+  commentId: F:LMirman.RewiredGlyphs.HardwarePreference.Gamepad
+  fullName: LMirman.RewiredGlyphs.HardwarePreference.Gamepad
+  nameWithType: HardwarePreference.Gamepad
+- uid: LMirman.RewiredGlyphs.HardwarePreference.KeyboardMouse
+  name: KeyboardMouse
+  href: api/LMirman.RewiredGlyphs.HardwarePreference.html#LMirman_RewiredGlyphs_HardwarePreference_KeyboardMouse
+  commentId: F:LMirman.RewiredGlyphs.HardwarePreference.KeyboardMouse
+  fullName: LMirman.RewiredGlyphs.HardwarePreference.KeyboardMouse
+  nameWithType: HardwarePreference.KeyboardMouse
+- uid: LMirman.RewiredGlyphs.InputGlyphs
+  name: InputGlyphs
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.html
+  commentId: T:LMirman.RewiredGlyphs.InputGlyphs
+  fullName: LMirman.RewiredGlyphs.InputGlyphs
+  nameWithType: InputGlyphs
+- uid: LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache
+  name: FlushPlayersCache()
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache.html#LMirman_RewiredGlyphs_InputGlyphs_FlushPlayersCache
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache()
+  nameWithType: InputGlyphs.FlushPlayersCache()
+- uid: LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache*
+  name: FlushPlayersCache
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache
+  nameWithType: InputGlyphs.FlushPlayersCache
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name: GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetCurrentGlyph_Player_System_Int32_Pole_AxisRange__System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name.vb: GetCurrentGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  nameWithType: InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)
+  nameWithType.vb: InputGlyphs.GetCurrentGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name: GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetCurrentGlyph_System_Int32_Pole_AxisRange__System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name.vb: GetCurrentGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetCurrentGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph*
+  name: GetCurrentGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph
+  nameWithType: InputGlyphs.GetCurrentGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(ControllerType,System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name: GetGlyph(ControllerType, int, Pole, out AxisRange, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetGlyph_ControllerType_System_Int32_Pole_AxisRange__System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(ControllerType,System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name.vb: GetGlyph(ControllerType, Integer, Pole, AxisRange, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(ControllerType, int, Pole, out AxisRange, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(ControllerType, Integer, Pole, AxisRange, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetGlyph(ControllerType, int, Pole, out AxisRange, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetGlyph(ControllerType, Integer, Pole, AxisRange, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(Player,ControllerType,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name: GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetGlyph_Player_ControllerType_System_Int32_Pole_AxisRange__System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(Player,ControllerType,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name.vb: GetGlyph(Player, ControllerType, Integer, Pole, AxisRange, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph(Player, ControllerType, Integer, Pole, AxisRange, Boolean, String)
+  nameWithType: InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string)
+  nameWithType.vb: InputGlyphs.GetGlyph(Player, ControllerType, Integer, Pole, AxisRange, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph*
+  name: GetGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetGlyph
+  nameWithType: InputGlyphs.GetGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet(Player,System.Int32,Pole,System.Collections.Generic.List{System.ValueTuple{LMirman.RewiredGlyphs.Glyph,AxisRange}},System.Boolean,System.Nullable{LMirman.RewiredGlyphs.SymbolPreference},System.String)
+  name: GetGlyphSet(Player, int, Pole, List<(Glyph, AxisRange)>, bool, SymbolPreference?, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet.html#LMirman_RewiredGlyphs_InputGlyphs_GetGlyphSet_Player_System_Int32_Pole_System_Collections_Generic_List_System_ValueTuple_LMirman_RewiredGlyphs_Glyph_AxisRange___System_Boolean_System_Nullable_LMirman_RewiredGlyphs_SymbolPreference__System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet(Player,System.Int32,Pole,System.Collections.Generic.List{System.ValueTuple{LMirman.RewiredGlyphs.Glyph,AxisRange}},System.Boolean,System.Nullable{LMirman.RewiredGlyphs.SymbolPreference},System.String)
+  name.vb: GetGlyphSet(Player, Integer, Pole, List(Of (Glyph, AxisRange)), Boolean, SymbolPreference?, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet(Player, int, Pole, System.Collections.Generic.List<(LMirman.RewiredGlyphs.Glyph, AxisRange)>, bool, LMirman.RewiredGlyphs.SymbolPreference?, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet(Player, Integer, Pole, System.Collections.Generic.List(Of (LMirman.RewiredGlyphs.Glyph, AxisRange)), Boolean, LMirman.RewiredGlyphs.SymbolPreference?, String)
+  nameWithType: InputGlyphs.GetGlyphSet(Player, int, Pole, List<(Glyph, AxisRange)>, bool, SymbolPreference?, string)
+  nameWithType.vb: InputGlyphs.GetGlyphSet(Player, Integer, Pole, List(Of (Glyph, AxisRange)), Boolean, SymbolPreference?, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet*
+  name: GetGlyphSet
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet
+  nameWithType: InputGlyphs.GetGlyphSet
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition(Controller)
+  name: GetHardwareDefinition(Controller)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html#LMirman_RewiredGlyphs_InputGlyphs_GetHardwareDefinition_Controller_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition(Controller)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition(Controller)
+  nameWithType: InputGlyphs.GetHardwareDefinition(Controller)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition*
+  name: GetHardwareDefinition
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition
+  nameWithType: InputGlyphs.GetHardwareDefinition
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(Player,System.Int32,Controller,Pole,AxisRange@,System.Boolean,System.String)
+  name: GetJoystickGlyph(Player, int, Controller, Pole, out AxisRange, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetJoystickGlyph_Player_System_Int32_Controller_Pole_AxisRange__System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(Player,System.Int32,Controller,Pole,AxisRange@,System.Boolean,System.String)
+  name.vb: GetJoystickGlyph(Player, Integer, Controller, Pole, AxisRange, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(Player, int, Controller, Pole, out AxisRange, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(Player, Integer, Controller, Pole, AxisRange, Boolean, String)
+  nameWithType: InputGlyphs.GetJoystickGlyph(Player, int, Controller, Pole, out AxisRange, bool, string)
+  nameWithType.vb: InputGlyphs.GetJoystickGlyph(Player, Integer, Controller, Pole, AxisRange, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(System.Int32,Controller,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name: GetJoystickGlyph(int, Controller, Pole, out AxisRange, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetJoystickGlyph_System_Int32_Controller_Pole_AxisRange__System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(System.Int32,Controller,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name.vb: GetJoystickGlyph(Integer, Controller, Pole, AxisRange, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(int, Controller, Pole, out AxisRange, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(Integer, Controller, Pole, AxisRange, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetJoystickGlyph(int, Controller, Pole, out AxisRange, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetJoystickGlyph(Integer, Controller, Pole, AxisRange, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph*
+  name: GetJoystickGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph
+  nameWithType: InputGlyphs.GetJoystickGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name: GetKeyboardGlyph(Player, int, Pole, out AxisRange, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetKeyboardGlyph_Player_System_Int32_Pole_AxisRange__System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name.vb: GetKeyboardGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(Player, int, Pole, out AxisRange, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  nameWithType: InputGlyphs.GetKeyboardGlyph(Player, int, Pole, out AxisRange, bool, string)
+  nameWithType.vb: InputGlyphs.GetKeyboardGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name: GetKeyboardGlyph(int, Pole, out AxisRange, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetKeyboardGlyph_System_Int32_Pole_AxisRange__System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name.vb: GetKeyboardGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(int, Pole, out AxisRange, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetKeyboardGlyph(int, Pole, out AxisRange, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetKeyboardGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph*
+  name: GetKeyboardGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardGlyph
+  nameWithType: InputGlyphs.GetKeyboardGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name: GetKeyboardMouseGlyph(Player, int, Pole, out AxisRange, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetKeyboardMouseGlyph_Player_System_Int32_Pole_AxisRange__System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name.vb: GetKeyboardMouseGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(Player, int, Pole, out AxisRange, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  nameWithType: InputGlyphs.GetKeyboardMouseGlyph(Player, int, Pole, out AxisRange, bool, string)
+  nameWithType.vb: InputGlyphs.GetKeyboardMouseGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name: GetKeyboardMouseGlyph(int, Pole, out AxisRange, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetKeyboardMouseGlyph_System_Int32_Pole_AxisRange__System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name.vb: GetKeyboardMouseGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(int, Pole, out AxisRange, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetKeyboardMouseGlyph(int, Pole, out AxisRange, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetKeyboardMouseGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph*
+  name: GetKeyboardMouseGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetKeyboardMouseGlyph
+  nameWithType: InputGlyphs.GetKeyboardMouseGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name: GetMouseGlyph(Player, int, Pole, out AxisRange, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetMouseGlyph_Player_System_Int32_Pole_AxisRange__System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(Player,System.Int32,Pole,AxisRange@,System.Boolean,System.String)
+  name.vb: GetMouseGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(Player, int, Pole, out AxisRange, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+  nameWithType: InputGlyphs.GetMouseGlyph(Player, int, Pole, out AxisRange, bool, string)
+  nameWithType.vb: InputGlyphs.GetMouseGlyph(Player, Integer, Pole, AxisRange, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name: GetMouseGlyph(int, Pole, out AxisRange, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetMouseGlyph_System_Int32_Pole_AxisRange__System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(System.Int32,Pole,AxisRange@,System.Int32,System.Boolean,System.String)
+  name.vb: GetMouseGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(int, Pole, out AxisRange, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetMouseGlyph(int, Pole, out AxisRange, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetMouseGlyph(Integer, Pole, AxisRange, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph*
+  name: GetMouseGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph
+  nameWithType: InputGlyphs.GetMouseGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid,System.Int32,System.String)
+  name: GetNativeGlyphFromGuidMap(Guid, int, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromGuidMap_System_Guid_System_Int32_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid,System.Int32,System.String)
+  name.vb: GetNativeGlyphFromGuidMap(Guid, Integer, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid, int, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid, Integer, String)
+  nameWithType: InputGlyphs.GetNativeGlyphFromGuidMap(Guid, int, string)
+  nameWithType.vb: InputGlyphs.GetNativeGlyphFromGuidMap(Guid, Integer, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap*
+  name: GetNativeGlyphFromGuidMap
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap
+  nameWithType: InputGlyphs.GetNativeGlyphFromGuidMap
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition,System.Int32,System.String)
+  name: GetNativeGlyphFromHardwareMap(HardwareDefinition, int, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromHardwareMap_LMirman_RewiredGlyphs_HardwareDefinition_System_Int32_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition,System.Int32,System.String)
+  name.vb: GetNativeGlyphFromHardwareMap(HardwareDefinition, Integer, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition, int, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition, Integer, String)
+  nameWithType: InputGlyphs.GetNativeGlyphFromHardwareMap(HardwareDefinition, int, string)
+  nameWithType.vb: InputGlyphs.GetNativeGlyphFromHardwareMap(HardwareDefinition, Integer, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap*
+  name: GetNativeGlyphFromHardwareMap
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap
+  nameWithType: InputGlyphs.GetNativeGlyphFromHardwareMap
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap(LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.String)
+  name: GetNativeGlyphFromTemplateMap(SymbolPreference, int, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromTemplateMap_LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap(LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.String)
+  name.vb: GetNativeGlyphFromTemplateMap(SymbolPreference, Integer, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap(LMirman.RewiredGlyphs.SymbolPreference, int, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap(LMirman.RewiredGlyphs.SymbolPreference, Integer, String)
+  nameWithType: InputGlyphs.GetNativeGlyphFromTemplateMap(SymbolPreference, int, string)
+  nameWithType.vb: InputGlyphs.GetNativeGlyphFromTemplateMap(SymbolPreference, Integer, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap*
+  name: GetNativeGlyphFromTemplateMap
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap
+  nameWithType: InputGlyphs.GetNativeGlyphFromTemplateMap
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(Player,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)
+  name: GetSpecificCurrentGlyph(Player, int, Pole, out AxisRange, SymbolPreference, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_Player_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(Player,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)
+  name.vb: GetSpecificCurrentGlyph(Player, Integer, Pole, AxisRange, SymbolPreference, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(Player, int, Pole, out AxisRange, LMirman.RewiredGlyphs.SymbolPreference, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(Player, Integer, Pole, AxisRange, LMirman.RewiredGlyphs.SymbolPreference, Boolean, String)
+  nameWithType: InputGlyphs.GetSpecificCurrentGlyph(Player, int, Pole, out AxisRange, SymbolPreference, bool, string)
+  nameWithType.vb: InputGlyphs.GetSpecificCurrentGlyph(Player, Integer, Pole, AxisRange, SymbolPreference, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)
+  name: GetSpecificCurrentGlyph(int, Pole, out AxisRange, SymbolPreference, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)
+  name.vb: GetSpecificCurrentGlyph(Integer, Pole, AxisRange, SymbolPreference, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(int, Pole, out AxisRange, LMirman.RewiredGlyphs.SymbolPreference, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(Integer, Pole, AxisRange, LMirman.RewiredGlyphs.SymbolPreference, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetSpecificCurrentGlyph(int, Pole, out AxisRange, SymbolPreference, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetSpecificCurrentGlyph(Integer, Pole, AxisRange, SymbolPreference, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph*
+  name: GetSpecificCurrentGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph
+  nameWithType: InputGlyphs.GetSpecificCurrentGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(ControllerType,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)
+  name: GetSpecificGlyph(ControllerType, int, Pole, out AxisRange, SymbolPreference, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetSpecificGlyph_ControllerType_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(ControllerType,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)
+  name.vb: GetSpecificGlyph(ControllerType, Integer, Pole, AxisRange, SymbolPreference, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(ControllerType, int, Pole, out AxisRange, LMirman.RewiredGlyphs.SymbolPreference, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(ControllerType, Integer, Pole, AxisRange, LMirman.RewiredGlyphs.SymbolPreference, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetSpecificGlyph(ControllerType, int, Pole, out AxisRange, SymbolPreference, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetSpecificGlyph(ControllerType, Integer, Pole, AxisRange, SymbolPreference, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(Player,ControllerType,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)
+  name: GetSpecificGlyph(Player, ControllerType, int, Pole, out AxisRange, SymbolPreference, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetSpecificGlyph_Player_ControllerType_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(Player,ControllerType,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)
+  name.vb: GetSpecificGlyph(Player, ControllerType, Integer, Pole, AxisRange, SymbolPreference, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(Player, ControllerType, int, Pole, out AxisRange, LMirman.RewiredGlyphs.SymbolPreference, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph(Player, ControllerType, Integer, Pole, AxisRange, LMirman.RewiredGlyphs.SymbolPreference, Boolean, String)
+  nameWithType: InputGlyphs.GetSpecificGlyph(Player, ControllerType, int, Pole, out AxisRange, SymbolPreference, bool, string)
+  nameWithType.vb: InputGlyphs.GetSpecificGlyph(Player, ControllerType, Integer, Pole, AxisRange, SymbolPreference, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph*
+  name: GetSpecificGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificGlyph
+  nameWithType: InputGlyphs.GetSpecificGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(Player,System.Int32,Controller,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)
+  name: GetSpecificJoystickGlyph(Player, int, Controller, Pole, out AxisRange, SymbolPreference, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetSpecificJoystickGlyph_Player_System_Int32_Controller_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(Player,System.Int32,Controller,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)
+  name.vb: GetSpecificJoystickGlyph(Player, Integer, Controller, Pole, AxisRange, SymbolPreference, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(Player, int, Controller, Pole, out AxisRange, LMirman.RewiredGlyphs.SymbolPreference, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(Player, Integer, Controller, Pole, AxisRange, LMirman.RewiredGlyphs.SymbolPreference, Boolean, String)
+  nameWithType: InputGlyphs.GetSpecificJoystickGlyph(Player, int, Controller, Pole, out AxisRange, SymbolPreference, bool, string)
+  nameWithType.vb: InputGlyphs.GetSpecificJoystickGlyph(Player, Integer, Controller, Pole, AxisRange, SymbolPreference, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(System.Int32,Controller,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)
+  name: GetSpecificJoystickGlyph(int, Controller, Pole, out AxisRange, SymbolPreference, int, bool, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetSpecificJoystickGlyph_System_Int32_Controller_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_Boolean_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(System.Int32,Controller,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)
+  name.vb: GetSpecificJoystickGlyph(Integer, Controller, Pole, AxisRange, SymbolPreference, Integer, Boolean, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(int, Controller, Pole, out AxisRange, LMirman.RewiredGlyphs.SymbolPreference, int, bool, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph(Integer, Controller, Pole, AxisRange, LMirman.RewiredGlyphs.SymbolPreference, Integer, Boolean, String)
+  nameWithType: InputGlyphs.GetSpecificJoystickGlyph(int, Controller, Pole, out AxisRange, SymbolPreference, int, bool, string)
+  nameWithType.vb: InputGlyphs.GetSpecificJoystickGlyph(Integer, Controller, Pole, AxisRange, SymbolPreference, Integer, Boolean, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph*
+  name: GetSpecificJoystickGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph
+  nameWithType: InputGlyphs.GetSpecificJoystickGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild(System.Boolean)
+  name: InvokeRebuild(bool)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild.html#LMirman_RewiredGlyphs_InputGlyphs_InvokeRebuild_System_Boolean_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild(System.Boolean)
+  name.vb: InvokeRebuild(Boolean)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild(bool)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild(Boolean)
+  nameWithType: InputGlyphs.InvokeRebuild(bool)
+  nameWithType.vb: InputGlyphs.InvokeRebuild(Boolean)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild*
+  name: InvokeRebuild
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild
+  nameWithType: InputGlyphs.InvokeRebuild
+- uid: LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection(LMirman.RewiredGlyphs.GlyphCollection,System.Boolean)
+  name: LoadGlyphCollection(GlyphCollection, bool)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection.html#LMirman_RewiredGlyphs_InputGlyphs_LoadGlyphCollection_LMirman_RewiredGlyphs_GlyphCollection_System_Boolean_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection(LMirman.RewiredGlyphs.GlyphCollection,System.Boolean)
+  name.vb: LoadGlyphCollection(GlyphCollection, Boolean)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection(LMirman.RewiredGlyphs.GlyphCollection, bool)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection(LMirman.RewiredGlyphs.GlyphCollection, Boolean)
+  nameWithType: InputGlyphs.LoadGlyphCollection(GlyphCollection, bool)
+  nameWithType.vb: InputGlyphs.LoadGlyphCollection(GlyphCollection, Boolean)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection*
+  name: LoadGlyphCollection
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection
+  nameWithType: InputGlyphs.LoadGlyphCollection
+- uid: LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty
+  name: MarkGlyphsDirty()
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty.html#LMirman_RewiredGlyphs_InputGlyphs_MarkGlyphsDirty
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty()
+  nameWithType: InputGlyphs.MarkGlyphsDirty()
+- uid: LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty*
+  name: MarkGlyphsDirty
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.MarkGlyphsDirty
+  nameWithType: InputGlyphs.MarkGlyphsDirty
+- uid: LMirman.RewiredGlyphs.InputGlyphs.NullGlyph
+  name: NullGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.NullGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_NullGlyph
+  commentId: P:LMirman.RewiredGlyphs.InputGlyphs.NullGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.NullGlyph
+  nameWithType: InputGlyphs.NullGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.NullGlyph*
+  name: NullGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.NullGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.NullGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.NullGlyph
+  nameWithType: InputGlyphs.NullGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware
+  name: PreferredHardware
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware.html#LMirman_RewiredGlyphs_InputGlyphs_PreferredHardware
+  commentId: P:LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware
+  nameWithType: InputGlyphs.PreferredHardware
+- uid: LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware*
+  name: PreferredHardware
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware
+  nameWithType: InputGlyphs.PreferredHardware
+- uid: LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols
+  name: PreferredSymbols
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html#LMirman_RewiredGlyphs_InputGlyphs_PreferredSymbols
+  commentId: P:LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols
+  nameWithType: InputGlyphs.PreferredSymbols
+- uid: LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols*
+  name: PreferredSymbols
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols
+  nameWithType: InputGlyphs.PreferredSymbols
+- uid: LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs
+  name: RebuildGlyphs
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs.html
+  commentId: E:LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs
+  nameWithType: InputGlyphs.RebuildGlyphs
+- uid: LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences(LMirman.RewiredGlyphs.HardwarePreference,LMirman.RewiredGlyphs.SymbolPreference)
+  name: SetGlyphPreferences(HardwarePreference, SymbolPreference)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences.html#LMirman_RewiredGlyphs_InputGlyphs_SetGlyphPreferences_LMirman_RewiredGlyphs_HardwarePreference_LMirman_RewiredGlyphs_SymbolPreference_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences(LMirman.RewiredGlyphs.HardwarePreference,LMirman.RewiredGlyphs.SymbolPreference)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences(LMirman.RewiredGlyphs.HardwarePreference, LMirman.RewiredGlyphs.SymbolPreference)
+  nameWithType: InputGlyphs.SetGlyphPreferences(HardwarePreference, SymbolPreference)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences*
+  name: SetGlyphPreferences
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.SetGlyphPreferences
+  nameWithType: InputGlyphs.SetGlyphPreferences
+- uid: LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph
+  name: UnboundGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_UnboundGlyph
+  commentId: P:LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph
+  nameWithType: InputGlyphs.UnboundGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph*
+  name: UnboundGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph
+  nameWithType: InputGlyphs.UnboundGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph
+  name: UninitializedGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_UninitializedGlyph
+  commentId: P:LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph
+  nameWithType: InputGlyphs.UninitializedGlyph
+- uid: LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph*
+  name: UninitializedGlyph
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph.html
+  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph
+  nameWithType: InputGlyphs.UninitializedGlyph
+- uid: LMirman.RewiredGlyphs.RewiredGlyphManager
+  name: RewiredGlyphManager
+  href: api/LMirman.RewiredGlyphs.RewiredGlyphManager.html
+  commentId: T:LMirman.RewiredGlyphs.RewiredGlyphManager
+  fullName: LMirman.RewiredGlyphs.RewiredGlyphManager
+  nameWithType: RewiredGlyphManager
+- uid: LMirman.RewiredGlyphs.SymbolPreference
+  name: SymbolPreference
+  href: api/LMirman.RewiredGlyphs.SymbolPreference.html
+  commentId: T:LMirman.RewiredGlyphs.SymbolPreference
+  fullName: LMirman.RewiredGlyphs.SymbolPreference
+  nameWithType: SymbolPreference
+- uid: LMirman.RewiredGlyphs.SymbolPreference.Auto
+  name: Auto
+  href: api/LMirman.RewiredGlyphs.SymbolPreference.html#LMirman_RewiredGlyphs_SymbolPreference_Auto
+  commentId: F:LMirman.RewiredGlyphs.SymbolPreference.Auto
+  fullName: LMirman.RewiredGlyphs.SymbolPreference.Auto
+  nameWithType: SymbolPreference.Auto
+- uid: LMirman.RewiredGlyphs.SymbolPreference.NintendoSwitch
+  name: NintendoSwitch
+  href: api/LMirman.RewiredGlyphs.SymbolPreference.html#LMirman_RewiredGlyphs_SymbolPreference_NintendoSwitch
+  commentId: F:LMirman.RewiredGlyphs.SymbolPreference.NintendoSwitch
+  fullName: LMirman.RewiredGlyphs.SymbolPreference.NintendoSwitch
+  nameWithType: SymbolPreference.NintendoSwitch
+- uid: LMirman.RewiredGlyphs.SymbolPreference.Playstation
+  name: Playstation
+  href: api/LMirman.RewiredGlyphs.SymbolPreference.html#LMirman_RewiredGlyphs_SymbolPreference_Playstation
+  commentId: F:LMirman.RewiredGlyphs.SymbolPreference.Playstation
+  fullName: LMirman.RewiredGlyphs.SymbolPreference.Playstation
+  nameWithType: SymbolPreference.Playstation
+- uid: LMirman.RewiredGlyphs.SymbolPreference.Xbox
+  name: Xbox
+  href: api/LMirman.RewiredGlyphs.SymbolPreference.html#LMirman_RewiredGlyphs_SymbolPreference_Xbox
+  commentId: F:LMirman.RewiredGlyphs.SymbolPreference.Xbox
+  fullName: LMirman.RewiredGlyphs.SymbolPreference.Xbox
+  nameWithType: SymbolPreference.Xbox

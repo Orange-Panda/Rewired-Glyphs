@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Docs Overview | Rewired Glyphs Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Docs Overview | Rewired Glyphs Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="../../attachments/site/favicon.png">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../../styles/config.css">
+      <link rel="stylesheet" href="../../styles/singulink.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="../../index.html">
+              <img src="../../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+              <span class="brand-title">Rewired Glyphs Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../../index.html">
+                          <img src="../../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+                          <span class="brand-title">Rewired Glyphs Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+                </div>
+                <div class="footer">
+  <strong>Rewired Glyphs</strong>
+  
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+
+                    <article class="content wrap" id="_content" data-uid="">
+<h1 id="docs-overview">Docs Overview</h1>
+
+<p>This article explains the technologies used for our documentation then details how to install and contribute using them.</p>
+<h2 id="how-the-docs-website-works">How the Docs Website Works</h2>
+<p>This docs are generated using a tool known as <a href="https://github.com/dotnet/docfx">DocFX</a>. Simply put it generates a website from our codebase (referred to as the scripting API) and articles we have written (such as this very page!).</p>
+<h3 id="installing-docfx">Installing DocFX</h3>
+<p>To install the docfx tool run the following command in a terminal or command prompt window.</p>
+<pre><code>dotnet tool install -g docfx
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You may need to <a href="https://dotnet.microsoft.com/en-us/download">install the .NET SDK</a> if you receive a <code>Unrecognized command 'dotnet'</code>  error</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Our documentation is generated using <code>2.75.0</code>. Using an earlier version may not generate the website correctly. You can check your version using <code>docfx --version</code>.</p>
+<p>You can update your version with the <code>dotnet tool update -g docfx</code> command.</p>
+</div>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Do <em>NOT</em> install DocFX using a package manager (such as homebrew or chocolatey). These are usually out of date and unmaintained.</p>
+</div>
+<h3 id="generate-website">Generate Website</h3>
+<p>To generate a website from the codebase and articles run the following command from the <code>Documentation</code> folder:</p>
+<pre><code>docfx
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Getting the <code>Cannot find config file docfx.json</code> error?</p>
+<p>Make sure you change the directory of the terminal window to the project's documentation folder using <code>cd</code></p>
+</div>
+<h3 id="viewing-the-website-locally">Viewing the Website Locally</h3>
+<p>To view the generated website after it has been generated run the following command from the <code>Documentation</code> folder:</p>
+<pre><code>docfx serve
+</code></pre>
+<p>You can now view the website in your browser at <code>http://localhost:8080</code></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can generate and serve the website in a single command by using an argument on the command: <code>docfx --serve</code></p>
+</div>
+<h2 id="editing-articles">Editing Articles</h2>
+<p>To edit articles head to the <code>~/Documentation~/pages/*</code> directory of the package. Find the article you would like to edit in this directory and open it in a text editor of your choice.</p>
+<p>These pages are all written in the <code>markdown</code> format. We recommend reviewing the <a href="https://www.markdownguide.org/basic-syntax/">Markdown Syntax</a> page for an overview of the features of markdown. Since we are generating the website using DocFX we also gain access to special <a href="https://dotnet.github.io/docfx/docs/markdown.html">DocFX Specifc Markdown Synax</a> which can be used in our articles.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p><a href="https://code.visualstudio.com/Download">Visual Studio Code</a> is recommended for editing markdown files, but any text editor will do.</p>
+</div>
+<h2 id="adding-new-articles">Adding New Articles</h2>
+<p>To create a new article follow these steps:</p>
+<ol>
+<li>Create a new markdown file in one of the existing directories at <code>~/Documentation/pages/*</code>
+<ol>
+<li>These directories correspond to the category the article is in.</li>
+<li>Creating a new category is out of the scope of this article.</li>
+</ol>
+</li>
+<li>Within the directory you created the article modify the table of contents (<code>toc.yml</code>) file and add a reference to your new article file.
+<ol>
+<li>View <a href="http://hellosnow.github.io/docfx/tutorial/intro_toc.html">DocFX TOC Docs</a> for more information.</li>
+</ol>
+</li>
+<li>Optional: Consider adding a link to your article at in the <code>index.md</code> of the category and root index.md so this article can more easily be found.</li>
+</ol>
+<h2 id="adding-new-attachments">Adding New Attachments</h2>
+<p>Want to add images to an article? Simply add the file to the <code>~/Documentation~/attachments/</code> directory and it can be referenced in your article as such:</p>
+<pre><code>![Attachment](../../attachments/manual/docs-overview/example_attachment.png)
+</code></pre>
+<p>Or if you want more control over the html properties:</p>
+<pre><code>&lt;img src=&quot;../../attachments/manual/docs-overview/example_attachment.png&quot; width=&quot;450&quot;&gt;
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>All files in the attachments folder can be referenced regardless of it's location.</p>
+<p>However, for organizational purposes you are strongly encouraged to place your attachments in a directory that is related to the article it is included in.</p>
+</div>
+
+</article>
+                </div>
+
+                <div class="copyright-footer">
+                    <span>Docs generated for Rewired-Glyphs Unity Package. Package distributed under MIT license.</span>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../../styles/docfx.js"></script>
+        <script type="text/javascript" src="../../styles/main.js"></script>
+        <script type="text/javascript" src="../../styles/singulink.js"></script>    </body>
+</html>

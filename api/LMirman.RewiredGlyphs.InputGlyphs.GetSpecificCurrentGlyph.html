@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Method GetSpecificCurrentGlyph
+ | Rewired Glyphs Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Method GetSpecificCurrentGlyph
+ | Rewired Glyphs Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="../attachments/site/favicon.png">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="../index.html">
+              <img src="../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+              <span class="brand-title">Rewired Glyphs Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+                          <span class="brand-title">Rewired Glyphs Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+                </div>
+                <div class="footer">
+  <strong>Rewired Glyphs</strong>
+  
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+
+                    <article class="content wrap" id="_content" data-uid="LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph*">
+
+
+
+<h1 id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_" data-uid="LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph*">Method GetSpecificCurrentGlyph
+</h1>
+<div class="markdown level0 summary"></div>
+<div class="markdown level0 conceptual"></div>
+
+<a id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_" data-uid="LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph*"></a>
+<h4 id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_Player_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Boolean_System_String_" data-uid="LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(Player,System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Boolean,System.String)">GetSpecificCurrentGlyph(Player, int, Pole, out AxisRange, SymbolPreference, bool, string)</h4>
+<div class="markdown level1 summary"><p>Get a <a class="xref" href="LMirman.RewiredGlyphs.Glyph.html">Glyph</a> to represent an action for the user for the most recently used device.</p>
+</div>
+<div class="markdown level1 conceptual"></div>
+<h5 class="declaration">Declaration</h5>
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static Glyph GetSpecificCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false, string collectionKey = null)</code></pre>
+</div>
+<h5 class="parameters">Parameters</h5>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="xref">Player</span></td>
+      <td><span class="parametername">player</span></td>
+      <td><p>The player to evaluate for. This is relevant since different players are likely using different devices and maps.</p>
+</td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+      <td><span class="parametername">actionID</span></td>
+      <td><p>The integer ID for the action to evaluate.
+<br><br>
+Integers are more efficient but consider using the following if you only have access to string names:</p>
+<pre><code class="lang-csharp">int actionID = ReInput.mapping.GetActionId("your_action_string_here");</code></pre>
+</td>
+    </tr>
+    <tr>
+      <td><span class="xref">Pole</span></td>
+      <td><span class="parametername">pole</span></td>
+      <td><p>What is the polarity for the action?
+<br><br>
+Pole.Positive is most common but you can expect Pole.Negative for inputs such as &quot;Move Left&quot; since that would be the negative side of a &quot;Move Horizontal&quot; axis.</p>
+</td>
+    </tr>
+    <tr>
+      <td><span class="xref">AxisRange</span></td>
+      <td><span class="parametername">axisRange</span></td>
+      <td><p>The axis range that should be utilized in the output glyph.
+<br><br>
+For elements that use axis input (sticks, mouse movement, etc.) we need to know direction of the element we want to display.
+<br><br>
+For example: AxisRange.Positive would represent &quot;Joystick Right&quot;. AxisRange.Negative would represent &quot;Joystick Left&quot;, and AxisRange.Full would represent &quot;Joystick Horizontal&quot;</p>
+</td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="LMirman.RewiredGlyphs.SymbolPreference.html">SymbolPreference</a></td>
+      <td><span class="parametername">symbolPreference</span></td>
+      <td><p>The preferred hardware symbol type to use for Joystick glyphs</p>
+</td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+      <td><span class="parametername">forceAxis</span></td>
+      <td><p>Usually the Input Glyph system, when <code class="paramref">forceAxis</code> is false, only checks for single axis inputs such that it will only look for &quot;Move Left&quot; with Pole.Negative and &quot;Move Right&quot; with Pole.Positive and thus never checking &quot;Move Horizontal&quot; as an axis itself.
+<br><br>
+When true, explicitly request for the Input Glyph system to evaluate this glyph as the full axis (&quot;Move Horizontal&quot; in the example case) so we can represent it properly for axis inputs.
+<br><br>
+TL;DR: For axis actions: True represents the axis itself &quot;Move Horizontal&quot;. False represents negative pole &quot;Move Left&quot; and positive pole &quot;Move Right&quot;. In most cases should be false.</p>
+</td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+      <td><span class="parametername">collectionKey</span></td>
+      <td><p>Optionally used for getting glyphs from a non-default glyph collection.
+Should match the value of <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.Key.html#LMirman_RewiredGlyphs_GlyphCollection_Key">Key</a></p>
+</td>
+    </tr>
+  </tbody>
+</table>
+<h5 class="returns">Returns</h5>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="xref" href="LMirman.RewiredGlyphs.Glyph.html">Glyph</a></td>
+      <td><p>A <a class="xref" href="LMirman.RewiredGlyphs.Glyph.html">Glyph</a> that can be utilized in UI elements to display the element that is associated with this particular action.
+<br><br>
+In cases where there is no element available this may return a &quot;fallback&quot; glyph</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+<h5 id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_Player_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Boolean_System_String__remarks">Remarks</h5>
+<div class="markdown level1 remarks"><p>This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.<br>
+Use GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool, string) in the cases where you don't want to specify.</p>
+</div>
+<a id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_" data-uid="LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph*"></a>
+<h4 id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_Boolean_System_String_" data-uid="LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph(System.Int32,Pole,AxisRange@,LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.Boolean,System.String)">GetSpecificCurrentGlyph(int, Pole, out AxisRange, SymbolPreference, int, bool, string)</h4>
+<div class="markdown level1 summary"></div>
+<div class="markdown level1 conceptual"></div>
+<h5 class="declaration">Declaration</h5>
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static Glyph GetSpecificCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false, string collectionKey = null)</code></pre>
+</div>
+<h5 class="parameters">Parameters</h5>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+      <td><span class="parametername">actionID</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="xref">Pole</span></td>
+      <td><span class="parametername">pole</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="xref">AxisRange</span></td>
+      <td><span class="parametername">axisRange</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="LMirman.RewiredGlyphs.SymbolPreference.html">SymbolPreference</a></td>
+      <td><span class="parametername">symbolPreference</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+      <td><span class="parametername">playerIndex</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+      <td><span class="parametername">forceAxis</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+      <td><span class="parametername">collectionKey</span></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h5 class="returns">Returns</h5>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="xref" href="LMirman.RewiredGlyphs.Glyph.html">Glyph</a></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h5 id="LMirman_RewiredGlyphs_InputGlyphs_GetSpecificCurrentGlyph_System_Int32_Pole_AxisRange__LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_Boolean_System_String__remarks">Remarks</h5>
+<div class="markdown level1 remarks"><p>This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.</p>
+</div>
+</article>
+                </div>
+
+                <div class="copyright-footer">
+                    <span>Docs generated for Rewired-Glyphs Unity Package. Package distributed under MIT license.</span>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
+</html>

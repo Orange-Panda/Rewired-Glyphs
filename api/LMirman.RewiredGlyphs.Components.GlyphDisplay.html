@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class GlyphDisplay
+ | Rewired Glyphs Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class GlyphDisplay
+ | Rewired Glyphs Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="../attachments/site/favicon.png">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../styles/config.css">
+      <link rel="stylesheet" href="../styles/singulink.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="../index.html">
+              <img src="../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+              <span class="brand-title">Rewired Glyphs Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../index.html">
+                          <img src="../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+                          <span class="brand-title">Rewired Glyphs Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+                </div>
+                <div class="footer">
+  <strong>Rewired Glyphs</strong>
+  
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+
+                    <article class="content wrap" id="_content" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay">
+
+
+
+  <h1 id="LMirman_RewiredGlyphs_Components_GlyphDisplay" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay" class="text-break">Class GlyphDisplay
+</h1>
+  <div class="markdown level0 summary"><p>An abstract class that provides common functionality for a ui element to display an <a class="xref" href="LMirman.RewiredGlyphs.Glyph.html">Glyph</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">GlyphDisplay</span></div>
+      <div class="level2"><a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphHybridOutput.html">GlyphHybridOutput</a></div>
+      <div class="level2"><a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphImageOutput.html">GlyphImageOutput</a></div>
+      <div class="level2"><a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.html">GlyphLabeledImageOutput</a></div>
+      <div class="level2"><a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphTextOutput.html">GlyphTextOutput</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LMirman.html">LMirman</a>.<a class="xref" href="LMirman.RewiredGlyphs.html">RewiredGlyphs</a>.<a class="xref" href="LMirman.RewiredGlyphs.Components.html">Components</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="LMirman_RewiredGlyphs_Components_GlyphDisplay_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class GlyphDisplay : MonoBehaviour</code></pre>
+  </div>
+  <h5 id="LMirman_RewiredGlyphs_Components_GlyphDisplay_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Usage of this class is completely optional.</p>
+</div>
+  <h3 id="fields">Fields
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_actionID" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.actionID.html">actionID</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_actionName" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.actionName.html">actionName</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_hideKeyboardMouseGlyphs" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.hideKeyboardMouseGlyphs.html">hideKeyboardMouseGlyphs</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_hideNonInputGlyphs" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.hideNonInputGlyphs.html">hideNonInputGlyphs</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_playerIndex" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.playerIndex.html">playerIndex</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_pole" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.pole">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.pole.html">pole</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_useActionID" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID.html">useActionID</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_ActionID" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.ActionID_1.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_ActionID">ActionID</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_PoleValue" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_PoleValue">PoleValue</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_Awake" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_Awake">Awake()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_InitializeValues_System_Boolean_" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues(System.Boolean)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeValues.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_InitializeValues_System_Boolean_">InitializeValues(bool)</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_InitializeWhenReady" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.InitializeWhenReady.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_InitializeWhenReady">InitializeWhenReady()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_InputGlyphsOnRebuildGlyphs" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_InputGlyphsOnRebuildGlyphs">InputGlyphsOnRebuildGlyphs()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_OnDisable" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.OnDisable.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_OnDisable">OnDisable()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_OnEnable" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.OnEnable.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_OnEnable">OnEnable()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph(LMirman.RewiredGlyphs.Glyph,AxisRange)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetGlyph_LMirman_RewiredGlyphs_Glyph_AxisRange_">SetGlyph(Glyph, AxisRange)</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTarget_System_Int32_Pole_" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(System.Int32,Pole)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTarget_System_Int32_Pole_">SetTarget(int, Pole)</a>
+        </td>
+        <td class="markdown level1 summary"><p>Change the input action this should display.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTarget_System_String_Pole_" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget(System.String,Pole)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTarget_System_String_Pole_">SetTarget(string, Pole)</a>
+        </td>
+        <td class="markdown level1 summary"><p>Change the input action this should display.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTargetWhenReady_System_String_Pole_" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady(System.String,Pole)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTargetWhenReady.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_SetTargetWhenReady_System_String_Pole_">SetTargetWhenReady(string, Pole)</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_ShouldHideGlyph_LMirman_RewiredGlyphs_Glyph_" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph(LMirman.RewiredGlyphs.Glyph)">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_ShouldHideGlyph_LMirman_RewiredGlyphs_Glyph_">ShouldHideGlyph(Glyph)</a>
+        </td>
+        <td class="markdown level1 summary"><p>Evaluate if the configuration of this Glyph would rather not show the Glyph in certain contexts.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="LMirman_RewiredGlyphs_Components_GlyphDisplay_UpdateGlyph" data-uid="LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph">
+          <a class="xref" href="LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html#LMirman_RewiredGlyphs_Components_GlyphDisplay_UpdateGlyph">UpdateGlyph()</a>
+        </td>
+        <td class="markdown level1 summary"></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+                </div>
+
+                <div class="copyright-footer">
+                    <span>Docs generated for Rewired-Glyphs Unity Package. Package distributed under MIT license.</span>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../styles/docfx.js"></script>
+        <script type="text/javascript" src="../styles/main.js"></script>
+        <script type="text/javascript" src="../styles/singulink.js"></script>    </body>
+</html>
