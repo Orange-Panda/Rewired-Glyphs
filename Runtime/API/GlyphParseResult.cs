@@ -17,6 +17,7 @@ namespace LMirman.RewiredGlyphs
 		internal readonly bool hideKeyboardMouseGlyphs;
 		internal readonly bool hideInvalidGlyphs;
 		internal readonly bool forceAxis;
+		internal readonly string collectionKey;
 		/// <summary>
 		/// When true this means we use the most recently input controller for this player.
 		/// </summary>
@@ -32,6 +33,7 @@ namespace LMirman.RewiredGlyphs
 		private const string PolaritySpecifier = "pole=";
 		private const string ControllerSpecifier = "type=";
 		private const string SymbolSpecifier = "symbol=";
+		private const string CollectionSpecifier = "set=";
 		private const string HideKeyboardSpecifier = "hideKBM";
 		private const string HideInvalidSpecifier = "hideInvalid";
 		private static readonly string[] PositivePoleKeywords =
@@ -101,7 +103,7 @@ namespace LMirman.RewiredGlyphs
 				}
 
 				// Remove undesired characters from. These characters should never be used in action names.
-				string trimmedArg = splitArg.Trim('\"', '/', '\\');
+				string trimmedArg = splitArg.Trim('\"', '/', '\\', ' ');
 
 				// The first arg is always interpret as the action id.
 				if (!didSetActionId)
@@ -237,6 +239,11 @@ namespace LMirman.RewiredGlyphs
 				{
 					hideInvalidGlyphs = true;
 				}
+				// -- Parsing Collection Key --
+				else if (trimmedArg.StartsWith(CollectionSpecifier, StringComparison.OrdinalIgnoreCase))
+				{
+					collectionKey = trimmedArg.Remove(0, CollectionSpecifier.Length).Trim('\"');
+				}
 			}
 		}
 
@@ -245,10 +252,10 @@ namespace LMirman.RewiredGlyphs
 			SymbolPreference symbol = useGlobalSymbols ? InputGlyphs.PreferredSymbols : symbolPreference;
 			if (useCurrentController)
 			{
-				return InputGlyphs.GetSpecificCurrentGlyph(actionId, pole, out axisRange, symbol, playerId, forceAxis);
+				return InputGlyphs.GetSpecificCurrentGlyph(actionId, pole, out axisRange, symbol, playerId, forceAxis, collectionKey);
 			}
 
-			return InputGlyphs.GetSpecificGlyph(controllerType, actionId, pole, out axisRange, symbol, playerId, forceAxis);
+			return InputGlyphs.GetSpecificGlyph(controllerType, actionId, pole, out axisRange, symbol, playerId, forceAxis, collectionKey);
 		}
 
 		private static bool ArgEqualsAny(string arg, string[] keywords)
