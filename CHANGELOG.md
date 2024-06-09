@@ -20,12 +20,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Added `collectionKey` string field to `GlyphCollection` for distinctly identifying and referencing collections at runtime
 - ⚠️ **[Breaking]** - Added `collectionKey` optional parameter to all `InputGlyphs` methods for referencing secondary (non-default) collections
 - Added `additionalCollections` field to `RewiredGlyphManager` for additively loading additional collection for reference by their `collectionKey`
+	- This field also supports generating TMP sprite sheets (generates for default collection and collections included in additional collections)
+    - Note: Make sure the names of the sprite sheets containing glyphs are unique since they are referenced by name in TextMeshPro. An error message has been added to notify about such collisions. 
+- Added optional specifier `set=collectionname` for `GlyphRichTextFormatter` to target secondary glyph collections
+	- Example: `<glyph Jump set=dark>` where 'dark' is the `collectionKey` on some `GlyphCollection` that is loaded into InputGlyphs
 
 ### Changed
 
 - Rewrote the way glyph collections are loaded into memory internally
 	- Switching the active glyph collection is now much more performant
-	- Loading a glyph collection now only dispatch a glyph update if it may have changed the output of glyph queries
+	- Loading a glyph collection now only dispatches a glyph update if it may have changed the output of glyph queries
 
 ### Fixed
 

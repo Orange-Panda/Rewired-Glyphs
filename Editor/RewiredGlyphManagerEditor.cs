@@ -12,61 +12,60 @@ namespace LMirman.RewiredGlyphs.Editor
 	[CustomEditor(typeof(RewiredGlyphManager))]
 	public class RewiredGlyphManagerEditor : UnityEditor.Editor
 	{
+		private readonly HashSet<string> usedSpriteSheetNames = new HashSet<string>();
+
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
 			if (GUILayout.Button("Generate TMP Sprite Sheet"))
 			{
+				usedSpriteSheetNames.Clear();
 				// Get the collection to generate from
 				GlyphCollection collection = serializedObject.FindProperty("glyphCollection").objectReferenceValue as GlyphCollection;
 				if (collection == null)
 				{
-					Debug.LogError("A glyph collection is required.");
-					return;
+					Debug.LogError("No glyph collection defined on Rewired Glyph Manager.");
+				}
+				else
+				{
+					GenerateForCollection(collection);
 				}
 
+				SerializedProperty additionalCollections = serializedObject.FindProperty("additionalCollections");
+				for (int i = 0; i < additionalCollections.arraySize; i++)
+				{
+					GlyphCollection additionalCollection = additionalCollections.GetArrayElementAtIndex(i).objectReferenceValue as GlyphCollection;
+					if (additionalCollection == null)
+					{
+						Debug.LogError($"Invalid additional glyph collection on Rewired Glyph Manager at index {i}.");
+					}
+					else
+					{
+						GenerateForCollection(additionalCollection);
+					}
+				}
+			}
+
+			return;
+
+			void GenerateForCollection(GlyphCollection collection)
+			{
 				// Get all glyphs
-				List<Glyph> glyphs = new List<Glyph>()
+				List<Glyph> glyphs = new List<Glyph>
 				{
 					collection.NullGlyph,
-					collection.UnboundGlyph
+					collection.UnboundGlyph,
+					collection.UninitializedGlyph
 				};
-				foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
-				{
-					foreach (Glyph glyph in guidEntry.glyphMap.Glyphs)
-					{
-						glyphs.Add(glyph);
-					}
-				}
-
-				foreach (GlyphCollection.HardwareEntry hardwareEntry in collection.HardwareMaps)
-				{
-					foreach (Glyph glyph in hardwareEntry.glyphMap.Glyphs)
-					{
-						glyphs.Add(glyph);
-					}
-				}
-
-				foreach (GlyphCollection.TemplateEntry templateEntry in collection.TemplateMaps)
-				{
-					foreach (Glyph glyph in templateEntry.glyphMap.Glyphs)
-					{
-						glyphs.Add(glyph);
-					}
-				}
+				glyphs.AddRange(collection.GuidMaps.SelectMany(guidEntry => guidEntry.glyphMap.Glyphs));
+				glyphs.AddRange(collection.HardwareMaps.SelectMany(hardwareEntry => hardwareEntry.glyphMap.Glyphs));
+				glyphs.AddRange(collection.TemplateMaps.SelectMany(templateEntry => templateEntry.glyphMap.Glyphs));
 
 				// Get all unique asset names from all glyphs.
 				// Note: We naively check the FullSprite only because exclusively having Positive or Negative sprites on a separate sprite sheet is impractical
 				HashSet<string> spriteAssetPaths = new HashSet<string>();
-				foreach (Glyph glyph in glyphs)
+				foreach (string assetPath in from glyph in glyphs select glyph.FullSprite into sprite where sprite != null select AssetDatabase.GetAssetPath(sprite))
 				{
-					Sprite sprite = glyph.FullSprite;
-					if (sprite == null)
-					{
-						continue;
-					}
-
-					string assetPath = AssetDatabase.GetAssetPath(sprite);
 					spriteAssetPaths.Add(assetPath);
 				}
 
@@ -75,6 +74,10 @@ namespace LMirman.RewiredGlyphs.Editor
 				{
 					Texture2D assetAtPath = AssetDatabase.LoadAssetAtPath<Texture2D>(spriteAssetPath);
 					SpriteSheetOutput sheetOutput = GenerateSpriteAsset(assetAtPath);
+					if (usedSpriteSheetNames.Add(sheetOutput.spriteAssetName) == false)
+					{
+						Debug.LogError($"Generated multiple sprite sheets with name \"{sheetOutput.spriteAssetName}\". Multiple sprite sheets can't have the same name, please rename.");
+					}
 					spriteSheetOutputs.Add(sheetOutput.spriteAssetPath, sheetOutput);
 				}
 
