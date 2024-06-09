@@ -86,3 +86,4 @@ This package is developed by [Luke Mirman](https://lukemirman.com/).
 - Joystick icon used in the logo is provided by Google Fonts under the Appache 2.0 license.
 - [Lato font](https://fonts.google.com/specimen/Lato/about) in the logo is provided by Google Fonts under the Open Font License.
 - Sample Input Icons included in package samples is attributed to [Kenney](https://kenney.nl/assets/input-prompts-pixel-16) assets under Creative Commons CC0 license.
+- DocFX Documentation template provided by [Singulink](https://github.com/Singulink/SingulinkFX/) under MIT license
