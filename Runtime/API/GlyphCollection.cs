@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,6 +13,11 @@ namespace LMirman.RewiredGlyphs
 	[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Collection")]
 	public class GlyphCollection : ScriptableObject
 	{
+		/// <inheritdoc cref="Key"/>
+		[Tooltip("A unique alphanumeric key used for referencing this collection at runtime if it is not the default collection.\n\n" +
+		         "Must not contain spaces, special characters, or casing.")]
+		[SerializeField]
+		private string key = "default";
 		/// <inheritdoc cref="GuidMaps"/>
 		[Tooltip("Maps that associate glyphs with action ids of hardware with a specific guid.")]
 		[SerializeField]
@@ -43,6 +49,13 @@ namespace LMirman.RewiredGlyphs
 		[SerializeField]
 		private Glyph uninitializedGlyph;
 
+		/// <summary>
+		/// A unique alphanumeric key used for referencing this collection at runtime if it is not the default collection.
+		/// </summary>
+		/// <remarks>
+		/// Must not contain spaces, special characters, or casing.
+		/// </remarks>
+		public string Key => key ?? string.Empty;
 		/// <summary>
 		/// Maps that associate glyphs with action ids of hardware with a specific guid.
 		/// </summary>
@@ -86,7 +99,7 @@ namespace LMirman.RewiredGlyphs
 			public HardwareDefinition hardwareDefinition;
 			public GlyphMap glyphMap;
 		}
-		
+
 		[Serializable]
 		public class GuidEntry
 		{
@@ -119,6 +132,13 @@ namespace LMirman.RewiredGlyphs
 			[FormerlySerializedAs("controllerType")]
 			public SymbolPreference symbolPreference;
 			public GlyphMap glyphMap;
+		}
+
+		private static readonly Regex NonAlphaNumericRegex = new Regex("[^a-zA-Z0-9_-]");
+
+		private void OnValidate()
+		{
+			key = NonAlphaNumericRegex.Replace(key.ToLowerInvariant(), string.Empty);
 		}
 	}
 }

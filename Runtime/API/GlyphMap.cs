@@ -7,15 +7,14 @@ using UnityEngine;
 namespace LMirman.RewiredGlyphs
 {
 	/// <summary>
-	/// A set of glyphs for an input device.
-	/// Glyph maps can map to a particular hardware device or a controller template.
+	/// A set of glyphs to be used for a particular input device or template.
 	/// </summary>
 	[CreateAssetMenu(menuName = "Rewired Glyphs/Glyph Map")]
 	public class GlyphMap : ScriptableObject
 	{
-		[SerializeField, UsedImplicitly]
+		[SerializeField, UsedImplicitly, Tooltip("Used for validation purposes. Is not required but will significantly improve editor experience.")]
 		private ControllerDataFiles controllerDataFiles;
-		[SerializeField, UsedImplicitly]
+		[SerializeField, UsedImplicitly, Tooltip("Used for validation purposes. The GUID of the device we intend to validate for.")]
 		private string controllerGuid;
 
 		[SerializeField]

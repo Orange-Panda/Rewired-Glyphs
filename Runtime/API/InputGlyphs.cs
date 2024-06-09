@@ -22,25 +22,25 @@ namespace LMirman.RewiredGlyphs
 		private static readonly Guid GamepadTemplateGuid = new Guid("83b427e4-086f-47f3-bb06-be266abd1ca5");
 		private static readonly IList<ControllerTemplateElementTarget> TemplateTargets = new List<ControllerTemplateElementTarget>(2);
 		/// <summary>
-		/// Automatically generated glyphs for inputs that have no glyph defined anywhere.
-		/// </summary>
-		private static readonly Dictionary<string, Glyph> FallbackGlyphs = new Dictionary<string, Glyph>();
-		/// <summary>
 		/// Cache lookup for players
 		/// </summary>
 		private static readonly Dictionary<int, Player> Players = new Dictionary<int, Player>();
 		/// <summary>
-		/// Glyph mapping based on hardware specific glyphs and hardware specific input ids, found via hardware Guid.
+		/// Dictionary of <i><b>all</b></i> glyph collections mapped to their runtime counterpart.
+		/// Includes glyph collections that may have conflicting keys.
 		/// </summary>
-		private static readonly Dictionary<Guid, Dictionary<int, Glyph>> GuidGlyphMaps = new Dictionary<Guid, Dictionary<int, Glyph>>();
+		private static readonly Dictionary<GlyphCollection, RuntimeGlyphCollection> AllCollections = new Dictionary<GlyphCollection, RuntimeGlyphCollection>();
 		/// <summary>
-		/// Glyph mapping based on hardware specific glyphs and hardware specific input ids, found via hardware type definition.
+		/// Glyph collections that are able to be referenced by a string key.
 		/// </summary>
-		private static readonly Dictionary<HardwareDefinition, Dictionary<int, Glyph>> HardwareGlyphMaps = new Dictionary<HardwareDefinition, Dictionary<int, Glyph>>();
+		/// <remarks>
+		/// Unlike <see cref="AllCollections"/> may only contain one collection per key at a time.
+		/// </remarks>
+		private static readonly Dictionary<string, RuntimeGlyphCollection> Collections = new Dictionary<string, RuntimeGlyphCollection>(StringComparer.OrdinalIgnoreCase);
 		/// <summary>
-		/// Glyph mapping based on template glyphs and template input ids.
+		/// The glyph collection to used by default (due to invalid <see cref="Collections"/> lookup or no specifier provbided).
 		/// </summary>
-		private static readonly Dictionary<SymbolPreference, Dictionary<int, Glyph>> TemplateGlyphMaps = new Dictionary<SymbolPreference, Dictionary<int, Glyph>>();
+		private static RuntimeGlyphCollection defaultCollection = new RuntimeGlyphCollection();
 		/// <summary>
 		/// Lookup table that matches hardware ids to what kind of glyphs should be shown.
 		/// </summary>
@@ -183,66 +183,71 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		/// <summary>
-		/// Reinitialize the InputGlyphs system with a new <see cref="GlyphCollection"/>.
+		/// Additively load a <see cref="GlyphCollection"/> into runtime memory on InputGlyphs, allowing it to be utilized by Glyph queries.
+		/// <br/><br/>
+		/// Provides the <see cref="setAsDefault"/> parameter to determine if this glyph should be used as the primary (default) glyph collection for queries.
 		/// </summary>
+		/// <example>
+		/// You may consider creating and loading alternative glyph collections for light/dark themes, in-game teams, enviornments, or factions.
+		/// </example>
 		/// <remarks>
-		/// Unloads all glyph maps and glyph definitions, replacing them with the provided data from the provided <see cref="GlyphCollection"/>.<br/><br/>
-		/// Usage of this method is not necessary unless you wish to intentionally change the glyphs displayed due to special circumstances in your application.
-		/// Such cases may be unique glyphs for a particular environment, team, or faction.<br/><br/>
-		/// Automatically called in Awake by <see cref="RewiredGlyphManager"/>.
+		/// <see cref="RewiredGlyphManager"/> invokes this method on Awake to set its <see cref="RewiredGlyphManager.glyphCollection"/> as the default when initializing.
+		/// From that point onward you can use this method to add additional collections and change the default collection.
+		/// <br/><br/>
+		/// This method can safely be used even if a collection has already been loaded into memory, primarily for changing the default collection (with <see cref="setAsDefault"/> true).
 		/// </remarks>
-		public static void LoadGlyphCollection(GlyphCollection collection)
+		/// <param name="collection">The collection to load into memory.</param>
+		/// <param name="setAsDefault">When true set this collection as the default collection, using it for all queries that do not specify another collection</param>
+		public static void LoadGlyphCollection(GlyphCollection collection, bool setAsDefault = true)
 		{
-			// Create guid glyph lookup
-			GuidGlyphMaps.Clear();
-			foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
+			// Disregard preference if there is no default collection at all.
+			bool didMutate = false;
+			if (defaultCollection == null)
 			{
-				GuidGlyphMaps[guidEntry.GuidValue] = guidEntry.glyphMap.CreateDictionary();
-				foreach (Glyph glyph in guidEntry.glyphMap.Glyphs)
-				{
-					// HACK: Big assumption here that every GUID reference is a Joystick.
-					// I am not aware of a way to determine controller type of controllers not plugged in.
-					// Maybe we can load from the Controller data file?
-					glyph.ControllerType = ControllerType.Joystick;
-				}
+				setAsDefault = true;
 			}
 
-			// Create hardware glyph lookup
-			HardwareGlyphMaps.Clear();
-			foreach (GlyphCollection.HardwareEntry entry in collection.HardwareMaps)
+			// ----- Find or create a RuntimeGlyphCollection -----
+			bool hasRuntime = AllCollections.TryGetValue(collection, out RuntimeGlyphCollection runtimeCollection);
+			if (!hasRuntime)
 			{
-				HardwareGlyphMaps[entry.hardwareDefinition] = entry.glyphMap.CreateDictionary();
-				foreach (Glyph glyph in entry.glyphMap.Glyphs)
-				{
-					glyph.ControllerType = entry.hardwareDefinition switch
-					{
-						HardwareDefinition.Unknown => null,
-						HardwareDefinition.Keyboard => ControllerType.Keyboard,
-						HardwareDefinition.Mouse => ControllerType.Mouse,
-						_ => ControllerType.Joystick
-					};
-				}
+				runtimeCollection = new RuntimeGlyphCollection(collection);
+				AllCollections.Add(collection, runtimeCollection);
 			}
 
-			// Create template glyph lookup
-			TemplateGlyphMaps.Clear();
-			foreach (GlyphCollection.TemplateEntry entry in collection.TemplateMaps)
+			// ----- Determine if we are going to modify value so we can dispatch update later. -----
+			bool hasLookup = Collections.TryGetValue(collection.Key, out RuntimeGlyphCollection lookupCollection);
+			if (hasLookup && lookupCollection != runtimeCollection)
 			{
-				TemplateGlyphMaps[entry.symbolPreference] = entry.glyphMap.CreateDictionary();
-				foreach (Glyph glyph in entry.glyphMap.Glyphs)
-				{
-					// We can safely assume any template entry is a joystick since template maps are used exclusively by that controller type.
-					glyph.ControllerType = ControllerType.Joystick;
-				}
+#if UNITY_EDITOR
+				Debug.LogWarning($"Multiple glyph collections have an identical key: \"{runtimeCollection.collection.Key}\"!\n" +
+				                 "Each collection's key should be a unique value otherwise they will conflict at runtime.");
+#endif
+				didMutate = true;
+			}
+			else if (!hasLookup)
+			{
+				didMutate = true;
 			}
 
-			UninitializedGlyph = collection.UninitializedGlyph;
-			UninitializedGlyph.GlyphType = Glyph.Type.Uninitialized;
-			UnboundGlyph = collection.UnboundGlyph;
-			UnboundGlyph.GlyphType = Glyph.Type.Unbound;
-			NullGlyph = collection.NullGlyph;
-			NullGlyph.GlyphType = Glyph.Type.Null;
-			MarkGlyphsDirty();
+			// ----- Assign runtime collection to lookup table -----
+			Collections[runtimeCollection.collection.Key] = runtimeCollection;
+
+			// ----- Set this as default if parameter says so
+			if (setAsDefault && runtimeCollection != defaultCollection)
+			{
+				didMutate = true;
+				defaultCollection = runtimeCollection;
+				UninitializedGlyph = runtimeCollection.uninitializedGlyph;
+				UnboundGlyph = runtimeCollection.unboundGlyph;
+				NullGlyph = runtimeCollection.nullGlyph;
+			}
+
+			// ----- Dispatch update next frame if the context changed -----
+			if (didMutate)
+			{
+				MarkGlyphsDirty();
+			}
 		}
 
 		/// <summary>
@@ -385,14 +390,14 @@ namespace LMirman.RewiredGlyphs
 			{
 				axisRange = expectedMouse;
 				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
-				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
+				return glyph ?? defaultCollection.GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			if (keyboardMap != null)
 			{
 				axisRange = expectedKeyboard;
 				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
-				return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
+				return glyph ?? defaultCollection.GetFallbackGlyph(keyboardMap.elementIdentifierName);
 			}
 
 			return UnboundGlyph;
@@ -426,8 +431,7 @@ namespace LMirman.RewiredGlyphs
 
 			axisRange = expectedAxis;
 			Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
-			return glyph ?? GetFallbackGlyph(keyboardMap.elementIdentifierName);
-
+			return glyph ?? defaultCollection.GetFallbackGlyph(keyboardMap.elementIdentifierName);
 		}
 
 		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
@@ -455,7 +459,7 @@ namespace LMirman.RewiredGlyphs
 			{
 				axisRange = expectedAxis;
 				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
-				return glyph ?? GetFallbackGlyph(mouseMap.elementIdentifierName);
+				return glyph ?? defaultCollection.GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			return UnboundGlyph;
@@ -507,7 +511,7 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			axisRange = expectedAxis;
-			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference) ?? GetFallbackGlyph(map.elementIdentifierName);
+			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference) ?? defaultCollection.GetFallbackGlyph(map.elementIdentifierName);
 		}
 
 		/// <summary>
@@ -517,7 +521,7 @@ namespace LMirman.RewiredGlyphs
 		/// By design does not filter by controller type since you may decide to filter the <paramref name="output"/> list yourself using the glyph <see cref="Glyph.ControllerType"/>.
 		/// <br/><br/>
 		/// The results list will <b>not</b> include any <see cref="NullGlyph"/>, <see cref="UninitializedGlyph"/>, or <see cref="UnboundGlyph"/>.
-		/// It is <i>your responsibility</i> to decide whether you'd like to show these glyphs depending on the returned <see cref="SetQueryResult"/> or output list values.
+		/// It is <i>your responsibility</i> to decide whether you'd like to show these glyphs depending on the returned <see cref="GlyphSetQueryResult"/> or output list values.
 		/// </remarks>
 		/// <example>
 		/// Primitive example of how to call this method.
@@ -562,20 +566,21 @@ namespace LMirman.RewiredGlyphs
 		/// Determines the symbol type used to represent joystick glyphs.<br/><br/>
 		/// When null (default): Use the <see cref="PreferredSymbols"/> for representing joystick glyphs.
 		/// </param>
-		/// <returns>The resulting <see cref="SetQueryResult"/> informing the caller of if the query was successful or why it was unsuccessful if it wasn't</returns>
-		public static SetQueryResult GetGlyphSet(this Player player, int actionID, Pole pole, [NotNull] List<(Glyph, AxisRange)> output, bool forceAxis = false, SymbolPreference? joystickSymbols = null)
+		/// <returns>The resulting <see cref="GlyphSetQueryResult"/> informing the caller of if the query was successful or why it was unsuccessful if it wasn't</returns>
+		public static GlyphSetQueryResult GetGlyphSet(this Player player, int actionID, Pole pole, [NotNull] List<(Glyph, AxisRange)> output, bool forceAxis = false,
+			SymbolPreference? joystickSymbols = null)
 		{
 			output.Clear();
 			if (!CanRetrieveGlyph)
 			{
-				return SetQueryResult.ErrorUninitialized;
+				return GlyphSetQueryResult.ErrorUninitialized;
 			}
 
 			// --- Get all joystick glyphs ---
-			if (player.GetAllActionElementMaps(ControllerType.Joystick, actionID, pole, forceAxis, elementQueryOutput) == SetQueryResult.ErrorUnknownAction)
+			if (player.GetAllActionElementMaps(ControllerType.Joystick, actionID, pole, forceAxis, elementQueryOutput) == GlyphSetQueryResult.ErrorUnknownAction)
 			{
 				// If the joystick outputs unknown action we can just bail now since we will get the same result from other controller types.
-				return SetQueryResult.ErrorUnknownAction;
+				return GlyphSetQueryResult.ErrorUnknownAction;
 			}
 
 			Controller last = player.controllers.GetMostRecentController(ControllerType.Joystick);
@@ -611,7 +616,7 @@ namespace LMirman.RewiredGlyphs
 				}
 			}
 
-			return SetQueryResult.Success;
+			return GlyphSetQueryResult.Success;
 		}
 		#endregion
 
@@ -830,6 +835,10 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Will invoke <see cref="RebuildGlyphs"/> event when glyphs are dirty or <see cref="forceRebuild"/> parameter is true.
 		/// </summary>
+		/// <remarks>
+		/// You usually shouldn't need to invoke this method.
+		/// Consider using <see cref="MarkGlyphsDirty"/> instead if you want to inform the system the glyphs may have changed.
+		/// </remarks>
 		/// <param name="forceRebuild">When true will rebuild regardless of the value of <see cref="glyphsDirty"/>. When false will only rebuild if glyphs are dirty.</param>
 		public static void InvokeRebuild(bool forceRebuild = false)
 		{
@@ -856,61 +865,31 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		#region Public Unsafe
-		/// <summary>
-		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware guid.
-		/// </summary>
-		/// <remarks>
-		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
-		/// You are encouraged to use <see cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> instead.
-		/// </remarks>
+		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromGuidMap"/>
 		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
-		/// <param name="hardwareGuid">The hardware guid that the <see cref="elementID"/> maps to</param>
-		/// <param name="elementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
 		[CanBeNull]
 		public static Glyph GetNativeGlyphFromGuidMap(Guid hardwareGuid, int elementID)
 		{
-			bool hasGuidGlyphMap = GuidGlyphMaps.TryGetValue(hardwareGuid, out Dictionary<int, Glyph> value);
-			return hasGuidGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
+			return defaultCollection.GetNativeGlyphFromGuidMap(hardwareGuid, elementID);
 		}
 
-		/// <summary>
-		/// Retrieve a glyph for this element id that belongs to a specific hardware setup, via hardware type.
-		/// </summary>
-		/// <remarks>
-		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
-		/// You are encouraged to use <see cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> or <see cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> instead.
-		/// </remarks>
+		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromHardwareMap"/>
 		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
 		/// <seealso cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
 		/// <seealso cref="GetKeyboardGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
 		/// <seealso cref="GetMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
-		/// <param name="controller">The hardware type that the <see cref="elementID"/> maps to</param>
-		/// <param name="elementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="Glyph"/> inside of this hardware's glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
 		[CanBeNull]
 		public static Glyph GetNativeGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
 		{
-			bool hasHardwareGlyphMap = HardwareGlyphMaps.TryGetValue(controller, out Dictionary<int, Glyph> value);
-			return hasHardwareGlyphMap && value.TryGetValue(elementID, out Glyph glyph) ? glyph : null;
+			return defaultCollection.GetNativeGlyphFromHardwareMap(controller, elementID);
 		}
 
-		/// <summary>
-		/// Retrieve a <see cref="SymbolPreference"/> styled glyph for this <see cref="templateElementID"/> via the generic glyph mapping.
-		/// </summary>
-		/// <remarks>
-		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
-		/// You are encouraged to use <see cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> instead.
-		/// </remarks>
+		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromTemplateMap"/>
 		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
-		/// <param name="symbolPreference">The preferred symbol styling to present for this template element</param>
-		/// <param name="templateElementID">The element input id to get a glyph for</param>
-		/// <returns>The found <see cref="Glyph"/> inside of a template glyph map. Returns null (not <see cref="NullGlyph"/>) if none is found.</returns>
 		[CanBeNull]
 		public static Glyph GetNativeGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID)
 		{
-			bool hasTemplateGlyphMap = TemplateGlyphMaps.TryGetValue(symbolPreference, out Dictionary<int, Glyph> templateGlyphMap);
-			return hasTemplateGlyphMap && templateGlyphMap.TryGetValue(templateElementID, out Glyph glyph) ? glyph : null;
+			return defaultCollection.GetNativeGlyphFromTemplateMap(symbolPreference, templateElementID);
 		}
 		#endregion
 
@@ -972,48 +951,6 @@ namespace LMirman.RewiredGlyphs
 			return true;
 		}
 
-		/// <summary>
-		/// Tries to find the template glyph map for a specific <see cref="SymbolPreference"/>.
-		/// If none is found will use the automatic template glyph map.
-		/// If that doesn't exist outputs null.
-		/// </summary>
-		private static bool TryGetTemplateGlyphMap(SymbolPreference symbolPreference, out Dictionary<int, Glyph> templateGlyphMap)
-		{
-			// If we have a specific symbol preference, try to get the glyph map for that symbol type
-			if (symbolPreference != SymbolPreference.Auto && TemplateGlyphMaps.TryGetValue(symbolPreference, out templateGlyphMap))
-			{
-				return true;
-			}
-			// If we are in the auto mode or finding a specific map failed, fallback to the auto glyph map
-			else if (TemplateGlyphMaps.TryGetValue(SymbolPreference.Auto, out templateGlyphMap))
-			{
-				return true;
-			}
-			// There is no auto glyph map or symbol specific glyph map available.
-			else
-			{
-				return false;
-			}
-		}
-
-		/// <summary>
-		/// Retrieve a glyph that just has a description.
-		/// </summary>
-		/// <remarks>
-		/// This is mainly used when an action is valid, has an element map, but that element can't be found in any of the glyph maps.
-		/// Since we obviously can't assume what this element would look like with a sprite we at least give it a description so text glyph outputs can still function.<br/><br/>
-		/// Ultimately this is a fallback mechanism and having specific element definitions for all inputs should be done.
-		/// </remarks>
-		private static Glyph GetFallbackGlyph(string name)
-		{
-			if (!FallbackGlyphs.ContainsKey(name))
-			{
-				FallbackGlyphs.Add(name, new Glyph(name, NullGlyph.FullSprite));
-			}
-
-			return FallbackGlyphs[name];
-		}
-
 		private static readonly List<ActionElementMap> MapLookupResults = new List<ActionElementMap>();
 
 		/// <summary>
@@ -1065,13 +1002,14 @@ namespace LMirman.RewiredGlyphs
 		/// If the action is not valid or there are no mappings available for the action the method will still succeed.
 		/// In such a case, the output list will be empty.
 		/// </remarks>
-		private static SetQueryResult GetAllActionElementMaps(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis, [NotNull] List<(ActionElementMap, AxisRange)> output)
+		private static GlyphSetQueryResult GetAllActionElementMaps(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis,
+			[NotNull] List<(ActionElementMap, AxisRange)> output)
 		{
 			output.Clear();
 			InputAction inputAction = ReInput.mapping.GetAction(actionID);
 			if (inputAction == null)
 			{
-				return SetQueryResult.ErrorUnknownAction;
+				return GlyphSetQueryResult.ErrorUnknownAction;
 			}
 
 			bool actionIsAxis = inputAction.type == InputActionType.Axis;
@@ -1087,7 +1025,7 @@ namespace LMirman.RewiredGlyphs
 						break;
 					// Pick this when the element is an axis but we want to get a specific axis range for it.
 					case false when actionIsAxis && (elementMap.axisType != AxisType.None || elementMap.axisContribution == pole):
-						output.Add((elementMap,  pole == Pole.Positive ? AxisRange.Positive : AxisRange.Negative));
+						output.Add((elementMap, pole == Pole.Positive ? AxisRange.Positive : AxisRange.Negative));
 						break;
 					// Pick this when the action is a button and it has the expected axis contribution value
 					case false when !actionIsAxis && elementMap.axisContribution == pole:
@@ -1096,56 +1034,8 @@ namespace LMirman.RewiredGlyphs
 				}
 			}
 
-			return SetQueryResult.Success;
+			return GlyphSetQueryResult.Success;
 		}
 		#endregion
-
-		/// <summary>
-		/// Enum value used to communicate the result of glyph set queries.
-		/// </summary>
-		[PublicAPI]
-		public enum SetQueryResult
-		{
-			/// <summary>
-			/// Default value, methods should never return this value unless some unhandled exception occurs.
-			/// </summary>
-			/// <remarks>
-			/// The value of the output list is undetermined if this value is somehow output.
-			/// <br/><br/>
-			/// If you get this result consider using the <see cref="InputGlyphs.UninitializedGlyph"/>
-			/// </remarks>
-			Undefined = 0,
-			/// <summary>
-			/// Represents a successful set query, no errors or invalid configuration occurred.
-			/// </summary>
-			/// <remarks>
-			/// This does not necessarily mean there are any mappings/glyphs, just that no error occurred.
-			/// <br/><br/>
-			/// In other words, this means there are zero to many output items but those items accurately represents the query for the action.
-			/// <br/><br/>
-			/// If you get this result <b>and</b> the output list is empty consider using the <see cref="InputGlyphs.UnboundGlyph"/>
-			/// </remarks>
-			Success = 1,
-			/// <summary>
-			/// Represents a query that failed due to an unknown action identifier.
-			/// <br/><br/>
-			/// If you get this result validate the input action ID or name is correct.
-			/// </summary>
-			/// <remarks>
-			/// The output list will be empty as a result since there is no action to represent.
-			/// <br/><br/>
-			/// If you get this result consider using the <see cref="InputGlyphs.NullGlyph"/>
-			/// </remarks>
-			ErrorUnknownAction = 2,
-			/// <summary>
-			/// Represents a query that failed due to the glyph system not being ready yet.
-			/// </summary>
-			/// <remarks>
-			/// The output list will be empty since it is impossible for use to find actions or maps for those actions.
-			/// <br/><br/>
-			/// If you get this result consider using the <see cref="InputGlyphs.UninitializedGlyph"/>
-			/// </remarks>
-			ErrorUninitialized = 3
-		}
 	}
 }

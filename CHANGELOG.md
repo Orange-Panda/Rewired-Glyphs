@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 	- If you don't implement this check in your `SetGlyph` component it will behave identically to before, but will not support these optional settings.
 - Added `GetGlyphSet` method to `InputGlyphs` for getting *all* glyphs for an action across all controller types, including multiple maps on a single controller.
 
+### Changed
+
+- Rewrote the way glyph collections are loaded into memory internally
+	- Switching the active glyph collection is now much more performant
+    - Loading a glyph collection now only dispatch a glyph update if it may have changed the output of glyph queries
+
 ## [1.5.0] - 2024-05-30
 
 ### Added
