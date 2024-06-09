@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Rewired;
 using System;
 using UnityEngine;
@@ -41,6 +42,10 @@ namespace LMirman.RewiredGlyphs
 		/// <br/><br/>
 		/// TL;DR: For axis actions: True represents the axis itself "Move Horizontal". False represents negative pole "Move Left" and positive pole "Move Right". In most cases should be false.
 		/// </param>
+		/// <param name="collectionKey">
+		/// Optionally used for getting glyphs from a non-default glyph collection.
+		/// Should match the value of <see cref="GlyphCollection.Key"/>
+		/// </param>
 		/// <returns>
 		/// A <see cref="Glyph"/> that can be utilized in UI elements to display the element that is associated with this particular action.
 		/// <br/><br/>
@@ -48,9 +53,10 @@ namespace LMirman.RewiredGlyphs
 		/// </returns>
 		/// <remarks>
 		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.<br/>
-		/// Use <see cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/> in the cases where you don't want to specify.
+		/// Use <see cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool, string)"/> in the cases where you don't want to specify.
 		/// </remarks>
-		public static Glyph GetSpecificCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false)
+		public static Glyph GetSpecificCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, bool forceAxis = false,
+			[CanBeNull] string collectionKey = null)
 		{
 			if (!CanRetrieveGlyph)
 			{
@@ -66,9 +72,9 @@ namespace LMirman.RewiredGlyphs
 				case HardwarePreference.Auto:
 					break;
 				case HardwarePreference.KeyboardMouse:
-					return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
+					return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 				case HardwarePreference.Gamepad:
-					return player.GetSpecificJoystickGlyph(actionID, last, pole, out axisRange, symbolPreference);
+					return player.GetSpecificJoystickGlyph(actionID, last, pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
@@ -80,10 +86,10 @@ namespace LMirman.RewiredGlyphs
 				{
 					case ControllerType.Keyboard:
 					case ControllerType.Mouse:
-						return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
+						return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 					case ControllerType.Joystick:
 					case ControllerType.Custom:
-						return player.GetSpecificJoystickGlyph(actionID, last, pole, out axisRange, symbolPreference);
+						return player.GetSpecificJoystickGlyph(actionID, last, pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 					default:
 						throw new ArgumentOutOfRangeException();
 				}
@@ -92,66 +98,66 @@ namespace LMirman.RewiredGlyphs
 			// Use the expected mode for this hardware if there is no controller is active (usually only at the start of the application)
 			if (SystemInfo.deviceType == DeviceType.Desktop)
 			{
-				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange);
+				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 			}
 			else
 			{
-				return player.GetSpecificJoystickGlyph(actionID, null, pole, out axisRange, symbolPreference);
+				return player.GetSpecificJoystickGlyph(actionID, null, pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 			}
 		}
 
 		// Region: Contains wrappers that use global properties as a 'default' parameter for other funtions.
 
 		#region Global Value Wrappers
-		/// <inheritdoc cref="GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,SymbolPreference,bool)"/>
+		/// <inheritdoc cref="GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,SymbolPreference,bool, string)"/>
 		/// <remarks>
 		/// Uses the value of <see cref="PreferredSymbols"/> for determining Joystick glyph symbols.
 		/// </remarks>
-		/// <seealso cref="GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,SymbolPreference,bool)"/>
-		public static Glyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		/// <seealso cref="GetSpecificCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,SymbolPreference,bool, string)"/>
+		public static Glyph GetCurrentGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
-			return player.GetSpecificCurrentGlyph(actionID, pole, out axisRange, PreferredSymbols, forceAxis);
+			return player.GetSpecificCurrentGlyph(actionID, pole, out axisRange, PreferredSymbols, forceAxis, collectionKey);
 		}
 
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user for the `Joystick` device.
 		/// </summary>
 		/// <remarks>
 		/// Uses the value of <see cref="PreferredSymbols"/> for determining Joystick glyph symbols.
 		/// </remarks>
-		public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		public static Glyph GetJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
-			return player.GetSpecificJoystickGlyph(actionID, controller, pole, out axisRange, PreferredSymbols, forceAxis);
+			return player.GetSpecificJoystickGlyph(actionID, controller, pole, out axisRange, PreferredSymbols, forceAxis, collectionKey);
 		}
 		#endregion
 
 		// Region: Contains wrappers that branch to call other methods depending on a 'ControllerType' value.
 
 		#region ControllerType Wrappers
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user.
 		/// <br/><br/>
 		/// Will pick an icon to represent the <paramref name="controllerType"/>
 		/// </summary>
-		public static Glyph GetGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		public static Glyph GetGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			switch (controllerType)
 			{
 				case ControllerType.Keyboard:
-					return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis);
+					return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 				case ControllerType.Mouse:
-					return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis);
+					return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 				case ControllerType.Joystick:
 				case ControllerType.Custom:
-					return player.GetJoystickGlyph(actionID, player.controllers.GetMostRecentController(controllerType), pole, out axisRange, forceAxis);
+					return player.GetJoystickGlyph(actionID, player.controllers.GetMostRecentController(controllerType), pole, out axisRange, forceAxis, collectionKey);
 				default:
 					throw new ArgumentOutOfRangeException(nameof(controllerType), controllerType, null);
 			}
 		}
 
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user.
 		/// <br/><br/>
@@ -161,17 +167,17 @@ namespace LMirman.RewiredGlyphs
 		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
 		/// </remarks>
 		public static Glyph GetSpecificGlyph(this Player player, ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference,
-			bool forceAxis = false)
+			bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			switch (controllerType)
 			{
 				case ControllerType.Keyboard:
-					return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis);
+					return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 				case ControllerType.Mouse:
-					return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis);
+					return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 				case ControllerType.Joystick:
 				case ControllerType.Custom:
-					return player.GetSpecificJoystickGlyph(actionID, player.controllers.GetMostRecentController(controllerType), pole, out axisRange, symbolPreference, forceAxis);
+					return player.GetSpecificJoystickGlyph(actionID, player.controllers.GetMostRecentController(controllerType), pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 				default:
 					throw new ArgumentOutOfRangeException(nameof(controllerType), controllerType, null);
 			}
@@ -181,117 +187,117 @@ namespace LMirman.RewiredGlyphs
 		// Region: Contains wrappers that get a player through index instead of using the 'Player' type extension methods.
 
 		#region Get Player by Index Wrapper
-		/// <inheritdoc cref="InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool)"/>
-		public static Glyph GetGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		/// <inheritdoc cref="InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string)"/>
+		public static Glyph GetGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetGlyph(controllerType, actionID, pole, out axisRange, forceAxis);
+				return player.GetGlyph(controllerType, actionID, pole, out axisRange, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
-		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool, string)"/>
+		public static Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetCurrentGlyph(actionID, pole, out axisRange, forceAxis);
+				return player.GetCurrentGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetGlyph(Player, ControllerType, int, Pole, out AxisRange, bool, string)"/>
 		/// <remarks>
 		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
 		/// </remarks>
 		public static Glyph GetSpecificGlyph(ControllerType controllerType, int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0,
-			bool forceAxis = false)
+			bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetSpecificGlyph(controllerType, actionID, pole, out axisRange, symbolPreference, forceAxis);
+				return player.GetSpecificGlyph(controllerType, actionID, pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
+		/// <inheritdoc cref="GetCurrentGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool, string)"/>
 		/// <remarks>
 		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.
 		/// </remarks>
-		/// <seealso cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/>
-		public static Glyph GetSpecificCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false)
+		/// <seealso cref="GetCurrentGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool, string)"/>
+		public static Glyph GetSpecificCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetSpecificCurrentGlyph(actionID, pole, out axisRange, symbolPreference, forceAxis);
+				return player.GetSpecificCurrentGlyph(actionID, pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
-		public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		/// <inheritdoc cref="GetKeyboardMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool, string)"/>
+		public static Glyph GetKeyboardMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange, forceAxis);
+				return player.GetKeyboardMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetKeyboardGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
-		public static Glyph GetKeyboardGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		/// <inheritdoc cref="GetKeyboardGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool, string)"/>
+		public static Glyph GetKeyboardGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis);
+				return player.GetKeyboardGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool)"/>
-		public static Glyph GetMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		/// <inheritdoc cref="GetMouseGlyph(Player, int, Rewired.Pole, out Rewired.AxisRange, bool, string)"/>
+		public static Glyph GetMouseGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis);
+				return player.GetMouseGlyph(actionID, pole, out axisRange, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange, bool)"/>
-		public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false)
+		/// <inheritdoc cref="GetJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange, bool, string)"/>
+		public static Glyph GetJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, int playerIndex = 0, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetJoystickGlyph(actionID, controller, pole, out axisRange, forceAxis);
+				return player.GetJoystickGlyph(actionID, controller, pole, out axisRange, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;
 			return UninitializedGlyph;
 		}
 
-		/// <inheritdoc cref="GetSpecificJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange, SymbolPreference, bool)"/>
+		/// <inheritdoc cref="GetSpecificJoystickGlyph(Player, int, Controller, Rewired.Pole, out Rewired.AxisRange, SymbolPreference, bool, string)"/>
 		public static Glyph GetSpecificJoystickGlyph(int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference, int playerIndex = 0,
-			bool forceAxis = false)
+			bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			if (TryGetPlayer(playerIndex, out Player player))
 			{
-				return player.GetSpecificJoystickGlyph(actionID, controller, pole, out axisRange, symbolPreference, forceAxis);
+				return player.GetSpecificJoystickGlyph(actionID, controller, pole, out axisRange, symbolPreference, forceAxis, collectionKey);
 			}
 
 			axisRange = AxisRange.Full;

@@ -7,6 +7,8 @@ namespace LMirman.RewiredGlyphs
 {
 	internal class RuntimeGlyphCollection
 	{
+		internal static readonly RuntimeGlyphCollection Default = new RuntimeGlyphCollection();
+
 		/// <summary>
 		/// Automatically generated glyphs for inputs that have no glyph defined anywhere.
 		/// </summary>
@@ -31,7 +33,7 @@ namespace LMirman.RewiredGlyphs
 		/// <inheritdoc cref="InputGlyphs.UninitializedGlyph"/>
 		internal readonly Glyph uninitializedGlyph;
 
-		internal RuntimeGlyphCollection()
+		private RuntimeGlyphCollection()
 		{
 			collection = null;
 			guidGlyphMaps.Clear();
@@ -102,7 +104,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <remarks>
 		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
-		/// You are encouraged to use <see cref="InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> instead.
+		/// You are encouraged to use <see cref="InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/> instead.
 		/// </remarks>
 		/// <param name="hardwareGuid">The hardware guid that the <see cref="elementID"/> maps to</param>
 		/// <param name="elementID">The element input id to get a glyph for</param>
@@ -119,7 +121,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <remarks>
 		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
-		/// You are encouraged to use <see cref="InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> or <see cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> instead.
+		/// You are encouraged to use <see cref="InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/> or <see cref="InputGlyphs.GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/> instead.
 		/// </remarks>
 		/// <param name="controller">The hardware type that the <see cref="elementID"/> maps to</param>
 		/// <param name="elementID">The element input id to get a glyph for</param>
@@ -136,7 +138,7 @@ namespace LMirman.RewiredGlyphs
 		/// </summary>
 		/// <remarks>
 		/// Usage of this method is not recommended in most cases and should only be used if you need fine control over glyph display.<br/><br/>
-		/// You are encouraged to use <see cref="InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/> instead.
+		/// You are encouraged to use <see cref="InputGlyphs.GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/> instead.
 		/// </remarks>
 		/// <param name="symbolPreference">The preferred symbol styling to present for this template element</param>
 		/// <param name="templateElementID">The element input id to get a glyph for</param>

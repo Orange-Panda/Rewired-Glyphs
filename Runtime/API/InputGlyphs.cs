@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using Rewired;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace LMirman.RewiredGlyphs
@@ -9,7 +10,7 @@ namespace LMirman.RewiredGlyphs
 	/// <summary>
 	/// The InputGlyphs class contains various methods to easily get <see cref="Sprite"/> and <see cref="string"/> information about user input controls.
 	/// </summary>
-	/// <remarks>The <see cref="GetCurrentGlyph(int, Pole, out AxisRange, int, bool)"/> function should provide most functionality needed.</remarks>
+	/// <remarks>The <see cref="GetCurrentGlyph(int, Pole, out AxisRange, int, bool, string)"/> function should provide most functionality needed.</remarks>
 	[PublicAPI]
 	public static partial class InputGlyphs
 	{
@@ -40,7 +41,7 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// The glyph collection to used by default (due to invalid <see cref="Collections"/> lookup or no specifier provbided).
 		/// </summary>
-		private static RuntimeGlyphCollection defaultCollection = new RuntimeGlyphCollection();
+		private static RuntimeGlyphCollection defaultCollection;
 		/// <summary>
 		/// Lookup table that matches hardware ids to what kind of glyphs should be shown.
 		/// </summary>
@@ -89,7 +90,7 @@ namespace LMirman.RewiredGlyphs
 		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized", type: Glyph.Type.Uninitialized);
 
 		/// <summary>
-		/// The preferred hardware (Controller or Mouse/Keyboard) to display in <see cref="GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
+		/// The preferred hardware (Controller or Mouse/Keyboard) to display in <see cref="GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
 		/// </summary>
 		/// <seealso cref="SetGlyphPreferences"/>
 		public static HardwarePreference PreferredHardware { get; private set; } = HardwarePreference.Auto;
@@ -114,6 +115,7 @@ namespace LMirman.RewiredGlyphs
 
 		static InputGlyphs()
 		{
+			defaultCollection = RuntimeGlyphCollection.Default;
 			ReInput.InitializedEvent += ReInputOnInitializedEvent;
 			ReInput.ShutDownEvent += ReInputOnShutDownEvent;
 		}
@@ -199,14 +201,14 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		#region Core
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user for the mouse or keyboard devices (in that order).
 		/// </summary>
 		/// <remarks>
 		/// If an input is present on both the keyboard and mouse, precedence is given to the mouse.
 		/// </remarks>
-		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		public static Glyph GetKeyboardMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			axisRange = AxisRange.Full;
 			if (!CanRetrieveGlyph)
@@ -225,29 +227,29 @@ namespace LMirman.RewiredGlyphs
 			if (mouseMap != null)
 			{
 				axisRange = expectedMouse;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
-				return glyph ?? defaultCollection.GetFallbackGlyph(mouseMap.elementIdentifierName);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId, collectionKey);
+				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			if (keyboardMap != null)
 			{
 				axisRange = expectedKeyboard;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
-				return glyph ?? defaultCollection.GetFallbackGlyph(keyboardMap.elementIdentifierName);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
+				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName);
 			}
 
 			return UnboundGlyph;
 		}
 
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user for the Keyboard device.
 		/// </summary>
 		/// <remarks>
 		/// Does <b>not</b> show glyphs for the mouse.
-		/// Use <see cref="GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/> if you want to show keyboard or mouse glyph.
+		/// Use <see cref="GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/> if you want to show keyboard or mouse glyph.
 		/// </remarks>
-		public static Glyph GetKeyboardGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		public static Glyph GetKeyboardGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			axisRange = AxisRange.Full;
 			if (!CanRetrieveGlyph)
@@ -268,19 +270,19 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			axisRange = expectedAxis;
-			Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId);
-			return glyph ?? defaultCollection.GetFallbackGlyph(keyboardMap.elementIdentifierName);
+			Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
+			return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName);
 		}
 
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user for the `Mouse` device.
 		/// </summary>
 		/// <remarks>
 		/// Does <b>not</b> show glyphs for the keybaord.
-		/// Use <see cref="GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool)"/> if you want to show keyboard or mouse glyph.
+		/// Use <see cref="GetKeyboardMouseGlyph(Rewired.Player,int,Rewired.Pole,out Rewired.AxisRange,bool,string)"/> if you want to show keyboard or mouse glyph.
 		/// </remarks>
-		public static Glyph GetMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false)
+		public static Glyph GetMouseGlyph(this Player player, int actionID, Pole pole, out AxisRange axisRange, bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			axisRange = AxisRange.Full;
 			if (!CanRetrieveGlyph)
@@ -298,25 +300,25 @@ namespace LMirman.RewiredGlyphs
 			if (mouseMap != null)
 			{
 				axisRange = expectedAxis;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId);
-				return glyph ?? defaultCollection.GetFallbackGlyph(mouseMap.elementIdentifierName);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId, collectionKey);
+				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			return UnboundGlyph;
 		}
 
-		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool)"/>
+		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
 		/// <summary>
 		/// Get a <see cref="Glyph"/> to represent an action for the user for the `Joystick` device with a specific <see cref="SymbolPreference"/> .
 		/// </summary>
 		/// <remarks>
 		/// This method should only be used if you want to explicitly determine the type of symbol (Xbox, Playstation, etc.) to show for the joystick glyph.<br/>
-		/// Use <see cref="GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool)"/> if you don't need to specify symbol preference.
+		/// Use <see cref="GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool, string)"/> if you don't need to specify symbol preference.
 		/// </remarks>
-		/// <seealso cref="GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool)"/>
+		/// <seealso cref="GetJoystickGlyph(Rewired.Player,int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,bool, string)"/>
 		[NotNull]
 		public static Glyph GetSpecificJoystickGlyph(this Player player, int actionID, Controller controller, Pole pole, out AxisRange axisRange, SymbolPreference symbolPreference,
-			bool forceAxis = false)
+			bool forceAxis = false, [CanBeNull] string collectionKey = null)
 		{
 			axisRange = AxisRange.Full;
 			if (!CanRetrieveGlyph)
@@ -341,7 +343,7 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			axisRange = expectedAxis;
-			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference) ?? defaultCollection.GetFallbackGlyph(map.elementIdentifierName);
+			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference, collectionKey) ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(map.elementIdentifierName);
 		}
 
 		/// <summary>
@@ -363,13 +365,13 @@ namespace LMirman.RewiredGlyphs
 		///
 		/// private void SetGlyphs()
 		/// {
-		///		// !!! Specify `playerID`, `actionID`, and `pole` based on what you want to represent. !!!
-		///		Player player = ReInput.players.GetPlayer(playerID);
-		///		player.GetGlyphSet(actionID, pole, output);
-		///		foreach ((Glyph, AxisRange) result in output)
-		///		{
-		///			// !!! Your functionality here. Use result.Item1 and glyph.Item2. !!!
-		///		}
+		/// 		// !!! Specify `playerID`, `actionID`, and `pole` based on what you want to represent. !!!
+		/// 		Player player = ReInput.players.GetPlayer(playerID);
+		/// 		player.GetGlyphSet(actionID, pole, output);
+		/// 		foreach ((Glyph, AxisRange) result in output)
+		/// 		{
+		/// 			// !!! Your functionality here. Use result.Item1 and glyph.Item2. !!!
+		/// 		}
 		/// }
 		/// </code>
 		/// </example>
@@ -396,9 +398,10 @@ namespace LMirman.RewiredGlyphs
 		/// Determines the symbol type used to represent joystick glyphs.<br/><br/>
 		/// When null (default): Use the <see cref="PreferredSymbols"/> for representing joystick glyphs.
 		/// </param>
+		/// <param name="collectionKey">Optionally used for getting glyphs from a non-default glyph collection. Should match the value of <see cref="GlyphCollection.Key"/></param>
 		/// <returns>The resulting <see cref="GlyphSetQueryResult"/> informing the caller of if the query was successful or why it was unsuccessful if it wasn't</returns>
 		public static GlyphSetQueryResult GetGlyphSet(this Player player, int actionID, Pole pole, [NotNull] List<(Glyph, AxisRange)> output, bool forceAxis = false,
-			SymbolPreference? joystickSymbols = null)
+			SymbolPreference? joystickSymbols = null, [CanBeNull] string collectionKey = null)
 		{
 			output.Clear();
 			if (!CanRetrieveGlyph)
@@ -417,7 +420,7 @@ namespace LMirman.RewiredGlyphs
 			SymbolPreference symbolPreference = joystickSymbols ?? PreferredSymbols;
 			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
 			{
-				Glyph glyph = GetJoystickGlyphFromElementMap(player, last, element.Item1, symbolPreference);
+				Glyph glyph = GetJoystickGlyphFromElementMap(player, last, element.Item1, symbolPreference, collectionKey);
 				if (glyph != null)
 				{
 					output.Add((glyph, element.Item2));
@@ -428,7 +431,7 @@ namespace LMirman.RewiredGlyphs
 			player.GetAllActionElementMaps(ControllerType.Keyboard, actionID, pole, forceAxis, elementQueryOutput);
 			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
 			{
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, element.Item1.elementIdentifierId);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, element.Item1.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					output.Add((glyph, element.Item2));
@@ -439,7 +442,7 @@ namespace LMirman.RewiredGlyphs
 			player.GetAllActionElementMaps(ControllerType.Mouse, actionID, pole, forceAxis, elementQueryOutput);
 			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
 			{
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, element.Item1.elementIdentifierId);
+				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, element.Item1.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					output.Add((glyph, element.Item2));
@@ -529,34 +532,42 @@ namespace LMirman.RewiredGlyphs
 
 		#region Public Unsafe
 		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromGuidMap"/>
-		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
+		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
 		[CanBeNull]
-		public static Glyph GetNativeGlyphFromGuidMap(Guid hardwareGuid, int elementID)
+		public static Glyph GetNativeGlyphFromGuidMap(Guid hardwareGuid, int elementID, [CanBeNull] string collectionKey = null)
 		{
-			return defaultCollection.GetNativeGlyphFromGuidMap(hardwareGuid, elementID);
+			return GetGlyphCollection(collectionKey).GetNativeGlyphFromGuidMap(hardwareGuid, elementID);
 		}
 
 		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromHardwareMap"/>
-		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
-		/// <seealso cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
-		/// <seealso cref="GetKeyboardGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
-		/// <seealso cref="GetMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
+		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
+		/// <seealso cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
+		/// <seealso cref="GetKeyboardGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
+		/// <seealso cref="GetMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
 		[CanBeNull]
-		public static Glyph GetNativeGlyphFromHardwareMap(HardwareDefinition controller, int elementID)
+		public static Glyph GetNativeGlyphFromHardwareMap(HardwareDefinition controller, int elementID, [CanBeNull] string collectionKey = null)
 		{
-			return defaultCollection.GetNativeGlyphFromHardwareMap(controller, elementID);
+			return GetGlyphCollection(collectionKey).GetNativeGlyphFromHardwareMap(controller, elementID);
 		}
 
 		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromTemplateMap"/>
-		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool)"/>
+		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
 		[CanBeNull]
-		public static Glyph GetNativeGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID)
+		public static Glyph GetNativeGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID, [CanBeNull] string collectionKey = null)
 		{
-			return defaultCollection.GetNativeGlyphFromTemplateMap(symbolPreference, templateElementID);
+			return GetGlyphCollection(collectionKey).GetNativeGlyphFromTemplateMap(symbolPreference, templateElementID);
 		}
 		#endregion
 
 		#region Internal Use
+		[NotNull]
+		private static RuntimeGlyphCollection GetGlyphCollection([CanBeNull] string collectionKey = null)
+		{
+			return collectionKey != null && Collections.TryGetValue(collectionKey.ToCleansedCollectionKey(), out RuntimeGlyphCollection collection)
+				? collection
+				: defaultCollection ?? RuntimeGlyphCollection.Default;
+		}
+
 		private static void ReInputOnInitializedEvent()
 		{
 			FlushPlayersCache();
@@ -622,19 +633,19 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		[CanBeNull]
-		private static Glyph GetJoystickGlyphFromElementMap(Player player, Controller controller, ActionElementMap map, SymbolPreference symbolPreference)
+		private static Glyph GetJoystickGlyphFromElementMap(Player player, Controller controller, ActionElementMap map, SymbolPreference symbolPreference, [CanBeNull] string collectionKey = null)
 		{
 			// Try to retrieve a glyph that is specific to the user's controller hardware.
 			if (controller != null && symbolPreference == SymbolPreference.Auto)
 			{
-				Glyph glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId);
+				Glyph glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					return glyph;
 				}
 
 				HardwareDefinition controllerType = GetHardwareDefinition(controller);
-				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId);
+				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					return glyph;
@@ -649,7 +660,7 @@ namespace LMirman.RewiredGlyphs
 			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
 
 			// Use the template glyph if one exists.
-			return GetNativeGlyphFromTemplateMap(symbolPreference, templateElementId);
+			return GetNativeGlyphFromTemplateMap(symbolPreference, templateElementId, collectionKey);
 		}
 
 		/// <summary>
@@ -762,6 +773,19 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			return GlyphSetQueryResult.Success;
+		}
+
+		private static readonly Regex NonAlphaNumericRegex = new Regex("[^a-zA-Z0-9_-]");
+
+		[Pure]
+		internal static string ToCleansedCollectionKey(this string rawString)
+		{
+			if (rawString == null)
+			{
+				return string.Empty;
+			}
+
+			return NonAlphaNumericRegex.Replace(rawString.ToLowerInvariant(), string.Empty);
 		}
 		#endregion
 	}

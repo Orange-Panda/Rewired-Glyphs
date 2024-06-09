@@ -1,6 +1,5 @@
 using JetBrains.Annotations;
 using System;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -134,11 +133,9 @@ namespace LMirman.RewiredGlyphs
 			public GlyphMap glyphMap;
 		}
 
-		private static readonly Regex NonAlphaNumericRegex = new Regex("[^a-zA-Z0-9_-]");
-
 		private void OnValidate()
 		{
-			key = NonAlphaNumericRegex.Replace(key.ToLowerInvariant(), string.Empty);
+			key = key.ToCleansedCollectionKey();
 		}
 	}
 }
