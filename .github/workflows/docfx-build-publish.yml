@@ -3,8 +3,8 @@ name: Build and Publish DocFX Website
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "dev-docs" ]
+  # push:
+    # branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
         continue-on-error: false
 
       - name: Publish to Github Pages
-        if: github.ref == 'refs/heads/dev-docs'
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
