@@ -1,0 +1,7 @@
+- name: 🏠 Home
+  href: index.md
+- name: Manual
+  href: index.md
+  items:
+  - name: ⭐️ Docs Overview
+    href: docs-overview.md
