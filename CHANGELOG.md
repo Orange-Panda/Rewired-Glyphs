@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 	- Example: `<glyph Jump set=dark>` where 'dark' is the `collectionKey` on some `GlyphCollection` that is loaded into InputGlyphs
 - Added `Generate Keyboard` and `Generate Mouse` functionality to `Glyph Map` for generating default Glyph Map actions
 	- Requires the application running due to technical limitations
+- Added component icons to all major components and scriptable objects of the package
 
 ### Changed
 
