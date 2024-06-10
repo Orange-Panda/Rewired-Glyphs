@@ -37,8 +37,69 @@ namespace LMirman.RewiredGlyphs.Editor
 		{
 			serializedObject.UpdateIfRequiredOrScript();
 			GUILayout.Label("Generate and Validate Map", EditorStyles.largeLabel);
+			SerializedProperty glyphs = serializedObject.FindProperty("glyphs");
 			SerializedProperty controllerDataFilesProperty = serializedObject.FindProperty("controllerDataFiles");
 			ControllerDataFiles controllerDataFiles = controllerDataFilesProperty.objectReferenceValue as ControllerDataFiles;
+
+			// -- Create Mouse or Keyboard Glyphs --
+			EditorGUILayout.BeginHorizontal();
+			if (GUILayout.Button("Generate Keyboard") && EditorUtility.DisplayDialog("Confirm Action", "Are you sure? This action is irreversible.", "Ok", "Cancel"))
+			{
+				if (!ReInput.isReady || ReInput.controllers.Keyboard == null)
+				{
+					EditorUtility.DisplayDialog("Error - ReInput not Ready", "ReInput wasn't ready. You may need to have your application running to execute this function.", "Continue");
+					return;
+				}
+
+				glyphs.ClearArray();
+				foreach (ControllerElementIdentifier element in ReInput.controllers.Keyboard.ElementIdentifiers)
+				{
+					glyphs.InsertArrayElementAtIndex(glyphs.arraySize);
+					SerializedProperty glyphProperty = glyphs.GetArrayElementAtIndex(glyphs.arraySize - 1);
+					SerializedProperty inputID = glyphProperty.FindPropertyRelative("inputID");
+					SerializedProperty description = glyphProperty.FindPropertyRelative("description");
+					SerializedProperty positiveDescription = glyphProperty.FindPropertyRelative("positiveDescription");
+					SerializedProperty negativeDescription = glyphProperty.FindPropertyRelative("negativeDescription");
+					inputID.intValue = element.id;
+					description.stringValue = element.name;
+					positiveDescription.stringValue = element.positiveName;
+					negativeDescription.stringValue = element.negativeName;
+				}
+
+				glyphs.serializedObject.ApplyModifiedProperties();
+				serializedObject.ApplyModifiedProperties();
+				Repaint();
+			}
+
+			if (GUILayout.Button("Generate Mouse") && EditorUtility.DisplayDialog("Confirm Action", "Are you sure? This action is irreversible.", "Ok", "Cancel"))
+			{
+				if (!ReInput.isReady || ReInput.controllers.Mouse == null)
+				{
+					EditorUtility.DisplayDialog("Error - ReInput not Ready", "ReInput wasn't ready. You may need to have your application running to execute this function.", "Continue");
+					return;
+				}
+
+				glyphs.ClearArray();
+				foreach (ControllerElementIdentifier element in ReInput.controllers.Mouse.ElementIdentifiers)
+				{
+					glyphs.InsertArrayElementAtIndex(glyphs.arraySize);
+					SerializedProperty glyphProperty = glyphs.GetArrayElementAtIndex(glyphs.arraySize - 1);
+					SerializedProperty inputID = glyphProperty.FindPropertyRelative("inputID");
+					SerializedProperty description = glyphProperty.FindPropertyRelative("description");
+					SerializedProperty positiveDescription = glyphProperty.FindPropertyRelative("positiveDescription");
+					SerializedProperty negativeDescription = glyphProperty.FindPropertyRelative("negativeDescription");
+					inputID.intValue = element.id;
+					description.stringValue = element.name;
+					positiveDescription.stringValue = element.positiveName;
+					negativeDescription.stringValue = element.negativeName;
+				}
+
+				glyphs.serializedObject.ApplyModifiedProperties();
+				serializedObject.ApplyModifiedProperties();
+				Repaint();
+			}
+
+			EditorGUILayout.EndHorizontal();
 
 			if (controllerDataFiles == null)
 			{
@@ -53,7 +114,6 @@ namespace LMirman.RewiredGlyphs.Editor
 			bool hasHardwareTarget = TryGetHardwareMap(controllerDataFiles, targetGuid, out HardwareJoystickMap hardwareTarget);
 			string targetName = hasHardwareTarget ? hardwareTarget.ControllerName : hasTemplateTarget ? templateTarget.ControllerName : "UNASSIGNED";
 
-			SerializedProperty glyphs = serializedObject.FindProperty("glyphs");
 			if (controllerDataFiles != null)
 			{
 				wantsToValidateMap = EditorGUILayout.Toggle("Validate Map", wantsToValidateMap);
@@ -343,8 +403,10 @@ namespace LMirman.RewiredGlyphs.Editor
 
 				EditorGUILayout.BeginHorizontal();
 				sprite.objectReferenceValue = EditorGUILayout.ObjectField(sprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
-				negativeSprite.objectReferenceValue = EditorGUILayout.ObjectField(negativeSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
-				positiveSprite.objectReferenceValue = EditorGUILayout.ObjectField(positiveSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+				positiveSprite.objectReferenceValue =
+					EditorGUILayout.ObjectField(positiveSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+				negativeSprite.objectReferenceValue =
+					EditorGUILayout.ObjectField(negativeSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
 				EditorGUILayout.BeginVertical();
 				if (GUILayout.Button("Move Up"))
 				{
@@ -379,10 +441,11 @@ namespace LMirman.RewiredGlyphs.Editor
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.BeginHorizontal();
 				GUILayout.Label("Full", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
-				GUILayout.Label("Negative", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
 				GUILayout.Label("Positive", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
+				GUILayout.Label("Negative", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.Space();
+				return;
 
 				void ValidateMap()
 				{
