@@ -77,6 +77,10 @@ Some important members to consider are the following:
 - `Glyph GetCurrentGlyph(int actionID, Pole pole, out AxisRange axisRange, int playerIndex = 0)` - Get the `Glyph` for particular player's action.
 - `void SetGlyphPreferences(HardwarePreference hardwarePreference, SymbolPreference symbolPreference)` - Set the preferred symbols you want to present to the user.
 
+## Documentation
+
+For more information check out [the official documentation](https://orange-panda.github.io/Rewired-Glyphs/) for articles and API reference.
+
 ## Getting Help
 
 - Use the [Issues](https://github.com/Orange-Panda/Rewired-Glyphs/issues) or [Discussions](https://github.com/Orange-Panda/Rewired-Glyphs/discussions) of this GitHub repository for support.
