@@ -4,6 +4,7 @@
   "displayName": "Rewired Input Glyphs",
   "description": "An expansion for Guavaman's Rewired Unity Asset that provides a simple to use API for showing input icons to the player at runtime based on their input method and bindings.",
   "hideInEditor": true,
+	"documentationUrl": "https://orange-panda.github.io/Rewired-Glyphs/",
   "keywords": [
     "input",
     "TextMeshPro",

@@ -143,29 +143,41 @@ namespace LMirman.RewiredGlyphs.Components
 		///	- The first argument must <b>always</b> represent the action to represent as either an integer for the action ID or a string for the action name <i>if and only if</i> it does not contain any spaces.<br/>
 		/// - Following the action argument all arguments may appear in any order.<br/>
 		/// - Arguments are delimited by any occurrence of the space character, <i>even if the space is contained within quotes</i>.<br/>
+		/// - Additional arguments that are string based are <b>case-insensitive</b> such that "TYPE=JOYSTICK" and "type=joystick" are equivalent inputs.<br/>
 		/// <br/>
 		/// <b>Additional Arguments:</b><br/>
 		/// Following the action argument you may optionally include the following arguments to control the output glyph.
 		/// <br/><br/>
-		/// - `Player ID` (Default: 0)<br/>
+		/// - <b>Player ID</b> `player={int}` (Default: 0)<br/>
 		/// Specify the player you'd like to show glyph for using `player=2` where 2 can be any int.
 		/// If an integer is alone without any specifier it is interpret as player id, such as `&lt;glyph Jump 2&gt;` where 2 is player id
 		/// <br/><br/>
-		/// - `Polarity` (Default: Positive)<br/>
+		/// - <b>Polarity</b> `pole={value}` (Default: Positive)<br/>
 		/// Specify the expected axis or pole input for the action such as positive for "Move Right" and negative for "Move Left" on a Move Horizontal action
 		/// using `pole=Positive`, `pole=Negative`, or `pole=FullAxis`. You may exclude `pole` specifier from your input.
 		/// <br/><br/>
-		/// - `Controller Type` (Default: Current)<br/>
+		/// - <b>Controller Type</b> `type={type}` (Default: Current)<br/>
 		/// Specify the controller type to show symbols for using `type=Joystick`.
 		/// Valid values are `type=Current`, `type=Keyboard`, `type=Mouse`, and `type=Joystick`.<br/>
 		/// Warning: Specifying a controller that the runtime device doesn't have connected (such as Joystick) will show the `UNBOUND` symbol until they connect that controller type.<br/>
 		/// Warning: Specifying a controller that does not have the specified action bound to that specific controller will show the `UNBOUND` symbol without falling back to another controller.
 		/// <br/><br/>
-		/// - `Symbol Preference` (Default: <see cref="InputGlyphs.PreferredSymbols"/>)<br/>
+		/// - <b>Symbol Preference</b> `symbol={type}` (Default: <see cref="InputGlyphs.PreferredSymbols"/>)<br/>
 		/// Specify the symbols to use for `Joystick` glyphs.
 		/// Valid values are `symbol=auto`, `symbol=xbox`, `symbol=ps`, or `symbol=switch`.
 		/// <br/><br/>
-		/// All additional arguments that are string based are <b>case-insensitive</b> such that "TYPE=JOYSTICK" and "type=joystick" are equivalent inputs.
+		/// - <b>Collection</b> `set={value}` (Default: `null`, using default collection)<br/>
+		/// Specify the collection to target for glyph queries using its <see cref="GlyphCollection.Key"/>.
+		/// Only necessary when not using default collection.
+		/// Example values are `set=xelu`, `set=dark`, or `set=light`.
+		/// <br/><br/>
+		/// - <b>Hide Keyboard and Mouse</b> `hideKBM` (Default: false)<br/>
+		/// When argument is provided will not show glyphs for the `Keyboard` and `Mouse` device.
+		/// Valid value is `hideKBM`.
+		/// <br/><br/>
+		/// - <b>Hide Invalid</b> `hideInvalid` (Default: false)<br/>
+		/// When argument is provided will not show invalid glyphs such as `Unbound`, `Null`, and `Uninitialized`
+		/// Valid value is `hideInvalid`.
 		/// </summary>
 		/// <remarks>Does not mutate the provided string.</remarks>
 		[Pure]

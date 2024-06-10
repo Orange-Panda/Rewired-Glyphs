@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 
+- Added official `Documentation~` which can also be found online at https://orange-panda.github.io/Rewired-Glyphs/
+	- This is an ongoing project, so you are encouraged to make article requests in the [Issues](https://github.com/Orange-Panda/Rewired-Glyphs/issues)
+	  or [Discussions](https://github.com/Orange-Panda/Rewired-Glyphs/discussions) if you are unable to find documentation for your use case.
 - Added `ControllerType` property to `Glyph` to inform components about the device the glyph intends to represent.
 	- All GUID and Template maps represent `Joystick` glyphs, Hardware maps are usually `Joystick` except for `Keyboard`, `Mouse`, and `Unknown` hardware definition.
 - Added optional feature for hiding non-input glyphs (null, uninitialized, etc.) on built-in components (default does not hide)
@@ -21,12 +24,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - ⚠️ **[Breaking]** - Added `collectionKey` optional parameter to all `InputGlyphs` methods for referencing secondary (non-default) collections
 - Added `additionalCollections` field to `RewiredGlyphManager` for additively loading additional collection for reference by their `collectionKey`
 	- This field also supports generating TMP sprite sheets (generates for default collection and collections included in additional collections)
-    - Note: Make sure the names of the sprite sheets containing glyphs are unique since they are referenced by name in TextMeshPro. An error message has been added to notify about such collisions. 
+	- Note: Make sure the names of the sprite sheets containing glyphs are unique since they are referenced by name in TextMeshPro. An error message has been added to notify about such collisions.
 - Added optional specifier `set=collectionname` for `GlyphRichTextFormatter` to target secondary glyph collections
 	- Example: `<glyph Jump set=dark>` where 'dark' is the `collectionKey` on some `GlyphCollection` that is loaded into InputGlyphs
+- Added `Generate Keyboard` and `Generate Mouse` functionality to `Glyph Map` for generating default Glyph Map actions
+	- Requires the application running due to technical limitations
 
 ### Changed
 
+- Changed order of sprites in Glyph editor (now ordered Full, Positive, Negative to match description order)
 - Rewrote the way glyph collections are loaded into memory internally
 	- Switching the active glyph collection is now much more performant
 	- Loading a glyph collection now only dispatches a glyph update if it may have changed the output of glyph queries
