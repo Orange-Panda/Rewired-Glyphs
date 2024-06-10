@@ -17,7 +17,10 @@ namespace LMirman.RewiredGlyphs.Editor
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
-			if (GUILayout.Button("Generate TMP Sprite Sheet"))
+			if (GUILayout.Button("Generate TMP Sprite Assets") &&
+			    EditorUtility.DisplayDialog("Confirm Generation",
+				    "This action will create TextMeshPro Sprite Assets for every Collection on this manager, allowing them be used inline with TextMeshPro. This action is irreversible.",
+				    "Generate", "Cancel"))
 			{
 				usedSpriteSheetNames.Clear();
 				// Get the collection to generate from
@@ -51,12 +54,7 @@ namespace LMirman.RewiredGlyphs.Editor
 			void GenerateForCollection(GlyphCollection collection)
 			{
 				// Get all glyphs
-				List<Glyph> glyphs = new List<Glyph>
-				{
-					collection.NullGlyph,
-					collection.UnboundGlyph,
-					collection.UninitializedGlyph
-				};
+				List<Glyph> glyphs = new List<Glyph> { collection.NullGlyph, collection.UnboundGlyph, collection.UninitializedGlyph };
 				glyphs.AddRange(collection.GuidMaps.SelectMany(guidEntry => guidEntry.glyphMap.Glyphs));
 				glyphs.AddRange(collection.HardwareMaps.SelectMany(hardwareEntry => hardwareEntry.glyphMap.Glyphs));
 				glyphs.AddRange(collection.TemplateMaps.SelectMany(templateEntry => templateEntry.glyphMap.Glyphs));
@@ -78,6 +76,7 @@ namespace LMirman.RewiredGlyphs.Editor
 					{
 						Debug.LogError($"Generated multiple sprite sheets with name \"{sheetOutput.spriteAssetName}\". Multiple sprite sheets can't have the same name, please rename.");
 					}
+
 					spriteSheetOutputs.Add(sheetOutput.spriteAssetPath, sheetOutput);
 				}
 
@@ -185,11 +184,7 @@ namespace LMirman.RewiredGlyphs.Editor
 
 				spriteGlyphTable.Add(spriteGlyph);
 
-				TMP_SpriteCharacter spriteCharacter = new TMP_SpriteCharacter(0xFFFE, spriteGlyph)
-				{
-					name = sprite.name,
-					scale = 1.0f
-				};
+				TMP_SpriteCharacter spriteCharacter = new TMP_SpriteCharacter(0xFFFE, spriteGlyph) { name = sprite.name, scale = 1.0f };
 
 				spriteCharacterTable.Add(spriteCharacter);
 			}

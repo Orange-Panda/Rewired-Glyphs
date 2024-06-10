@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Added `Generate Keyboard` and `Generate Mouse` functionality to `Glyph Map` for generating default Glyph Map actions
 	- Requires the application running due to technical limitations
 - Added component icons to all major components and scriptable objects of the package
+- Added confirmation dialogue before generating TMP sprite sheet on Rewired Glyph Manager
 
 ### Changed
 
