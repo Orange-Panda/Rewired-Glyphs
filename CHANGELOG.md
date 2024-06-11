@@ -68,6 +68,7 @@ This release includes *major breaking* changes which will require your attention
 	- If you were utilizing a value of `true` you may notice different output of this method.
 	- This method was being used by `GlyphRichTextFormatter` therefore tags such as `<glyph "MoveH" pole=FullAxis>` will output differently.
 - Fixed Glyph `Positive` and `Negative` description sometimes not returning the expected value
+- Fixed description validation error in `GlyphMapEditor` 
 
 ## [1.5.0] - 2024-05-30
 

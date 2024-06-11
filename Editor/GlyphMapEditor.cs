@@ -492,14 +492,16 @@ namespace LMirman.RewiredGlyphs.Editor
 						HelpBox($"Description mismatch between target map and glyph. Expected \"{elementName}\"", MessageType.Warning);
 						mapWarnings++;
 					}
-					else if (!string.Equals(positiveName, positiveDescription.stringValue, StringComparison.OrdinalIgnoreCase))
+
+					if (!string.Equals(positiveName, positiveDescription.stringValue, StringComparison.OrdinalIgnoreCase))
 					{
-						HelpBox($"Positive description mismatch between target map and glyph. Expected \"{elementName}\"", MessageType.Warning);
+						HelpBox($"Positive description mismatch between target map and glyph. Expected \"{positiveName}\"", MessageType.Warning);
 						mapWarnings++;
 					}
-					else if (!string.Equals(negativeName, negativeDescription.stringValue, StringComparison.OrdinalIgnoreCase))
+
+					if (!string.Equals(negativeName, negativeDescription.stringValue, StringComparison.OrdinalIgnoreCase))
 					{
-						HelpBox($"Negative description mismatch between target map and glyph. Expected \"{elementName}\"", MessageType.Warning);
+						HelpBox($"Negative description mismatch between target map and glyph. Expected \"{negativeName}\"", MessageType.Warning);
 						mapWarnings++;
 					}
 				}
