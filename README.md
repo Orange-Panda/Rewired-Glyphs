@@ -23,7 +23,7 @@ An expansion for Guavaman's [Rewired Unity Asset](https://assetstore.unity.com/p
 	3. Press the + icon at the top left of the Package Manager window
 	4. Choose "Add package from Git URL"
 	5. Enter the following into the field and press enter: 
-	   1. Tip: You can append a version to the end of the Git URL to lock it to a specific version such as `https://github.com/Orange-Panda/Rewired-Glyphs.git#v2.0.0`
+	   1. Tip: You can append a version to the end of the Git URL to lock it to a specific version such as `https://github.com/Orange-Panda/Rewired-Glyphs.git#2.0.0`
 	```
 	https://github.com/Orange-Panda/Rewired-Glyphs.git
 	```
