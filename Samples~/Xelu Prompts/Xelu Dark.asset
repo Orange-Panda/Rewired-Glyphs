@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39aeeac722abefe418ceefb14f459f67, type: 3}
+  m_Name: Xelu Dark
+  m_EditorClassIdentifier: 
+  controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}
+  key: xelu_dark
+  guidMaps:
+  - controllerType: 0
+    guid: 
+    glyphMap: {fileID: 11400000, guid: 3ad0dd5930ccf884b9b373ca67ab69d3, type: 2}
+  - controllerType: 1
+    guid: 
+    glyphMap: {fileID: 11400000, guid: ee152f8edf056884d81b9c0ed7f5ed28, type: 2}
+  - controllerType: 2
+    guid: 5286706d-19b4-4a45-b635-207ce78d8394
+    glyphMap: {fileID: 11400000, guid: f1adca784daac6948a824f81afb7fafe, type: 2}
+  - controllerType: 2
+    guid: 7bf3154b-9db8-4d52-950f-cd0eed8a5819
+    glyphMap: {fileID: 11400000, guid: e3ffd124527174244904c116b5f0e8f7, type: 2}
+  - controllerType: 2
+    guid: 19002688-7406-4f4a-8340-8d25335406c8
+    glyphMap: {fileID: 11400000, guid: a28db0972f251394aa9ee4f808c1dcbe, type: 2}
+  templateMaps:
+  - symbolPreference: 0
+    glyphMap: {fileID: 11400000, guid: 0b49240240314234fb4d78cedb0b540c, type: 2}
+  - symbolPreference: 1
+    glyphMap: {fileID: 11400000, guid: 0b49240240314234fb4d78cedb0b540c, type: 2}
+  - symbolPreference: 2
+    glyphMap: {fileID: 11400000, guid: d7a58dd40951cbc4c82d5c4651fed751, type: 2}
+  - symbolPreference: 3
+    glyphMap: {fileID: 11400000, guid: b34be59c4e201aa49abf9d82835473dc, type: 2}
+  unboundGlyph:
+    inputID: -1
+    description: UNBOUND
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 21300000, guid: 65a09e01e5c90a64b9b771bcc1b3e08d, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: Xelu_Unbound_Dark
+  nullGlyph:
+    inputID: -1
+    description: NULL
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 21300000, guid: 65a09e01e5c90a64b9b771bcc1b3e08d, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: Xelu_Unbound_Dark
+  uninitializedGlyph:
+    inputID: -1
+    description: UNINITIALIZED
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 21300000, guid: 65a09e01e5c90a64b9b771bcc1b3e08d, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: Xelu_Unbound_Dark

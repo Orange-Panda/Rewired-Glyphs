@@ -1,0 +1,217 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fad9d36fb691a84fb906682a04a0681, type: 3}
+  m_Name: Dualsense
+  m_EditorClassIdentifier: 
+  controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}
+  controllerGuid: 5286706d-19b4-4a45-b635-207ce78d8394
+  glyphs:
+  - inputID: 0
+    description: Left Stick X
+    positiveDescription: Left Stick Right
+    negativeDescription: Left Stick Left
+    sprite: {fileID: -300422790, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 1661326533, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    negativeSprite: {fileID: -145906469, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    textMeshSpriteSheetName: 
+  - inputID: 1
+    description: Left Stick Y
+    positiveDescription: Left Stick Up
+    negativeDescription: Left Stick Down
+    sprite: {fileID: -524872345, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: -1539281801, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    negativeSprite: {fileID: 2057351441, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    textMeshSpriteSheetName: 
+  - inputID: 2
+    description: Right Stick X
+    positiveDescription: Right Stick Right
+    negativeDescription: Right Stick Left
+    sprite: {fileID: 1335184624, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: -1143218202, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    negativeSprite: {fileID: 735501686, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    textMeshSpriteSheetName: 
+  - inputID: 3
+    description: Right Stick Y
+    positiveDescription: Right Stick Up
+    negativeDescription: Right Stick Down
+    sprite: {fileID: -880487775, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 1325589087, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    negativeSprite: {fileID: -796703160, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    textMeshSpriteSheetName: 
+  - inputID: 6
+    description: Cross
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2910863, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 7
+    description: Circle
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -592714964, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 8
+    description: Square
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -1110793387, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 9
+    description: Triangle
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -1520205096, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 10
+    description: L1
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -111211752, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 4
+    description: L2
+    positiveDescription: L2
+    negativeDescription: 
+    sprite: {fileID: 286765381, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 11
+    description: R1
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1325138890, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 5
+    description: R2
+    positiveDescription: R2
+    negativeDescription: 
+    sprite: {fileID: 1172979338, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 12
+    description: Create
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1108610916, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 13
+    description: Options
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -1994838104, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 14
+    description: PS Button
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 0}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 15
+    description: Touchpad Button
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1488906293, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 24
+    description: Mute
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -774263050, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 16
+    description: Left Stick Button
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -2021382345, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 17
+    description: Right Stick Button
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2117028874, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 18
+    description: D-Pad Up
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1108560029, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 19
+    description: D-Pad Right
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1376765057, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 20
+    description: D-Pad Down
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -1416088994, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 21
+    description: D-Pad Left
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2057528592, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 22
+    description: Left Stick
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 310156454, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
+  - inputID: 23
+    description: Right Stick
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 438391479, guid: b4a1360265c84964f9d656979a8a31a6, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: 
