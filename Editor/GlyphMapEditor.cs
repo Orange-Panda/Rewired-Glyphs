@@ -102,7 +102,7 @@ namespace LMirman.RewiredGlyphs.Editor
 
 			if (controllerDataFiles == null)
 			{
-				EditorGUILayout.HelpBox("Select a controller data files asset to generate and validate your glyph map:", MessageType.Error, true);
+				EditorGUILayout.HelpBox("Controller data file asset required to generate and validate Joystick glyph map", MessageType.Warning, true);
 			}
 
 			EditorGUILayout.PropertyField(controllerDataFilesProperty);

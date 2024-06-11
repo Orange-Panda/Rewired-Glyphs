@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Rewired;
 using System;
 using System.Collections.Generic;
@@ -76,32 +77,31 @@ namespace LMirman.RewiredGlyphs
 			timer = hardwareChangePollingRate;
 			foreach (ObservedPlayer observedPlayer in observedPlayers)
 			{
-				Controller lastActiveController = observedPlayer.player.controllers.GetMostRecentController();
-				HardwareDefinition controllerType = InputGlyphs.GetHardwareDefinition(lastActiveController);
-				bool isDifferentHardware = controllerType != observedPlayer.lastHardwareUsed;
-				bool isHardwareSimilar = IsKeyboardMouse(observedPlayer.lastHardwareUsed) && IsKeyboardMouse(controllerType);
+				Controller recentController = observedPlayer.player.controllers.GetMostRecentController();
+				bool isDifferentHardware = recentController != observedPlayer.lastController;
+				bool isHardwareSimilar = IsKeyboardMouse(observedPlayer.lastController) && IsKeyboardMouse(recentController);
 				if (isDifferentHardware && !isHardwareSimilar)
 				{
-					observedPlayer.lastHardwareUsed = controllerType;
+					observedPlayer.lastController = recentController;
 					InputGlyphs.MarkGlyphsDirty();
 				}
 			}
 		}
 
-		private static bool IsKeyboardMouse(HardwareDefinition type)
+		private static bool IsKeyboardMouse([CanBeNull] Controller controller)
 		{
-			return type is HardwareDefinition.Mouse or HardwareDefinition.Keyboard;
+			return controller is { type: ControllerType.Mouse or ControllerType.Keyboard };
 		}
 
 		private class ObservedPlayer
 		{
 			public readonly Player player;
-			public HardwareDefinition lastHardwareUsed;
+			public Controller lastController;
 
 			public ObservedPlayer(Player player)
 			{
 				this.player = player;
-				lastHardwareUsed = HardwareDefinition.Unknown;
+				lastController = null;
 			}
 		}
 	}

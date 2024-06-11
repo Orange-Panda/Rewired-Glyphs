@@ -6,13 +6,33 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [2.0.0] - UNRELEASED
 
+### ❇️ Upgrade Guide ❇️
+
+This release includes *major breaking* changes which will require your attention in order to upgrade to this version and any later release from `1.x`
+
+- For each `GlyphCollection` already in your project, reassign the associated glyph maps using the new format
+	- If you are using one of the `GlyphCollection` samples you may also import their updated `2.x` version
+- Remove any references to `HardwareDefinition` in your project, if any
+- Update `GetNativeGlyphFromGuidMap` method calls to use the new syntax
+
+### ⚠️ Major Breaking Change - Hardware Definition Removed ⚠️
+
+- `Hardware Definition` has been completely removed in favor of an improved user experience when creating `GlyphCollection` and more accurate glyph queries
+- Methods that were directly associated with `HardwareDefinition` have been removed entirely.
+- Non-template glyphs now target controller devices using the `ControllerType` and `hardwareTypeGuid` values.
+	- The signature for some query methods have changed as a result such as `GetNativeGlyphFromGuidMap`
+- You *will* have to update your `GlyphCollection` when updating to v2.0.0 by reassigning your glyph maps to the collection!
+- If you used any methods that used `HardwareDefinition` your code will *not* compile when upgrading to this version and will require changes.
+
 ### Added
 
 - Added official `Documentation~` which can also be found online at https://orange-panda.github.io/Rewired-Glyphs/
 	- This is an ongoing project, so you are encouraged to make article requests in the [Issues](https://github.com/Orange-Panda/Rewired-Glyphs/issues)
 	  or [Discussions](https://github.com/Orange-Panda/Rewired-Glyphs/discussions) if you are unable to find documentation for your use case.
+- Added an overhauled `GlyphCollection` editor user experience
 - Added `ControllerType` property to `Glyph` to inform components about the device the glyph intends to represent.
-	- All GUID and Template maps represent `Joystick` glyphs, Hardware maps are usually `Joystick` except for `Keyboard`, `Mouse`, and `Unknown` hardware definition.
+	- All Template maps represent `Joystick` glyphs
+	- Controller maps use the value defined in its entry on the `GlyphCollection`
 - Added optional feature for hiding non-input glyphs (null, uninitialized, etc.) on built-in components (default does not hide)
 	- Enable in `GlyphRichTextFormatter` using `hideInvalid` option in glyph tag (Example: `<glyph Jump hideInvalid>`)
 - Added optional feature for hiding keyboard and mouse glyphs in built-in components (default does not hide)
@@ -40,12 +60,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 	- Switching the active glyph collection is now much more performant
 	- Loading a glyph collection now only dispatches a glyph update if it may have changed the output of glyph queries
 - `GlyphCollection` now initializes non-input glyph values with default values when created.
+- Remove set access to `TemplateEntry` and `GuidEntry`
 
 ### Fixed
 
 - ⚠️ **[Breaking]** - Fixed `GetSpecificCurrentGlyph` and `GetCurrentGlyph` not utilizing the value of its 'forceAxis' parameter.
 	- If you were utilizing a value of `true` you may notice different output of this method.
 	- This method was being used by `GlyphRichTextFormatter` therefore tags such as `<glyph "MoveH" pole=FullAxis>` will output differently.
+- Fixed Glyph `Positive` and `Negative` description sometimes not returning the expected value
 
 ## [1.5.0] - 2024-05-30
 

@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using Rewired.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace LMirman.RewiredGlyphs
@@ -24,13 +25,7 @@ namespace LMirman.RewiredGlyphs
 
 		public Dictionary<int, Glyph> CreateDictionary()
 		{
-			Dictionary<int, Glyph> lookup = new Dictionary<int, Glyph>();
-			foreach (Glyph current in glyphs)
-			{
-				lookup.Add(current.InputID, current);
-			}
-
-			return lookup;
+			return glyphs.ToDictionary(current => current.InputID);
 		}
 	}
 }

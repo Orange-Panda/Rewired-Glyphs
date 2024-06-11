@@ -55,9 +55,8 @@ namespace LMirman.RewiredGlyphs.Editor
 			{
 				// Get all glyphs
 				List<Glyph> glyphs = new List<Glyph> { collection.NullGlyph, collection.UnboundGlyph, collection.UninitializedGlyph };
-				glyphs.AddRange(collection.GuidMaps.SelectMany(guidEntry => guidEntry.glyphMap.Glyphs));
-				glyphs.AddRange(collection.HardwareMaps.SelectMany(hardwareEntry => hardwareEntry.glyphMap.Glyphs));
-				glyphs.AddRange(collection.TemplateMaps.SelectMany(templateEntry => templateEntry.glyphMap.Glyphs));
+				glyphs.AddRange(collection.GuidMaps.SelectMany(guidEntry => guidEntry.GlyphMap.Glyphs));
+				glyphs.AddRange(collection.TemplateMaps.SelectMany(templateEntry => templateEntry.GlyphMap.Glyphs));
 
 				// Get all unique asset names from all glyphs.
 				// Note: We naively check the FullSprite only because exclusively having Positive or Negative sprites on a separate sprite sheet is impractical
@@ -98,17 +97,12 @@ namespace LMirman.RewiredGlyphs.Editor
 				// Set assets as dirty
 				foreach (GlyphCollection.GuidEntry guidEntry in collection.GuidMaps)
 				{
-					EditorUtility.SetDirty(guidEntry.glyphMap);
-				}
-
-				foreach (GlyphCollection.HardwareEntry hardwareEntry in collection.HardwareMaps)
-				{
-					EditorUtility.SetDirty(hardwareEntry.glyphMap);
+					EditorUtility.SetDirty(guidEntry.GlyphMap);
 				}
 
 				foreach (GlyphCollection.TemplateEntry templateEntry in collection.TemplateMaps)
 				{
-					EditorUtility.SetDirty(templateEntry.glyphMap);
+					EditorUtility.SetDirty(templateEntry.GlyphMap);
 				}
 
 				EditorUtility.SetDirty(collection);

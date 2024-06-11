@@ -67,24 +67,6 @@ namespace LMirman.RewiredGlyphs
 		/// The glyph collection to used by default (due to invalid <see cref="Collections"/> lookup or no specifier provided).
 		/// </summary>
 		private static RuntimeGlyphCollection defaultCollection;
-		/// <summary>
-		/// Lookup table that matches hardware ids to what kind of glyphs should be shown.
-		/// </summary>
-		/// <remarks>
-		/// This table is not exhaustive and only contains the most common controller guids.
-		/// </remarks>
-		private static readonly Dictionary<Guid, HardwareDefinition> ControllerGuids = new Dictionary<Guid, HardwareDefinition>
-		{
-			{ new Guid("d74a350e-fe8b-4e9e-bbcd-efff16d34115"), HardwareDefinition.Xbox }, // Xbox 360
-			{ new Guid("19002688-7406-4f4a-8340-8d25335406c8"), HardwareDefinition.Xbox }, // Xbox One
-			{ new Guid("c3ad3cad-c7cf-4ca8-8c2e-e3df8d9960bb"), HardwareDefinition.Playstation2 }, // Playstation 2
-			{ new Guid("71dfe6c8-9e81-428f-a58e-c7e664b7fbed"), HardwareDefinition.Playstation3 }, // Playstation 3
-			{ new Guid("cd9718bf-a87a-44bc-8716-60a0def28a9f"), HardwareDefinition.Playstation }, // Playstation 4
-			{ new Guid("5286706d-19b4-4a45-b635-207ce78d8394"), HardwareDefinition.Playstation }, // Playstation 5
-			{ new Guid("521b808c-0248-4526-bc10-f1d16ee76bf1"), HardwareDefinition.NintendoSwitch }, // Joycons (Dual)
-			{ new Guid("1fbdd13b-0795-4173-8a95-a2a75de9d204"), HardwareDefinition.NintendoSwitch }, // Joycons (Handheld)
-			{ new Guid("7bf3154b-9db8-4d52-950f-cd0eed8a5819"), HardwareDefinition.NintendoSwitch } // Pro controller
-		};
 
 		/// <summary>
 		/// Glyph representing an action that is invalid.
@@ -252,14 +234,14 @@ namespace LMirman.RewiredGlyphs
 			if (mouseMap != null)
 			{
 				axisRange = expectedMouse;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId, collectionKey);
+				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Mouse, mouseMap.elementIdentifierId, collectionKey);
 				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
 			if (keyboardMap != null)
 			{
 				axisRange = expectedKeyboard;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
+				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
 				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName);
 			}
 
@@ -295,7 +277,7 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			axisRange = expectedAxis;
-			Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
+			Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
 			return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName);
 		}
 
@@ -325,7 +307,7 @@ namespace LMirman.RewiredGlyphs
 			if (mouseMap != null)
 			{
 				axisRange = expectedAxis;
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, mouseMap.elementIdentifierId, collectionKey);
+				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Mouse, mouseMap.elementIdentifierId, collectionKey);
 				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName);
 			}
 
@@ -456,7 +438,7 @@ namespace LMirman.RewiredGlyphs
 			player.GetAllActionElementMaps(ControllerType.Keyboard, actionID, pole, forceAxis, elementQueryOutput);
 			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
 			{
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Keyboard, element.Item1.elementIdentifierId, collectionKey);
+				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Keyboard, element.Item1.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					output.Add((glyph, element.Item2));
@@ -467,7 +449,7 @@ namespace LMirman.RewiredGlyphs
 			player.GetAllActionElementMaps(ControllerType.Mouse, actionID, pole, forceAxis, elementQueryOutput);
 			foreach ((ActionElementMap, AxisRange) element in elementQueryOutput)
 			{
-				Glyph glyph = GetNativeGlyphFromHardwareMap(HardwareDefinition.Mouse, element.Item1.elementIdentifierId, collectionKey);
+				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Mouse, element.Item1.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					output.Add((glyph, element.Item2));
@@ -477,28 +459,6 @@ namespace LMirman.RewiredGlyphs
 			return GlyphSetQueryResult.Success;
 		}
 		#endregion
-
-		/// <summary>
-		/// Determine the hardware definition to use for a controller based on the controller's hardwareTypeGuid.
-		/// </summary>
-		/// <remarks>
-		/// The hardware id is searched within <see cref="ControllerGuids"/>.
-		/// </remarks>
-		/// <param name="controller">The controller the evaluate the hardware definition of</param>
-		/// <returns>
-		/// The <see cref="HardwareDefinition"/> for the provided controller.
-		/// Will return <see cref="HardwareDefinition.Unknown"/> if the controller is null or no definition found in <see cref="ControllerGuids"/>
-		/// </returns>
-		public static HardwareDefinition GetHardwareDefinition(Controller controller)
-		{
-			if (!CanRetrieveGlyph || controller == null)
-			{
-				return HardwareDefinition.Unknown;
-			}
-
-			bool controllerHasHardwareDefinition = ControllerGuids.TryGetValue(controller.hardwareTypeGuid, out HardwareDefinition controllerHardwareDefinition);
-			return controllerHasHardwareDefinition ? controllerHardwareDefinition : HardwareDefinition.Unknown;
-		}
 
 		/// <summary>
 		/// Clear out the player cache of the input glyph system.
@@ -556,27 +516,21 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		#region Public Unsafe
-		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromGuidMap"/>
-		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
+		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromGuidMap(ControllerType, Guid, int)"/>
 		[CanBeNull]
-		public static Glyph GetNativeGlyphFromGuidMap(Guid hardwareGuid, int elementID, [CanBeNull] string collectionKey = null)
+		public static Glyph GetNativeGlyphFromGuidMap(ControllerType controllerType, Guid hardwareGuid, int elementID, [CanBeNull] string collectionKey = null)
 		{
-			return GetGlyphCollection(collectionKey).GetNativeGlyphFromGuidMap(hardwareGuid, elementID);
+			return GetGlyphCollection(collectionKey).GetNativeGlyphFromGuidMap(controllerType, hardwareGuid, elementID);
 		}
 
-		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromHardwareMap"/>
-		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
-		/// <seealso cref="GetKeyboardMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
-		/// <seealso cref="GetKeyboardGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
-		/// <seealso cref="GetMouseGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
+		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromGuidMap(ControllerType, Guid, int)"/>
 		[CanBeNull]
-		public static Glyph GetNativeGlyphFromHardwareMap(HardwareDefinition controller, int elementID, [CanBeNull] string collectionKey = null)
+		public static Glyph GetNativeGlyphFromGuidMap(Controller controller, int elementID, [CanBeNull] string collectionKey = null)
 		{
-			return GetGlyphCollection(collectionKey).GetNativeGlyphFromHardwareMap(controller, elementID);
+			return GetGlyphCollection(collectionKey).GetNativeGlyphFromGuidMap(controller, elementID);
 		}
 
 		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromTemplateMap"/>
-		/// <seealso cref="GetJoystickGlyph(int,Rewired.Controller,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
 		[CanBeNull]
 		public static Glyph GetNativeGlyphFromTemplateMap(SymbolPreference symbolPreference, int templateElementID, [CanBeNull] string collectionKey = null)
 		{
@@ -663,14 +617,7 @@ namespace LMirman.RewiredGlyphs
 			// Try to retrieve a glyph that is specific to the user's controller hardware.
 			if (controller != null && symbolPreference == SymbolPreference.Auto)
 			{
-				Glyph glyph = GetNativeGlyphFromGuidMap(controller.hardwareTypeGuid, map.elementIdentifierId, collectionKey);
-				if (glyph != null)
-				{
-					return glyph;
-				}
-
-				HardwareDefinition controllerType = GetHardwareDefinition(controller);
-				glyph = GetNativeGlyphFromHardwareMap(controllerType, map.elementIdentifierId, collectionKey);
+				Glyph glyph = GetNativeGlyphFromGuidMap(controller, map.elementIdentifierId, collectionKey);
 				if (glyph != null)
 				{
 					return glyph;
@@ -805,12 +752,7 @@ namespace LMirman.RewiredGlyphs
 		[Pure]
 		internal static string ToCleansedCollectionKey(this string rawString)
 		{
-			if (rawString == null)
-			{
-				return string.Empty;
-			}
-
-			return NonAlphaNumericRegex.Replace(rawString.ToLowerInvariant(), string.Empty);
+			return rawString == null ? string.Empty : NonAlphaNumericRegex.Replace(rawString.ToLowerInvariant(), string.Empty);
 		}
 		#endregion
 	}

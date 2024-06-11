@@ -158,9 +158,9 @@ namespace LMirman.RewiredGlyphs
 				case AxisRange.Full:
 					return description ?? string.Empty;
 				case AxisRange.Positive:
-					return string.IsNullOrWhiteSpace(positiveDescription) ? positiveDescription : description ?? string.Empty;
+					return !string.IsNullOrWhiteSpace(positiveDescription) ? positiveDescription : description ?? string.Empty;
 				case AxisRange.Negative:
-					return string.IsNullOrWhiteSpace(negativeDescription) ? negativeDescription : description ?? string.Empty;
+					return !string.IsNullOrWhiteSpace(negativeDescription) ? negativeDescription : description ?? string.Empty;
 				default:
 					return description ?? string.Empty;
 			}
