@@ -37,16 +37,16 @@ namespace LMirman.RewiredGlyphs
 		[Space]
 		[Tooltip("The glyph to be shown if the action exists but there is no input mapping to it.")]
 		[SerializeField]
-		private Glyph unboundGlyph;
+		private Glyph unboundGlyph = new Glyph(-1, "UNBOUND", null, Glyph.Type.Unbound);
 		/// <inheritdoc cref="nullGlyph"/>
 		[Space]
 		[Tooltip("The glyph to be shown if the action does not exist, usually as a result of an invalid action id query.")]
 		[SerializeField]
-		private Glyph nullGlyph;
+		private Glyph nullGlyph = new Glyph(-1, "NULL", null, Glyph.Type.Null);
 		[Space]
 		[Tooltip("The glyph to be shown if the input system is not ready to show input icons, usually due to edit mode query or inactive input system")]
 		[SerializeField]
-		private Glyph uninitializedGlyph;
+		private Glyph uninitializedGlyph = new Glyph(-1, "UNINITIALIZED", null, Glyph.Type.Uninitialized);
 
 		/// <summary>
 		/// A unique alphanumeric key used for referencing this collection at runtime if it is not the default collection.
