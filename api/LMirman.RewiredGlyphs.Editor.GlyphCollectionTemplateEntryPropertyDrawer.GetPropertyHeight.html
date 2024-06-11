@@ -5,10 +5,10 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class GlyphCollection.TemplateEntry
+      <title>Method GetPropertyHeight
  | Rewired Glyphs Docs </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class GlyphCollection.TemplateEntry
+      <meta name="title" content="Method GetPropertyHeight
  | Rewired Glyphs Docs ">
       <meta name="generator" content="docfx ">
   
@@ -95,84 +95,60 @@
                         </div>
 
 
-                    <article class="content wrap" id="_content" data-uid="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry">
+                    <article class="content wrap" id="_content" data-uid="LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight*">
 
 
 
-  <h1 id="LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry" data-uid="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry" class="text-break">Class GlyphCollection.TemplateEntry
+<h1 id="LMirman_RewiredGlyphs_Editor_GlyphCollectionTemplateEntryPropertyDrawer_GetPropertyHeight_" data-uid="LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight*">Method GetPropertyHeight
 </h1>
-  <div class="markdown level0 summary"><p>A template entry is used for assigning a <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_GlyphMap">GlyphMap</a> to a <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.html">GlyphCollection</a> and associating it with a particular <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_SymbolPreference">SymbolPreference</a>.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">GlyphCollection.TemplateEntry</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LMirman.html">LMirman</a>.<a class="xref" href="LMirman.RewiredGlyphs.html">RewiredGlyphs</a></h6>
-  <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Serializable]
-public class GlyphCollection.TemplateEntry</code></pre>
-  </div>
-  <h5 id="LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Only <code>Joystick</code> glyph maps that map to the <code>Gamepad</code> template should be used here.
-<br><br>
-If there is no map defined for a particular <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_SymbolPreference">SymbolPreference</a> will use <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.DefaultGamepadTemplateMap.html#LMirman_RewiredGlyphs_GlyphCollection_DefaultGamepadTemplateMap">DefaultGamepadTemplateMap</a> as a fallback.
-<br><br>
-The <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_symbolPreference">symbolPreference</a> value is a unique key for the glyph map at runtime.
-Therefore, having multiple template entries with the same <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_symbolPreference">symbolPreference</a> value should be avoided since only the latest one will be available.</p>
-</div>
-  <h3 id="properties">Properties
-</h3>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_GlyphMap" data-uid="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap">
-          <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_GlyphMap">GlyphMap</a>
-        </td>
-        <td class="markdown level1 summary"></td>
-      </tr>
-      <tr>
-        <td id="LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_SymbolPreference" data-uid="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference">
-          <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_SymbolPreference">SymbolPreference</a>
-        </td>
-        <td class="markdown level1 summary"></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="markdown level0 summary"></div>
+<div class="markdown level0 conceptual"></div>
 
+<a id="LMirman_RewiredGlyphs_Editor_GlyphCollectionTemplateEntryPropertyDrawer_GetPropertyHeight_" data-uid="LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight*"></a>
+<h4 id="LMirman_RewiredGlyphs_Editor_GlyphCollectionTemplateEntryPropertyDrawer_GetPropertyHeight_SerializedProperty_GUIContent_" data-uid="LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)">GetPropertyHeight(SerializedProperty, GUIContent)</h4>
+<div class="markdown level1 summary"></div>
+<div class="markdown level1 conceptual"></div>
+<h5 class="declaration">Declaration</h5>
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public override float GetPropertyHeight(SerializedProperty property, GUIContent label)</code></pre>
+</div>
+<h5 class="parameters">Parameters</h5>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="xref">SerializedProperty</span></td>
+      <td><span class="parametername">property</span></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="xref">GUIContent</span></td>
+      <td><span class="parametername">label</span></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h5 class="returns">Returns</h5>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 </article>
                 </div>
 

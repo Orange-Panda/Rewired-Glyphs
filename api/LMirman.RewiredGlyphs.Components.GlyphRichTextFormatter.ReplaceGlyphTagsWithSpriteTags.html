@@ -113,30 +113,42 @@
 <li>The glyph tag begins with verbatim <code>&lt;glyph </code> and ends at any <code>&gt;</code> character.<br></li>
 <li>The first argument must <b>always</b> represent the action to represent as either an integer for the action ID or a string for the action name <i>if and only if</i> it does not contain any spaces.<br></li>
 <li>Following the action argument all arguments may appear in any order.<br></li>
-<li>Arguments are delimited by any occurrence of the space character, <i>even if the space is contained within quotes</i>.<br>
+<li>Arguments are delimited by any occurrence of the space character, <i>even if the space is contained within quotes</i>.<br></li>
+<li>Additional arguments that are string based are <b>case-insensitive</b> such that &quot;TYPE=JOYSTICK&quot; and &quot;type=joystick&quot; are equivalent inputs.<br>
 <br>
 <b>Additional Arguments:</b><br>
 Following the action argument you may optionally include the following arguments to control the output glyph.
 <br><br></li>
-<li><code>Player ID</code> (Default: 0)<br>
+<li><b>Player ID</b> <code>player={int}</code> (Default: 0)<br>
 Specify the player you'd like to show glyph for using <code>player=2</code> where 2 can be any int.
 If an integer is alone without any specifier it is interpret as player id, such as <code>&lt;glyph Jump 2&gt;</code> where 2 is player id
 <br><br></li>
-<li><code>Polarity</code> (Default: Positive)<br>
+<li><b>Polarity</b> <code>pole={value}</code> (Default: Positive)<br>
 Specify the expected axis or pole input for the action such as positive for &quot;Move Right&quot; and negative for &quot;Move Left&quot; on a Move Horizontal action
 using <code>pole=Positive</code>, <code>pole=Negative</code>, or <code>pole=FullAxis</code>. You may exclude <code>pole</code> specifier from your input.
 <br><br></li>
-<li><code>Controller Type</code> (Default: Current)<br>
+<li><b>Controller Type</b> <code>type={type}</code> (Default: Current)<br>
 Specify the controller type to show symbols for using <code>type=Joystick</code>.
 Valid values are <code>type=Current</code>, <code>type=Keyboard</code>, <code>type=Mouse</code>, and <code>type=Joystick</code>.<br>
 Warning: Specifying a controller that the runtime device doesn't have connected (such as Joystick) will show the <code>UNBOUND</code> symbol until they connect that controller type.<br>
 Warning: Specifying a controller that does not have the specified action bound to that specific controller will show the <code>UNBOUND</code> symbol without falling back to another controller.
 <br><br></li>
-<li><code>Symbol Preference</code> (Default: <a class="xref" href="LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html#LMirman_RewiredGlyphs_InputGlyphs_PreferredSymbols">PreferredSymbols</a>)<br>
+<li><b>Symbol Preference</b> <code>symbol={type}</code> (Default: <a class="xref" href="LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html#LMirman_RewiredGlyphs_InputGlyphs_PreferredSymbols">PreferredSymbols</a>)<br>
 Specify the symbols to use for <code>Joystick</code> glyphs.
 Valid values are <code>symbol=auto</code>, <code>symbol=xbox</code>, <code>symbol=ps</code>, or <code>symbol=switch</code>.
-<br><br>
-All additional arguments that are string based are <b>case-insensitive</b> such that &quot;TYPE=JOYSTICK&quot; and &quot;type=joystick&quot; are equivalent inputs.</li>
+<br><br></li>
+<li><b>Collection</b> <code>set={value}</code> (Default: <code>null</code>, using default collection)<br>
+Specify the collection to target for glyph queries using its <a class="xref" href="LMirman.RewiredGlyphs.GlyphCollection.Key.html#LMirman_RewiredGlyphs_GlyphCollection_Key">Key</a>.
+Only necessary when not using default collection.
+Example values are <code>set=xelu</code>, <code>set=dark</code>, or <code>set=light</code>.
+<br><br></li>
+<li><b>Hide Keyboard and Mouse</b> <code>hideKBM</code> (Default: false)<br>
+When argument is provided will not show glyphs for the <code>Keyboard</code> and <code>Mouse</code> device.
+Valid value is <code>hideKBM</code>.
+<br><br></li>
+<li><b>Hide Invalid</b> <code>hideInvalid</code> (Default: false)<br>
+When argument is provided will not show invalid glyphs such as <code>Unbound</code>, <code>Null</code>, and <code>Uninitialized</code>
+Valid value is <code>hideInvalid</code>.</li>
 </ul>
 </div>
 <div class="markdown level1 conceptual"></div>

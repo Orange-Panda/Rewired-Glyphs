@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to Create a Glyph Collection | Rewired Glyphs Docs </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to Create a Glyph Collection | Rewired Glyphs Docs ">
+      <meta name="generator" content="docfx ">
+  
+      <link rel="shortcut icon" href="../../attachments/site/favicon.png">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/night-owl.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+      <link rel="stylesheet" href="../../styles/config.css">
+      <link rel="stylesheet" href="../../styles/singulink.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  <meta property="docfx:newtab" content="true">
+    </head>
+    <body>
+        <!-- Header required for docfx anchor scroll to work -->
+        <header id="head"></header>
+        <div class="top-navbar">
+            <a class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="34" height="34" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+
+            <a class="brand" href="../../index.html">
+              <img src="../../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+              <span class="brand-title">Rewired Glyphs Docs</span>
+            </a>        </div>
+
+        <div class="body-content">
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+                <div class="sidebar">
+
+                    <div>
+                      <div class="mobile-hide">
+
+                        <a class="brand" href="../../index.html">
+                          <img src="../../attachments/site/icon.png" alt="Rewired Glyphs Docs" class="logomark">
+                          <span class="brand-title">Rewired Glyphs Docs</span>
+                        </a>                      </div>
+
+                      <div class="sidesearch">
+                        <form id="search" role="search" class="search">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="search-query" placeholder="Search" autocomplete="off">
+                        </form>
+                      </div>
+
+                      <div id="navbar">
+                      </div>
+                    </div>                    <div class="sidebar-item-separator"></div>
+
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+                </div>
+                <div class="footer">
+  <strong>Rewired Glyphs</strong>
+  
+                </div>            </nav>
+
+            <main class="main-panel">
+
+                <div id="search-results" style="display: none;">
+                  <h1 class="search-list">Search Results for <span></span></h1>
+                  <div class="sr-items">
+                    <p><i class="bi bi-hourglass-split index-loading"></i></p>
+                  </div>
+                  <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+                </div>
+ 
+
+                <div role="main" class="hide-when-search">
+
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+
+                    <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-create-a-glyph-collection">How to Create a Glyph Collection</h1>
+
+<p>This article will cover how to create a <a class="xref" href="../../api/LMirman.RewiredGlyphs.GlyphCollection.html">GlyphCollection</a> from start to finish. By the end of this article you will have created glyphs to represent the most common device types: <code>Keyboard</code>, <code>Mouse</code>, <code>Xbox</code>, <code>Playstation</code>, and <code>Nintendo</code> controllers.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Basic understanding of the Unity interface and concepts</li>
+<li>A unity project with Rewired and Rewired Glyph Manager prepared</li>
+<li>A collection of sprites to represent the controller actions.
+<ul>
+<li>If you don't have any there are many CC0/Public Domain offerings available such as <a href="https://thoseawesomeguys.com/prompts/">Xelu</a>, <a href="https://mrbreakfastsdelight.itch.io/mr-breakfasts-free-prompts">Mr. Breakfast</a>, and <a href="https://kenney.nl/assets/input-prompts">Kenney</a></li>
+<li>If you utilize any of the assets above, while not required by their license, you are highly encouraged to donate to the creator of the asset for their time.</li>
+<li>For this article we will be creating glyphs from the <code>Xelu</code> set</li>
+</ul>
+</li>
+<li>Aseprite or an alternative program to create sprite sheets</li>
+</ul>
+<h2 id="part-1-assemble-sprites-into-a-sprite-sheet">Part 1 Assemble Sprites into a Sprite Sheet</h2>
+<p>If the sprites you acquired for your glyph are all separate (such that each icon is its own file) it is a good idea to assemble them into a sprite sheet. This reduces the number of files you have to track in your project, can improve texture optimization, and is generally a best practice for storing related sprites.</p>
+<p>We will be using <a href="https://www.aseprite.org/download">Aseprite</a> but there are likely other applications available that will offer similar function.</p>
+<h3 id="11-import-sprites-into-animation-track">1.1 Import Sprites into Animation Track</h3>
+<p>Drag all of the sprites representing the controller type into a single Aseprite project animation track.</p>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/xelu-kb-aseprite-1.png" width="450">
+<p>Example of an Aseprite project with glyph sprites import</p>
+</blockquote>
+<p>Sort the frames into an order that groups related symbols together.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Aseprite can import all files at once into a single project if they are named in a numerical sequence.</p>
+<p>Below is a primitive Python script that renames all items in a specified directory in a numerical order.</p>
+<details>
+<summary>Basic Python Renaming Script</summary>
+<pre><code class="lang-python">import os
+
+def rename_files_in_directory(directory):
+  # Get a list of all files in the directory
+  files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+  files.sort()
+
+  # Rename each file
+  for index, filename in enumerate(files):
+  	# Get the file extension
+  	file_extension = os.path.splitext(filename)[1]
+  	
+  	# Create the full path for the original and new file names
+  	new_name = f&quot;{index + 1}{file_extension}&quot;
+  	old_path = os.path.join(directory, filename)
+  	new_path = os.path.join(directory, new_name)
+  	
+  	# Rename the file
+  	os.rename(old_path, new_path)
+  		
+  	print(f&quot;Renamed '{old_path}' to '{new_path}'&quot;)
+
+# Usage
+directory_path = &quot;B:\Downloads\Xelu\Keyboard &amp; Mouse\Dark&quot;
+rename_files_in_directory(directory_path)
+</code></pre>
+</details>
+</div>
+<h3 id="12-export-sprite-sheet">1.2 Export Sprite Sheet</h3>
+<p>Once you have finished importing all sprites needed into the Aseprite project you can now export them all into a single sprite sheet.</p>
+<p>Press <code>Ctrl+E</code> to bring up the export window or from <code>File -&gt; Export -&gt; Export Sprite Sheet</code>.</p>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/xelu-kb-aseprite-2.png" width="450">
+<p>Example export settings window configuration</p>
+</blockquote>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/xelu-kb-aseprite-3.png" width="450">
+<p>Example sprite sheet for Keyboard glyphs using a slightly modified Xelu set and the above export settings</p>
+</blockquote>
+<h3 id="13-repeat-process-for-all-controllers">1.3 Repeat Process for All Controllers</h3>
+<p>Repeat step 1.1 and 1.2 for each device you have glyphs for.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Before continuing to the next part you should have sprite assets ready for:</p>
+<ul>
+<li>Keyboard</li>
+<li>Mouse</li>
+<li>Xbox Gamepad</li>
+<li>Playstation Gamepad</li>
+<li>Switch Gamepad</li>
+</ul>
+</div>
+<h2 id="part-2-prepare-sprites-in-unity">Part 2 Prepare Sprites in Unity</h2>
+<p>Now that we have our sprite sheets ready it is time to bring them into our Unity project.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Ensure every Glyph sprite asset has a unique name, otherwise there will be a conflict when using them in TextMeshPro.</p>
+</div>
+<h3 id="21-import-sprite-assets-to-project">2.1 Import Sprite Assets to Project</h3>
+<p>Create a new folder in your Unity project for housing our sprite assets and our future Glyph Collection and Glyph Maps. Drag the sprite assets into your new created Unity project folder.</p>
+<h3 id="22-configure-sprite-import-settings">2.2 Configure Sprite Import Settings</h3>
+<p>Select all of your sprite assets and set their <code>Sprite Mode</code> to <code>Multiple</code> so we can divide it into many sprite from the sheet layout.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If your sprites utilize pixel art consider changing <code>Filter Mode</code> to <code>Point (no filter)</code> and setting <code>Compression</code> to <code>None</code>.</p>
+</div>
+<h3 id="23-use-sprite-editor-to-divide-sprite-sheet">2.3 Use Sprite Editor to Divide Sprite Sheet</h3>
+<p>For each sprite you imported use the <a href="https://docs.unity3d.com/Manual/SpriteEditor.html">Sprite Editor</a> tool to slice the sprite sheet into its separate elements.</p>
+<p>Refer to <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/sprite-editor-use.html">the Official Unity Documentation</a> for more information on using the Sprite Editor tool</p>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/sprite-editor-example.png" width="450">
+<p>Example of sliced sprite sheet using Sprite Editor window</p>
+</blockquote>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Before continuing to the next part you should now have:</p>
+<ul>
+<li>All sprites used for glyphs are imported into the project</li>
+<li>Sprite sheets have been sliced into its elements</li>
+</ul>
+</div>
+<h2 id="part-3-create-and-assign-glyph-maps">Part 3 Create and Assign Glyph Maps</h2>
+<p>Now that we have our sprites ready in Unity we can now create a <a class="xref" href="../../api/LMirman.RewiredGlyphs.GlyphMap.html">GlyphMap</a> for each device so we can tell the program what sprite is associated with what input.</p>
+<h3 id="31-create-a-glyph-map">3.1 Create a Glyph Map</h3>
+<p>Let's begin by creating our first Glyph Map by right clicking in the Project window of Unity and navigating to <code>Create/Rewired Glyphs/Glyph Map</code>.
+This will create an empty Glyph Map at this location.</p>
+<h4 id="the-glyph-map-inspector">The Glyph Map Inspector</h4>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/glyph-map-inspector.png" width="450">
+</blockquote>
+<p>With our glyph map selected lets take a look at the Inspector window.
+Here we will find various fields such as:</p>
+<ul>
+<li><code>Generate Keyboard</code>: If used while ReInput is ready, generates a list of <em>all</em> keyboard actions, including descriptions.</li>
+<li><code>Generate Mouse</code>: If used while ReInput is ready, generates a list of <em>all</em> mouse actions, including descriptions.</li>
+<li><code>Controller Data Files</code>: Used for generating and validating <code>Joystick</code> actions for a particular device.</li>
+<li><code>Validate Map</code>: When true shows warnings and errors for this device if it is based on a <code>Joystick</code> device.</li>
+<li><code>Based on</code>: Indicates what controller this map is intended to represent for validation and action generation purposes. Can only be a Joystick device and can <strong>not</strong> be a <code>Mouse</code> or <code>Keyboard</code>.
+<ul>
+<li><code>Set by Controller</code>: Validate this map based on a specific controller device</li>
+<li><code>Set by Template</code>: Validate this map based on a controller template</li>
+<li><code>X</code> clear target if it isn't meant to represent a controller</li>
+</ul>
+</li>
+<li><code>Page</code>: Editor only shows 10 glyphs at a time, scroll to view more</li>
+</ul>
+<p><strong>Glyph Editor</strong></p>
+<ul>
+<li><code>Full Description</code>: The standard name of this input action such as <code>Left Stick Horizontal</code>, <code>A</code>, <code>Left Trigger</code></li>
+<li><code>Positive Description</code>: The name of the positive direction for Axis inputs such as <code>Left Stick Right</code>.
+<ul>
+<li>Leave empty if this is not an Axis input, will default to <code>Full Description</code>.</li>
+</ul>
+</li>
+<li><code>Negative Description</code>: The name of the negative direction for Axis inputs such as <code>Left Stick Left</code>.
+<ul>
+<li>Leave empty if this is not an Axis input, will default to <code>Full Description</code>.</li>
+</ul>
+</li>
+<li><code>Full Sprite</code>: The standard sprite for this input action.</li>
+<li><code>Positive Sprite</code>: The sprite for positive direction of Axis inputs
+<ul>
+<li>Leave empty if this is not an Axis input.</li>
+</ul>
+</li>
+<li><code>Negative Sprite</code>: The sprite for the negative direction of Axis inputs
+<ul>
+<li>Leave empty if this is not an Axis input.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/glyph-map-glyphs.png" width="450">
+</blockquote>
+<h3 id="32-generate-keyboard-and-mouse-map">3.2 Generate Keyboard and Mouse Map</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>As of <code>v2.0.0</code>, due to technical limitations, the application will need to be running to generate <code>Mouse</code> and <code>Keyboard</code> glyph maps.</p>
+</div>
+<p>With your newly created glyph map selected from 3.1, enter playmode and click the <code>Generate Keyboard</code> button in the inspector. After confirming the dialogue that appears your glyph map will be populated with all the actions found on your keyboard device. If it generated as expected should see <code>132</code> actions total, each with a <code>Full Description</code> associated with it.</p>
+<p>For now, with the application still running, lets continue by creating a new <code>Glyph Map</code> and using <code>Generate Mouse</code> populate it with the actions found on the mouse device.</p>
+<p>We should now have two glyph maps with descriptions for the mouse and keyboard. Exit playmode and use <code>Ctrl+S</code> to save the changes to the assets. We'll return to our keyboard and mouse glyph maps later to populate it with sprites but let's first create the other glyph maps we need first.</p>
+<h3 id="33-generate-joystick-template-maps">3.3 Generate Joystick Template Maps</h3>
+<blockquote>
+<p>Unlike 3.2 you do not need to be in playmode to generate Joystick glyph maps</p>
+</blockquote>
+<ol>
+<li>Create 3 new glyph maps in our project: <code>Xelu Template Xbox</code>, <code>Xelu Template Playstation</code>, and <code>Xelu Template Switch</code>.
+<ol>
+<li>Each will be associated with one of the three types of symbols to show glyphs for controllers that implement the <code>Gamepad</code> template.</li>
+</ol>
+</li>
+<li>For each created glyph map:
+<ol>
+<li>Set the <code>Controller Data Files</code> to your Rewired's controller data files</li>
+<li>Ensure <code>Validate Map</code> is true</li>
+<li>Click <code>Set by Template</code> and pick <code>Gamepad</code> from the dropdown
+<ol>
+<li>You will see many errors appear! This is expected and normal since our glyph map is empty and therefore doesn't have the actions for the Gamepad template.</li>
+</ol>
+</li>
+<li>Resolve the validation errors by generating actions based on the <code>Gamepad</code> template.</li>
+<li>Repeat this process for the other template glyph maps created</li>
+</ol>
+</li>
+<li>We now have template glyph maps with descriptions for the template actions. Much like 3.2 we will return to these maps later to associate sprites with the actions.</li>
+</ol>
+<h3 id="34-generate-joystick-device-maps">3.4 Generate Joystick Device Maps</h3>
+<blockquote>
+<p>In this step we will be generating for the <code>Pro Controller</code>, <code>Sony Dualsense</code>, and <code>Xbox One Controller</code> devices. You may choose to generate for additional devices if you have glyphs for those devices.</p>
+</blockquote>
+<ol>
+<li>Create another 3 glyph maps: <code>Xelu Pro Controller</code>, <code>Xelu Dualsense</code>, <code>Xelu Xbox One</code></li>
+<li>For each created glyph map:
+<ol>
+<li>Set the <code>Controller Data Files</code> to your Rewired's controller data files</li>
+<li>Ensure <code>Validate Map</code> is true</li>
+<li>Click <code>Set by Controller</code> and pick either <code>Pro Controller</code>, <code>Sony Dualsense</code>, and <code>Xbox One Controller</code> from the dropdown depending on the map
+<ol>
+<li>As with 3.3 You will see errors since we don't have the actions for the device we set.</li>
+</ol>
+</li>
+<li>Resolve the validation errors by generating actions based for the device.</li>
+<li>Repeat this process for the other controller glyph maps created</li>
+</ol>
+</li>
+<li>We now have <em>all</em> the glyph maps we need! Now let's populate them with the sprites we created so we can show them to the user!</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>What's the difference between a controller map and a template map?</strong></p>
+<p>A controller map represents a map whose elements are <em>directly</em> associated with a particular device. These maps are uniquely created for each device.</p>
+<p>On the other hand, a <code>Template</code> map represents a map whose elements are <em>translated</em> onto a controller template which is able to be used by many devices.</p>
+<p>Controller maps are great for showing sprites and descriptions that are tailored for that device, especially if it has inputs that are not found on the template. Template maps however have compatibility with almost any controller of that type saving you time from making a map for <em>every</em> controller possible.</p>
+</div>
+<h3 id="35-populate-maps-with-sprites">3.5 Populate Maps with Sprites</h3>
+<p>Now for the fun part! For each glyph map created in 3.2 - 3.4 go through the actions generated and place the sprites imported during part 2 into the associated action.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Generally speaking you should only associate a positive and negative sprite with an action if it has a positive and negative description.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Don't have a sprite for some actions? That can be okay! Most glyph displays are able to display the description for the action instead of using its sprite.</p>
+</div>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/xelu-switch-map.png" width="450">
+<p>Example of sprites added to a <code>Pro Controller</code> glyph map</p>
+</blockquote>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Before continuing to the next part you should now have:</p>
+<ul>
+<li>Maps created for <code>Mouse</code>, <code>Keyboard</code></li>
+<li>Template maps for <code>Xbox</code>, <code>Playstation</code>, and <code>Switch</code> styled glyphs</li>
+<li>Controller maps for <code>Xbox One</code>, <code>Dualsense</code>, and <code>Pro Controller</code> devices</li>
+<li>Sprites associated with every actions generated for the maps (where applicable)</li>
+</ul>
+</div>
+<h2 id="part-4-assemble-glyph-collection">Part 4 Assemble Glyph Collection</h2>
+<p>Now that we are able to associate elements with a sprite and description with the maps created in part 3 we can put it all together within a <a class="xref" href="../../api/LMirman.RewiredGlyphs.GlyphCollection.html">GlyphCollection</a> on the <a class="xref" href="../../api/LMirman.RewiredGlyphs.RewiredGlyphManager.html">RewiredGlyphManager</a> so it can be loaded and referenced by the <a class="xref" href="../../api/LMirman.RewiredGlyphs.InputGlyphs.html">InputGlyphs</a> system at runtime.</p>
+<h3 id="41-create-glyph-collection-asset">4.1 Create Glyph Collection Asset</h3>
+<p>Right click in the Project view of unity and create a new empty <code>GlyphCollection</code> by going to <code>Create -&gt; Rewired Glyphs -&gt; Glyph Collection</code>. We'll name ours <code>Xelu Dark</code>. With your Glyph Collection selected let's begin by giving it a unique identifier key, for this example we'll give it the key <code>xelu_dark</code>.</p>
+<blockquote>
+<p>The key is used for referencing this collection at runtime if we have multiple collections loaded.</p>
+</blockquote>
+<p>Let's also assign our Rewired's <code>Controller Data Files</code> so we can assign controllers in the next step.</p>
+<h3 id="42-assign-controller-maps">4.2 Assign Controller Maps</h3>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/collection-1.png">
+</blockquote>
+<p>Our collection should now look something like the above image. As you can see we have some errors saying we don't have maps assigned for certain devices! Let's resolve that by editing the controller maps and defining some glyph maps there.</p>
+<p>Let's add 5 entries to the list of controller maps on the GlyphCollection, one for each of the controller maps created in step <code>3.2</code> and <code>3.4</code>. Then populate the entires with the following values:</p>
+<ul>
+<li><code>Keyboard Glyph Map</code>, <code>Keyboard</code></li>
+<li><code>Mouse Glyph Map</code>, <code>Mouse</code></li>
+<li><code>Dualsense Glyph Map</code>, <code>Joystick</code>, <code>Sony DualSense</code></li>
+<li><code>Switch Glyph Map</code>, <code>Joystick</code>, <code>Pro Controller</code></li>
+<li><code>Xbox One Glyph Map</code>, <code>Joystick</code>, <code>Xbox One Controller</code></li>
+</ul>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/collection-2.png">
+<p>Example of a populated GlyphCollection Controller Maps</p>
+</blockquote>
+<h3 id="43-assign-template-maps">4.3 Assign Template Maps</h3>
+<p>Returning to the main screen you'll see we still have an unresolved <code>No template maps!</code>. Let's enter the <code>Edit Template Maps</code> screen and add some now.</p>
+<p>Let's create 4 template maps, one for each of the symbol preferences available, and populate them with their respective glyph map we created in <code>3.3</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>Auto</code> symbol preference entry is used as a default in cases where there is no entry for the other symbol preferences. If you don't define an <code>Auto</code> entry, the first item in the list is used as the fallback instead.</p>
+</div>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/collection-3.png"> 
+<p>Example of a populated GlyphCollection Template Maps</p>
+</blockquote>
+<h3 id="44-assign-non-input-glyph-values">4.4 Assign Non-Input Glyph Values</h3>
+<p>If you have a sprite in your project that you'd like to show when a glyph can't be found you can assign them to the <code>Unbound</code>, <code>Null</code>, and <code>Uninitialized</code> glyphs within the <code>GlyphCollection</code>'s <code>Non-Input Glyphs</code> section.</p>
+<ul>
+<li><code>Unbound</code>: Shown when the action queried is valid but the player doesn't have any input for that action</li>
+<li><code>Null</code>: Shown when the developer queried an action that doesn't exist on the Input Manager</li>
+<li><code>Uninitialized</code>: Show when Rewired or InputGlyphs are not initialized</li>
+</ul>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/collection-4.png">
+<p>Example Non-Input Glyph configuration</p>
+</blockquote>
+<h3 id="45-set-collection-on-rewiredinputmanager">4.5 Set Collection on RewiredInputManager</h3>
+<p>We have finally finished creating our <code>GlyphCollection</code>! Now for our final step, loading it into the <code>InputGlyphs</code> system. On your Rewired Input Manager find your <code>RewiredGlyphManager</code> component or add one if there is not one already. On your <code>RewiredGlyphManager</code> set the <code>Glyph Collection</code> value to our newly created glyph collection. This will load it and set it as the default on initialization.</p>
+<blockquote>
+<img src="../../attachments/manual/creating-collection/collection-5.png">
+</blockquote>
+<h2 id="summary">Summary</h2>
+<p>Congratulations! We have completed our creation of a <code>GlyphCollection</code>! If all is configured well you should now see your glyphs being output in your application.</p>
+<p>Some additional things consider that we did not do in this article:</p>
+<ul>
+<li>Consider making additional controller maps for any additional controllers you want to support that we did not create here</li>
+<li>Consider making additional collections that incorporate different visual styles for the glyphs such as a dark mode and light mode</li>
+</ul>
+
+</article>
+                </div>
+
+                <div class="copyright-footer">
+                    <span>Docs generated for Rewired-Glyphs Unity Package. Package distributed under MIT license.</span>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script type="text/javascript" src="../../styles/jquery.twbsPagination.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/jquery.mark.min.js"></script>
+        <script type="text/javascript" src="../../styles/url.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js"></script>
+        <script type="text/javascript" src="../../styles/docfx.js"></script>
+        <script type="text/javascript" src="../../styles/main.js"></script>
+        <script type="text/javascript" src="../../styles/singulink.js"></script>    </body>
+</html>

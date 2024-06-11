@@ -448,6 +448,84 @@ references:
   commentId: N:LMirman.RewiredGlyphs.Editor
   fullName: LMirman.RewiredGlyphs.Editor
   nameWithType: LMirman.RewiredGlyphs.Editor
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor
+  name: GlyphCollectionEditor
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.html
+  commentId: T:LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor
+  nameWithType: GlyphCollectionEditor
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI
+  name: OnInspectorGUI()
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI.html#LMirman_RewiredGlyphs_Editor_GlyphCollectionEditor_OnInspectorGUI
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI()
+  nameWithType: GlyphCollectionEditor.OnInspectorGUI()
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI*
+  name: OnInspectorGUI
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI
+  nameWithType: GlyphCollectionEditor.OnInspectorGUI
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer
+  name: GlyphCollectionGuidEntryPropertyDrawer
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.html
+  commentId: T:LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer
+  nameWithType: GlyphCollectionGuidEntryPropertyDrawer
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight.html#LMirman_RewiredGlyphs_Editor_GlyphCollectionGuidEntryPropertyDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight*
+  name: GetPropertyHeight
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight
+  nameWithType: GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI.html#LMirman_RewiredGlyphs_Editor_GlyphCollectionGuidEntryPropertyDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: GlyphCollectionGuidEntryPropertyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI*
+  name: OnGUI
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI
+  nameWithType: GlyphCollectionGuidEntryPropertyDrawer.OnGUI
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer
+  name: GlyphCollectionTemplateEntryPropertyDrawer
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.html
+  commentId: T:LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer
+  nameWithType: GlyphCollectionTemplateEntryPropertyDrawer
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight.html#LMirman_RewiredGlyphs_Editor_GlyphCollectionTemplateEntryPropertyDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight*
+  name: GetPropertyHeight
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight
+  nameWithType: GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI.html#LMirman_RewiredGlyphs_Editor_GlyphCollectionTemplateEntryPropertyDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: GlyphCollectionTemplateEntryPropertyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+- uid: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI*
+  name: OnGUI
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI
+  nameWithType: GlyphCollectionTemplateEntryPropertyDrawer.OnGUI
 - uid: LMirman.RewiredGlyphs.Editor.GlyphMapEditor
   name: GlyphMapEditor
   href: api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.html
@@ -466,6 +544,42 @@ references:
   commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI
   fullName: LMirman.RewiredGlyphs.Editor.GlyphMapEditor.OnInspectorGUI
   nameWithType: GlyphMapEditor.OnInspectorGUI
+- uid: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer
+  name: GlyphPropertyDrawer
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.html
+  commentId: T:LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer
+  nameWithType: GlyphPropertyDrawer
+- uid: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  name: GetPropertyHeight(SerializedProperty, GUIContent)
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight.html#LMirman_RewiredGlyphs_Editor_GlyphPropertyDrawer_GetPropertyHeight_SerializedProperty_GUIContent_
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight(SerializedProperty,GUIContent)
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+  nameWithType: GlyphPropertyDrawer.GetPropertyHeight(SerializedProperty, GUIContent)
+- uid: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight*
+  name: GetPropertyHeight
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight
+  nameWithType: GlyphPropertyDrawer.GetPropertyHeight
+- uid: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  name: OnGUI(Rect, SerializedProperty, GUIContent)
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI.html#LMirman_RewiredGlyphs_Editor_GlyphPropertyDrawer_OnGUI_Rect_SerializedProperty_GUIContent_
+  commentId: M:LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI(Rect,SerializedProperty,GUIContent)
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+  nameWithType: GlyphPropertyDrawer.OnGUI(Rect, SerializedProperty, GUIContent)
+- uid: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI*
+  name: OnGUI
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI.html
+  commentId: Overload:LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI
+  nameWithType: GlyphPropertyDrawer.OnGUI
+- uid: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.SpriteSize
+  name: SpriteSize
+  href: api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.SpriteSize.html
+  commentId: F:LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.SpriteSize
+  fullName: LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.SpriteSize
+  nameWithType: GlyphPropertyDrawer.SpriteSize
 - uid: LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor
   name: RewiredGlyphManagerEditor
   href: api/LMirman.RewiredGlyphs.Editor.RewiredGlyphManagerEditor.html
@@ -766,6 +880,30 @@ references:
   commentId: T:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry
   fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry
   nameWithType: GlyphCollection.GuidEntry
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType
+  name: ControllerType
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType.html#LMirman_RewiredGlyphs_GlyphCollection_GuidEntry_ControllerType
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType
+  nameWithType: GlyphCollection.GuidEntry.ControllerType
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType*
+  name: ControllerType
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType
+  nameWithType: GlyphCollection.GuidEntry.ControllerType
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap
+  name: GlyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap.html#LMirman_RewiredGlyphs_GlyphCollection_GuidEntry_GlyphMap
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap
+  nameWithType: GlyphCollection.GuidEntry.GlyphMap
+- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap*
+  name: GlyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap
+  nameWithType: GlyphCollection.GuidEntry.GlyphMap
 - uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
   name: GuidValue
   href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue.html#LMirman_RewiredGlyphs_GlyphCollection_GuidEntry_GuidValue
@@ -778,12 +916,6 @@ references:
   commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
   fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GuidValue
   nameWithType: GlyphCollection.GuidEntry.GuidValue
-- uid: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap
-  name: glyphMap
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap.html
-  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap
-  nameWithType: GlyphCollection.GuidEntry.glyphMap
 - uid: LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
   name: GuidMaps
   href: api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html#LMirman_RewiredGlyphs_GlyphCollection_GuidMaps
@@ -796,36 +928,6 @@ references:
   commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
   fullName: LMirman.RewiredGlyphs.GlyphCollection.GuidMaps
   nameWithType: GlyphCollection.GuidMaps
-- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry
-  name: GlyphCollection.HardwareEntry
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.html
-  commentId: T:LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry
-  nameWithType: GlyphCollection.HardwareEntry
-- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap
-  name: glyphMap
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap.html
-  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap
-  nameWithType: GlyphCollection.HardwareEntry.glyphMap
-- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition
-  name: hardwareDefinition
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition.html
-  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition
-  nameWithType: GlyphCollection.HardwareEntry.hardwareDefinition
-- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
-  name: HardwareMaps
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html#LMirman_RewiredGlyphs_GlyphCollection_HardwareMaps
-  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
-  nameWithType: GlyphCollection.HardwareMaps
-- uid: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps*
-  name: HardwareMaps
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html
-  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps
-  nameWithType: GlyphCollection.HardwareMaps
 - uid: LMirman.RewiredGlyphs.GlyphCollection.Key
   name: Key
   href: api/LMirman.RewiredGlyphs.GlyphCollection.Key.html#LMirman_RewiredGlyphs_GlyphCollection_Key
@@ -856,18 +958,30 @@ references:
   commentId: T:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry
   fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry
   nameWithType: GlyphCollection.TemplateEntry
-- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap
-  name: glyphMap
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap.html
-  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap
-  nameWithType: GlyphCollection.TemplateEntry.glyphMap
-- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference
-  name: symbolPreference
-  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html
-  commentId: F:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference
-  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference
-  nameWithType: GlyphCollection.TemplateEntry.symbolPreference
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap
+  name: GlyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_GlyphMap
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap
+  nameWithType: GlyphCollection.TemplateEntry.GlyphMap
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap*
+  name: GlyphMap
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap
+  nameWithType: GlyphCollection.TemplateEntry.GlyphMap
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference
+  name: SymbolPreference
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateEntry_SymbolPreference
+  commentId: P:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference
+  nameWithType: GlyphCollection.TemplateEntry.SymbolPreference
+- uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference*
+  name: SymbolPreference
+  href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference.html
+  commentId: Overload:LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference
+  fullName: LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference
+  nameWithType: GlyphCollection.TemplateEntry.SymbolPreference
 - uid: LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps
   name: TemplateMaps
   href: api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html#LMirman_RewiredGlyphs_GlyphCollection_TemplateMaps
@@ -964,66 +1078,6 @@ references:
   commentId: F:LMirman.RewiredGlyphs.GlyphSetQueryResult.Undefined
   fullName: LMirman.RewiredGlyphs.GlyphSetQueryResult.Undefined
   nameWithType: GlyphSetQueryResult.Undefined
-- uid: LMirman.RewiredGlyphs.HardwareDefinition
-  name: HardwareDefinition
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html
-  commentId: T:LMirman.RewiredGlyphs.HardwareDefinition
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition
-  nameWithType: HardwareDefinition
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Generic
-  name: Generic
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Generic
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Generic
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Generic
-  nameWithType: HardwareDefinition.Generic
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Keyboard
-  name: Keyboard
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Keyboard
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Keyboard
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Keyboard
-  nameWithType: HardwareDefinition.Keyboard
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Mouse
-  name: Mouse
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Mouse
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Mouse
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Mouse
-  nameWithType: HardwareDefinition.Mouse
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.NintendoSwitch
-  name: NintendoSwitch
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_NintendoSwitch
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.NintendoSwitch
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.NintendoSwitch
-  nameWithType: HardwareDefinition.NintendoSwitch
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Playstation
-  name: Playstation
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Playstation
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Playstation
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Playstation
-  nameWithType: HardwareDefinition.Playstation
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Playstation2
-  name: Playstation2
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Playstation2
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Playstation2
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Playstation2
-  nameWithType: HardwareDefinition.Playstation2
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Playstation3
-  name: Playstation3
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Playstation3
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Playstation3
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Playstation3
-  nameWithType: HardwareDefinition.Playstation3
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Unknown
-  name: Unknown
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Unknown
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Unknown
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Unknown
-  nameWithType: HardwareDefinition.Unknown
-- uid: LMirman.RewiredGlyphs.HardwareDefinition.Xbox
-  name: Xbox
-  href: api/LMirman.RewiredGlyphs.HardwareDefinition.html#LMirman_RewiredGlyphs_HardwareDefinition_Xbox
-  commentId: F:LMirman.RewiredGlyphs.HardwareDefinition.Xbox
-  fullName: LMirman.RewiredGlyphs.HardwareDefinition.Xbox
-  nameWithType: HardwareDefinition.Xbox
 - uid: LMirman.RewiredGlyphs.HardwarePreference
   name: HardwarePreference
   href: api/LMirman.RewiredGlyphs.HardwarePreference.html
@@ -1129,18 +1183,6 @@ references:
   commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet
   fullName: LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet
   nameWithType: InputGlyphs.GetGlyphSet
-- uid: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition(Controller)
-  name: GetHardwareDefinition(Controller)
-  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html#LMirman_RewiredGlyphs_InputGlyphs_GetHardwareDefinition_Controller_
-  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition(Controller)
-  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition(Controller)
-  nameWithType: InputGlyphs.GetHardwareDefinition(Controller)
-- uid: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition*
-  name: GetHardwareDefinition
-  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html
-  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition
-  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition
-  nameWithType: InputGlyphs.GetHardwareDefinition
 - uid: LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph(Player,System.Int32,Controller,Pole,AxisRange@,System.Boolean,System.String)
   name: GetJoystickGlyph(Player, int, Controller, Pole, out AxisRange, bool, string)
   href: api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html#LMirman_RewiredGlyphs_InputGlyphs_GetJoystickGlyph_Player_System_Int32_Controller_Pole_AxisRange__System_Boolean_System_String_
@@ -1237,36 +1279,30 @@ references:
   commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph
   fullName: LMirman.RewiredGlyphs.InputGlyphs.GetMouseGlyph
   nameWithType: InputGlyphs.GetMouseGlyph
-- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid,System.Int32,System.String)
-  name: GetNativeGlyphFromGuidMap(Guid, int, string)
-  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromGuidMap_System_Guid_System_Int32_System_String_
-  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid,System.Int32,System.String)
-  name.vb: GetNativeGlyphFromGuidMap(Guid, Integer, String)
-  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid, int, string)
-  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(System.Guid, Integer, String)
-  nameWithType: InputGlyphs.GetNativeGlyphFromGuidMap(Guid, int, string)
-  nameWithType.vb: InputGlyphs.GetNativeGlyphFromGuidMap(Guid, Integer, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(Controller,System.Int32,System.String)
+  name: GetNativeGlyphFromGuidMap(Controller, int, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromGuidMap_Controller_System_Int32_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(Controller,System.Int32,System.String)
+  name.vb: GetNativeGlyphFromGuidMap(Controller, Integer, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(Controller, int, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(Controller, Integer, String)
+  nameWithType: InputGlyphs.GetNativeGlyphFromGuidMap(Controller, int, string)
+  nameWithType.vb: InputGlyphs.GetNativeGlyphFromGuidMap(Controller, Integer, String)
+- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(ControllerType,System.Guid,System.Int32,System.String)
+  name: GetNativeGlyphFromGuidMap(ControllerType, Guid, int, string)
+  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromGuidMap_ControllerType_System_Guid_System_Int32_System_String_
+  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(ControllerType,System.Guid,System.Int32,System.String)
+  name.vb: GetNativeGlyphFromGuidMap(ControllerType, Guid, Integer, String)
+  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(ControllerType, System.Guid, int, string)
+  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap(ControllerType, System.Guid, Integer, String)
+  nameWithType: InputGlyphs.GetNativeGlyphFromGuidMap(ControllerType, Guid, int, string)
+  nameWithType.vb: InputGlyphs.GetNativeGlyphFromGuidMap(ControllerType, Guid, Integer, String)
 - uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap*
   name: GetNativeGlyphFromGuidMap
   href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html
   commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap
   fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap
   nameWithType: InputGlyphs.GetNativeGlyphFromGuidMap
-- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition,System.Int32,System.String)
-  name: GetNativeGlyphFromHardwareMap(HardwareDefinition, int, string)
-  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromHardwareMap_LMirman_RewiredGlyphs_HardwareDefinition_System_Int32_System_String_
-  commentId: M:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition,System.Int32,System.String)
-  name.vb: GetNativeGlyphFromHardwareMap(HardwareDefinition, Integer, String)
-  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition, int, string)
-  fullName.vb: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap(LMirman.RewiredGlyphs.HardwareDefinition, Integer, String)
-  nameWithType: InputGlyphs.GetNativeGlyphFromHardwareMap(HardwareDefinition, int, string)
-  nameWithType.vb: InputGlyphs.GetNativeGlyphFromHardwareMap(HardwareDefinition, Integer, String)
-- uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap*
-  name: GetNativeGlyphFromHardwareMap
-  href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html
-  commentId: Overload:LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap
-  fullName: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap
-  nameWithType: InputGlyphs.GetNativeGlyphFromHardwareMap
 - uid: LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap(LMirman.RewiredGlyphs.SymbolPreference,System.Int32,System.String)
   name: GetNativeGlyphFromTemplateMap(SymbolPreference, int, string)
   href: api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html#LMirman_RewiredGlyphs_InputGlyphs_GetNativeGlyphFromTemplateMap_LMirman_RewiredGlyphs_SymbolPreference_System_Int32_System_String_

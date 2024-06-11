@@ -15,46 +15,6 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
-      "output": {
-        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.InputGlyphsOnRebuildGlyphs.html"
         }
       },
@@ -115,6 +75,16 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
       "output": {
         ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
+      "output": {
+        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetGlyph.html"
         }
       },
@@ -125,7 +95,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.Awake.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html"
         }
       },
       "version": ""
@@ -195,7 +165,47 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
       "output": {
         ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.UpdateGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
+      "output": {
+        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.useActionID.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.SetTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.ShouldHideGlyph.html"
         }
       },
       "version": ""
@@ -212,20 +222,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphDisplay.PoleValue.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.html"
         }
       },
       "version": ""
@@ -245,7 +245,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphHybridOutput.SetGlyph.html"
         }
       },
       "version": ""
@@ -265,7 +265,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph.html"
         }
       },
       "version": ""
@@ -275,7 +275,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.SetGlyph.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphImageOutput.html"
         }
       },
       "version": ""
@@ -286,16 +286,6 @@
       "output": {
         ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetText.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout.html"
         }
       },
       "version": ""
@@ -322,10 +312,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.yml",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphLabeledImageOutput.SetLayout.html"
         }
       },
       "version": ""
@@ -375,6 +365,16 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.yml",
       "output": {
         ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.ReplaceGlyphTagsWithSpriteTags.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.yml",
+      "output": {
+        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphRichTextFormatter.html"
         }
       },
@@ -385,7 +385,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph.html"
         }
       },
       "version": ""
@@ -405,7 +405,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.SetGlyph.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Components.GlyphTextOutput.html"
         }
       },
       "version": ""
@@ -416,6 +416,86 @@
       "output": {
         ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Components.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionEditor.OnInspectorGUI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.OnGUI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.GetPropertyHeight.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionGuidEntryPropertyDrawer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.OnGUI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphCollectionTemplateEntryPropertyDrawer.GetPropertyHeight.html"
         }
       },
       "version": ""
@@ -436,6 +516,46 @@
       "output": {
         ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphMapEditor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.SpriteSize.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.OnGUI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.GetPropertyHeight.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Editor.GlyphPropertyDrawer.html"
         }
       },
       "version": ""
@@ -485,7 +605,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.GlyphType.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.FullSprite.html"
         }
       },
       "version": ""
@@ -495,7 +615,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.IsInputGlyph.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.GlyphType.html"
         }
       },
       "version": ""
@@ -515,57 +635,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Glyph.TextMeshSpriteSheetName.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.-ctor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.GetSprite.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.GetDescription.html"
         }
       },
       "version": ""
@@ -585,27 +655,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.ControllerType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.FullSprite.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.NegativeDescription.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.PositiveSprite.html"
         }
       },
       "version": ""
@@ -616,6 +666,16 @@
       "output": {
         ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.Glyph.PositiveDescription.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.ControllerType.html"
         }
       },
       "version": ""
@@ -655,7 +715,67 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.PositiveSprite.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.NegativeDescription.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.IsInputGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.GetDescription.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.GetSprite.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.-ctor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.Glyph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.Glyph.IsFallbackGlyph.html"
         }
       },
       "version": ""
@@ -665,7 +785,17 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.glyphMap.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.ControllerType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidEntry.GlyphMap.html"
         }
       },
       "version": ""
@@ -692,30 +822,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.yml",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.hardwareDefinition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.glyphMap.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareEntry.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.SymbolPreference.html"
         }
       },
       "version": ""
@@ -725,7 +835,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.symbolPreference.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.GlyphMap.html"
         }
       },
       "version": ""
@@ -736,66 +846,6 @@
       "output": {
         ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateEntry.glyphMap.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.Key.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.HardwareMaps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph.html"
         }
       },
       "version": ""
@@ -815,6 +865,26 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
       "output": {
         ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.UnboundGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.TemplateMaps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
+      "output": {
+        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.UninitializedGlyph.html"
         }
       },
@@ -825,7 +895,27 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
       "output": {
         ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.Key.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
+      "output": {
+        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.GlyphCollection.GuidMaps.html"
         }
       },
       "version": ""
@@ -872,16 +962,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.HardwareDefinition.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.HardwareDefinition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/LMirman.RewiredGlyphs.HardwarePreference.yml",
       "output": {
         ".html": {
@@ -895,7 +975,57 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.NullGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection.html"
         }
       },
       "version": ""
@@ -945,37 +1075,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetHardwareDefinition.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware.html"
         }
       },
       "version": ""
@@ -995,117 +1095,17 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
       "output": {
         ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyphSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
           "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.LoadGlyphCollection.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredSymbols.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.PreferredHardware.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.NullGlyph.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.UninitializedGlyph.html"
         }
       },
       "version": ""
@@ -1125,7 +1125,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.UnboundGlyph.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.FlushPlayersCache.html"
         }
       },
       "version": ""
@@ -1135,7 +1135,7 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromHardwareMap.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetJoystickGlyph.html"
         }
       },
       "version": ""
@@ -1145,7 +1145,67 @@
       "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.RebuildGlyphs.html"
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetCurrentGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromTemplateMap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetNativeGlyphFromGuidMap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.InvokeRebuild.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificJoystickGlyph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LMirman.RewiredGlyphs.InputGlyphs.GetSpecificCurrentGlyph.html"
         }
       },
       "version": ""
@@ -1195,6 +1255,126 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/collection-1.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/collection-1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/collection-2.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/collection-2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/collection-3.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/collection-3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/collection-4.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/collection-4.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/collection-5.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/collection-5.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/glyph-map-glyphs.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/glyph-map-glyphs.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/glyph-map-inspector.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/glyph-map-inspector.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/sprite-editor-example.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/sprite-editor-example.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/xelu-kb-aseprite-1.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/xelu-kb-aseprite-1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/xelu-kb-aseprite-2.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/xelu-kb-aseprite-2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/xelu-kb-aseprite-3.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/xelu-kb-aseprite-3.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "attachments/manual/creating-collection/xelu-switch-map.png",
+      "output": {
+        "resource": {
+          "relative_path": "attachments/manual/creating-collection/xelu-switch-map.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "attachments/site/favicon.png",
       "output": {
         "resource": {
@@ -1225,6 +1405,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "pages/manual/creating-collection.md",
+      "output": {
+        ".html": {
+          "relative_path": "pages/manual/creating-collection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "pages/manual/docs-overview.md",
       "output": {
         ".html": {
@@ -1239,6 +1429,16 @@
       "output": {
         ".html": {
           "relative_path": "pages/manual/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "pages/manual/quick-start.md",
+      "output": {
+        ".html": {
+          "relative_path": "pages/manual/quick-start.html"
         }
       },
       "version": ""
