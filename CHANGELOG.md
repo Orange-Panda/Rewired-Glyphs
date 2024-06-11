@@ -4,24 +4,25 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - UNRELEASED
+## [2.0.0] - 2024-06-11
 
 ### ❇️ Upgrade Guide ❇️
 
-This release includes *major breaking* changes which will require your attention in order to upgrade to this version and any later release from `1.x`
+This release includes ***major breaking*** changes which *will* require your attention in order to upgrade to this version from any `1.x` release
 
-- For each `GlyphCollection` already in your project, reassign the associated glyph maps using the new format
-	- If you are using one of the `GlyphCollection` samples you may also import their updated `2.x` version
-- Remove any references to `HardwareDefinition` in your project, if any
-- Update `GetNativeGlyphFromGuidMap` method calls to use the new syntax
+- `GlyphCollection` has been overhauled. For each `GlyphCollection` in your project you must reassign the hardware maps to the newly designated 'Controller Maps'
+	- If you are using one of the `GlyphCollection` samples you are encouraged to reimport the updated `2.x` sample instead.
+- If referenced `HardwareDefinition` in any of your scripts, they must be replaced/removed
+	- Use `Controller` or `ControllerType, Guid` instead.
+	- This affects `GetNativeGlyphFromGuidMap` method calls in particular
 
 ### ⚠️ Major Breaking Change - Hardware Definition Removed ⚠️
 
-- `Hardware Definition` has been completely removed in favor of an improved user experience when creating `GlyphCollection` and more accurate glyph queries
-- Methods that were directly associated with `HardwareDefinition` have been removed entirely.
-- Non-template glyphs now target controller devices using the `ControllerType` and `hardwareTypeGuid` values.
+- `Hardware Definition` has been completely removed for more accurate glyph queries and an improved user experience when creating `GlyphCollection`
+- Most methods that were directly associated with `HardwareDefinition` have been removed entirely.
+- Methods that used `HardwareDefinition` to target a specific controller now use `Controller` or `ControllerType, Guid` instead.
 	- The signature for some query methods have changed as a result such as `GetNativeGlyphFromGuidMap`
-- You *will* have to update your `GlyphCollection` when updating to v2.0.0 by reassigning your glyph maps to the collection!
+- ⚠️ You *will* have to update your `1.x` `GlyphCollection` when updating to v2.0.0 by reassigning your controller glyph maps to the collection!
 - If you used any methods that used `HardwareDefinition` your code will *not* compile when upgrading to this version and will require changes.
 
 ### Added
@@ -39,7 +40,7 @@ This release includes *major breaking* changes which will require your attention
 	- Enable in `GlyphRichTextFormatter` using `hideKBM` option in glyph tag (Example: `<glyph Jump hideKBM>`)
 - Added `ShouldHideGlyph(Glyph)` protected method to `GlyphDisplay` which can be used by inheritors to inform if they should hide the output glyph (due to the above rules)
 	- If you don't implement this check in your `SetGlyph` component it will behave identically to before, but will not support these optional settings.
-- Added `GetGlyphSet` method to `InputGlyphs` for getting *all* glyphs for an action across all controller types, including multiple maps on a single controller.
+- Added `GetGlyphSet` method to `InputGlyphs` for getting *all* glyphs for an action across all controller types, including multiple bindings on a single controller.
 - Added `collectionKey` string field to `GlyphCollection` for distinctly identifying and referencing collections at runtime
 - ⚠️ **[Breaking]** - Added `collectionKey` optional parameter to all `InputGlyphs` methods for referencing secondary (non-default) collections
 - Added `additionalCollections` field to `RewiredGlyphManager` for additively loading additional collection for reference by their `collectionKey`
@@ -50,9 +51,10 @@ This release includes *major breaking* changes which will require your attention
 - Added `Generate Keyboard` and `Generate Mouse` functionality to `Glyph Map` for generating default Glyph Map actions
 	- Requires the application running due to technical limitations
 - Added component icons to all major components and scriptable objects of the package
+	- Icons sourced from [Google Icons](https://fonts.google.com/icons)
 - Added confirmation dialogue before generating TMP sprite sheet on Rewired Glyph Manager
-- Added custom property drawer for `Glyph`
-- Added new sample glyphs: [Xelu Prompts](https://thoseawesomeguys.com/prompts/)
+- Added custom property drawer for `Glyph`, improving the editor experience
+- Added new glyphs sample to package: [Xelu Prompts](https://thoseawesomeguys.com/prompts/)
 
 ### Changed
 
@@ -70,7 +72,8 @@ This release includes *major breaking* changes which will require your attention
 	- If you were utilizing a value of `true` you may notice different output of this method.
 	- This method was being used by `GlyphRichTextFormatter` therefore tags such as `<glyph "MoveH" pole=FullAxis>` will output differently.
 - Fixed Glyph `Positive` and `Negative` description sometimes not returning the expected value
-- Fixed description validation error in `GlyphMapEditor` 
+- Fixed description validation error in `GlyphMapEditor`
+- Fixed `Kenney` glyph maps having some inaccurate/missing actions
 
 ## [1.5.0] - 2024-05-30
 

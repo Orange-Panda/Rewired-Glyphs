@@ -89,9 +89,10 @@ For more information check out [the official documentation](https://orange-panda
 
 This package is developed by [Luke Mirman](https://lukemirman.com/) under the [MIT License](LICENSE.md).
 
-- Joystick icon used in the logo is provided by Google Fonts under the Appache 2.0 license.
+- Joystick icon used in the logo and icons used in component icons are provided by Google Fonts under the Appache 2.0 license.
 - [Lato font](https://fonts.google.com/specimen/Lato/about) in the logo is provided by Google Fonts under the Open Font License.
-- Sample Input Icons included in package samples is attributed to [Kenney](https://kenney.nl/assets/input-prompts-pixel-16) assets under Creative Commons CC0 license.
+- Project sample glyph icons included in package were created by [Kenney](https://kenney.nl/assets/input-prompts-pixel-16) and [Xelu](https://thoseawesomeguys.com/prompts/) (respectively) and distributed under Creative Commons CC0 license.
+    - Some icons were altered from their original state
 - DocFX Documentation template provided by [Singulink](https://github.com/Singulink/SingulinkFX/) under MIT license
 - Guavaman for developing the [Rewired](https://guavaman.com/projects/rewired/) asset this package supports
 
