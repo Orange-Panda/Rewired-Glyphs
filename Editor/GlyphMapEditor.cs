@@ -24,7 +24,6 @@ namespace LMirman.RewiredGlyphs.Editor
 		private int PageMax => (serializedObject.FindProperty("glyphs").arraySize / PageSize) + 1;
 
 		private const int PageSize = 10;
-		private const int SpriteSize = 96;
 
 		private int requestMoveUpAt = -1;
 		private int requestMoveDownAt = -1;
@@ -402,11 +401,11 @@ namespace LMirman.RewiredGlyphs.Editor
 				EditorGUILayout.EndHorizontal();
 
 				EditorGUILayout.BeginHorizontal();
-				sprite.objectReferenceValue = EditorGUILayout.ObjectField(sprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+				sprite.objectReferenceValue = EditorGUILayout.ObjectField(sprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(GlyphPropertyDrawer.SpriteSize), GUILayout.Height(GlyphPropertyDrawer.SpriteSize));
 				positiveSprite.objectReferenceValue =
-					EditorGUILayout.ObjectField(positiveSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+					EditorGUILayout.ObjectField(positiveSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(GlyphPropertyDrawer.SpriteSize), GUILayout.Height(GlyphPropertyDrawer.SpriteSize));
 				negativeSprite.objectReferenceValue =
-					EditorGUILayout.ObjectField(negativeSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(SpriteSize), GUILayout.Height(SpriteSize));
+					EditorGUILayout.ObjectField(negativeSprite.objectReferenceValue, typeof(Sprite), false, GUILayout.Width(GlyphPropertyDrawer.SpriteSize), GUILayout.Height(GlyphPropertyDrawer.SpriteSize));
 				EditorGUILayout.BeginVertical();
 				if (GUILayout.Button("Move Up"))
 				{
@@ -440,9 +439,9 @@ namespace LMirman.RewiredGlyphs.Editor
 				EditorGUILayout.EndVertical();
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.BeginHorizontal();
-				GUILayout.Label("Full", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
-				GUILayout.Label("Positive", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
-				GUILayout.Label("Negative", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(SpriteSize));
+				GUILayout.Label("Full", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(GlyphPropertyDrawer.SpriteSize));
+				GUILayout.Label("Positive", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(GlyphPropertyDrawer.SpriteSize));
+				GUILayout.Label("Negative", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(GlyphPropertyDrawer.SpriteSize));
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.Space();
 				return;
