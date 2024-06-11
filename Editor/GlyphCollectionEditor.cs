@@ -90,7 +90,8 @@ namespace LMirman.RewiredGlyphs.Editor
 				DrawTemplateMapValidations();
 				EditorGUILayout.LabelField("Glyph Collection - Template Maps", EditorStyles.boldLabel);
 				EditorGUILayout.LabelField("Assign template maps for Joystick controllers that can input as \"Gamepad\" template.\n\n" +
-				                           "The first map in this list is the default map for undefined symbol preferences.", EditorStyles.wordWrappedLabel);
+				                           "The first entry with \"Auto\" is used for a symbol preference query that doesn't have an entry for it's symbol preference. " +
+				                           "If no map is set to \"Auto\" the first map in this list is used instead.", EditorStyles.wordWrappedLabel);
 				EditorGUILayout.PropertyField(templateMaps);
 			}
 
@@ -213,6 +214,34 @@ namespace LMirman.RewiredGlyphs.Editor
 				return false;
 			}
 
+			bool ControllerMapsHasBadGuid()
+			{
+				for (int i = 0; i < guidMaps.arraySize; i++)
+				{
+					SerializedProperty element = guidMaps.GetArrayElementAtIndex(i);
+					SerializedProperty controllerType = element.FindPropertyRelative("controllerType");
+					SerializedProperty guid = element.FindPropertyRelative("guid");
+					switch ((ControllerType)controllerType.enumValueFlag)
+					{
+						case ControllerType.Keyboard:
+						case ControllerType.Mouse:
+							break;
+						case ControllerType.Joystick:
+						case ControllerType.Custom:
+							if (!Guid.TryParse(guid.stringValue, out Guid _))
+							{
+								return true;
+							}
+
+							break;
+						default:
+							throw new ArgumentOutOfRangeException();
+					}
+				}
+
+				return false;
+			}
+
 			bool TemplateMapsHasDuplicate()
 			{
 				definedControllerTypes.Clear();
@@ -235,6 +264,7 @@ namespace LMirman.RewiredGlyphs.Editor
 				HelpBoxIf(ControllerMapsHasNull, "Some controller maps have no Glyph Map assigned!", MessageType.Error);
 				HelpBoxIf(ControllerMapsHasDuplicate, "There are multiple controller maps that are targeting the same device!\n\n" +
 				                                      "Only one map may be defined per device", MessageType.Warning);
+				HelpBoxIf(ControllerMapsHasBadGuid, "Some controller maps have an invalid controller target!", MessageType.Warning);
 			}
 
 			void DrawTemplateMapValidations()

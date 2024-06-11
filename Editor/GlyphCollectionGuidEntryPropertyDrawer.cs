@@ -17,6 +17,7 @@ namespace LMirman.RewiredGlyphs.Editor
 
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
+			EditorGUIUtility.labelWidth = 100;
 			SerializedProperty glyphMap = property.FindPropertyRelative("glyphMap");
 			SerializedProperty controllerType = property.FindPropertyRelative("controllerType");
 			SerializedProperty guid = property.FindPropertyRelative("guid");
@@ -41,10 +42,17 @@ namespace LMirman.RewiredGlyphs.Editor
 				return;
 			}
 
+			Rect labelPosition = new Rect(drawPosition);
+			Rect dropdownPosition = new Rect(drawPosition);
+			labelPosition.width = 100;
+			dropdownPosition.width -= 100;
+			dropdownPosition.x += 100;
+
 			bool hasGuid = Guid.TryParse(guid.stringValue, out Guid targetGuid);
 			bool hasHardwareTarget = TryGetHardwareMap(controllerDataFiles, targetGuid, out HardwareJoystickMap hardwareTarget);
 			string targetName = hasHardwareTarget ? hardwareTarget.ControllerName : "** ERROR: UNASSIGNED **";
-			if (EditorGUI.DropdownButton(drawPosition, new GUIContent(targetName), FocusType.Keyboard))
+			EditorGUI.LabelField(labelPosition, "Hardware");
+			if (EditorGUI.DropdownButton(dropdownPosition, new GUIContent(targetName), FocusType.Keyboard))
 			{
 				GenericMenu hardwareMenu = new GenericMenu();
 				IEnumerable<HardwareJoystickMap> hardwareJoystickMaps = controllerDataFiles.HardwareJoystickMaps.OrderBy(map => map.ControllerName);

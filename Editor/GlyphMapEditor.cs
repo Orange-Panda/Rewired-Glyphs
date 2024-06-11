@@ -119,7 +119,7 @@ namespace LMirman.RewiredGlyphs.Editor
 				EditorGUILayout.BeginHorizontal();
 				GUILayout.Label($"Based on: {targetName}");
 
-				if (EditorGUILayout.DropdownButton(new GUIContent("Set by Hardware"), FocusType.Keyboard))
+				if (EditorGUILayout.DropdownButton(new GUIContent("Set by Controller"), FocusType.Keyboard))
 				{
 					GenericMenu hardwareMenu = new GenericMenu();
 					IEnumerable<HardwareJoystickMap> hardwareJoystickMaps = controllerDataFiles.HardwareJoystickMaps.OrderBy(map => map.ControllerName);
@@ -195,7 +195,7 @@ namespace LMirman.RewiredGlyphs.Editor
 			}
 			else if (hasHardwareTarget && GUILayout.Button("Generate Defaults"))
 			{
-				if (EditorUtility.DisplayDialog($"Generate Hardware Actions - {targetName}", "Would you like to generate actions? This will erase current glyph definitions.", "Confirm", "Cancel"))
+				if (EditorUtility.DisplayDialog($"Generate Controller Actions - {targetName}", "Would you like to generate actions? This will erase current glyph definitions.", "Confirm", "Cancel"))
 				{
 					glyphs.ClearArray();
 					foreach (ControllerElementIdentifier elementIdentifier in hardwareTarget.ElementIdentifiers)
@@ -463,7 +463,7 @@ namespace LMirman.RewiredGlyphs.Editor
 						ControllerElementIdentifier elementIdentifier = hardwareTarget.GetElementIdentifier(inputID.intValue);
 						if (elementIdentifier == null)
 						{
-							HelpBox($"The hardware map does not contain an action with input id {inputID.intValue}", MessageType.Error);
+							HelpBox($"The controller map does not contain an action with input id {inputID.intValue}", MessageType.Error);
 							mapErrors++;
 							return;
 						}
