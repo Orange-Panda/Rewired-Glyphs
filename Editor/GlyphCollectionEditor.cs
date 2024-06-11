@@ -60,7 +60,7 @@ namespace LMirman.RewiredGlyphs.Editor
 				EditorGUILayout.Space();
 
 				EditorGUILayout.PropertyField(key);
-				HelpBoxIf(DoesNotHaveControllerDataFiles, "Controller data file asset required to validate Controller Maps", MessageType.Warning);
+				DrawControllerMapHelp();
 				EditorGUILayout.PropertyField(controllerDataFiles);
 				EditorGUILayout.Space();
 
@@ -78,6 +78,7 @@ namespace LMirman.RewiredGlyphs.Editor
 			{
 				Button("Return to Main", GoToMain);
 				DrawControllerMapValidations();
+				DrawControllerMapHelp();
 				EditorGUILayout.LabelField("Glyph Collection - Controller Maps", EditorStyles.boldLabel);
 				EditorGUILayout.LabelField("Assign hardware specific maps for controllers such as 'Keyboard', 'Mouse', 'Xbox One Controller', or 'DualSense Controller'.",
 					EditorStyles.wordWrappedLabel);
@@ -273,6 +274,11 @@ namespace LMirman.RewiredGlyphs.Editor
 				HelpBoxIf(TemplateMapsHasNull, "Some template maps have no Glyph Map assigned!", MessageType.Error);
 				HelpBoxIf(TemplateMapsHasDuplicate, "There are multiple template maps that are targeting the same symbol set!\n\n" +
 				                                    "Only one map may be defined per symbol", MessageType.Warning);
+			}
+
+			void DrawControllerMapHelp()
+			{
+				HelpBoxIf(DoesNotHaveControllerDataFiles, "Controller data file asset required to validate Controller Maps", MessageType.Warning);
 			}
 		}
 

@@ -54,7 +54,7 @@ namespace LMirman.RewiredGlyphs
 			{
 				if (guidEntry.GlyphMap == null)
 				{
-					Debug.LogError($"No glyph map defined for a \"{guidEntry.ControllerType}\" controller map on collection \"{collection.name}\"", collection);
+					Debug.LogError($"Null glyph map defined for \"{guidEntry.ControllerType}\" controller map entry on collection \"{collection.name}\"", collection);
 					continue;
 				}
 
@@ -85,7 +85,7 @@ namespace LMirman.RewiredGlyphs
 			{
 				if (entry.GlyphMap == null)
 				{
-					Debug.LogError($"No glyph map defined for a \"{entry.SymbolPreference}\" template map on collection \"{collection.name}\"", collection);
+					Debug.LogError($"Null glyph map defined for a \"{entry.SymbolPreference}\" template map entry on collection \"{collection.name}\"", collection);
 					continue;
 				}
 
@@ -104,7 +104,17 @@ namespace LMirman.RewiredGlyphs
 			}
 			else
 			{
-				Debug.LogWarning($"No default gamepad template glyph map found on \"{collection.name}\". Some Joystick devices may not be able to show glyphs.");
+				Debug.LogError($"No default gamepad template glyph map found on \"{collection.name}\". Some Joystick devices may not be able to show glyphs.", collection);
+			}
+
+			if (mouseMap.Count <= 0)
+			{
+				Debug.LogError($"No \"Mouse\" glyphs found on \"{collection.name}\" collection. Glyphs can't be displayed for this device until one is defined.", collection);
+			}
+
+			if (keyboardMap.Count <= 0)
+			{
+				Debug.LogError($"No \"Keyboard\" glyphs found on \"{collection.name}\" collection. Glyphs can't be displayed for this device until one is defined.", collection);
 			}
 
 			uninitializedGlyph = collection.UninitializedGlyph;
