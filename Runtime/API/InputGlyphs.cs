@@ -343,7 +343,7 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			// Make sure the action is actually bound, if not escape with an unbound glyph.
-			ActionElementMap map = player.GetActionElementMap(ControllerType.Joystick, action.id, pole, forceAxis, out AxisRange expectedAxis);
+			ActionElementMap map = player.GetActionElementMap(controller, action.id, pole, forceAxis, out AxisRange expectedAxis);
 			if (map == null)
 			{
 				return UnboundGlyph;
@@ -666,7 +666,7 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
 		/// </summary>
-		private static ActionElementMap GetActionElementMap(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis)
+		private static ActionElementMap GetActionElementMap(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis, int controllerId = 0)
 		{
 			InputAction inputAction = ReInput.mapping.GetAction(actionID);
 			if (inputAction == null)
@@ -676,7 +676,7 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			bool actionIsAxis = inputAction.type == InputActionType.Axis;
-			int count = player.controllers.maps.GetElementMapsWithAction(controller, actionID, false, MapLookupResults);
+			int count = player.controllers.maps.GetElementMapsWithAction(controller, controllerId, actionID, false, MapLookupResults);
 			for (int i = 0; i < count; i++)
 			{
 				ActionElementMap elementMap = MapLookupResults[i];
@@ -699,6 +699,14 @@ namespace LMirman.RewiredGlyphs
 
 			expectedAxis = AxisRange.Full;
 			return null;
+		}
+
+		/// <summary>
+		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
+		/// </summary>
+		private static ActionElementMap GetActionElementMap(this Player player, Controller controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis)
+		{
+			return player.GetActionElementMap(controller.type, actionID, pole, getAsAxis, out expectedAxis, controller.id);
 		}
 
 		/// <summary>

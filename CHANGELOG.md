@@ -4,6 +4,13 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - UNRELEASED
+
+### Fixed
+
+- Fixed an issue where incorrect glyphs may have been shown if there were multiple controllers of different types plugged in
+	- Example: If a first controller 'A' is an `Xbox One` controller and a controller 'B' is a `DualSense` controller, controller B would sometimes show incorrect glyphs.
+
 ## [2.0.0] - 2024-06-11
 
 ### ❇️ Upgrade Guide ❇️
