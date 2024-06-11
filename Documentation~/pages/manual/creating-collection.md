@@ -151,7 +151,7 @@ Here we will find various fields such as:
 - `Controller Data Files`: Used for generating and validating `Joystick` actions for a particular device.
 - `Validate Map`: When true shows warnings and errors for this device if it is based on a `Joystick` device.
 - `Based on`: Indicates what controller this map is intended to represent for validation and action generation purposes. Can only be a Joystick device and can **not** be a `Mouse` or `Keyboard`.
-	- `Set by Hardware`: Validate this map based on a specific hardware device
+	- `Set by Controller`: Validate this map based on a specific controller device
 	- `Set by Template`: Validate this map based on a controller template
 	- `X` clear target if it isn't meant to represent a controller
 - `Page`: Editor only shows 10 glyphs at a time, scroll to view more
@@ -177,40 +177,142 @@ Here we will find various fields such as:
 >
 > As of `v2.0.0`, due to technical limitations, the application will need to be running to generate `Mouse` and `Keyboard` glyph maps.
 
+With your newly created glyph map selected from 3.1, enter playmode and click the `Generate Keyboard` button in the inspector. After confirming the dialogue that appears your glyph map will be populated with all the actions found on your keyboard device. If it generated as expected should see `132` actions total, each with a `Full Description` associated with it.
+
+For now, with the application still running, lets continue by creating a new `Glyph Map` and using `Generate Mouse` populate it with the actions found on the mouse device. 
+
+We should now have two glyph maps with descriptions for the mouse and keyboard. Exit playmode and use `Ctrl+S` to save the changes to the assets. We'll return to our keyboard and mouse glyph maps later to populate it with sprites but let's first create the other glyph maps we need first.
+
 ### 3.3 Generate Joystick Template Maps
 
+> Unlike 3.2 you do not need to be in playmode to generate Joystick glyph maps
 
+1. Create 3 new glyph maps in our project: `Xelu Template Xbox`, `Xelu Template Playstation`, and `Xelu Template Switch`.
+	1. Each will be associated with one of the three types of symbols to show glyphs for controllers that implement the `Gamepad` template. 
+2. For each created glyph map:
+	1. Set the `Controller Data Files` to your Rewired's controller data files
+	2. Ensure `Validate Map` is true
+	3. Click `Set by Template` and pick `Gamepad` from the dropdown
+		1. You will see many errors appear! This is expected and normal since our glyph map is empty and therefore doesn't have the actions for the Gamepad template.
+	4. Resolve the validation errors by generating actions based on the `Gamepad` template.
+	5. Repeat this process for the other template glyph maps created
+3. We now have template glyph maps with descriptions for the template actions. Much like 3.2 we will return to these maps later to associate sprites with the actions.
 
 ### 3.4 Generate Joystick Device Maps
 
+> In this step we will be generating for the `Pro Controller`, `Sony Dualsense`, and `Xbox One Controller` devices. You may choose to generate for additional devices if you have glyphs for those devices.
 
+1. Create another 3 glyph maps: `Xelu Pro Controller`, `Xelu Dualsense`, `Xelu Xbox One`
+2. For each created glyph map:
+	1. Set the `Controller Data Files` to your Rewired's controller data files
+	2. Ensure `Validate Map` is true
+	3. Click `Set by Controller` and pick either `Pro Controller`, `Sony Dualsense`, and `Xbox One Controller` from the dropdown depending on the map
+		1. As with 3.3 You will see errors since we don't have the actions for the device we set.
+	4. Resolve the validation errors by generating actions based for the device.
+	5. Repeat this process for the other controller glyph maps created
+3. We now have *all* the glyph maps we need! Now let's populate them with the sprites we created so we can show them to the user!
+
+> [!NOTE]
+>
+> **What's the difference between a controller map and a template map?**
+>
+> A controller map represents a map whose elements are *directly* associated with a particular device. These maps are uniquely created for each device.
+> 
+> On the other hand, a `Template` map represents a map whose elements are *translated* onto a controller template which is able to be used by many devices.
+>
+> Controller maps are great for showing sprites and descriptions that are tailored for that device, especially if it has inputs that are not found on the template. Template maps however have compatibility with almost any controller of that type saving you time from making a map for *every* controller possible.
 
 ### 3.5 Populate Maps with Sprites
 
+Now for the fun part! For each glyph map created in 3.2 - 3.4 go through the actions generated and place the sprites imported during part 2 into the associated action.
 
+> [!TIP]
+>
+> Generally speaking you should only associate a positive and negative sprite with an action if it has a positive and negative description. 
+
+> [!NOTE]
+>
+> Don't have a sprite for some actions? That can be okay! Most glyph displays are able to display the description for the action instead of using its sprite.
+
+> <img src="../../attachments/manual/creating-collection/xelu-switch-map.png" width="450">
+>
+> Example of sprites added to a `Pro Controller` glyph map
+
+> [!WARNING]
+>
+> Before continuing to the next part you should now have:
+> - Maps created for `Mouse`, `Keyboard`
+> - Template maps for `Xbox`, `Playstation`, and `Switch` styled glyphs
+> - Controller maps for `Xbox One`, `Dualsense`, and `Pro Controller` devices
+> - Sprites associated with every actions generated for the maps (where applicable)
 
 ## Part 4 Assemble Glyph Collection
 
+Now that we are able to associate elements with a sprite and description with the maps created in part 3 we can put it all together within a [GlyphCollection](xref:LMirman.RewiredGlyphs.GlyphCollection) on the [RewiredGlyphManager](xref:LMirman.RewiredGlyphs.RewiredGlyphManager) so it can be loaded and referenced by the [InputGlyphs](xref:LMirman.RewiredGlyphs.InputGlyphs) system at runtime.
+
 ### 4.1 Create Glyph Collection Asset
 
+Right click in the Project view of unity and create a new empty `GlyphCollection` by going to `Create -> Rewired Glyphs -> Glyph Collection`. We'll name ours `Xelu Dark`. With your Glyph Collection selected let's begin by giving it a unique identifier key, for this example we'll give it the key `xelu_dark`.
 
+> The key is used for referencing this collection at runtime if we have multiple collections loaded.
 
-### 4.2 Assign Hardware Maps
+Let's also assign our Rewired's `Controller Data Files` so we can assign controllers in the next step.
 
-> [!NOTE]
->
-> **What's the difference between a hardware map and a template map?**
->
-> A map defined in a `Hardware` or `GUID` map represents a map whose elements are *directly* associated with the device. These maps are unique per device whereas a `Template` map represents a map whose elements are *translated* to a generic template that can be used by all devices.
->
-> Hardware maps are great for showing sprites and descriptions that are special for that device while a generic map is great for compatibility across many devices.
+### 4.2 Assign Controller Maps
 
-> [!NOTE]
+> <img src="../../attachments/manual/creating-collection/collection-1.png">
+
+Our collection should now look something like the above image. As you can see we have some errors saying we don't have maps assigned for certain devices! Let's resolve that by editing the controller maps and defining some glyph maps there.
+
+Let's add 5 entries to the list of controller maps on the GlyphCollection, one for each of the controller maps created in step `3.2` and `3.4`. Then populate the entires with the following values:
+
+- `Keyboard Glyph Map`, `Keyboard`
+- `Mouse Glyph Map`, `Mouse`
+- `Dualsense Glyph Map`, `Joystick`, `Sony DualSense`
+- `Switch Glyph Map`, `Joystick`, `Pro Controller`
+- `Xbox One Glyph Map`, `Joystick`, `Xbox One Controller`
+
+> <img src="../../attachments/manual/creating-collection/collection-2.png">
 >
-> Internally `Hardware Map` is a shortcut version of a `GUID Map`. Therefore if you want to represent a device that doesn't have a `Hardware Definition` you are not out luck since you could define it in a `GUID Map` instead. See the [Official Rewired Documentation](https://guavaman.com/projects/rewired/docs/HowTos.html#identifying-recognized-controllers) for a `.csv` file of all controllers and their GUID value.
+> Example of a populated GlyphCollection Controller Maps 
 
 ### 4.3 Assign Template Maps
 
+Returning to the main screen you'll see we still have an unresolved `No template maps!`. Let's enter the `Edit Template Maps` screen and add some now.
 
+Let's create 4 template maps, one for each of the symbol preferences available, and populate them with their respective glyph map we created in `3.3`.
+
+> [!NOTE]
+>
+> The `Auto` symbol preference entry is used as a default in cases where there is no entry for the other symbol preferences. If you don't define an `Auto` entry, the first item in the list is used as the fallback instead.
+
+> <img src="../../attachments/manual/creating-collection/collection-3.png"> 
+>
+> Example of a populated GlyphCollection Template Maps  
 
 ### 4.4 Assign Non-Input Glyph Values
+
+If you have a sprite in your project that you'd like to show when a glyph can't be found you can assign them to the `Unbound`, `Null`, and `Uninitialized` glyphs within the `GlyphCollection`'s `Non-Input Glyphs` section.
+
+- `Unbound`: Shown when the action queried is valid but the player doesn't have any input for that action
+- `Null`: Shown when the developer queried an action that doesn't exist on the Input Manager
+- `Uninitialized`: Show when Rewired or InputGlyphs are not initialized
+
+> <img src="../../attachments/manual/creating-collection/collection-4.png">
+>
+> Example Non-Input Glyph configuration
+
+### 4.5 Set Collection on RewiredInputManager
+
+We have finally finished creating our `GlyphCollection`! Now for our final step, loading it into the `InputGlyphs` system. On your Rewired Input Manager find your `RewiredGlyphManager` component or add one if there is not one already. On your `RewiredGlyphManager` set the `Glyph Collection` value to our newly created glyph collection. This will load it and set it as the default on initialization.
+
+> <img src="../../attachments/manual/creating-collection/collection-5.png">
+
+## Summary
+
+Congratulations! We have completed our creation of a `GlyphCollection`! If all is configured well you should now see your glyphs being output in your application.
+
+Some additional things consider that we did not do in this article:
+
+- Consider making additional controller maps for any additional controllers you want to support that we did not create here
+- Consider making additional collections that incorporate different visual styles for the glyphs such as a dark mode and light mode
