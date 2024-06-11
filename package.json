@@ -21,9 +21,14 @@
   },
   "samples": [
     {
-      "displayName": "Kenney Default Glyphs",
-      "description": "Contains default glyph sprite sheets and mappings for the sprite sheets.\n\nThe icons used are public domain attributed to Kenney assets. For more information and licensing info refer to https://kenney.nl/assets/input-prompts-pixel-16",
-      "path": "Samples~/Default Glyphs"
-    }
+      "displayName": "Kenney Pixel Prompts",
+      "description": "Example sprite sheets, glyph maps, and glyph collection using Kenney Pixel Prompts asset.\n\nThe icons used are public domain (CC0) from Kenney assets. For more information and licensing info refer to https://kenney.nl/assets/input-prompts-pixel-16",
+      "path": "Samples~/Kenney Pixel Prompts"
+    },
+		{
+			"displayName": "Xelu Prompts",
+			"description": "Example sprite sheets, glyph maps, and glyph collection using Xelu Controller Prompts asset.\n\nThe icons used are public domain (CC0) from Xelu. For more information and licensing info refer to https://thoseawesomeguys.com/prompts/",
+			"path": "Samples~/Xelu Prompts"
+		}
   ]
 }

@@ -1,84 +1,117 @@
 fileFormatVersion: 2
-guid: a894c592bea76714c9ea72c80abb6201
+guid: d3c0384a0bd897646b0b023003d88fdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5858199770913864953
-    second: mouse-glyphs_0
+      213: -7093990550120169626
+    second: playstation-glyphs_0
   - first:
-      213: -9131859527698396583
-    second: mouse-glyphs_1
+      213: -345533985934393965
+    second: playstation-glyphs_1
   - first:
-      213: -5580046459077313243
-    second: mouse-glyphs_2
+      213: 1248258452149142053
+    second: playstation-glyphs_2
   - first:
-      213: 959049108324486823
-    second: mouse-glyphs_3
+      213: 7719081654344393720
+    second: playstation-glyphs_3
   - first:
-      213: 1895730400096922022
-    second: mouse-glyphs_4
+      213: -2610100390845511723
+    second: playstation-glyphs_4
   - first:
-      213: 4026313277236398809
-    second: mouse-glyphs_5
+      213: 5318220572339659477
+    second: playstation-glyphs_5
   - first:
-      213: -7551162422855618127
-    second: mouse-glyphs_6
+      213: 2986563713974850526
+    second: playstation-glyphs_6
   - first:
-      213: 40181889700222662
-    second: mouse-glyphs_7
+      213: 3596806015060870699
+    second: playstation-glyphs_7
   - first:
-      213: 6759244126529296149
-    second: mouse-glyphs_8
+      213: -7589252978514497388
+    second: playstation-glyphs_8
   - first:
-      213: 2509946188660699350
-    second: mouse-glyphs_9
+      213: 4048350976815587105
+    second: playstation-glyphs_9
   - first:
-      213: -6016931986155258478
-    second: mouse-glyphs_10
+      213: 107385756416697149
+    second: playstation-glyphs_10
   - first:
-      213: 991435793246385600
-    second: mouse-glyphs_11
+      213: 5886726977978315561
+    second: playstation-glyphs_11
   - first:
-      213: 8435791854476302167
-    second: mouse-glyphs_12
+      213: -322259479311200376
+    second: playstation-glyphs_12
   - first:
-      213: 51652891368074426
-    second: mouse-glyphs_13
+      213: 7720391169471691696
+    second: playstation-glyphs_13
   - first:
-      213: 2879273007225266033
-    second: mouse-glyphs_14
+      213: -579739215515399224
+    second: playstation-glyphs_14
   - first:
-      213: -1185652390179574473
-    second: mouse-glyphs_15
+      213: -3739373819944728688
+    second: playstation-glyphs_15
   - first:
-      213: 2365396377879566601
-    second: mouse-glyphs_16
+      213: 7910949803144921675
+    second: playstation-glyphs_16
   - first:
-      213: -8977704903662425115
-    second: mouse-glyphs_17
+      213: -3208964414672593949
+    second: playstation-glyphs_17
   - first:
-      213: -3875894286850571047
-    second: mouse-glyphs_18
+      213: 6778873039283694039
+    second: playstation-glyphs_18
   - first:
-      213: -1444981130290110101
-    second: mouse-glyphs_19
+      213: 4242032423316688912
+    second: playstation-glyphs_19
   - first:
-      213: 5920523809373619845
-    second: mouse-glyphs_20
+      213: -3973098838937027683
+    second: playstation-glyphs_20
   - first:
-      213: -8920030924291535498
-    second: mouse-glyphs_21
+      213: 3768364145690948255
+    second: playstation-glyphs_21
   - first:
-      213: -5417315231912156008
-    second: mouse-glyphs_22
+      213: -3143288660128403111
+    second: playstation-glyphs_22
   - first:
-      213: -1981948966418108293
-    second: mouse-glyphs_23
+      213: 4333553167930980553
+    second: playstation-glyphs_23
   - first:
-      213: 1884886069287100264
-    second: mouse-glyphs_24
+      213: -4528455405227683078
+    second: playstation-glyphs_24
+  - first:
+      213: -6585713639615682370
+    second: playstation-glyphs_25
+  - first:
+      213: -738669968338816410
+    second: playstation-glyphs_26
+  - first:
+      213: 3320958995689159864
+    second: playstation-glyphs_27
+  - first:
+      213: 8665568475640440423
+    second: playstation-glyphs_28
+  - first:
+      213: -7516444321092376650
+    second: playstation-glyphs_29
+  - first:
+      213: 8369987919734630569
+    second: playstation-glyphs_30
+  - first:
+      213: 3143178647626957465
+    second: playstation-glyphs_31
+  - first:
+      213: -4475924928814918650
+    second: playstation-glyphs_32
+  - first:
+      213: -4769558118784665781
+    second: playstation-glyphs_33
+  - first:
+      213: 1475797707431146966
+    second: playstation-glyphs_34
+  - first:
+      213: -770106577968187470
+    second: playstation-glyphs_35
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -99,6 +132,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -137,6 +171,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -210,11 +245,149 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mouse-glyphs_0
+      name: playstation-glyphs_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ffb142e251d8d90800000000000000
+      internalID: -7093990550120169626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d3e86abaa643bf0800000000000000
+      internalID: -345533985934393965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5228a3cd274b25110800000000000000
+      internalID: 1248258452149142053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3ae6ffddfaf1b60800000000000000
+      internalID: 7719081654344393720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d78b8ff58f07cbd0800000000000000
+      internalID: -2610100390845511723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2ea73fe6d1ec940800000000000000
+      internalID: 5318220572339659477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_6
       rect:
         serializedVersion: 2
         x: 0
@@ -228,14 +401,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc789057a18c4150800000000000000
-      internalID: 5858199770913864953
+      spriteID: ed3da86dfd7627920800000000000000
+      internalID: 2986563713974850526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_1
+      name: playstation-glyphs_7
       rect:
         serializedVersion: 2
         x: 16
@@ -249,14 +422,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95a45c8642e154180800000000000000
-      internalID: -9131859527698396583
+      spriteID: b2601b5930c6ae130800000000000000
+      internalID: 3596806015060870699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_2
+      name: playstation-glyphs_8
       rect:
         serializedVersion: 2
         x: 32
@@ -270,14 +443,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52d35805f41bf82b0800000000000000
-      internalID: -5580046459077313243
+      spriteID: 490711920ae8da690800000000000000
+      internalID: -7589252978514497388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_3
+      name: playstation-glyphs_9
       rect:
         serializedVersion: 2
         x: 48
@@ -291,14 +464,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ae06df251a3f4d00800000000000000
-      internalID: 959049108324486823
+      spriteID: 12fd23ba3c1ae2830800000000000000
+      internalID: 4048350976815587105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_4
+      name: playstation-glyphs_10
       rect:
         serializedVersion: 2
         x: 64
@@ -312,14 +485,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a9afaf31ccfe4a10800000000000000
-      internalID: 1895730400096922022
+      spriteID: d336729c6c28d7100800000000000000
+      internalID: 107385756416697149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_5
+      name: playstation-glyphs_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9233b1c4ffad1b150800000000000000
+      internalID: 5886726977978315561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_12
       rect:
         serializedVersion: 2
         x: 0
@@ -333,14 +527,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9da4d14e79650e730800000000000000
-      internalID: 4026313277236398809
+      spriteID: 88f472206ba178bf0800000000000000
+      internalID: -322259479311200376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_6
+      name: playstation-glyphs_13
       rect:
         serializedVersion: 2
         x: 16
@@ -354,14 +548,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1b960c8c1e43790800000000000000
-      internalID: -7551162422855618127
+      spriteID: 0bb3c6f3dd6542b60800000000000000
+      internalID: 7720391169471691696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_7
+      name: playstation-glyphs_14
       rect:
         serializedVersion: 2
         x: 32
@@ -375,14 +569,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c65cfd3731ce8000800000000000000
-      internalID: 40181889700222662
+      spriteID: 8cb47dc414a54f7f0800000000000000
+      internalID: -579739215515399224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_8
+      name: playstation-glyphs_15
       rect:
         serializedVersion: 2
         x: 48
@@ -396,14 +590,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5179ce798b8adcd50800000000000000
-      internalID: 6759244126529296149
+      spriteID: 0978cc3a2531b1cc0800000000000000
+      internalID: -3739373819944728688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_9
+      name: playstation-glyphs_16
       rect:
         serializedVersion: 2
         x: 64
@@ -417,14 +611,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d07774a2ce15d220800000000000000
-      internalID: 2509946188660699350
+      spriteID: b4246649ee659cd60800000000000000
+      internalID: 7910949803144921675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_10
+      name: playstation-glyphs_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb129eddd77773d0800000000000000
+      internalID: -3208964414672593949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_18
       rect:
         serializedVersion: 2
         x: 0
@@ -438,14 +653,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29db787dc309f7ca0800000000000000
-      internalID: -6016931986155258478
+      spriteID: 7d92afbfc15631e50800000000000000
+      internalID: 6778873039283694039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_11
+      name: playstation-glyphs_19
       rect:
         serializedVersion: 2
         x: 16
@@ -459,14 +674,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5fe02e99942cd00800000000000000
-      internalID: 991435793246385600
+      spriteID: 0101b75830abeda30800000000000000
+      internalID: 4242032423316688912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_12
+      name: playstation-glyphs_20
       rect:
         serializedVersion: 2
         x: 32
@@ -480,14 +695,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75791353ff3f11570800000000000000
-      internalID: 8435791854476302167
+      spriteID: d9b34a708a7bcd8c0800000000000000
+      internalID: -3973098838937027683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_13
+      name: playstation-glyphs_21
       rect:
         serializedVersion: 2
         x: 48
@@ -501,14 +716,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abcad91f70287b000800000000000000
-      internalID: 51652891368074426
+      spriteID: f923a30993beb4430800000000000000
+      internalID: 3768364145690948255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_14
+      name: playstation-glyphs_22
       rect:
         serializedVersion: 2
         x: 64
@@ -522,14 +737,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f58078b8b35f720800000000000000
-      internalID: 2879273007225266033
+      spriteID: 95178821e9bc064d0800000000000000
+      internalID: -3143288660128403111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_15
+      name: playstation-glyphs_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c87bc565afd32c30800000000000000
+      internalID: 4333553167930980553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_24
       rect:
         serializedVersion: 2
         x: 0
@@ -543,14 +779,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73de048de67bb8fe0800000000000000
-      internalID: -1185652390179574473
+      spriteID: af2d43e3dc1b721c0800000000000000
+      internalID: -4528455405227683078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_16
+      name: playstation-glyphs_25
       rect:
         serializedVersion: 2
         x: 16
@@ -564,14 +800,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 909d188297393d020800000000000000
-      internalID: 2365396377879566601
+      spriteID: eb8234e5658da94a0800000000000000
+      internalID: -6585713639615682370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_17
+      name: playstation-glyphs_26
       rect:
         serializedVersion: 2
         x: 32
@@ -585,14 +821,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eb2beeb4f8c86380800000000000000
-      internalID: -8977704903662425115
+      spriteID: 6627ae2d397bfb5f0800000000000000
+      internalID: -738669968338816410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_18
+      name: playstation-glyphs_27
       rect:
         serializedVersion: 2
         x: 48
@@ -606,14 +842,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d44e457eae063ac0800000000000000
-      internalID: -3875894286850571047
+      spriteID: 8bcb0b38c9a661e20800000000000000
+      internalID: 3320958995689159864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_19
+      name: playstation-glyphs_28
       rect:
         serializedVersion: 2
         x: 64
@@ -627,14 +863,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b616aed515562fbe0800000000000000
-      internalID: -1444981130290110101
+      spriteID: 7662f5fcd98424870800000000000000
+      internalID: 8665568475640440423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_20
+      name: playstation-glyphs_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7694bb6b930b790800000000000000
+      internalID: -7516444321092376650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_30
       rect:
         serializedVersion: 2
         x: 0
@@ -648,14 +905,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58605fd490de92250800000000000000
-      internalID: 5920523809373619845
+      spriteID: 9a8e71abaab282470800000000000000
+      internalID: 8369987919734630569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_21
+      name: playstation-glyphs_31
       rect:
         serializedVersion: 2
         x: 16
@@ -669,14 +926,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67d8a1c722fa53480800000000000000
-      internalID: -8920030924291535498
+      spriteID: 992c565a350de9b20800000000000000
+      internalID: 3143178647626957465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_22
+      name: playstation-glyphs_32
       rect:
         serializedVersion: 2
         x: 32
@@ -690,14 +947,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 894209daf74d1d4b0800000000000000
-      internalID: -5417315231912156008
+      spriteID: 604dba0edf152e1c0800000000000000
+      internalID: -4475924928814918650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_23
+      name: playstation-glyphs_33
       rect:
         serializedVersion: 2
         x: 48
@@ -711,14 +968,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7032b57ae3be74e0800000000000000
-      internalID: -1981948966418108293
+      spriteID: b47724249202fcdb0800000000000000
+      internalID: -4769558118784665781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mouse-glyphs_24
+      name: playstation-glyphs_34
       rect:
         serializedVersion: 2
         x: 64
@@ -732,8 +989,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f90f9b4e5782a10800000000000000
-      internalID: 1884886069287100264
+      spriteID: 6d5f4cf12361b7410800000000000000
+      internalID: 1475797707431146966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playstation-glyphs_35
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7b305c5280055f0800000000000000
+      internalID: -770106577968187470
       vertices: []
       indices: 
       edges: []
@@ -748,6 +1026,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      playstation-glyphs_0: -7093990550120169626
+      playstation-glyphs_1: -345533985934393965
+      playstation-glyphs_10: 107385756416697149
+      playstation-glyphs_11: 5886726977978315561
+      playstation-glyphs_12: -322259479311200376
+      playstation-glyphs_13: 7720391169471691696
+      playstation-glyphs_14: -579739215515399224
+      playstation-glyphs_15: -3739373819944728688
+      playstation-glyphs_16: 7910949803144921675
+      playstation-glyphs_17: -3208964414672593949
+      playstation-glyphs_18: 6778873039283694039
+      playstation-glyphs_19: 4242032423316688912
+      playstation-glyphs_2: 1248258452149142053
+      playstation-glyphs_20: -3973098838937027683
+      playstation-glyphs_21: 3768364145690948255
+      playstation-glyphs_22: -3143288660128403111
+      playstation-glyphs_23: 4333553167930980553
+      playstation-glyphs_24: -4528455405227683078
+      playstation-glyphs_25: -6585713639615682370
+      playstation-glyphs_26: -738669968338816410
+      playstation-glyphs_27: 3320958995689159864
+      playstation-glyphs_28: 8665568475640440423
+      playstation-glyphs_29: -7516444321092376650
+      playstation-glyphs_3: 7719081654344393720
+      playstation-glyphs_30: 8369987919734630569
+      playstation-glyphs_31: 3143178647626957465
+      playstation-glyphs_32: -4475924928814918650
+      playstation-glyphs_33: -4769558118784665781
+      playstation-glyphs_34: 1475797707431146966
+      playstation-glyphs_35: -770106577968187470
+      playstation-glyphs_4: -2610100390845511723
+      playstation-glyphs_5: 5318220572339659477
+      playstation-glyphs_6: 2986563713974850526
+      playstation-glyphs_7: 3596806015060870699
+      playstation-glyphs_8: -7589252978514497388
+      playstation-glyphs_9: 4048350976815587105
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

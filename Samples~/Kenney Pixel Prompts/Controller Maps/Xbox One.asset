@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fad9d36fb691a84fb906682a04a0681, type: 3}
+  m_Name: Xbox One
+  m_EditorClassIdentifier: 
+  controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}
+  controllerGuid: 19002688-7406-4f4a-8340-8d25335406c8
+  glyphs:
+  - inputID: 0
+    description: Left Stick X
+    positiveDescription: Left Stick Right
+    negativeDescription: Left Stick Left
+    sprite: {fileID: -198415713290441316, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 2379900749371024224, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    negativeSprite: {fileID: 6246287354313786023, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 1
+    description: Left Stick Y
+    positiveDescription: Left Stick Up
+    negativeDescription: Left Stick Down
+    sprite: {fileID: 1372958806701873139, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 3932433623513112810, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    negativeSprite: {fileID: -6748412461298165435, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 2
+    description: Right Stick X
+    positiveDescription: Right Stick Right
+    negativeDescription: Right Stick Left
+    sprite: {fileID: 575726123499799132, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 1447302733104183999, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    negativeSprite: {fileID: -6503707614172902917, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 3
+    description: Right Stick Y
+    positiveDescription: Right Stick Up
+    negativeDescription: Right Stick Down
+    sprite: {fileID: 2222292143776018844, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 5031854513524096100, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    negativeSprite: {fileID: 4055531776521276102, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 4
+    description: Left Trigger
+    positiveDescription: Left Trigger
+    negativeDescription: 
+    sprite: {fileID: -5690046030340512511, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 5
+    description: Right Trigger
+    positiveDescription: Right Trigger
+    negativeDescription: 
+    sprite: {fileID: -6127925529958226854, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 6
+    description: A
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1447716961649957651, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 7
+    description: B
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -7770170090156497121, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 8
+    description: X
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 545305541206287114, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 9
+    description: Y
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -6702568598820647079, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 10
+    description: Left Shoulder
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2083524854120171034, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 11
+    description: Right Shoulder
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 4051061933650153051, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 12
+    description: View
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1016759431674512504, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 13
+    description: Menu
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 4359671774199705439, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 22
+    description: Guide
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2860781772076624433, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 14
+    description: Left Stick Button
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -5217742250883801428, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 15
+    description: Right Stick Button
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -5807803867034443574, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 16
+    description: D-Pad Up
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1737688767478969189, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 17
+    description: D-Pad Right
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 1907787079524593527, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 18
+    description: D-Pad Down
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2685202767585232344, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 19
+    description: D-Pad Left
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: -2177839748778932726, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 20
+    description: Left Stick
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2670446441360575925, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox
+  - inputID: 21
+    description: Right Stick
+    positiveDescription: 
+    negativeDescription: 
+    sprite: {fileID: 2953667001657204117, guid: bde41340e79bb044099fa553e8664669, type: 3}
+    positiveSprite: {fileID: 0}
+    negativeSprite: {fileID: 0}
+    textMeshSpriteSheetName: kenney_pixel_xbox

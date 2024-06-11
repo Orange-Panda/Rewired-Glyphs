@@ -399,7 +399,7 @@ TextureImporter:
       213: 5254494609035113882
     second: keyboard-glyphs_131
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -420,6 +420,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -458,6 +459,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -521,6 +523,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -3316,6 +3330,139 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      keyboard-glyphs_0: 8888068138524306443
+      keyboard-glyphs_1: -4306165662329633325
+      keyboard-glyphs_10: -8778430824088685317
+      keyboard-glyphs_100: 6716414971685456655
+      keyboard-glyphs_101: -4930542146291919301
+      keyboard-glyphs_102: -3583031545641153429
+      keyboard-glyphs_103: 3450598137592333297
+      keyboard-glyphs_104: 6136454480953901181
+      keyboard-glyphs_105: 1051545165975943138
+      keyboard-glyphs_106: -7074415290726503363
+      keyboard-glyphs_107: -4421333563266856140
+      keyboard-glyphs_108: 1695403971147907808
+      keyboard-glyphs_109: 3620986246217135847
+      keyboard-glyphs_11: 1252139378047750107
+      keyboard-glyphs_110: -392247219642202046
+      keyboard-glyphs_111: 8547826325805157892
+      keyboard-glyphs_112: 4195521008879130917
+      keyboard-glyphs_113: -5085163253784284737
+      keyboard-glyphs_114: -3097216139639286945
+      keyboard-glyphs_115: -5445624761792526939
+      keyboard-glyphs_116: 5692970935846888432
+      keyboard-glyphs_117: 5074726925619472036
+      keyboard-glyphs_118: 1064816068225948175
+      keyboard-glyphs_119: 1690040883140850401
+      keyboard-glyphs_12: 8899327033185637056
+      keyboard-glyphs_120: -1535356979423907470
+      keyboard-glyphs_121: -4816765573160335242
+      keyboard-glyphs_122: 5360665626500368047
+      keyboard-glyphs_123: 7907018160181434332
+      keyboard-glyphs_124: 6296858619195410798
+      keyboard-glyphs_125: -8162916802886257558
+      keyboard-glyphs_126: -4589047372895595232
+      keyboard-glyphs_127: 6633176731471205375
+      keyboard-glyphs_128: 1928944564984503834
+      keyboard-glyphs_129: -5229431740169199068
+      keyboard-glyphs_13: 7322398204318259771
+      keyboard-glyphs_130: -1364153717965419440
+      keyboard-glyphs_131: 5254494609035113882
+      keyboard-glyphs_14: -341428106592243120
+      keyboard-glyphs_15: -9185245114133244240
+      keyboard-glyphs_16: 7160556917161915564
+      keyboard-glyphs_17: -6298411381613339294
+      keyboard-glyphs_18: -5094743595078751962
+      keyboard-glyphs_19: -6497454157441519115
+      keyboard-glyphs_2: 1755603683337724297
+      keyboard-glyphs_20: 8818648030936655207
+      keyboard-glyphs_21: 8241499739638582153
+      keyboard-glyphs_22: -5592106155491805776
+      keyboard-glyphs_23: 2394064251031729804
+      keyboard-glyphs_24: -679401314107591443
+      keyboard-glyphs_25: 4407006417867806030
+      keyboard-glyphs_26: -4613109376172259639
+      keyboard-glyphs_27: -5940220545540843306
+      keyboard-glyphs_28: 6870460010931631544
+      keyboard-glyphs_29: 6861900281126759811
+      keyboard-glyphs_3: 5532477457093910545
+      keyboard-glyphs_30: 3384789984606285509
+      keyboard-glyphs_31: 2728441328690009707
+      keyboard-glyphs_32: -4451202291524002763
+      keyboard-glyphs_33: -33801062567098138
+      keyboard-glyphs_34: -2130263128040519429
+      keyboard-glyphs_35: 4570276270416638346
+      keyboard-glyphs_36: 7848299104355029421
+      keyboard-glyphs_37: -2873227873831536245
+      keyboard-glyphs_38: -2087638564035134691
+      keyboard-glyphs_39: 3176825386647746756
+      keyboard-glyphs_4: 5050488210394833476
+      keyboard-glyphs_40: -2307978188162121361
+      keyboard-glyphs_41: -5432749436417754168
+      keyboard-glyphs_42: 7134716394052189888
+      keyboard-glyphs_43: 8464187326803648380
+      keyboard-glyphs_44: 8487449979893554802
+      keyboard-glyphs_45: -5149411122185886797
+      keyboard-glyphs_46: 2754433353268245372
+      keyboard-glyphs_47: 9065970676502522095
+      keyboard-glyphs_48: -660961286538033041
+      keyboard-glyphs_49: -5552276088575847292
+      keyboard-glyphs_5: 4570159865693985127
+      keyboard-glyphs_50: 1088382007601743939
+      keyboard-glyphs_51: 7766335723246119394
+      keyboard-glyphs_52: -8645645666960533423
+      keyboard-glyphs_53: -6030846863152130510
+      keyboard-glyphs_54: 2331633004831196557
+      keyboard-glyphs_55: -933979892049808389
+      keyboard-glyphs_56: -1403261458170591689
+      keyboard-glyphs_57: 8058409582301853129
+      keyboard-glyphs_58: 8852481144976207976
+      keyboard-glyphs_59: 7808579251777027246
+      keyboard-glyphs_6: -7960541044522814763
+      keyboard-glyphs_60: 2101772489436346910
+      keyboard-glyphs_61: 9182918929386830172
+      keyboard-glyphs_62: 1299101492472557383
+      keyboard-glyphs_63: -8643644158932440448
+      keyboard-glyphs_64: 2969205858716393108
+      keyboard-glyphs_65: 7273046418862591243
+      keyboard-glyphs_66: 751595315689372941
+      keyboard-glyphs_67: -6204094875354014146
+      keyboard-glyphs_68: 5244981135324333963
+      keyboard-glyphs_69: 485443182152058365
+      keyboard-glyphs_7: 2494337213192083022
+      keyboard-glyphs_70: -3226426000640883400
+      keyboard-glyphs_71: -7544148698312345161
+      keyboard-glyphs_72: 8493775296324194707
+      keyboard-glyphs_73: 5398447642066259428
+      keyboard-glyphs_74: 7008114043437710845
+      keyboard-glyphs_75: -3725147464633788619
+      keyboard-glyphs_76: 5045547974100024095
+      keyboard-glyphs_77: 1715675107540715873
+      keyboard-glyphs_78: -7996919191137549394
+      keyboard-glyphs_79: 2004829661297955579
+      keyboard-glyphs_8: -3228829210420647432
+      keyboard-glyphs_80: -8026055825378866497
+      keyboard-glyphs_81: 5689928340929621196
+      keyboard-glyphs_82: -4147145262013135463
+      keyboard-glyphs_83: 7339174237144440511
+      keyboard-glyphs_84: -9133027907749717514
+      keyboard-glyphs_85: 5408290972751626128
+      keyboard-glyphs_86: 5265858451082646161
+      keyboard-glyphs_87: 4595306126098236506
+      keyboard-glyphs_88: -4415166204721050010
+      keyboard-glyphs_89: 5049875273551921066
+      keyboard-glyphs_9: -440820712864250273
+      keyboard-glyphs_90: -74337256203910003
+      keyboard-glyphs_91: -7931832850985404671
+      keyboard-glyphs_92: 398282641083634041
+      keyboard-glyphs_93: 3255862545207872288
+      keyboard-glyphs_94: 4212101706957164600
+      keyboard-glyphs_95: -4345756689090822827
+      keyboard-glyphs_96: -6938836826785115643
+      keyboard-glyphs_97: -3352102499190546086
+      keyboard-glyphs_98: 8417423708857134527
+      keyboard-glyphs_99: -2135584852359432446
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -132,7 +132,7 @@ TextureImporter:
       213: -3682629169416296209
     second: xbox-glyphs_42
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -153,6 +153,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -191,6 +192,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -254,6 +256,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1180,6 +1194,50 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      xbox-glyphs_0: 2670446441360575925
+      xbox-glyphs_1: 6246287354313786023
+      xbox-glyphs_10: -6503707614172902917
+      xbox-glyphs_11: 1447302733104183999
+      xbox-glyphs_12: 575726123499799132
+      xbox-glyphs_13: 5031854513524096100
+      xbox-glyphs_14: 4055531776521276102
+      xbox-glyphs_15: 2222292143776018844
+      xbox-glyphs_16: -6773050304346829827
+      xbox-glyphs_17: -5807803867034443574
+      xbox-glyphs_18: 1447716961649957651
+      xbox-glyphs_19: -7770170090156497121
+      xbox-glyphs_2: 2379900749371024224
+      xbox-glyphs_20: 545305541206287114
+      xbox-glyphs_21: -6702568598820647079
+      xbox-glyphs_22: 2083524854120171034
+      xbox-glyphs_23: 4051061933650153051
+      xbox-glyphs_24: -5690046030340512511
+      xbox-glyphs_25: -6127925529958226854
+      xbox-glyphs_26: 1016759431674512504
+      xbox-glyphs_27: 4359671774199705439
+      xbox-glyphs_28: 2860781772076624433
+      xbox-glyphs_29: 4680311081059216005
+      xbox-glyphs_3: -198415713290441316
+      xbox-glyphs_30: -2177839748778932726
+      xbox-glyphs_31: 1907787079524593527
+      xbox-glyphs_32: 8756172314897550957
+      xbox-glyphs_33: 1737688767478969189
+      xbox-glyphs_34: 2685202767585232344
+      xbox-glyphs_35: -4311363289999539006
+      xbox-glyphs_36: -1058665811667778773
+      xbox-glyphs_37: -8659018012218319694
+      xbox-glyphs_38: 3765178827120096484
+      xbox-glyphs_39: -44210295794031887
+      xbox-glyphs_4: 3932433623513112810
+      xbox-glyphs_40: -6432709336603408957
+      xbox-glyphs_41: -3112545885405102277
+      xbox-glyphs_42: -3682629169416296209
+      xbox-glyphs_5: -6748412461298165435
+      xbox-glyphs_6: 1372958806701873139
+      xbox-glyphs_7: 4124001386023053694
+      xbox-glyphs_8: -5217742250883801428
+      xbox-glyphs_9: 2953667001657204117
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -123,7 +123,7 @@ TextureImporter:
       213: 8148942621408302697
     second: switch-glyphs_39
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -182,6 +183,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -245,6 +247,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1108,6 +1122,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      switch-glyphs_0: -4116567510313125695
+      switch-glyphs_1: -7487147396735353553
+      switch-glyphs_10: 766817374896786375
+      switch-glyphs_11: -2881246206283233601
+      switch-glyphs_12: -3932898926672113744
+      switch-glyphs_13: -8896862877242324997
+      switch-glyphs_14: 1030689669107515615
+      switch-glyphs_15: 3474282384660813287
+      switch-glyphs_16: -2607860998935649015
+      switch-glyphs_17: 4485144134525911593
+      switch-glyphs_18: 106247060163658468
+      switch-glyphs_19: -7367662275600765960
+      switch-glyphs_2: 3721399097587118453
+      switch-glyphs_20: -1884526035434476172
+      switch-glyphs_21: 6104567820559442773
+      switch-glyphs_22: -1381090275265698470
+      switch-glyphs_23: 1337993340700082976
+      switch-glyphs_24: -6101985945807963238
+      switch-glyphs_25: 6503968590366276094
+      switch-glyphs_26: 8280568607770429771
+      switch-glyphs_27: -8977433128499974994
+      switch-glyphs_28: 7878974578178494104
+      switch-glyphs_29: 8753032886655747171
+      switch-glyphs_3: 1196175565391593399
+      switch-glyphs_30: 988276562371670703
+      switch-glyphs_31: -2564915541053297540
+      switch-glyphs_32: 6017072094403001491
+      switch-glyphs_33: -2373162404996514616
+      switch-glyphs_34: -1470411327023641471
+      switch-glyphs_35: 5513720205307882932
+      switch-glyphs_36: 1886200516183496878
+      switch-glyphs_37: 1902877269246015797
+      switch-glyphs_38: -5837663944002904622
+      switch-glyphs_39: 8148942621408302697
+      switch-glyphs_4: -3052243708127106453
+      switch-glyphs_5: 8226252694376149845
+      switch-glyphs_6: -5667753637879765395
+      switch-glyphs_7: 2725510730895572932
+      switch-glyphs_8: -4804690345872452089
+      switch-glyphs_9: -4100022568374081930
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

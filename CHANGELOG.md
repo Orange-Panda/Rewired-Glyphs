@@ -52,6 +52,7 @@ This release includes *major breaking* changes which will require your attention
 - Added component icons to all major components and scriptable objects of the package
 - Added confirmation dialogue before generating TMP sprite sheet on Rewired Glyph Manager
 - Added custom property drawer for `Glyph`
+- Added new sample glyphs: [Xelu Prompts](https://thoseawesomeguys.com/prompts/)
 
 ### Changed
 
@@ -61,6 +62,7 @@ This release includes *major breaking* changes which will require your attention
 	- Loading a glyph collection now only dispatches a glyph update if it may have changed the output of glyph queries
 - `GlyphCollection` now initializes non-input glyph values with default values when created.
 - Remove set access to `TemplateEntry` and `GuidEntry`
+- Updated `Kenney` sample glyphs to new `GlyphCollection` format
 
 ### Fixed
 
