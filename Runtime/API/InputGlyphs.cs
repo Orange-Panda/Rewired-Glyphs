@@ -75,7 +75,7 @@ namespace LMirman.RewiredGlyphs
 		/// <remarks>
 		/// Remedied by correcting the glyph display's target value
 		/// </remarks>
-		public static Glyph NullGlyph { get; private set; } = new Glyph("Null", type: Glyph.Type.Null);
+		public static Glyph NullGlyph { get; private set; } = new Glyph("Null", controllerType: null, type: Glyph.Type.Null);
 
 		/// <summary>
 		/// Glyph representing an action that does not have an input assigned.
@@ -83,7 +83,7 @@ namespace LMirman.RewiredGlyphs
 		/// <remarks>
 		/// Remedied by assigning an input to the action either in the Rewired Input Manager at editor time or a control remapping tool at runtime.
 		/// </remarks>
-		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound", type: Glyph.Type.Unbound);
+		public static Glyph UnboundGlyph { get; private set; } = new Glyph("Unbound", controllerType: null, type: Glyph.Type.Unbound);
 
 		/// <summary>
 		/// Glyph representing a query that occured before the InputGlyphs system was ready.
@@ -94,7 +94,7 @@ namespace LMirman.RewiredGlyphs
 		/// Depending on script execution order your display may query before the glyph system is ready.
 		/// The safest approach is to query in OnEnable or Start.
 		/// </remarks>
-		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized", type: Glyph.Type.Uninitialized);
+		public static Glyph UninitializedGlyph { get; private set; } = new Glyph("Uninitialized", controllerType: null, type: Glyph.Type.Uninitialized);
 
 		/// <summary>
 		/// The preferred hardware (Controller or Mouse/Keyboard) to display in <see cref="GetCurrentGlyph(int,Rewired.Pole,out Rewired.AxisRange,int,bool, string)"/>
@@ -235,14 +235,14 @@ namespace LMirman.RewiredGlyphs
 			{
 				axisRange = expectedMouse;
 				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Mouse, mouseMap.elementIdentifierId, collectionKey);
-				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName);
+				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName, ControllerType.Mouse);
 			}
 
 			if (keyboardMap != null)
 			{
 				axisRange = expectedKeyboard;
 				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
-				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName);
+				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName, ControllerType.Keyboard);
 			}
 
 			return UnboundGlyph;
@@ -278,7 +278,7 @@ namespace LMirman.RewiredGlyphs
 
 			axisRange = expectedAxis;
 			Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Keyboard, keyboardMap.elementIdentifierId, collectionKey);
-			return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName);
+			return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(keyboardMap.elementIdentifierName, ControllerType.Keyboard);
 		}
 
 		/// <inheritdoc cref="InputGlyphs.GetCurrentGlyph(Player, int, Pole, out AxisRange, bool, string)"/>
@@ -308,7 +308,7 @@ namespace LMirman.RewiredGlyphs
 			{
 				axisRange = expectedAxis;
 				Glyph glyph = GetNativeGlyphFromGuidMap(ReInput.controllers.Mouse, mouseMap.elementIdentifierId, collectionKey);
-				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName);
+				return glyph ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(mouseMap.elementIdentifierName, ControllerType.Mouse);
 			}
 
 			return UnboundGlyph;
@@ -350,7 +350,8 @@ namespace LMirman.RewiredGlyphs
 			}
 
 			axisRange = expectedAxis;
-			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference, collectionKey) ?? GetGlyphCollection(collectionKey).GetFallbackGlyph(map.elementIdentifierName);
+			return GetJoystickGlyphFromElementMap(player, controller, map, symbolPreference, collectionKey) ??
+			       GetGlyphCollection(collectionKey).GetFallbackGlyph(map.elementIdentifierName, ControllerType.Joystick);
 		}
 
 		/// <summary>
@@ -666,7 +667,8 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
 		/// </summary>
-		private static ActionElementMap GetActionElementMap(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis, int controllerId = 0)
+		private static ActionElementMap GetActionElementMap(this Player player, ControllerType controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis,
+			int controllerId = 0)
 		{
 			InputAction inputAction = ReInput.mapping.GetAction(actionID);
 			if (inputAction == null)

@@ -4,6 +4,22 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - UNRELEASED
+
+### Added
+
+- Added new constructors to `Glyph` that utilize a `ControllerType` parameter
+	- ⚠️ Marked the constructors that don't have this parameter as obsolete. They will not be removed until the next major release at earliest.
+
+### Changed
+
+- Fallback glyphs now have a `ControllerType` value for the device they were intended to represent
+	- Previously was always `null`
+
+### Fixed
+
+- Fixed `hideKBM` functionality not behaving as expected for fallback glyphs
+
 ## [2.0.1] - 2024-06-11
 
 ### Fixed

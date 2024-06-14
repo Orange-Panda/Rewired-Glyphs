@@ -27,7 +27,7 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Automatically generated glyphs for inputs that have no glyph defined anywhere.
 		/// </summary>
-		private readonly Dictionary<string, Glyph> fallbackGlyphs = new Dictionary<string, Glyph>();
+		private readonly Dictionary<(string, ControllerType?), Glyph> fallbackGlyphs = new Dictionary<(string, ControllerType?), Glyph>();
 
 		internal readonly GlyphCollection collection;
 		/// <inheritdoc cref="InputGlyphs.NullGlyph"/>
@@ -40,9 +40,9 @@ namespace LMirman.RewiredGlyphs
 		private RuntimeGlyphCollection()
 		{
 			collection = null;
-			uninitializedGlyph = new Glyph("Uninitialized", type: Glyph.Type.Uninitialized);
-			unboundGlyph = new Glyph("Unbound", type: Glyph.Type.Unbound);
-			nullGlyph = new Glyph("Null", type: Glyph.Type.Null);
+			uninitializedGlyph = new Glyph("Uninitialized", controllerType: null, type: Glyph.Type.Uninitialized);
+			unboundGlyph = new Glyph("Unbound", controllerType: null, type: Glyph.Type.Unbound);
+			nullGlyph = new Glyph("Null", controllerType: null, type: Glyph.Type.Null);
 		}
 
 		internal RuntimeGlyphCollection(GlyphCollection collection)
@@ -187,14 +187,17 @@ namespace LMirman.RewiredGlyphs
 		/// Since we obviously can't assume what this element would look like with a sprite we at least give it a description so text glyph outputs can still function.<br/><br/>
 		/// Ultimately this is a fallback mechanism and having specific element definitions for all inputs should be done.
 		/// </remarks>
-		internal Glyph GetFallbackGlyph(string name)
+		internal Glyph GetFallbackGlyph(string name, ControllerType? controllerType)
 		{
-			if (!fallbackGlyphs.ContainsKey(name))
+			(string name, ControllerType? controllerType) valueTuple = (name, controllerType);
+			if (fallbackGlyphs.TryGetValue(valueTuple, out Glyph glyph))
 			{
-				fallbackGlyphs.Add(name, new Glyph(name, nullGlyph.FullSprite));
+				return glyph;
 			}
 
-			return fallbackGlyphs[name];
+			Glyph fallbackGlyph = new Glyph(name, controllerType, nullGlyph.FullSprite);
+			fallbackGlyphs.Add(valueTuple, fallbackGlyph);
+			return fallbackGlyphs[valueTuple];
 		}
 	}
 }
