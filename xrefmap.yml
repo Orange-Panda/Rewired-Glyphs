@@ -622,6 +622,24 @@ references:
   fullName.vb: LMirman.RewiredGlyphs.Glyph.New(Integer, String, Sprite, Sprite, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
   nameWithType: Glyph.Glyph(int, string, Sprite, Sprite, Sprite, Glyph.Type)
   nameWithType.vb: Glyph.New(Integer, String, Sprite, Sprite, Sprite, Glyph.Type)
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,System.Nullable{ControllerType},Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name: Glyph(int, string, ControllerType?, Sprite, Type)
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_Int32_System_String_System_Nullable_ControllerType__Sprite_LMirman_RewiredGlyphs_Glyph_Type_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,System.Nullable{ControllerType},Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name.vb: New(Integer, String, ControllerType?, Sprite, Type)
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph(int, string, ControllerType?, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New(Integer, String, ControllerType?, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  nameWithType: Glyph.Glyph(int, string, ControllerType?, Sprite, Glyph.Type)
+  nameWithType.vb: Glyph.New(Integer, String, ControllerType?, Sprite, Glyph.Type)
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,System.Nullable{ControllerType},Sprite,Sprite,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name: Glyph(int, string, ControllerType?, Sprite, Sprite, Sprite, Type)
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_Int32_System_String_System_Nullable_ControllerType__Sprite_Sprite_Sprite_LMirman_RewiredGlyphs_Glyph_Type_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.#ctor(System.Int32,System.String,System.Nullable{ControllerType},Sprite,Sprite,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name.vb: New(Integer, String, ControllerType?, Sprite, Sprite, Sprite, Type)
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph(int, string, ControllerType?, Sprite, Sprite, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New(Integer, String, ControllerType?, Sprite, Sprite, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  nameWithType: Glyph.Glyph(int, string, ControllerType?, Sprite, Sprite, Sprite, Glyph.Type)
+  nameWithType.vb: Glyph.New(Integer, String, ControllerType?, Sprite, Sprite, Sprite, Glyph.Type)
 - uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.String,Sprite,LMirman.RewiredGlyphs.Glyph.Type)
   name: Glyph(string, Sprite, Type)
   href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_String_Sprite_LMirman_RewiredGlyphs_Glyph_Type_
@@ -631,6 +649,15 @@ references:
   fullName.vb: LMirman.RewiredGlyphs.Glyph.New(String, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
   nameWithType: Glyph.Glyph(string, Sprite, Glyph.Type)
   nameWithType.vb: Glyph.New(String, Sprite, Glyph.Type)
+- uid: LMirman.RewiredGlyphs.Glyph.#ctor(System.String,System.Nullable{ControllerType},Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name: Glyph(string, ControllerType?, Sprite, Type)
+  href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html#LMirman_RewiredGlyphs_Glyph__ctor_System_String_System_Nullable_ControllerType__Sprite_LMirman_RewiredGlyphs_Glyph_Type_
+  commentId: M:LMirman.RewiredGlyphs.Glyph.#ctor(System.String,System.Nullable{ControllerType},Sprite,LMirman.RewiredGlyphs.Glyph.Type)
+  name.vb: New(String, ControllerType?, Sprite, Type)
+  fullName: LMirman.RewiredGlyphs.Glyph.Glyph(string, ControllerType?, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  fullName.vb: LMirman.RewiredGlyphs.Glyph.New(String, ControllerType?, Sprite, LMirman.RewiredGlyphs.Glyph.Type)
+  nameWithType: Glyph.Glyph(string, ControllerType?, Sprite, Glyph.Type)
+  nameWithType.vb: Glyph.New(String, ControllerType?, Sprite, Glyph.Type)
 - uid: LMirman.RewiredGlyphs.Glyph.#ctor*
   name: Glyph
   href: api/LMirman.RewiredGlyphs.Glyph.-ctor.html
