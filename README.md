@@ -12,9 +12,14 @@ An expansion for Guavaman's [Rewired Unity Asset](https://assetstore.unity.com/p
 - Automatically changes sprites to show the user's most recently used device
 - Can show multiple sprites inline with text using TextMeshPro sprite sheets
 
+## Requirements
+
+- A Unity project of Unity 2020.3 or later
+- Ownership of the [Rewired](https://assetstore.unity.com/packages/tools/utilities/rewired-21676) Unity asset
+
 ## Quick Start Guide
 
-1. Download and install the [Rewired](https://assetstore.unity.com/packages/tools/utilities/rewired-21676) asset into your Unity project (Only Unity 2020.3 and above are supported).
+1. Download and install the [Rewired](https://assetstore.unity.com/packages/tools/utilities/rewired-21676) asset into your Unity project
 	1. See [Rewired's Quick Start](https://guavaman.com/projects/rewired/docs/QuickStart.html) for more information on getting started with Rewired.
 	2. Note: The Rewired asset will never be included in this package. Purchasing Rewired from the Unity Asset Store is required for this asset to function.
 2. Install the package via Git in the Package Manager
