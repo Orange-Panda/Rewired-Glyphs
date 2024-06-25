@@ -14,11 +14,11 @@ An expansion for Guavaman's [Rewired Unity Asset](https://assetstore.unity.com/p
 
 ## Quick Start Guide
 
-1. Download and install the [Rewired](https://assetstore.unity.com/packages/tools/utilities/rewired-21676) asset into your Unity project.
+1. Download and install the [Rewired](https://assetstore.unity.com/packages/tools/utilities/rewired-21676) asset into your Unity project (Only Unity 2020.3 and above are supported).
 	1. See [Rewired's Quick Start](https://guavaman.com/projects/rewired/docs/QuickStart.html) for more information on getting started with Rewired.
 	2. Note: The Rewired asset will never be included in this package. Purchasing Rewired from the Unity Asset Store is required for this asset to function.
 2. Install the package via Git in the Package Manager
-	1. Ensure you have Git installed and your Unity Version supports Git package manager imports (2019+)
+	1. Ensure you have Git installed on your system
 	2. In Unity go to `Window -> Package Manager`
 	3. Press the + icon at the top left of the Package Manager window
 	4. Choose "Add package from Git URL"

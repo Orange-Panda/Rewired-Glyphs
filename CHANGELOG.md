@@ -4,6 +4,13 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - UNRELEASED
+
+### Changed
+
+- Rewrote code that used C# 9.0 features, which was preventing package use in Unity 2020.3.
+	- Unity 2020.3 is now declared the minimum required Unity version for this packaged. Earlier Unity releases are not supported.
+
 ## [2.1.0] - 2024-06-14
 
 ### Added
