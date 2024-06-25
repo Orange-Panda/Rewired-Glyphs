@@ -90,7 +90,7 @@ namespace LMirman.RewiredGlyphs
 
 		private static bool IsKeyboardMouse([CanBeNull] Controller controller)
 		{
-			return controller is { type: ControllerType.Mouse or ControllerType.Keyboard };
+			return controller != null && controller.type.IsKeyboardOrMouse();
 		}
 
 		private class ObservedPlayer

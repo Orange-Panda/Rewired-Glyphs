@@ -157,7 +157,8 @@ namespace LMirman.RewiredGlyphs
 			{
 				ControllerType.Keyboard => keyboardMap,
 				ControllerType.Mouse => mouseMap,
-				ControllerType.Joystick or ControllerType.Custom => joystickGuidMaps.GetValueOrDefault(hardwareGuid),
+				ControllerType.Joystick => joystickGuidMaps.TryGetValue(hardwareGuid, out Dictionary<int, Glyph> value) ? value : default,
+				ControllerType.Custom => joystickGuidMaps.TryGetValue(hardwareGuid, out Dictionary<int, Glyph> value) ? value : default,
 				_ => throw new ArgumentOutOfRangeException(nameof(controllerType), controllerType, null)
 			};
 		}

@@ -88,8 +88,8 @@ namespace LMirman.RewiredGlyphs.Editor
 
 		private static bool UsesGuid(SerializedProperty property)
 		{
-			ControllerType controllerType = (ControllerType)property.FindPropertyRelative("controllerType").enumValueFlag;
-			return controllerType is ControllerType.Joystick or ControllerType.Custom;
+			ControllerType controllerType = (ControllerType)property.FindPropertyRelative("controllerType").intValue;
+			return controllerType == ControllerType.Joystick || controllerType == ControllerType.Custom;
 		}
 	}
 }

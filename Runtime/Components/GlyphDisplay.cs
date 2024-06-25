@@ -167,12 +167,12 @@ namespace LMirman.RewiredGlyphs.Components
 		/// <returns>True if the glyph should be hidden, false if the glyph should be shown.</returns>
 		protected bool ShouldHideGlyph(Glyph glyph)
 		{
-			if (hideNonInputGlyphs && glyph.GlyphType is not Glyph.Type.Input)
+			if (hideNonInputGlyphs && glyph.GlyphType != Glyph.Type.Input)
 			{
 				return true;
 			}
 
-			return hideKeyboardMouseGlyphs && glyph.ControllerType is ControllerType.Keyboard or ControllerType.Mouse;
+			return hideKeyboardMouseGlyphs && glyph.ControllerType.IsKeyboardOrMouse();
 		}
 	}
 }

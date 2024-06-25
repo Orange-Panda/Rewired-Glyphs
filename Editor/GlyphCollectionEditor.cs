@@ -115,7 +115,7 @@ namespace LMirman.RewiredGlyphs.Editor
 				for (int i = 0; i < guidMaps.arraySize; i++)
 				{
 					SerializedProperty element = guidMaps.GetArrayElementAtIndex(i);
-					if (element.FindPropertyRelative("controllerType").enumValueFlag == (int)ControllerType.Mouse)
+					if (element.FindPropertyRelative("controllerType").intValue == (int)ControllerType.Mouse)
 					{
 						return false;
 					}
@@ -129,7 +129,7 @@ namespace LMirman.RewiredGlyphs.Editor
 				for (int i = 0; i < guidMaps.arraySize; i++)
 				{
 					SerializedProperty element = guidMaps.GetArrayElementAtIndex(i);
-					if (element.FindPropertyRelative("controllerType").enumValueFlag == (int)ControllerType.Keyboard)
+					if (element.FindPropertyRelative("controllerType").intValue == (int)ControllerType.Keyboard)
 					{
 						return false;
 					}
@@ -181,7 +181,7 @@ namespace LMirman.RewiredGlyphs.Editor
 					SerializedProperty element = guidMaps.GetArrayElementAtIndex(i);
 					SerializedProperty controllerType = element.FindPropertyRelative("controllerType");
 					SerializedProperty guid = element.FindPropertyRelative("guid");
-					switch ((ControllerType)controllerType.enumValueFlag)
+					switch ((ControllerType)controllerType.intValue)
 					{
 						case ControllerType.Keyboard:
 							if (hasKeyboard)
@@ -222,7 +222,7 @@ namespace LMirman.RewiredGlyphs.Editor
 					SerializedProperty element = guidMaps.GetArrayElementAtIndex(i);
 					SerializedProperty controllerType = element.FindPropertyRelative("controllerType");
 					SerializedProperty guid = element.FindPropertyRelative("guid");
-					switch ((ControllerType)controllerType.enumValueFlag)
+					switch ((ControllerType)controllerType.intValue)
 					{
 						case ControllerType.Keyboard:
 						case ControllerType.Mouse:
@@ -249,7 +249,7 @@ namespace LMirman.RewiredGlyphs.Editor
 				for (int i = 0; i < templateMaps.arraySize; i++)
 				{
 					SerializedProperty element = templateMaps.GetArrayElementAtIndex(i);
-					if (!definedControllerTypes.Add(element.FindPropertyRelative("symbolPreference").enumValueFlag))
+					if (!definedControllerTypes.Add(element.FindPropertyRelative("symbolPreference").intValue))
 					{
 						return true;
 					}

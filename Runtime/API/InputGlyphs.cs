@@ -764,6 +764,16 @@ namespace LMirman.RewiredGlyphs
 		{
 			return rawString == null ? string.Empty : NonAlphaNumericRegex.Replace(rawString.ToLowerInvariant(), string.Empty);
 		}
+
+		internal static bool IsKeyboardOrMouse(this ControllerType? controllerType)
+		{
+			return controllerType != null && (controllerType == ControllerType.Keyboard || controllerType == ControllerType.Mouse);
+		}
+
+		internal static bool IsKeyboardOrMouse(this ControllerType controllerType)
+		{
+			return controllerType == ControllerType.Keyboard || controllerType == ControllerType.Mouse;
+		}
 		#endregion
 	}
 }
