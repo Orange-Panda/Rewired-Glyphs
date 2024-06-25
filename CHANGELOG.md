@@ -8,8 +8,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 
-- Rewrote code that used C# 9.0 features, which was preventing package use in Unity 2020.3.
-	- Unity 2020.3 is now declared the minimum required Unity version for this packaged. Earlier Unity releases are not supported.
+- Rewrote internal code that used C# 9.0 features, which was preventing package use in Unity 2020.3.
+- Declared Unity 2020.3 as the minimum required Unity version for this packaged. Earlier Unity releases are not supported by this package.
+
+### Fixed
+
+- Fixed internal exception that would sometimes occur when getting joystick glyphs with null controller 
 
 ## [2.1.0] - 2024-06-14
 

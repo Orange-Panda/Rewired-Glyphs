@@ -342,8 +342,25 @@ namespace LMirman.RewiredGlyphs
 				return NullGlyph;
 			}
 
+			// -- Special case: Null controller provided, use default controller values.
+			ActionElementMap map;
+			AxisRange expectedAxis;
+			if (controller == null)
+			{
+				map = player.GetActionElementMap(ControllerType.Joystick, action.id, pole, forceAxis, out expectedAxis);
+				// Make sure the action is actually bound, if not escape with an unbound glyph.
+				if (map == null)
+				{
+					return UnboundGlyph;
+				}
+
+				axisRange = expectedAxis;
+				return GetJoystickGlyphFromElementMap(player, null, map, symbolPreference, collectionKey) ??
+				       GetGlyphCollection(collectionKey).GetFallbackGlyph(map.elementIdentifierName, ControllerType.Joystick);
+			}
+
 			// Make sure the action is actually bound, if not escape with an unbound glyph.
-			ActionElementMap map = player.GetActionElementMap(controller, action.id, pole, forceAxis, out AxisRange expectedAxis);
+			map = player.GetActionElementMap(controller, action.id, pole, forceAxis, out expectedAxis);
 			if (map == null)
 			{
 				return UnboundGlyph;
@@ -526,7 +543,7 @@ namespace LMirman.RewiredGlyphs
 
 		/// <inheritdoc cref="RuntimeGlyphCollection.GetNativeGlyphFromGuidMap(ControllerType, Guid, int)"/>
 		[CanBeNull]
-		public static Glyph GetNativeGlyphFromGuidMap(Controller controller, int elementID, [CanBeNull] string collectionKey = null)
+		public static Glyph GetNativeGlyphFromGuidMap([NotNull] Controller controller, int elementID, [CanBeNull] string collectionKey = null)
 		{
 			return GetGlyphCollection(collectionKey).GetNativeGlyphFromGuidMap(controller, elementID);
 		}
@@ -613,7 +630,7 @@ namespace LMirman.RewiredGlyphs
 		}
 
 		[CanBeNull]
-		private static Glyph GetJoystickGlyphFromElementMap(Player player, Controller controller, ActionElementMap map, SymbolPreference symbolPreference, [CanBeNull] string collectionKey = null)
+		private static Glyph GetJoystickGlyphFromElementMap(Player player, [CanBeNull] Controller controller, ActionElementMap map, SymbolPreference symbolPreference, [CanBeNull] string collectionKey = null)
 		{
 			// Try to retrieve a glyph that is specific to the user's controller hardware.
 			if (controller != null && symbolPreference == SymbolPreference.Auto)
@@ -706,7 +723,7 @@ namespace LMirman.RewiredGlyphs
 		/// <summary>
 		/// Find the first mapping that is for this controller and with the correct pole direction. Null if no such map exists.
 		/// </summary>
-		private static ActionElementMap GetActionElementMap(this Player player, Controller controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis)
+		private static ActionElementMap GetActionElementMap(this Player player, [NotNull] Controller controller, int actionID, Pole pole, bool getAsAxis, out AxisRange expectedAxis)
 		{
 			return player.GetActionElementMap(controller.type, actionID, pole, getAsAxis, out expectedAxis, controller.id);
 		}

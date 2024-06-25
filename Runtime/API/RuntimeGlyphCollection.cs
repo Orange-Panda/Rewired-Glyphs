@@ -145,7 +145,7 @@ namespace LMirman.RewiredGlyphs
 
 		/// <inheritdoc cref="GetNativeGlyphFromGuidMap(Rewired.ControllerType,System.Guid,int)"/>
 		[CanBeNull]
-		public Glyph GetNativeGlyphFromGuidMap(Controller controller, int elementID)
+		public Glyph GetNativeGlyphFromGuidMap([NotNull] Controller controller, int elementID)
 		{
 			return GetNativeGlyphFromGuidMap(controller.type, controller.hardwareTypeGuid, elementID);
 		}
