@@ -51,16 +51,24 @@ namespace LMirman.RewiredGlyphs.Components
 		[Tooltip("The format for Glyph in line sprites that replace glyph rich text values. Default: \"{0}\" will output \"<sprite ...>\" with no leading or trailing spaces.")]
 		private string spriteFormat = "{0}";
 
+		private bool acquiredTextMesh;
 		private TMP_Text textMesh;
 		private int lastHashCode;
 		private bool lastPreformatTextHasGlyph;
 		private string lastPreformatText;
 
-		public TMP_Text TextMesh => textMesh;
+		/// <summary>
+		/// The text mesh component attached to the same game object as this <see cref="GlyphRichTextFormatter"/>
+		/// </summary>
+		public TMP_Text TextMesh
+		{
+			get => acquiredTextMesh ? textMesh : GetAndCacheTextMeshComponent();
+			private set => textMesh = value;
+		}
 
 		private void Awake()
 		{
-			textMesh = GetComponent<TMP_Text>();
+			GetAndCacheTextMeshComponent();
 		}
 
 		protected virtual void OnEnable()
@@ -102,17 +110,24 @@ namespace LMirman.RewiredGlyphs.Components
 			}
 		}
 
+		private TMP_Text GetAndCacheTextMeshComponent()
+		{
+			acquiredTextMesh = true;
+			textMesh = GetComponent<TMP_Text>();
+			return textMesh;
+		}
+
 		private void UpdateTextFromObservedValue()
 		{
 			// Don't set formatted text if it is deemed identical to the last formatted text.
-			int hashCode = textMesh.text.GetHashCode();
+			int hashCode = TextMesh.text.GetHashCode();
 			if (hashCode == lastHashCode)
 			{
 				return;
 			}
 
 			lastHashCode = hashCode;
-			SetFormattedText(textMesh.text);
+			SetFormattedText(TextMesh.text);
 		}
 
 		/// <summary>
@@ -127,8 +142,8 @@ namespace LMirman.RewiredGlyphs.Components
 			lastPreformatText = text;
 			lastPreformatTextHasGlyph = GlyphRegex.IsMatch(text);
 			string textToSet = lastPreformatTextHasGlyph ? ReplaceGlyphTagsWithSpriteTags(text, useSpritesWhenAvailable, descriptionFormat, spriteFormat) : text;
-			textMesh.SetText(textToSet);
 			lastHashCode = textToSet.GetHashCode();
+			TextMesh.SetText(textToSet);
 		}
 
 		#region Static
