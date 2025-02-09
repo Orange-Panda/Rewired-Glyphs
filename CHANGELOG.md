@@ -4,6 +4,12 @@ All notable changes to this package are documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.2] - UNRELEASED
+
+### Fixed
+
+- Fixed NullReferenceException in InputGlyphs.cs when trying to get a glyph for gamepad template if there was no template.
+
 ## [2.2.1] - 2024-12-16
 
 ### Fixed

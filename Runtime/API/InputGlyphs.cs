@@ -645,9 +645,17 @@ namespace LMirman.RewiredGlyphs
 			// Try to retrieve a glyph that is mapped to the gamepad template (since at this point one was not found for the user's controller)
 			// Determine the element expected on the template
 			controller = player.controllers.GetFirstControllerWithTemplate(GamepadTemplateGuid);
-			IControllerTemplate template = controller.GetTemplate(GamepadTemplateGuid);
-			int targets = template.GetElementTargets(map, TemplateTargets);
-			int templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
+			int templateElementId;
+			if (controller != null)
+			{
+				IControllerTemplate template = controller.GetTemplate(GamepadTemplateGuid);
+				int targets = template.GetElementTargets(map, TemplateTargets);
+				templateElementId = targets > 0 ? TemplateTargets[0].element.id : -1;
+			}
+			else
+			{
+				templateElementId = -1;
+			}
 
 			// Use the template glyph if one exists.
 			return GetNativeGlyphFromTemplateMap(symbolPreference, templateElementId, collectionKey);
